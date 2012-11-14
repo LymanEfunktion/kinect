@@ -5,19 +5,19 @@
          id="product"
          point="org.eclipse.core.runtime.products">
       <product
-            name="de.rocovomo.e4.rcp.wizard"
+            name="de.rocovomo.osgi.e4.rcp"
             application="org.eclipse.e4.ui.workbench.swt.E4Application">
          <property
                name="appName"
-               value="de.rocovomo.e4.rcp.wizard">
+               value="de.rocovomo.osgi.e4.rcp">
          </property>
          <property
                name="applicationXMI"
-               value="de.rocovomo.e4.rcp.wizard/Application.e4xmi">
+               value="de.rocovomo.osgi.e4.rcp/Application.e4xmi">
          </property>
          <property
                name="applicationCSS"
-               value="platform:/plugin/de.rocovomo.e4.rcp.wizard/css/default.css">
+               value="platform:/plugin/de.rocovomo.osgi.e4.rcp/css/default.css">
          </property>
       </product>
    </extension>

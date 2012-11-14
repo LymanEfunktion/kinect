@@ -8,7 +8,7 @@
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
-package de.rocovomo.e4.rcp.wizard.handlers;
+package de.rocovomo.osgi.e4.rcp.handlers;
 
 import java.lang.reflect.InvocationTargetException;
 

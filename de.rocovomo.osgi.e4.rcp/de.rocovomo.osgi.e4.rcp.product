@@ -7,8 +7,8 @@
    </configIni>
 
    <launcherArgs>
-      <vmArgs>-Djava.library.path=&quot;\res\lwjgl2.8.5\native\windows&quot;</vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+      <vmArgsWin>-Djava.library.path=${project_loc}&quot;\res\lwjgl\2.8.5\native\windows&quot;</vmArgsWin>
    </launcherArgs>
 
    <windowImages/>

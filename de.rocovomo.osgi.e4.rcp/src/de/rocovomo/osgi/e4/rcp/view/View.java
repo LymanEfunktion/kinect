@@ -1,23 +1,16 @@
 package de.rocovomo.osgi.e4.rcp.view;
 
-import javax.annotation.PreDestroy;
 import javax.inject.Inject;
-
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.ObservablesManager;
-import org.eclipse.core.databinding.observable.value.WritableValue;
-import org.eclipse.e4.core.di.annotations.Optional;
-import org.eclipse.e4.ui.services.IStylingEngine;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.opengl.GLCanvas;
 import org.eclipse.swt.opengl.GLData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
-import org.eclipse.swt.widgets.Shell;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GLContext;
@@ -25,74 +18,20 @@ import org.lwjgl.util.glu.GLU;
 
 @SuppressWarnings("restriction")
 public class View {
-
+	
 	private DataBindingContext dbc;
-	private WritableValue mail = new WritableValue();
 	private ObservablesManager manager;
-
+	
 	@Inject
-	public View(final Composite composite,
-			@Optional final IStylingEngine styleingEngine) {
+	public View(final Composite composite) {
 		dbc = new DataBindingContext();
 		manager = new ObservablesManager();
-
+		
 		manager.runAndCollect(new Runnable() {
-
 			public void run() {
-				initUI(composite, styleingEngine);
+				main(composite);
 			}
 		});
-	}
-
-	private void initUI(Composite composite, IStylingEngine styleingEngine) {
-		main(composite);
-//		Composite parent = new Composite(composite, SWT.NONE);
-//		GridLayout gd = new GridLayout();
-//		gd.horizontalSpacing = 0;
-//		gd.verticalSpacing = 0;
-//		parent.setLayout(gd);
-//
-//		Composite header = new Composite(parent, SWT.NONE);
-//		header.setLayout(new GridLayout(2, false));
-//		header.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-//		if (styleingEngine != null) {
-//			styleingEngine.setClassname(header, "mailHeader");
-//		}
-//
-//		Label l = new Label(header, SWT.NONE);
-//		l.setText("From");
-//
-//		l = new Label(header, SWT.NONE);
-//		l.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-//		dbc.bindValue(WidgetProperties.text().observe(l),
-//				BeanProperties.value("from").observeDetail(mail));
-//
-//		l = new Label(header, SWT.NONE);
-//		l.setText("Subject");
-//
-//		l = new Label(header, SWT.BORDER);
-//		l.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-//		dbc.bindValue(WidgetProperties.text().observe(l),
-//				BeanProperties.value("subject").observeDetail(mail));
-//
-//		l = new Label(header, SWT.NONE);
-//		l.setText("To");
-//
-//		l = new Label(header, SWT.NONE);
-//		l.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-//		dbc.bindValue(WidgetProperties.text().observe(l),
-//				BeanProperties.value("to").observeDetail(mail));
-		// Text t = new Text(parent,
-		// SWT.BORDER|SWT.V_SCROLL|SWT.H_SCROLL|SWT.WRAP);
-		// t.setLayoutData(new GridData(GridData.FILL_BOTH));
-		// t.setEditable(false);
-		// dbc.bindValue(WidgetProperties.text().observe(t),
-		// BeanProperties.value("body").observeDetail(mail));
-	}
-
-	@PreDestroy
-	public void dipose() {
-		manager.dispose();
 	}
 	
 	static void drawTorus(float r, float R, int nsides, int rings) {
@@ -122,15 +61,15 @@ public class View {
 		}
 	}
 
-	public static void main(Composite composite) {
-		final Display display = composite.getDisplay();
-		Shell shell = new Shell(display);
-		shell.setLayout(new FillLayout());
-		Composite comp = new Composite(shell, SWT.NONE);
-		comp.setLayout(new FillLayout());
+	public static void main(Composite compo) {
+		final Display display = compo.getDisplay();
+//		Shell shell = compo.getShell();
+//		shell.setLayout(new FillLayout());
+//		Composite comp = new Composite(compo, SWT.NONE);
+//		comp.setLayout(new FillLayout());
 		GLData data = new GLData ();
 		data.doubleBuffer = true;
-		final GLCanvas canvas = new GLCanvas(comp, SWT.NONE, data);
+		final GLCanvas canvas = new GLCanvas(compo, SWT.NONE, data);
 
 		canvas.setCurrent();
 		try {
@@ -161,11 +100,11 @@ public class View {
 		GL11.glLineWidth(2);
 		GL11.glEnable(GL11.GL_DEPTH_TEST);
 
-		shell.setText("SWT/LWJGL Example");
-		shell.setSize(640, 480);
-		shell.open();
+//		shell.setText("SWT/LWJGL Example");
+//		shell.setSize(640, 480);
+//		shell.open();
 
-		display.asyncExec(new Runnable() {
+		final Runnable run = new Runnable() {
 			int rot = 0;
 			public void run() {
 				if (!canvas.isDisposed()) {
@@ -188,12 +127,18 @@ public class View {
 					display.asyncExec(this);
 				}
 			}
+		};
+		canvas.addListener(SWT.Paint, new Listener() {
+			public void handleEvent(Event event) {
+				run.run();
+			}
 		});
+		display.asyncExec(run);
 
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch())
-				display.sleep();
-		}
-		display.dispose();
+//		while (!shell.isDisposed()) {
+//			if (!display.readAndDispatch())
+//				display.sleep();
+//		}
+//		display.dispose();
 	}
 }

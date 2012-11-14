@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product uid="rocovomo-product" id="de.rocovomo.osgi.e4.rcp.product" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+
+   <configIni>
+   </configIni>
+
+   <launcherArgs>
+   </launcherArgs>
+
+
+   <launcher>
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="rocovomo-feature"/>
+      <feature id="org.eclipse.e4.rcp"/>
+   </features>
+
+
+</product>

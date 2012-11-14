@@ -3,11 +3,14 @@
 
 <product uid="rocovomo-product" id="de.rocovomo.osgi.e4.rcp.product" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
 
-   <configIni>
+
+   <configIni use="">
    </configIni>
 
    <launcherArgs>
    </launcherArgs>
+
+   <windowImages/>
 
 
    <launcher>
@@ -17,8 +20,10 @@
       </win>
    </launcher>
 
+
    <vm>
    </vm>
+
 
    <plugins>
    </plugins>
@@ -28,5 +33,10 @@
       <feature id="org.eclipse.e4.rcp"/>
    </features>
 
+   <configurations>
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="3" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="3" />
+   </configurations>
 
 </product>

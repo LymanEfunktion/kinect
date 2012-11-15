@@ -5,6 +5,7 @@
       <children xsi:type="advanced:Perspective" xmi:id="_OUjuAC5IEeKYX6oZyqw2rA">
         <children xsi:type="basic:PartSashContainer" xmi:id="_OUjuAS5IEeKYX6oZyqw2rA">
           <children xsi:type="basic:PartStack" xmi:id="_OUjuAi5IEeKYX6oZyqw2rA"/>
+             <children xsi:type="basic:Part" xmi:id="_WV8PgC76EeKIzKNH99G1yQ" elementId="de.rocovomo.osgi.e4.rcp.part.0" contributionURI="bundleclass://de.rocovomo.osgi.e4.rcp/de.rocovomo.osgi.e4.rcp.view.View" label="Test View"/>
         </children>
       </children>
     </children>

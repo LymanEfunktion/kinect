@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Manager
+Bundle-SymbolicName: de.rocovomo.osgi.jnect.gesture.manager
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.rocovomo.osgi.jnect.gesture.manager.GestureManagerActivator
+Require-Bundle: org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: de.rocovomo.osgi.jnect.gesture.spi,
+ org.eclipse.emf.common,
+ org.eclipse.emf.common.notify,
+ org.eclipse.emf.ecore,
+ org.jnect.gesture

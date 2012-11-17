@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Action
+Bundle-SymbolicName: de.rocovomo.osgi.action
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.jnect.core;bundle-version="0.2.2",
+ org.jnect.gesture;bundle-version="0.2.2"

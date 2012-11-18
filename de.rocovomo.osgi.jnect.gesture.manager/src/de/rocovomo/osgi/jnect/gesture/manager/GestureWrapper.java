@@ -1,10 +1,7 @@
 package de.rocovomo.osgi.jnect.gesture.manager;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.jnect.gesture.Gesture;
-import org.osgi.framework.ServiceRegistration;
 
 import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
 

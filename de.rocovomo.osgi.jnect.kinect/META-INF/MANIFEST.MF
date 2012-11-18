@@ -3,8 +3,11 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Kinect
 Bundle-SymbolicName: de.rocovomo.osgi.jnect.kinect
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: de.rocovomo.osgi.jnect.kinect.Activator
+Bundle-Activator: de.rocovomo.osgi.jnect.kinect.KinectActivator
 Require-Bundle: org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: org.jnect.core
+Import-Package: de.rocovomo.osgi.jnect.gesture,
+ org.jnect.core,
+ org.jnect.gesture,
+ org.eclipse.emf.ecore

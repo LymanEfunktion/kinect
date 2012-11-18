@@ -1,7 +1,6 @@
 package de.rocovomo.osgi.jnect.gesture;
 
-
-public interface GestureMetaData{
+public interface GestureMetaData {
 
 	 /**
      * Value: String 

@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.gesture
+Bundle-Version: 1.0.0.qualifier
+Import-Package: org.jnect.gesture, org.eclipse.emf.common, org.eclipse.emf.ecore
+Export-Package: org.gesture

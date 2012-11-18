@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Spi
+Bundle-SymbolicName: org.gesture.spi
+Bundle-Version: 1.0.0.qualifier
+Import-Package: org.gesture
+Export-Package: org.gesture.spi

@@ -4,7 +4,6 @@ Bundle-Name: Jumpgesture
 Bundle-SymbolicName: de.rocovomo.osgi.jnect.gesture.jumpgesture
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.rocovomo.osgi.jnect.gesture.jumpgesture.JumpGestureProviderActivator
-Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.emf.common.notify,
  org.eclipse.emf.ecore,

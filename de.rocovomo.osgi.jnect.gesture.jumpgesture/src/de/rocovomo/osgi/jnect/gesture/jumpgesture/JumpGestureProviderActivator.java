@@ -4,6 +4,8 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 
+import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
+
 public class JumpGestureProviderActivator implements BundleActivator {
 
 //	private static BundleContext context;
@@ -22,7 +24,7 @@ public class JumpGestureProviderActivator implements BundleActivator {
 		JumpGestureProvider provider = new JumpGestureProvider();
 
 		serviceRegistration = bundleContext.registerService(
-				JumpGestureProvider.class.getName(), provider,
+				GestureProvider.class.getName(), provider,
 				provider.getGestureProperties());
 	}
 

@@ -17,6 +17,4 @@ public class GestureWrapper extends RoCoVoMoGesture {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-	
 }

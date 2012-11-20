@@ -1,8 +1,11 @@
 package de.rocovomo.osgi.jnect.kinect;
 
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import org.jnect.core.KinectManager;
+import org.osgi.framework.ServiceReference;
+import org.osgi.framework.ServiceRegistration;
 
 public class Connector {
 
@@ -64,5 +67,11 @@ public class Connector {
 		// }
 		//
 		// };
+	}
+
+	public static void connectGestures(
+			Map<ServiceReference<?>, ServiceRegistration<?>> registeredGestures) {
+		// TODO  Geste anmelden ...
+		System.out.println("size:" + registeredGestures.size());
 	}
 }

@@ -4,4 +4,7 @@ Bundle-Name: Gesture
 Bundle-SymbolicName: de.rocovomo.osgi.jnect.gesture
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.eclipse.emf.common,
+ org.eclipse.emf.ecore,
+ org.jnect.gesture
 Export-Package: de.rocovomo.osgi.jnect.gesture

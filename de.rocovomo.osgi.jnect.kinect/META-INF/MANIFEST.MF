@@ -8,6 +8,8 @@ Require-Bundle: org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: de.rocovomo.osgi.jnect.gesture,
- org.jnect.core,
  org.jnect.gesture,
- org.eclipse.emf.ecore
+ org.jnect.core,
+ org.osgi.framework;version="1.7.0",
+ org.osgi.util.tracker;version="1.5.1"
+Export-Package: de.rocovomo.osgi.jnect.kinect

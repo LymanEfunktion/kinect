@@ -3,16 +3,14 @@ package de.rocovomo.osgi.jnect.gesture.manager;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jnect.gesture.Gesture;
+import de.rocovomo.osgi.jnect.gesture.RoCoVoMoGesture;
+import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceEvent;
 import org.osgi.framework.ServiceListener;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
-
-import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
-
 @SuppressWarnings("rawtypes")
 public class GestureManagerActivator implements BundleActivator,
 		ServiceListener {
@@ -85,7 +83,7 @@ public class GestureManagerActivator implements BundleActivator,
 	private void registerService(ServiceReference serviceReference) {
 		Object serviceObject = context.getService(serviceReference);
 
-		if (serviceObject instanceof Gesture) {
+		if (serviceObject instanceof RoCoVoMoGesture) {
 			registerGestureProvider(serviceReference, (GestureProvider) serviceObject);
 		}
 	}
@@ -93,10 +91,10 @@ public class GestureManagerActivator implements BundleActivator,
 	private void registerGestureProvider(ServiceReference serviceReference,
 			GestureProvider provider) {
 		// TODO Auto-generated method stub
-		Gesture gesture = new GestureWrapper(provider);
+		RoCoVoMoGesture gesture = new GestureWrapper(provider);
 
 		ServiceRegistration gestureServiceRegistration = context
-				.registerService(Gesture.class.getName(), gesture,
+				.registerService(RoCoVoMoGesture.class.getName(), gesture,
 						provider.getGestureProperties());
 
 		registeredGestures.put(serviceReference, gestureServiceRegistration);

@@ -6,6 +6,8 @@ import org.osgi.framework.ServiceRegistration;
 
 public class JumpGestureProviderActivator implements BundleActivator {
 
+//	private static BundleContext context;
+
 	@SuppressWarnings("rawtypes")
 	private ServiceRegistration serviceRegistration;
 

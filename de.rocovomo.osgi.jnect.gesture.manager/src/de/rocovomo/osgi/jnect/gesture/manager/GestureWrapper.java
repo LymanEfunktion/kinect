@@ -1,11 +1,10 @@
 package de.rocovomo.osgi.jnect.gesture.manager;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.jnect.gesture.Gesture;
-
+import de.rocovomo.osgi.jnect.gesture.RoCoVoMoGesture;
 import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
 
-public class GestureWrapper extends Gesture {
+public class GestureWrapper extends RoCoVoMoGesture {
 
 	private GestureProvider delegate;
 	

@@ -2,11 +2,11 @@ package de.rocovomo.osgi.jnect.gesture.spi;
 
 import java.util.Dictionary;
 
-import org.jnect.gesture.Gesture;
+import de.rocovomo.osgi.jnect.gesture.RoCoVoMoGesture;
 
 public interface GestureProvider {
-
-	Gesture getGesture();
+	
+	RoCoVoMoGesture getGesture();
 	
 	Dictionary<String, Object> getGestureProperties();
 }

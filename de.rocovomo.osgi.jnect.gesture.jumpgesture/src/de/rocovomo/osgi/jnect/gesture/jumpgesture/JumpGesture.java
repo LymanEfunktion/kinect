@@ -2,14 +2,14 @@ package de.rocovomo.osgi.jnect.gesture.jumpgesture;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EAttribute;
+import de.rocovomo.osgi.jnect.gesture.RoCoVoMoGesture;
 import org.jnect.bodymodel.Head;
 import org.jnect.bodymodel.LeftFoot;
 import org.jnect.bodymodel.PositionedElement;
 import org.jnect.bodymodel.RightFoot;
-import org.jnect.gesture.Gesture;
 import org.jnect.gesture.util.MovingAverageCalculator;
 
-public class JumpGesture extends Gesture {
+public class JumpGesture extends RoCoVoMoGesture {
 
 	private static final int NUM_PERIODS = 10;
 	private static final float THRESHOLD_HEAD = 0.1f;

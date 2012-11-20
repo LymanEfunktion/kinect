@@ -1,6 +1,6 @@
 package de.rocovomo.osgi.jnect.kinect;
 
-import org.jnect.gesture.Gesture;
+import de.rocovomo.osgi.jnect.gesture.RoCoVoMoGesture;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceEvent;
@@ -8,9 +8,7 @@ import org.osgi.framework.ServiceListener;
 import org.osgi.framework.ServiceReference;
 import org.osgi.util.tracker.ServiceTracker;
 
-import de.rocovomo.osgi.jnect.gesture.GestureMetaData;
-
-public class KinectActivator implements BundleActivator, ServiceListener {
+public class KinectActivator implements BundleActivator, ServiceListener{
 
 	private static BundleContext context;
 
@@ -28,7 +26,7 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 	public void start(BundleContext bundleContext) throws Exception {
 		KinectActivator.context = bundleContext;
 
-		String filter = "(objectClass=" + Gesture.class.getName() + ")";
+		String filter = "(objectClass=" + RoCoVoMoGesture.class.getName() + ")";
 
 		ServiceReference[] serviceReferences = bundleContext
 				.getAllServiceReferences(null, filter);
@@ -43,22 +41,22 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 
 	private void test(ServiceReference serviceReference) {
 		// TODO Auto-generated method stub
-		Gesture gesture = (Gesture)  context.getService(serviceReference);
+		RoCoVoMoGesture gesture = (RoCoVoMoGesture)  context.getService(serviceReference);
 		System.out.println("asdf;lakej");
 	}
 
-	public Gesture usingAServiceTracker(BundleContext bundleContext)
+	public RoCoVoMoGesture usingAServiceTracker(BundleContext bundleContext)
 			throws InterruptedException {
-		String filter = "(&(objectClass=" + Gesture.class.getName() + ")("
-				+ GestureMetaData.TYPE + "=Sealed-First-Price))";
+		String filter = "(&(objectClass=" + RoCoVoMoGesture.class.getName() + ")("
+				+ RoCoVoMoGesture.TYPE + "=Sealed-First-Price))";
 
 		ServiceTracker tracker = new ServiceTracker(bundleContext, filter, null);
 
 		tracker.open();
 
-		Gesture auction = (Gesture) tracker.waitForService(0);
+		RoCoVoMoGesture gesture = (RoCoVoMoGesture) tracker.waitForService(0);
 
-		return auction;
+		return gesture;
 	}
 
 	/*

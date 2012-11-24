@@ -1,38 +1,34 @@
 package de.rocovomo.osgi.jnect.kinect;
 
-import java.util.Map;
-import java.util.ResourceBundle;
-
 import org.jnect.core.KinectManager;
-import org.osgi.framework.ServiceReference;
-import org.osgi.framework.ServiceRegistration;
+import org.jnect.gesture.GestureProxy;
+
+import de.rocovomo.osgi.jnect.gesture.RoCoVoMoGesture;
+import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
 
 public class Connector {
 
-	public boolean initialize() {
+	public static boolean initialize() {
 		KinectManager.INSTANCE.startKinect();
 
 		addListeners();
 		// KinectManager.INSTANCE.addSpeechListener(speechListener);
 		// GestureProxy.INSTANCE.addGestureListener(gestureListener);
 		KinectManager.INSTANCE.startSkeletonTracking();
-		KinectManager.INSTANCE.startSpeechRecognition();
+//		KinectManager.INSTANCE.startSpeechRecognition();
 
-		addGestureDetectors();
 		// GestureProxy.INSTANCE.addGestureDetector(new JumpGestureDetector());
 		// GestureProxy.INSTANCE.addGestureDetector(new
 		// CrouchGestureDetector());
 		return true;
 	}
 
-	private void addGestureDetectors() {
-		// TODO Auto-generated method stub
-		ResourceBundle rb = ResourceBundle
-				.getBundle("de.rocovomo.osgi.jnect.gesture");
-		rb.getObject("paramString");
+	private static void addToGestureProxy(RoCoVoMoGesture gesture) {
+		System.out.println("gesture:" + gesture.getClass().getSimpleName());
+		GestureProxy.INSTANCE.addGestureDetector(gesture);
 	}
 
-	private void addListeners() {
+	private static void addListeners() {
 		// TODO: Add Listeners
 		// gestureListener = new GestureListener() {
 		// @Override
@@ -69,9 +65,9 @@ public class Connector {
 		// };
 	}
 
-	public static void connectGestures(
-			Map<ServiceReference<?>, ServiceRegistration<?>> registeredGestures) {
-		// TODO  Geste anmelden ...
-		System.out.println("size:" + registeredGestures.size());
+	public static void connectGestures(GestureProvider provider) {
+		// TODO Geste anmelden ...
+		System.out.println("init:" + provider.getGestureProperties().get("gesture-type"));
+		addToGestureProxy(provider.getGesture());
 	}
 }

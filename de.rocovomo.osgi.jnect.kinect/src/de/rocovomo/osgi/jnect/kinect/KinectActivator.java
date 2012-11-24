@@ -21,7 +21,7 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 
 	private Map<ServiceReference<?>, ServiceRegistration<?>> registeredGestures = new HashMap<ServiceReference<?>, ServiceRegistration<?>>();
 
-	static BundleContext getContext() {
+	BundleContext getContext() {
 		return context;
 	}
 
@@ -67,6 +67,7 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 				.getAllServiceReferences(null, gestureFilter);
 
 		if (references != null) {
+			Connector.initialize();
 			for (ServiceReference<?> serviceReference : references) {
 				System.out.println(serviceReference.getBundle()
 						.getSymbolicName());
@@ -129,7 +130,6 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 						provider.getGestureProperties());
 
 		registeredGestures.put(serviceReference, gestureServiceRegistration);
-
-		Connector.connectGestures(registeredGestures);
+		Connector.connectGestures(provider);
 	}
 }

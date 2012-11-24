@@ -4,8 +4,6 @@ Bundle-Name: Righthand
 Bundle-SymbolicName: de.rocovomo.osgi.gesture.righthand
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Fragment-Host: de.rocovomo.osgi.jnect.federated;bundle-version=1.0.0.qualifier
-Require-Bundle:  org.eclipse.ui,
- org.eclipse.core.runtime,
- org.jnect.core;bundle-version="0.1.0",
- org.jnect.gesture;bundle-version="0.1.0"
+Require-Bundle: org.eclipse.ui;bundle-version="3.103.0",
+ org.jnect.core;bundle-version="0.2.2",
+ org.eclipse.core.runtime;bundle-version="3.8.0"

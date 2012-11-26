@@ -27,8 +27,7 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 
 	public RoCoVoMoGesture usingAServiceTracker(BundleContext bundleContext)
 			throws InterruptedException {
-		String filter = "(&(objectClass=" + RoCoVoMoGesture.class.getName()
-				+ ")(" + RoCoVoMoGesture.TYPE + "=Sealed-First-Price))";
+		String filter = "(objectClass=" + RoCoVoMoGesture.class.getName() + ")";
 
 		ServiceTracker<Object, Object> tracker = new ServiceTracker<Object, Object>(
 				bundleContext, filter, null);
@@ -130,6 +129,6 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 						provider.getGestureProperties());
 
 		registeredGestures.put(serviceReference, gestureServiceRegistration);
-		Connector.connectGestures(provider);
+		Connector.connectGesture(provider);
 	}
 }

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Broker
+Bundle-SymbolicName: de.rocovomo.osgi.notification
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.rocovomo.osgi.notification.impl.NotificationBrokerFactoryActivator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.osgi.framework,
+ org.osgi.service.cm;version="1.2",
+ org.osgi.service.metatype
+Export-Package: de.rocovomo.osgi.notification

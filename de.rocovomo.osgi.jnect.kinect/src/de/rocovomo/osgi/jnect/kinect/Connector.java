@@ -16,11 +16,16 @@ public class Connector {
 		// GestureProxy.INSTANCE.addGestureListener(gestureListener);
 		KinectManager.INSTANCE.startSkeletonTracking();
 //		KinectManager.INSTANCE.startSpeechRecognition();
-
-		// GestureProxy.INSTANCE.addGestureDetector(new JumpGestureDetector());
-		// GestureProxy.INSTANCE.addGestureDetector(new
-		// CrouchGestureDetector());
 		return true;
+		
+//		final Adapter leftHandAdapter = new  LeftHandAdapter(window);
+//		final Adapter rightHandAdapter = new RightHandAdapter(window);
+		
+//		kinectManager.startSkeletonTracking();
+//		skeletonModel=kinectManager.getSkeletonModel();
+//		kinectManager.getSkeletonModel().getLeftHand().eAdapters().add(leftHandAdapter );
+//		kinectManager.getSkeletonModel().getRightHand().eAdapters().add(rightHandAdapter );
+		
 	}
 
 	private static void addToGestureProxy(RoCoVoMoGesture gesture) {
@@ -65,7 +70,7 @@ public class Connector {
 		// };
 	}
 
-	public static void connectGestures(GestureProvider provider) {
+	public static void connectGesture(GestureProvider provider) {
 		// TODO Geste anmelden ...
 		System.out.println("init:" + provider.getGestureProperties().get("gesture-type"));
 		addToGestureProxy(provider.getGesture());

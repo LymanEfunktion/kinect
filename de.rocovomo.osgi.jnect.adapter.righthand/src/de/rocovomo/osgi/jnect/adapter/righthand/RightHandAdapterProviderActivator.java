@@ -29,7 +29,7 @@ public class RightHandAdapterProviderActivator implements BundleActivator {
 
 		serviceRegistration = bundleContext.registerService(
 				AdapterProvider.class.getName(), provider,
-				provider.getGestureProperties());
+				provider.getAdapterProperties());
 	}
 
 	/*

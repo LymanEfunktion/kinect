@@ -2,11 +2,11 @@ package de.rocovomo.osgi.jnect.adapter.spi;
 
 import java.util.Dictionary;
 
-import de.rocovomo.osgi.jnect.adapter.JnectAdapter;
+import de.rocovomo.osgi.jnect.adapter.RoCoVoMoAdapter;
 
 public interface AdapterProvider {
 
-	JnectAdapter getAdapter();
+	RoCoVoMoAdapter getAdapter();
 	
-	Dictionary<String, Object> getGestureProperties();
+	Dictionary<String, Object> getAdapterProperties();
 }

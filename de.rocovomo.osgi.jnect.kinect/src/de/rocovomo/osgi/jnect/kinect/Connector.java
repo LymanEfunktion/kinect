@@ -3,11 +3,15 @@ package de.rocovomo.osgi.jnect.kinect;
 import org.jnect.core.KinectManager;
 import org.jnect.gesture.GestureProxy;
 
+
+//Necessary for adapter
+import org.eclipse.emf.common.util.EList;
 import de.rocovomo.osgi.jnect.adapter.RoCoVoMoAdapter;
 import de.rocovomo.osgi.jnect.adapter.spi.AdapterProvider;
 import de.rocovomo.osgi.jnect.gesture.RoCoVoMoGesture;
 import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
 
+@SuppressWarnings("unused")
 public class Connector {
 
 	private KinectManager kinect;
@@ -100,7 +104,7 @@ public class Connector {
 
 	private void addRightHandAdapter(RoCoVoMoAdapter adapter) {
 		//TODO: log4j Logging
-		System.out.println("gesture:" + adapter.getClass().getSimpleName());
+		System.out.println("adapter:" + adapter.getClass().getSimpleName());
 		adapter.setElement(kinect.getSkeletonModel().getRightHand());
 		kinect.getSkeletonModel().getRightHand().eAdapters().add(adapter);
 	}

@@ -12,9 +12,7 @@ public class RightHandAdapter extends AdapterImpl implements RoCoVoMoAdapter{
 	
 	private RightHand rightHand;
 	
-	public RightHandAdapter(final RightHand rightHand) {
-		this.rightHand = rightHand;
-	}
+	public RightHandAdapter() {}
 
 	public void notifyChanged(Notification notification) {
 		System.out.println("x: " + rightHand.getX() + "| y: "
@@ -36,12 +34,13 @@ public class RightHandAdapter extends AdapterImpl implements RoCoVoMoAdapter{
 	@Override
 	public void setTarget(Notifier arg0) {
 		// TODO Auto-generated method stub
-		rightHand = (RightHand) arg0;
+		target = arg0;
 	}
 
 	@Override
 	public void setElement(PositionedElement element) {
 		// TODO Auto-generated method stub
 		rightHand = (RightHand) element;
+		setTarget((Notifier) element);
 	}
 }

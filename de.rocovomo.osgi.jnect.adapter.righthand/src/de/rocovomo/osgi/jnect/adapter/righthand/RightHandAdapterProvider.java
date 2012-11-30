@@ -20,11 +20,11 @@ public class RightHandAdapterProvider implements AdapterProvider {
 	
 	private final RoCoVoMoAdapter adapter;
 	
-	public RightHandAdapterProvider(RightHand rightHand) {
+	public RightHandAdapterProvider() {
 		System.out.println("Start Adapter");
 		properties.put(RoCoVoMoAdapter.PID, PID);
 		properties.put(RoCoVoMoAdapter.TYPE, RIGHT_HAND);
-		adapter = new RightHandAdapter(rightHand);
+		adapter = new RightHandAdapter();
 	}
 
 	@Override

@@ -25,7 +25,7 @@ public class RightHandAdapterProviderActivator implements BundleActivator {
 	 * )
 	 */
 	public void start(BundleContext bundleContext) throws Exception {
-		RightHandAdapterProvider provider = new RightHandAdapterProvider(null);
+		RightHandAdapterProvider provider = new RightHandAdapterProvider();
 
 		serviceRegistration = bundleContext.registerService(
 				AdapterProvider.class.getName(), provider,

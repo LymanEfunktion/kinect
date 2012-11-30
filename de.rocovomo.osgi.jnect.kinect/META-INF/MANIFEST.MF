@@ -10,7 +10,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: de.rocovomo.osgi.jnect.adapter,
  de.rocovomo.osgi.jnect.adapter.spi,
  de.rocovomo.osgi.jnect.gesture,
- de.rocovomo.osgi.jnect.gesture.manager,
  de.rocovomo.osgi.jnect.gesture.spi,
  org.eclipse.emf.common.notify,
  org.eclipse.emf.ecore.impl,

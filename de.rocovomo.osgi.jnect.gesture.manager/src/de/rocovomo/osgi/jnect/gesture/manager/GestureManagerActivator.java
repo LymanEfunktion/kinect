@@ -13,6 +13,7 @@ import org.osgi.framework.ServiceRegistration;
 import de.rocovomo.osgi.jnect.gesture.RoCoVoMoGesture;
 import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
 
+@Deprecated
 @SuppressWarnings("rawtypes")
 public class GestureManagerActivator implements BundleActivator,
 		ServiceListener {

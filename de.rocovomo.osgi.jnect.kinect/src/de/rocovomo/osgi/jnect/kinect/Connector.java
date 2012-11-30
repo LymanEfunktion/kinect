@@ -1,14 +1,7 @@
 package de.rocovomo.osgi.jnect.kinect;
 
-import org.eclipse.emf.common.notify.Adapter;
-import org.jnect.bodymodel.Body;
-import org.jnect.bodymodel.PositionedElement;
-import org.jnect.bodymodel.RightHand;
 import org.jnect.core.KinectManager;
 import org.jnect.gesture.GestureProxy;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.jnect.core.SpeechListener;
 
 import de.rocovomo.osgi.jnect.adapter.RoCoVoMoAdapter;
 import de.rocovomo.osgi.jnect.adapter.spi.AdapterProvider;
@@ -17,35 +10,43 @@ import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
 
 public class Connector {
 
-	public static boolean initialize() {
+	private KinectManager kinect;
+	private GestureProxy proxy;
+	
+	private boolean isConnected;
+	
+	public Connector() {
+		isConnected = initialize();
+	}
+	
+	public boolean isConnected() {
+		return isConnected;
+	}
+	
+	private boolean initialize() {
+		//TODO: log4j Logging
 		try {
-		KinectManager.INSTANCE.startKinect();
+			kinect = KinectManager.INSTANCE;
+			kinect.startKinect();
+			proxy = GestureProxy.INSTANCE;
 		} catch (Exception e) {
 			return false;
 		}
 		addListeners();
 		// KinectManager.INSTANCE.addSpeechListener(speechListener);
 		// GestureProxy.INSTANCE.addGestureListener(gestureListener);
-		KinectManager.INSTANCE.startSkeletonTracking();
+		kinect.startSkeletonTracking();
 //		KinectManager.INSTANCE.startSpeechRecognition();
 		return true;
-		
-//		final Adapter leftHandAdapter = new  LeftHandAdapter(window);
-//		final Adapter rightHandAdapter = new RightHandAdapter(window);
-		
-//		kinectManager.startSkeletonTracking();
-//		skeletonModel=kinectManager.getSkeletonModel();
-//		kinectManager.getSkeletonModel().getLeftHand().eAdapters().add(leftHandAdapter );
-//		kinectManager.getSkeletonModel().getRightHand().eAdapters().add(rightHandAdapter );
-		
 	}
 
-	private static void addToGestureProxy(RoCoVoMoGesture gesture) {
+	private void addToGestureProxy(RoCoVoMoGesture gesture) {
+		//TODO: log4j Logging
 		System.out.println("gesture:" + gesture.getClass().getSimpleName());
-		GestureProxy.INSTANCE.addGestureDetector(gesture);
+		proxy.addGestureDetector(gesture);
 	}
 
-	private static void addListeners() {
+	private void addListeners() {
 		// TODO: Add Listeners
 		// gestureListener = new GestureListener() {
 		// @Override
@@ -82,22 +83,25 @@ public class Connector {
 		// };
 	}
 
-	public static void connectGesture(GestureProvider provider) {
-		// TODO Geste anmelden ...
+	public void connectGesture(GestureProvider provider) {
+		//TODO: log4j Logging
 		System.out.println("init:" + provider.getGestureProperties().get("gesture-type"));
 		addToGestureProxy(provider.getGesture());
 	}
 
-	public static void connectAdapter(AdapterProvider provider) {
-		// TODO Auto-generated method stub
-		System.out.println("init:" + provider.getAdapterProperties().get("adapter-type"));
-		final RoCoVoMoAdapter adapter = provider.getAdapter();
-		final Body body = KinectManager.INSTANCE.getSkeletonModel();
-		adapter.setElement(body.getRightHand());
-		KinectManager kinectManager = KinectManager.INSTANCE;
-//		kinectManager.startKinect();
-//		final RightHand rightHand = KinectManager.INSTANCE.getSkeletonModel().getRightHand();
-		kinectManager.getSkeletonModel().getRightHand().eAdapters().add(adapter);
-//		rightHand.
+	public void connectAdapter(AdapterProvider provider) {
+		String type = (String) provider.getAdapterProperties().get("adapter-type");
+		//TODO: log4j Logging
+		System.out.println("init:" + type);
+		if(type.equals("RightHand-Adapter")) {
+			addRightHandAdapter(provider.getAdapter());
+		}
+	}
+
+	private void addRightHandAdapter(RoCoVoMoAdapter adapter) {
+		//TODO: log4j Logging
+		System.out.println("gesture:" + adapter.getClass().getSimpleName());
+		adapter.setElement(kinect.getSkeletonModel().getRightHand());
+		kinect.getSkeletonModel().getRightHand().eAdapters().add(adapter);
 	}
 }

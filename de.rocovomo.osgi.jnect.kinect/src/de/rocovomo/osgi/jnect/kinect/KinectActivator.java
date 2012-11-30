@@ -14,19 +14,23 @@ import org.osgi.util.tracker.ServiceTracker;
 import de.rocovomo.osgi.jnect.adapter.RoCoVoMoAdapter;
 import de.rocovomo.osgi.jnect.adapter.spi.AdapterProvider;
 import de.rocovomo.osgi.jnect.gesture.RoCoVoMoGesture;
-import de.rocovomo.osgi.jnect.gesture.manager.GestureWrapper;
 import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
 
 public class KinectActivator implements BundleActivator, ServiceListener {
 
 	private static BundleContext context;
 
+	private Connector connector;
+
 	private Map<ServiceReference<?>, ServiceRegistration<?>> registeredGestures = new HashMap<ServiceReference<?>, ServiceRegistration<?>>();
+
+	private Map<ServiceReference<?>, ServiceRegistration<?>> registeredAdapters = new HashMap<ServiceReference<?>, ServiceRegistration<?>>();
 
 	BundleContext getContext() {
 		return context;
 	}
 
+	@Deprecated
 	public RoCoVoMoGesture usingAServiceTracker(BundleContext bundleContext)
 			throws InterruptedException {
 		String filter = "(objectClass=" + RoCoVoMoGesture.class.getName() + ")";
@@ -73,15 +77,16 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 				.getAllServiceReferences(null, filter);
 
 		if (references != null) {
-			// if (Connector.initialize()) {
-			for (ServiceReference<?> serviceReference : references) {
-				System.out.println(serviceReference.getBundle()
-						.getSymbolicName());
-				registerService(serviceReference);
+			connector = new Connector();
+			if (connector.isConnected()) {
+				for (ServiceReference<?> serviceReference : references) {
+					System.out.println(serviceReference.getBundle()
+							.getSymbolicName());
+					registerService(serviceReference);
+				}
+			} else {
+				System.out.println("Init fehlgeschlagen");
 			}
-			// } else {
-			// System.out.println("Init fehlgeschlagen");
-			// }
 		}
 
 		bundleContext.addServiceListener(this, gestureFilter);
@@ -100,14 +105,29 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 		case ServiceEvent.UNREGISTERING: {
 			String[] serviceInterfaces = (String[]) serviceReference
 					.getProperty("objectClass");
-			if (GestureProvider.class.getName().equals(serviceInterfaces[0])) {
-				unregisterGestureProvider(serviceReference);
+			for (String serviceInterface : serviceInterfaces) {
+				if (GestureProvider.class.getName().equals(serviceInterface)) {
+					unregisterGestureProvider(serviceReference);
+				}
+				if (AdapterProvider.class.getName().equals(serviceInterface)) {
+					unregisterAdapterProvider(serviceReference);
+				}
+				context.ungetService(serviceReference);
+				break;
 			}
-			context.ungetService(serviceReference);
-			break;
 		}
 		default:
 			// do nothing
+		}
+	}
+
+	private void unregisterAdapterProvider(
+			ServiceReference<?> adapterProviderServiceReference) {
+		ServiceRegistration<?> adapterServiceRegistration = registeredAdapters
+				.remove(adapterProviderServiceReference);
+
+		if (adapterServiceRegistration != null) {
+			adapterServiceRegistration.unregister();
 		}
 	}
 
@@ -128,11 +148,11 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 			registerAdapterProvider(serviceReference,
 					(AdapterProvider) serviceObject);
 		}
-		
-//		if (serviceObject instanceof GestureProvider) {
-//			registerGestureProvider(serviceReference,
-//					(GestureProvider) serviceObject);
-//		}
+
+		if (serviceObject instanceof GestureProvider) {
+			registerGestureProvider(serviceReference,
+					(GestureProvider) serviceObject);
+		}
 	}
 
 	private void registerAdapterProvider(ServiceReference<?> serviceReference,
@@ -143,18 +163,19 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 				.registerService(RoCoVoMoAdapter.class.getName(), adapter,
 						provider.getAdapterProperties());
 
-		Connector.connectAdapter(provider);
+		registeredAdapters.put(serviceReference, adapterServiceRegistration);
+		connector.connectAdapter(provider);
 	}
 
 	private void registerGestureProvider(ServiceReference<?> serviceReference,
 			GestureProvider provider) {
-		RoCoVoMoGesture gesture = new GestureWrapper(provider);
+		RoCoVoMoGesture gesture = provider.getGesture();
 
 		ServiceRegistration<?> gestureServiceRegistration = context
 				.registerService(RoCoVoMoGesture.class.getName(), gesture,
 						provider.getGestureProperties());
 
 		registeredGestures.put(serviceReference, gestureServiceRegistration);
-		Connector.connectGesture(provider);
+		connector.connectGesture(provider);
 	}
 }

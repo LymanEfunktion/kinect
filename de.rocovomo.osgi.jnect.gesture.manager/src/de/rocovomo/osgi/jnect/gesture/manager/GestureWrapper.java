@@ -4,6 +4,7 @@ import org.eclipse.emf.common.notify.Notification;
 import de.rocovomo.osgi.jnect.gesture.RoCoVoMoGesture;
 import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
 
+@Deprecated
 public class GestureWrapper extends RoCoVoMoGesture {
 
 	private GestureProvider delegate;

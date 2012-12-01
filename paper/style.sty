@@ -1,0 +1,66 @@
+\ProvidesPackage{style}
+
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+\usepackage[toc,acronym]{glossaries}
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{makeidx}
+\makeindex
+
+\usepackage{graphicx}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[english, ngerman, german]{babel}
+
+% Farben
+\usepackage{color}
+\definecolor{LinkColor}{rgb}{0,0,0.2}
+\definecolor{ListingBackground}{rgb}{0.92,0.92,0.92}
+
+\usepackage{longtable}
+%\setlength{\tabcolsep}{10pt} %Abstand zwischen Spalten
+\renewcommand{\arraystretch}{1.5} %Zeilenabstand
+
+% Verschiedene Schriftarten
+%\usepackage{goudysans}
+%\usepackage{lmodern}
+%\usepackage{libertine}
+%\usepackage{palatino}
+
+\usepackage{hyphenat}
+\usepackage{todonotes}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{pdflscape}
+\usepackage{paralist}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{float}
+% PDF Einstellungen
+\usepackage[%
+	bookmarks=true,
+	pdftitle={\pdftitel},
+	pdfauthor={\autor},
+	pdfsubject={\arbeit},
+	pdfcreator={pdflatex, LaTeX with KOMA-Script},
+	pdfpagemode=UseOutlines, % Beim Oeffnen Inhaltsverzeichnis anzeigen
+	pdfdisplaydoctitle=true, % Dokumenttitel statt Dateiname anzeigen.
+	pdflang=de % Sprache des Dokuments.
+]{hyperref}
+\usepackage[all]{hypcap}
+
+% (Farb-)einstellungen f�r die Links im PDF
+\hypersetup{%
+	colorlinks=false, % Aktivieren von farbigen Links im Dokument
+	linkcolor=LinkColor, % Farbe festlegen
+	citecolor=LinkColor,
+	filecolor=LinkColor,
+	menucolor=LinkColor,
+	urlcolor=LinkColor,
+	bookmarksnumbered=true % �berschriftsnummerierung im PDF Inhalt anzeigen.
+}

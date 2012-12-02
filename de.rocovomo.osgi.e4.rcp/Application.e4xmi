@@ -5,14 +5,15 @@
       <children xsi:type="advanced:Perspective" xmi:id="_OUjuAC5IEeKYX6oZyqw2rA">
         <children xsi:type="basic:PartSashContainer" xmi:id="_OUjuAS5IEeKYX6oZyqw2rA">
           <children xsi:type="basic:PartStack" xmi:id="_OUjuAi5IEeKYX6oZyqw2rA">
-            <children xsi:type="basic:Part" xmi:id="_WV8PgC76EeKIzKNH99G1yQ" elementId="de.rocovomo.osgi.e4.rcp.part.0" contributionURI="bundleclass://de.rocovomo.osgi.e4.rcp/de.rocovomo.osgi.e4.rcp.view.View" label="Test View"/>
+            <children xsi:type="basic:Part" xmi:id="_OqiJ4DxqEeK9_7oP_qPNuQ" elementId="de.rocovomo.osgi.e4.rcp.part.kinect_view" contributionURI="bundleclass://de.rocovomo.osgi.e4.rcp/de.rocovomo.osgi.e4.rcp.view.KinectView" label="Kinect View"/>
+            <children xsi:type="basic:Part" xmi:id="_WV8PgC76EeKIzKNH99G1yQ" elementId="de.rocovomo.osgi.e4.rcp.part.test_view" contributionURI="bundleclass://de.rocovomo.osgi.e4.rcp/de.rocovomo.osgi.e4.rcp.view.View" label="Test View"/>
           </children>
         </children>
       </children>
     </children>
     <mainMenu xmi:id="_OUjt-C5IEeKYX6oZyqw2rA" elementId="menu:org.eclipse.ui.main.menu">
       <children xsi:type="menu:Menu" xmi:id="_OUjt-S5IEeKYX6oZyqw2rA" label="File">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_OUjt-i5IEeKYX6oZyqw2rA" label="Open" iconURI="platform:/plugin/de.rocovomo.osgi.e4.rcp/icons/sample.gif" command="_OUjt7i5IEeKYX6oZyqw2rA"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_OUjt-i5IEeKYX6oZyqw2rA" label="Openasdf" iconURI="platform:/plugin/de.rocovomo.osgi.e4.rcp/icons/sample.gif" command="_OUjt7i5IEeKYX6oZyqw2rA"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_OUjt-y5IEeKYX6oZyqw2rA" label="Save" iconURI="platform:/plugin/de.rocovomo.osgi.e4.rcp/icons/save_edit.gif" command="_OUjt8S5IEeKYX6oZyqw2rA"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_OUjt_C5IEeKYX6oZyqw2rA" label="Quit" command="_OUjt6i5IEeKYX6oZyqw2rA"/>
       </children>
@@ -31,6 +32,7 @@
   <handlers xmi:id="_OUjt7y5IEeKYX6oZyqw2rA" contributionURI="bundleclass://de.rocovomo.osgi.e4.rcp/de.rocovomo.osgi.e4.rcp.handlers.OpenHandler" command="_OUjt7i5IEeKYX6oZyqw2rA"/>
   <handlers xmi:id="_OUjt8i5IEeKYX6oZyqw2rA" contributionURI="bundleclass://de.rocovomo.osgi.e4.rcp/de.rocovomo.osgi.e4.rcp.handlers.SaveHandler" command="_OUjt8S5IEeKYX6oZyqw2rA"/>
   <handlers xmi:id="_OUjt9S5IEeKYX6oZyqw2rA" contributionURI="bundleclass://de.rocovomo.osgi.e4.rcp/de.rocovomo.osgi.e4.rcp.handlers.AboutHandler" command="_OUjt9C5IEeKYX6oZyqw2rA"/>
+  <handlers xmi:id="_pHIWwDxlEeK9_7oP_qPNuQ" elementId="" contributionURI="bundleclass://de.rocovomo.osgi.e4.rcp/de.rocovomo.osgi.e4.rcp.handlers.ExitHandler" command="_tO7SkDxlEeK9_7oP_qPNuQ"/>
   <bindingTables xmi:id="_OUjt7C5IEeKYX6oZyqw2rA" bindingContext="_OUjt4S5IEeKYX6oZyqw2rA">
     <bindings xmi:id="_OUjt7S5IEeKYX6oZyqw2rA" keySequence="M1+Q" command="_OUjt6i5IEeKYX6oZyqw2rA"/>
     <bindings xmi:id="_OUjt8C5IEeKYX6oZyqw2rA" keySequence="M1+O" command="_OUjt7i5IEeKYX6oZyqw2rA"/>
@@ -45,6 +47,7 @@
   <commands xmi:id="_OUjt7i5IEeKYX6oZyqw2rA" elementId="de.rocovomo.osgi.e4.rcp.open" commandName="openCommand"/>
   <commands xmi:id="_OUjt8S5IEeKYX6oZyqw2rA" elementId="org.eclipse.ui.file.save" commandName="saveCommand"/>
   <commands xmi:id="_OUjt9C5IEeKYX6oZyqw2rA" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
+  <commands xmi:id="_tO7SkDxlEeK9_7oP_qPNuQ" elementId="org.eclipse.e4.ui.internal.workbench.ExitHandler" commandName="exitCommand"/>
   <addons xmi:id="_OUjt5C5IEeKYX6oZyqw2rA" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_OUjt5S5IEeKYX6oZyqw2rA" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_OUjt5i5IEeKYX6oZyqw2rA" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

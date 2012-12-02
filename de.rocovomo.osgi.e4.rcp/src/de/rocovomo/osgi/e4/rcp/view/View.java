@@ -1,7 +1,7 @@
 package de.rocovomo.osgi.e4.rcp.view;
 
 import javax.inject.Inject;
-import org.eclipse.core.databinding.DataBindingContext;
+
 import org.eclipse.core.databinding.ObservablesManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Rectangle;
@@ -16,17 +16,13 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GLContext;
 import org.lwjgl.util.glu.GLU;
 
-@SuppressWarnings("restriction")
 public class View {
 	
-	private DataBindingContext dbc;
 	private ObservablesManager manager;
 	
 	@Inject
 	public View(final Composite composite) {
-		dbc = new DataBindingContext();
 		manager = new ObservablesManager();
-		
 		manager.runAndCollect(new Runnable() {
 			public void run() {
 				main(composite);

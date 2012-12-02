@@ -20,6 +20,9 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 
 	private static BundleContext context;
 
+	@SuppressWarnings("rawtypes")
+	private ServiceRegistration serviceRegistration;
+	
 	private Connector connector;
 
 	private Map<ServiceReference<?>, ServiceRegistration<?>> registeredGestures = new HashMap<ServiceReference<?>, ServiceRegistration<?>>();
@@ -53,6 +56,8 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 	 */
 	public void stop(BundleContext bundleContext) throws Exception {
 		bundleContext.removeServiceListener(this);
+		
+		serviceRegistration.unregister();
 	}
 
 	/*
@@ -89,7 +94,15 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 			}
 		}
 
-		bundleContext.addServiceListener(this, gestureFilter);
+		bundleContext.addServiceListener(this, filter);
+		
+		connector.run();
+		
+		KinectProvider provider = new KinectProvider(connector);
+
+		serviceRegistration = bundleContext.registerService(
+				KinectProvider.class.getName(), provider,
+				provider.getKinectProperties());
 	}
 
 	@Override

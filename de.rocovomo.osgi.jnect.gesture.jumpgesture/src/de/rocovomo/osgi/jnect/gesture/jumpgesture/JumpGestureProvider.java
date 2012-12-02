@@ -17,7 +17,6 @@ public class JumpGestureProvider implements GestureProvider{
 	private final RoCoVoMoGesture gesture;
 	
 	public JumpGestureProvider() {
-		System.out.println("Start");
 		properties.put(RoCoVoMoGesture.PID, PID);
 		properties.put(RoCoVoMoGesture.TYPE, JUMP_GESTURE);
 		gesture = new JumpGesture();

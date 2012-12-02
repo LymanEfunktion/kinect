@@ -7,6 +7,12 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.branding.IProductConstants;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
+
+import de.rocovomo.osgi.jnect.adapter.spi.AdapterProvider;
+import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
+import de.rocovomo.osgi.jnect.kinect.Connector;
+import de.rocovomo.osgi.jnect.kinect.KinectActivator;
 
 public class Activator implements BundleActivator{
 
@@ -32,6 +38,32 @@ public class Activator implements BundleActivator{
 		System.out.println(product.getProperty(IProductConstants.STARTUP_PROGRESS_RECT));
 		System.out.println(product.getProperty(IProductConstants.STARTUP_MESSAGE_RECT));
 		Activator.context = bundleContext;
+		
+		String kinectFilter = "(objectClass="
+				+ Kinect.class.getName() + ")";
+
+		String adapterFilter = "(objectClass="
+				+ AdapterProvider.class.getName() + ")";
+
+		String filter = "(|" + gestureFilter + adapterFilter + ")";
+
+		ServiceReference<?>[] references = bundleContext
+				.getAllServiceReferences(null, filter);
+
+		if (references != null) {
+			connector = new Connector();
+			if (connector.isConnected()) {
+				for (ServiceReference<?> serviceReference : references) {
+					System.out.println(serviceReference.getBundle()
+							.getSymbolicName());
+					registerService(serviceReference);
+				}
+			} else {
+				System.out.println("Init fehlgeschlagen");
+			}
+		}
+
+		bundleContext.addServiceListener(this, gestureFilter);
 	}
 
 	/*

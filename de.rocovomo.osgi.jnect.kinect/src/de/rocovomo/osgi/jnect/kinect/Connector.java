@@ -1,20 +1,19 @@
 package de.rocovomo.osgi.jnect.kinect;
 
+import org.jnect.bodymodel.Body;
 import org.jnect.core.KinectManager;
 import org.jnect.gesture.GestureProxy;
 
-
-//Necessary for adapter
-import org.eclipse.emf.common.util.EList;
 import de.rocovomo.osgi.jnect.adapter.RoCoVoMoAdapter;
 import de.rocovomo.osgi.jnect.adapter.spi.AdapterProvider;
 import de.rocovomo.osgi.jnect.gesture.RoCoVoMoGesture;
 import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
+//Necessary for adapter
 
-@SuppressWarnings("unused")
 public class Connector {
 
 	private KinectManager kinect;
+	private Body model;
 	private GestureProxy proxy;
 	
 	private boolean isConnected;
@@ -40,6 +39,7 @@ public class Connector {
 		// KinectManager.INSTANCE.addSpeechListener(speechListener);
 		// GestureProxy.INSTANCE.addGestureListener(gestureListener);
 		kinect.startSkeletonTracking();
+		model = kinect.getSkeletonModel();
 //		KinectManager.INSTANCE.startSpeechRecognition();
 		return true;
 	}
@@ -100,6 +100,16 @@ public class Connector {
 		if(type.equals("RightHand-Adapter")) {
 			addRightHandAdapter(provider.getAdapter());
 		}
+		if (type.equals("LeftHand-Adapter")) {
+			addLeftHandAdapter(provider.getAdapter());
+		}
+	}
+
+	private void addLeftHandAdapter(RoCoVoMoAdapter adapter) {
+		// TODO Auto-generated method stub
+		System.out.println("adapter:" + adapter.getClass().getSimpleName());
+		adapter.setElement(kinect.getSkeletonModel().getLeftHand());
+		kinect.getSkeletonModel().getLeftHand().eAdapters().add(adapter);
 	}
 
 	private void addRightHandAdapter(RoCoVoMoAdapter adapter) {
@@ -107,5 +117,33 @@ public class Connector {
 		System.out.println("adapter:" + adapter.getClass().getSimpleName());
 		adapter.setElement(kinect.getSkeletonModel().getRightHand());
 		kinect.getSkeletonModel().getRightHand().eAdapters().add(adapter);
+		
+	}
+
+	class IThread extends Thread {
+		public IThread() {
+			
+		}
+		public void run() {
+			try {
+				while(true) {
+					System.out.println(getWidthBetweenHands() + ":" + getHeightBetweenHands());
+					sleep(500L);
+				}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void run() {
+		IThread thread = new IThread();
+	}
+	
+	private int getWidthBetweenHands() {
+		return Math.round(model.getRightHand().getX()-model.getLeftHand().getX());
+	}
+	private int getHeightBetweenHands() {
+		return Math.round(model.getLeftHand().getY()-model.getRightHand().getY());
 	}
 }

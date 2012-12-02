@@ -1,4 +1,4 @@
-package de.rocovomo.osgi.jnect.adapter.righthand;
+package de.rocovomo.osgi.jnect.adapter.lefthand;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -6,13 +6,13 @@ import org.osgi.framework.ServiceRegistration;
 
 import de.rocovomo.osgi.jnect.adapter.spi.AdapterProvider;
 
-public class RightHandAdapterProviderActivator implements BundleActivator {
+public class LeftHandAdapterProviderActivator implements BundleActivator {
 
 	private static BundleContext context;
 
 	@SuppressWarnings("rawtypes")
 	private ServiceRegistration serviceRegistration;
-	
+
 	static BundleContext getContext() {
 		return context;
 	}
@@ -25,7 +25,7 @@ public class RightHandAdapterProviderActivator implements BundleActivator {
 	 * )
 	 */
 	public void start(BundleContext bundleContext) throws Exception {
-		RightHandAdapterProvider provider = new RightHandAdapterProvider();
+		LeftHandAdapterProvider provider = new LeftHandAdapterProvider();
 
 		serviceRegistration = bundleContext.registerService(
 				AdapterProvider.class.getName(), provider,
@@ -41,4 +41,5 @@ public class RightHandAdapterProviderActivator implements BundleActivator {
 	public void stop(BundleContext bundleContext) throws Exception {
 		serviceRegistration.unregister();
 	}
+
 }

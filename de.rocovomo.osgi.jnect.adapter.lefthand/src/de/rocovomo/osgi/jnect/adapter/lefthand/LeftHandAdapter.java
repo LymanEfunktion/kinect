@@ -1,28 +1,28 @@
-package de.rocovomo.osgi.jnect.adapter.righthand;
+package de.rocovomo.osgi.jnect.adapter.lefthand;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
+import org.jnect.bodymodel.LeftHand;
 import org.jnect.bodymodel.PositionedElement;
-import org.jnect.bodymodel.RightHand;
 
 import de.rocovomo.osgi.jnect.adapter.RoCoVoMoAdapter;
 
-public class RightHandAdapter extends AdapterImpl implements RoCoVoMoAdapter{
-	
-	private RightHand rightHand;
-	
-	public RightHandAdapter() {}
+public class LeftHandAdapter extends AdapterImpl implements RoCoVoMoAdapter {
 
+	private LeftHand leftHand;
+	
+	public LeftHandAdapter() {}
+	
 	public void notifyChanged(Notification notification) {
-//		System.out.println("x: " + rightHand.getX() + "| y: "
-//				+ rightHand.getY() + "| z: " + rightHand.getZ());
+//		System.out.println("x: " + leftHand.getX() + "| y: "
+//				+ leftHand.getY() + "| z: " + leftHand.getZ());
 	}
 	
 	@Override
 	public Notifier getTarget() {
 		// TODO Auto-generated method stub
-		return (Notifier) rightHand;
+		return (Notifier) leftHand;
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class RightHandAdapter extends AdapterImpl implements RoCoVoMoAdapter{
 	@Override
 	public void setElement(PositionedElement element) {
 		// TODO Auto-generated method stub
-		rightHand = (RightHand) element;
+		leftHand = (LeftHand) element;
 		setTarget((Notifier) element);
-	}
+	}	
 }

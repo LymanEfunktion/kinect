@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Lefthand
+Bundle-SymbolicName: de.rocovomo.osgi.jnect.adapter.lefthand
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.rocovomo.osgi.jnect.adapter.lefthand.LeftHandAdapterProviderActivator
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.eclipse.emf.common.notify,
+ org.eclipse.emf.common.notify.impl,
+ org.osgi.framework;version="1.3.0",
+ org.jnect.bodymodel,
+ de.rocovomo.osgi.jnect.adapter,
+ de.rocovomo.osgi.jnect.adapter.spi
+Export-Package: de.rocovomo.osgi.jnect.adapter.lefthand

@@ -1,4 +1,4 @@
-package de.rocovomo.osgi.jnect.adapter.righthand;
+package de.rocovomo.osgi.jnect.adapter.lefthand;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
@@ -6,22 +6,21 @@ import java.util.Hashtable;
 import de.rocovomo.osgi.jnect.adapter.RoCoVoMoAdapter;
 import de.rocovomo.osgi.jnect.adapter.spi.AdapterProvider;
 
+public class LeftHandAdapterProvider implements AdapterProvider {
 
-public class RightHandAdapterProvider implements AdapterProvider {
+	// TODO: Change PID
+	private final static String PID = "132410379143";
 
-	//TODO: Change PID
-	private final static String PID = "132410384143";
-
-	private final static String RIGHT_HAND = "RightHand-Adapter";
+	private final static String LEFT_HAND = "LeftHand-Adapter";
 
 	private final Dictionary<String, Object> properties = new Hashtable<String, Object>();
-	
+
 	private final RoCoVoMoAdapter adapter;
-	
-	public RightHandAdapterProvider() {
+
+	public LeftHandAdapterProvider() {
 		properties.put(RoCoVoMoAdapter.PID, PID);
-		properties.put(RoCoVoMoAdapter.TYPE, RIGHT_HAND);
-		adapter = new RightHandAdapter();
+		properties.put(RoCoVoMoAdapter.TYPE, LEFT_HAND);
+		adapter = new LeftHandAdapter();
 	}
 
 	@Override

@@ -21,7 +21,8 @@ Import-Package: org.eclipse.ui,
  org.eclipse.ui.application,
  org.eclipse.ui.internal,
  org.eclipse.ui.plugin,
- org.osgi.framework;version="1.3.0"
+ org.osgi.framework;version="1.3.0",
+ de.rocovomo.osgi.jnect.kinect
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
  res/lwjgl/2.8.5/jar/lwjgl_util.jar,

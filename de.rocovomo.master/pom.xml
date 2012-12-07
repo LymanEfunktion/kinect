@@ -1,17 +1,48 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>de.rocovomo</groupId>
-  <artifactId>rocovomo-master</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  
-  <name>RoCoVoMo Master</name>
-  
-  <modules>
-		<module>../de.rocovomo.osgi.e4.rcp</module>
-		<module>../de.rocovomo.feature</module>
-		<module>../de.rocovomo.product</module>
-	</modules>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.rocovomo</groupId>
+	<artifactId>rocovomo-master</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>RoCoVoMo Master</name>
+
+	<profiles>
+		<profile>
+			<id>default</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>../de.rocovomo.osgi.jnect.gesture.spi</module>
+				<module>../de.rocovomo.osgi.jnect.gesture</module>
+				<module>../de.rocovomo.osgi.jnect.adapter.spi</module>
+				<module>../de.rocovomo.osgi.jnect.adapter</module>
+				<module>../de.rocovomo.osgi.jnect.kinect</module>
+			
+				<module>../de.rocovomo.osgi.e4.rcp</module>
+				<module>../de.rocovomo.feature</module>
+				<module>../de.rocovomo.product</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>bundles</id>
+			<activation>
+				<property>
+					<name>bundles</name>
+				</property>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<modules>
+				<module>../de.rocovomo.osgi.jnect.gesture.spi</module>
+				<module>../de.rocovomo.osgi.jnect.gesture</module>
+				<module>../de.rocovomo.osgi.jnect.adapter.spi</module>
+				<module>../de.rocovomo.osgi.jnect.adapter</module>
+				<module>../de.rocovomo.osgi.jnect.kinect</module>
+			</modules>
+		</profile>
+	</profiles>
 
 	<properties>
 		<tycho.version>0.16.0</tycho.version>
@@ -44,6 +75,9 @@
 	</pluginRepositories>
 
 	<build>
+		<!-- default eclipse source folder -->
+		<sourceDirectory>src</sourceDirectory>
+
 		<plugins>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
@@ -123,21 +157,11 @@
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-packaging-plugin</artifactId>
 					<version>${tycho.version}</version>
-					<!-- TODO VW why does this not work?
-					<dependencies>
-						<dependency>
-							<groupId>org.eclipse.tycho.extras</groupId>
-							<artifactId>tycho-buildtimestamp-jgit</artifactId>
-							<version>${tycho-extras.version}</version>
-						</dependency>
-					</dependencies>
-					<configuration>
-						<strictBinIncludes>false</strictBinIncludes>
-						<format>'v'yyyyMMdd-HHmm</format>
-						<timestampProvider>jgit</timestampProvider>
-						<jgit.ignore>
-						</jgit.ignore>
-					</configuration> -->
+					<!-- TODO VW why does this not work? <dependencies> <dependency> <groupId>org.eclipse.tycho.extras</groupId> 
+						<artifactId>tycho-buildtimestamp-jgit</artifactId> <version>${tycho-extras.version}</version> 
+						</dependency> </dependencies> <configuration> <strictBinIncludes>false</strictBinIncludes> 
+						<format>'v'yyyyMMdd-HHmm</format> <timestampProvider>jgit</timestampProvider> 
+						<jgit.ignore> </jgit.ignore> </configuration> -->
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>

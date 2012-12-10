@@ -17,10 +17,24 @@
 			<modules>
 				<module>../de.rocovomo.osgi.jnect.gesture.spi</module>
 				<module>../de.rocovomo.osgi.jnect.gesture</module>
+				<module>../de.rocovomo.osgi.jnect.gesture.jumpgesture</module>
+				<module>../de.rocovomo.osgi.jnect.gesture.manager</module>
+
+				<module>../de.rocovomo.osgi.gesture.righthand</module>
+
 				<module>../de.rocovomo.osgi.jnect.adapter.spi</module>
 				<module>../de.rocovomo.osgi.jnect.adapter</module>
+				<module>../de.rocovomo.osgi.jnect.adapter.lefthand</module>
+				<module>../de.rocovomo.osgi.jnect.adapter.righthand</module>
+
 				<module>../de.rocovomo.osgi.jnect.kinect</module>
-			
+
+				<module>../de.rocovomo.osgi.action.manager</module>
+				<module>../de.rocovomo.osgi.action</module>
+
+				<module>../de.rocovomo.osgi.robot.api</module>
+				<module>../de.rocovomo.osgi.robot.spi</module>
+
 				<module>../de.rocovomo.osgi.e4.rcp</module>
 				<module>../de.rocovomo.feature</module>
 				<module>../de.rocovomo.product</module>
@@ -37,9 +51,23 @@
 			<modules>
 				<module>../de.rocovomo.osgi.jnect.gesture.spi</module>
 				<module>../de.rocovomo.osgi.jnect.gesture</module>
+				<module>../de.rocovomo.osgi.jnect.gesture.jumpgesture</module>
+				<module>../de.rocovomo.osgi.jnect.gesture.manager</module>
+
+				<module>../de.rocovomo.osgi.gesture.righthand</module>
+
 				<module>../de.rocovomo.osgi.jnect.adapter.spi</module>
 				<module>../de.rocovomo.osgi.jnect.adapter</module>
+				<module>../de.rocovomo.osgi.jnect.adapter.lefthand</module>
+				<module>../de.rocovomo.osgi.jnect.adapter.righthand</module>
+
 				<module>../de.rocovomo.osgi.jnect.kinect</module>
+
+				<module>../de.rocovomo.osgi.action.manager</module>
+				<module>../de.rocovomo.osgi.action</module>
+
+				<module>../de.rocovomo.osgi.robot.api</module>
+				<module>../de.rocovomo.osgi.robot.spi</module>
 			</modules>
 		</profile>
 	</profiles>

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Lefthand
 Bundle-SymbolicName: de.rocovomo.osgi.jnect.adapter.lefthand
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: de.rocovomo.osgi.jnect.adapter.lefthand.LeftHandAdapterProviderActivator
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

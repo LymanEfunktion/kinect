@@ -96,7 +96,7 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 
 		bundleContext.addServiceListener(this, filter);
 		
-		connector.run();
+//		connector.run();
 		
 		KinectProvider provider = new KinectProvider(connector);
 

@@ -8,7 +8,6 @@ import de.rocovomo.osgi.jnect.adapter.RoCoVoMoAdapter;
 import de.rocovomo.osgi.jnect.adapter.spi.AdapterProvider;
 import de.rocovomo.osgi.jnect.gesture.RoCoVoMoGesture;
 import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
-//Necessary for adapter
 
 public class Connector {
 
@@ -138,12 +137,13 @@ public class Connector {
 	
 	public void run() {
 		IThread thread = new IThread();
+		thread.run();
 	}
 	
-	private int getWidthBetweenHands() {
-		return Math.round(model.getRightHand().getX()-model.getLeftHand().getX());
+	private float getWidthBetweenHands() {
+		return (model.getRightHand().getX()-model.getLeftHand().getX());
 	}
-	private int getHeightBetweenHands() {
-		return Math.round(model.getLeftHand().getY()-model.getRightHand().getY());
+	private float getHeightBetweenHands() {
+		return (model.getLeftHand().getY()-model.getRightHand().getY());
 	}
 }

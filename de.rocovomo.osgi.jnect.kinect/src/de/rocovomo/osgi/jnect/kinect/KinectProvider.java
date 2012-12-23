@@ -14,11 +14,10 @@ public class KinectProvider {
 
 	private Connector connector;
 	
-	public KinectProvider(Connector connector) {
-		System.out.println("Start");
+	public KinectProvider() {
 		properties.put("process-id", PID);
 		properties.put("type", KINECT_MANAGER);
-		this.connector = connector;
+		this.connector = new Connector();
 	}
 
 	public Connector getConnector() {

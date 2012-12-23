@@ -4,6 +4,8 @@ import org.jnect.bodymodel.Body;
 import org.jnect.core.KinectManager;
 import org.jnect.gesture.GestureProxy;
 
+import org.apache.log4j.Logger;
+
 import de.rocovomo.osgi.jnect.adapter.RoCoVoMoAdapter;
 import de.rocovomo.osgi.jnect.adapter.spi.AdapterProvider;
 import de.rocovomo.osgi.jnect.gesture.RoCoVoMoGesture;
@@ -14,6 +16,8 @@ public class Connector {
 	private KinectManager kinect;
 	private Body model;
 	private GestureProxy proxy;
+	
+	private static Logger logger = Logger.getLogger(Connector.class);
 	
 	private boolean isConnected;
 	
@@ -44,8 +48,7 @@ public class Connector {
 	}
 
 	private void addToGestureProxy(RoCoVoMoGesture gesture) {
-		//TODO: log4j Logging
-		System.out.println("gesture:" + gesture.getClass().getSimpleName());
+		logger.debug("gesture:" + gesture.getClass().getSimpleName());
 		proxy.addGestureDetector(gesture);
 	}
 
@@ -88,14 +91,14 @@ public class Connector {
 
 	public void connectGesture(GestureProvider provider) {
 		//TODO: log4j Logging
-		System.out.println("init:" + provider.getGestureProperties().get("gesture-type"));
+		logger.debug("init:" + provider.getGestureProperties().get("gesture-type"));
 		addToGestureProxy(provider.getGesture());
 	}
 
 	public void connectAdapter(AdapterProvider provider) {
 		String type = (String) provider.getAdapterProperties().get("adapter-type");
 		//TODO: log4j Logging
-		System.out.println("init:" + type);
+		logger.debug("init:" + type);
 		if(type.equals("RightHand-Adapter")) {
 			addRightHandAdapter(provider.getAdapter());
 		}
@@ -106,14 +109,14 @@ public class Connector {
 
 	private void addLeftHandAdapter(RoCoVoMoAdapter adapter) {
 		// TODO Auto-generated method stub
-		System.out.println("adapter:" + adapter.getClass().getSimpleName());
+		logger.debug("adapter:" + adapter.getClass().getSimpleName());
 		adapter.setElement(kinect.getSkeletonModel().getLeftHand());
 		kinect.getSkeletonModel().getLeftHand().eAdapters().add(adapter);
 	}
 
 	private void addRightHandAdapter(RoCoVoMoAdapter adapter) {
 		//TODO: log4j Logging
-		System.out.println("adapter:" + adapter.getClass().getSimpleName());
+		logger.debug("adapter:" + adapter.getClass().getSimpleName());
 		adapter.setElement(kinect.getSkeletonModel().getRightHand());
 		kinect.getSkeletonModel().getRightHand().eAdapters().add(adapter);
 		
@@ -126,7 +129,7 @@ public class Connector {
 		public void run() {
 			try {
 				while(true) {
-					System.out.println(getWidthBetweenHands() + ":" + getHeightBetweenHands());
+					logger.info(getWidthBetweenHands() + ":" + getHeightBetweenHands());
 					sleep(500L);
 				}
 			} catch (InterruptedException e) {

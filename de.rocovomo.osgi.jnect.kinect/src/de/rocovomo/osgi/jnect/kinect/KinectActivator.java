@@ -3,6 +3,7 @@ package de.rocovomo.osgi.jnect.kinect;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceEvent;
@@ -18,6 +19,8 @@ import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
 
 public class KinectActivator implements BundleActivator, ServiceListener {
 
+	private static Logger logger = Logger.getLogger(KinectActivator.class);
+	
 	private static BundleContext context;
 
 	@SuppressWarnings("rawtypes")
@@ -85,20 +88,20 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 			connector = new Connector();
 			if (connector.isConnected()) {
 				for (ServiceReference<?> serviceReference : references) {
-					System.out.println(serviceReference.getBundle()
+					logger.info(serviceReference.getBundle()
 							.getSymbolicName());
 					registerService(serviceReference);
 				}
+				
+				connector.run();
+				bundleContext.addServiceListener(this, filter);
+				
 			} else {
-				System.out.println("Init fehlgeschlagen");
+				logger.error("Init fehlgeschlagen");
 			}
 		}
 
-		bundleContext.addServiceListener(this, filter);
-		
-//		connector.run();
-		
-		KinectProvider provider = new KinectProvider(connector);
+		KinectProvider provider = new KinectProvider();
 
 		serviceRegistration = bundleContext.registerService(
 				KinectProvider.class.getName(), provider,

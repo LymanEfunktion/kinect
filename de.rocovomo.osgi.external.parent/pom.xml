@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>de.rocovomo</groupId>
+		<artifactId>rocovomo-master</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>..\de.rocovomo.master\pom.xml</relativePath>
+	</parent>
+
+	<groupId>de.rocovomo</groupId>
+	<artifactId>de.rocovomo.osgi.external.parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<manifest-location>META-INF</manifest-location>
+		<lwjgl.version>2.8.5</lwjgl.version>
+		<jinput.version>2.0.5</jinput.version>
+		<AppleJavaExtensions.version>1.4</AppleJavaExtensions.version>
+	</properties>
+	
+	<modules>
+		<module>../de.rocovomo.osgi.external.jinput</module>
+		<module>../de.rocovomo.osgi.external.jinput-platform</module>
+		<module>../de.rocovomo.osgi.external.jutils</module>
+		<module>../de.rocovomo.osgi.external.lwjgl</module>
+		<module>../de.rocovomo.osgi.external.lwjgl_util</module>
+		<module>../de.rocovomo.osgi.external.lwjgl-platform</module>
+		<module>../de.rocovomo.osgi.external.appleJavaExtensions</module>
+	</modules>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.3.7</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+</project>

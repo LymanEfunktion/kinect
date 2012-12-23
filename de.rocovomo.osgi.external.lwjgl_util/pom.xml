@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>de.rocovomo</groupId>
+		<artifactId>de.rocovomo.osgi.external.parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../de.rocovomo.osgi.external.parent/pom.xml</relativePath>
+	</parent>
+
+	<groupId>org.lwjgl</groupId>
+	<artifactId>lwjgl_util</artifactId>
+	<version>${lwjgl.version}-bundle</version>
+	<packaging>bundle</packaging>
+
+	<description>OSGi Wrapper for lwjgl_util</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.lwjgl.lwjgl</groupId>
+			<artifactId>lwjgl</artifactId>
+			<version>${lwjgl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.lwjgl.lwjgl</groupId>
+			<artifactId>lwjgl_util</artifactId>
+			<version>${lwjgl.version}</version>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Embed-Dependency>
+							lwjgl,lwjgl_util
+						</Embed-Dependency>
+						<_exportcontents>
+							org.lwjgl.util.*;version="${lwjgl.version}",org.lwjgl.util;version="${lwjgl.version}",org.lwjgl.*;version="${lwjgl.version}",org.lwjgl;version="${lwjgl.version}"
+						</_exportcontents>
+						<Bundle-ClassPath>{maven-dependencies}</Bundle-ClassPath>
+						<Embed-Transitive>true</Embed-Transitive>
+						<Embed-Directory>lib</Embed-Directory>
+						<_failok>true</_failok>
+						<_nouses>true</_nouses>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

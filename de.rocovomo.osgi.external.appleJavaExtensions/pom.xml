@@ -13,6 +13,8 @@
 	<artifactId>AppleJavaExtensions</artifactId>
 	<version>${AppleJavaExtensions.version}-bundle</version>
 	<packaging>bundle</packaging>
+	
+	<name>de.rocovomo.osgi.external - ${project.artifactId}</name>
 
 	<description>OSGi Wrapper for AppleJavaExtensions</description>
 
@@ -49,5 +51,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

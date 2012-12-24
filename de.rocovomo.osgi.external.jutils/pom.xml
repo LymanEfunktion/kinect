@@ -13,6 +13,8 @@
 	<artifactId>jutils</artifactId>
 	<version>1.0.0-bundle</version>
 	<packaging>bundle</packaging>
+	
+	<name>de.rocovomo.osgi.external - ${project.artifactId}</name>
 
 	<description>OSGi Wrapper for jutils</description>
 

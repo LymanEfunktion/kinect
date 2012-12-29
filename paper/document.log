@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2012.11.30)  29 DEC 2012 17:28
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2012.11.30)  29 DEC 2012 21:50
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -1510,43 +1510,43 @@ Kapitel 2.
 Kapitel 3.
 ) (./content/04kapitel.tex [10
 
-]
+] [11]
 Kapitel 4.
-) (./content/05kapitel.tex [11
+) (./content/05kapitel.tex [12
 
-] [12]
+] [13]
 Kapitel 5.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\gls' on input line 22.
 
-) (./content/06kapitel.tex [13
+) (./content/06kapitel.tex [14
 
 ]
 Kapitel 6.
-) (./content/07kapitel.tex [14
+) (./content/07kapitel.tex [15
 
 ]
 Kapitel 7.
-) (./content/08kapitel.tex [15
+) (./content/08kapitel.tex [16
 
 ]
 Kapitel 8.
-) (./content/09kapitel.tex [16
+) (./content/09kapitel.tex [17
 
 ]
 Kapitel 9.
-) (./content/nkapitel.tex [17
+) (./content/nkapitel.tex [18
 
 ]
 Kapitel 10.
-) [18
+) [19
 
 ] (./document.lof)
 \tf@lof=\write10
 \openout10 = `document.lof'.
 
- [19
+ [20
 
 
 
@@ -1554,7 +1554,7 @@ Kapitel 10.
 \tf@lot=\write11
 \openout11 = `document.lot'.
 
- [20
+ [21
 
 
 
@@ -1562,7 +1562,7 @@ Kapitel 10.
 \tf@lol=\write12
 \openout12 = `document.lol'.
 
- [21
+ [22
 
 
 
@@ -1572,13 +1572,13 @@ Kapitel 10.
 LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
                before end of `thebibliography' environment on input line 3.
 
-) (./document.acr) (./document.gls [22
+) (./document.acr) (./document.gls [23
 
 
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 101.
- [23
+ [24
 
 
 
@@ -1591,11 +1591,11 @@ Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: C3A75BC41B1D4A4E23F11C58BAD97B90;4028.
  ) 
 Here is how much of TeX's memory you used:
- 23049 strings out of 493488
- 383789 string characters out of 3144747
+ 23057 strings out of 493488
+ 383874 string characters out of 3144747
  525629 words of memory out of 3000000
- 25679 multiletter control sequences out of 15000+200000
- 19769 words of font info for 43 fonts, out of 3000000 for 9000
+ 25680 multiletter control sequences out of 15000+200000
+ 20643 words of font info for 44 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  83i,8n,83p,1485b,587s stack positions out of 5000i,500n,10000p,200000b,50000s
 {c:/texlive/2012/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc}<c:/tex
@@ -1610,11 +1610,12 @@ ive/2012/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb><c:/texlive/2012/t
 exmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb><c:/texlive/2012/texmf-dist/
 fonts/type1/public/cm-super/sfsx1728.pfb><c:/texlive/2012/texmf-dist/fonts/type
 1/public/cm-super/sfsx2488.pfb><c:/texlive/2012/texmf-dist/fonts/type1/public/c
-m-super/sfti1200.pfb>
-Output written on document.pdf (23 pages, 262004 bytes).
+m-super/sfti1000.pfb><c:/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sf
+ti1200.pfb>
+Output written on document.pdf (24 pages, 319253 bytes).
 PDF statistics:
- 515 PDF objects out of 1000 (max. 8388607)
- 470 compressed objects within 5 object streams
- 106 named destinations out of 1000 (max. 500000)
+ 540 PDF objects out of 1000 (max. 8388607)
+ 493 compressed objects within 5 object streams
+ 112 named destinations out of 1000 (max. 500000)
  498 words of extra memory for PDF output out of 10000 (max. 10000000)
 

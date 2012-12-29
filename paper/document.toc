@@ -4,67 +4,67 @@
 \contentsline {chapter}{\numberline {3}Stand der Technik}{10}{chapter.3}
 \contentsline {section}{\numberline {3.1}Hardware}{10}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Kinect}{10}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Roboter - Ausblick}{10}{subsection.3.1.2}
-\contentsline {section}{\numberline {3.2}Software}{10}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Microsoft Kinect SDK}{10}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Java}{10}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}GUI}{10}{subsection.3.2.3}
-\contentsline {section}{\numberline {3.3}Mustererkennung}{10}{section.3.3}
-\contentsline {chapter}{\numberline {4}Kinect--Framework}{11}{chapter.4}
-\contentsline {section}{\numberline {4.1}Microsoft Kinect SDK}{11}{section.4.1}
-\contentsline {section}{\numberline {4.2}Java Frameworks}{11}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}OpenNI}{11}{subsection.4.2.1}
-\contentsline {subsubsection}{Beschreibung}{11}{section*.3}
-\contentsline {subsubsection}{Technische Daten}{12}{section*.4}
-\contentsline {subsubsection}{SWOT--Analyse}{12}{section*.5}
-\contentsline {subsection}{\numberline {4.2.2}OpenKinect}{12}{subsection.4.2.2}
-\contentsline {subsubsection}{Beschreibung}{12}{section*.6}
-\contentsline {subsubsection}{Technische Daten}{12}{section*.7}
-\contentsline {subsubsection}{SWOT--Analyse}{12}{section*.8}
-\contentsline {subsection}{\numberline {4.2.3}jnect}{12}{subsection.4.2.3}
-\contentsline {subsubsection}{Beschreibung}{12}{section*.9}
-\contentsline {subsubsection}{Technische Daten}{12}{section*.10}
-\contentsline {subsubsection}{SWOT--Analyse}{12}{section*.11}
-\contentsline {subsection}{\numberline {4.2.4}Scoring--Modell}{12}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}Analyseergebnis}{12}{subsection.4.2.5}
-\contentsline {chapter}{\numberline {5}Konzeption}{13}{chapter.5}
-\contentsline {section}{\numberline {5.1}Technische Vorgaben}{13}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Vorgaben durch Kinect}{13}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Vorgaben durch jnect--Framework}{13}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Service--Architektur}{13}{subsection.5.1.3}
-\contentsline {subsection}{\numberline {5.1.4}Abh\"angigkeit zu Robotertechnik}{13}{subsection.5.1.4}
-\contentsline {section}{\numberline {5.2}Fachliche Vorgaben}{13}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Vorgaben durch \gls {MCI}}{13}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Klassifikation der Anwendung}{13}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Analyse der Gesten- und Sprachsteuerung}{13}{subsection.5.2.3}
-\contentsline {chapter}{\numberline {6}Modelle zur Gesten- und Spracherkennung}{14}{chapter.6}
-\contentsline {section}{\numberline {6.1}Hidden-Markov-Modell}{14}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}ToDo}{14}{subsection.6.1.1}
-\contentsline {section}{\numberline {6.2}Baum-Weich-Algorithmus}{14}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}ToDo}{14}{subsection.6.2.1}
-\contentsline {section}{\numberline {6.3}ToDo}{14}{section.6.3}
-\contentsline {chapter}{\numberline {7}Gesten}{15}{chapter.7}
-\contentsline {section}{\numberline {7.1}Kreisbewegung}{15}{section.7.1}
-\contentsline {subsection}{\numberline {7.1.1}ToDo}{15}{subsection.7.1.1}
-\contentsline {section}{\numberline {7.2}Vorw\"artsbewegung}{15}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}ToDo}{15}{subsection.7.2.1}
-\contentsline {section}{\numberline {7.3}Haltesignal}{15}{section.7.3}
-\contentsline {subsection}{\numberline {7.3.1}ToDo}{15}{subsection.7.3.1}
-\contentsline {chapter}{\numberline {8}Sprachbefehle}{16}{chapter.8}
-\contentsline {section}{\numberline {8.1}ToDo}{16}{section.8.1}
-\contentsline {chapter}{\numberline {9}Implementierung}{17}{chapter.9}
-\contentsline {section}{\numberline {9.1}OSGI--Bundles}{17}{section.9.1}
-\contentsline {subsection}{\numberline {9.1.1}Gesten}{17}{subsection.9.1.1}
-\contentsline {subsection}{\numberline {9.1.2}Sprachbefehle}{17}{subsection.9.1.2}
-\contentsline {subsection}{\numberline {9.1.3}Roboterschnittstelle}{17}{subsection.9.1.3}
-\contentsline {subsection}{\numberline {9.1.4}Ausf\"uhrbare Aktionen}{17}{subsection.9.1.4}
-\contentsline {section}{\numberline {9.2}Oberfl\"ache}{17}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}RCP--Anwendung}{17}{subsection.9.2.1}
-\contentsline {subsection}{\numberline {9.2.2}Grafische Darstellung}{17}{subsection.9.2.2}
-\contentsline {section}{\numberline {9.3}Ablaufbeschreibung}{17}{section.9.3}
-\contentsline {chapter}{\numberline {10}Ausblick - weitere Arbeiten}{18}{chapter.10}
-\contentsline {chapter}{Abbildungsverzeichnis}{19}{section*.12}
-\contentsline {chapter}{Tabellenverzeichnis}{20}{section*.14}
-\contentsline {chapter}{Quellcodeverzeichnis}{21}{section*.16}
-\contentsline {chapter}{Literaturverzeichnis}{22}{section*.18}
-\contentsline {chapter}{Glossar}{23}{section*.20}
+\contentsline {subsection}{\numberline {3.1.2}Roboter - Ausblick}{11}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Software}{11}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Microsoft Kinect SDK}{11}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Java}{11}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}GUI}{11}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}Mustererkennung}{11}{section.3.3}
+\contentsline {chapter}{\numberline {4}Kinect--Framework}{12}{chapter.4}
+\contentsline {section}{\numberline {4.1}Microsoft Kinect SDK}{12}{section.4.1}
+\contentsline {section}{\numberline {4.2}Java Frameworks}{12}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}OpenNI}{12}{subsection.4.2.1}
+\contentsline {subsubsection}{Beschreibung}{12}{section*.3}
+\contentsline {subsubsection}{Technische Daten}{13}{section*.4}
+\contentsline {subsubsection}{SWOT--Analyse}{13}{section*.5}
+\contentsline {subsection}{\numberline {4.2.2}OpenKinect}{13}{subsection.4.2.2}
+\contentsline {subsubsection}{Beschreibung}{13}{section*.6}
+\contentsline {subsubsection}{Technische Daten}{13}{section*.7}
+\contentsline {subsubsection}{SWOT--Analyse}{13}{section*.8}
+\contentsline {subsection}{\numberline {4.2.3}jnect}{13}{subsection.4.2.3}
+\contentsline {subsubsection}{Beschreibung}{13}{section*.9}
+\contentsline {subsubsection}{Technische Daten}{13}{section*.10}
+\contentsline {subsubsection}{SWOT--Analyse}{13}{section*.11}
+\contentsline {subsection}{\numberline {4.2.4}Scoring--Modell}{13}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Analyseergebnis}{13}{subsection.4.2.5}
+\contentsline {chapter}{\numberline {5}Konzeption}{14}{chapter.5}
+\contentsline {section}{\numberline {5.1}Technische Vorgaben}{14}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Vorgaben durch Kinect}{14}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Vorgaben durch jnect--Framework}{14}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Service--Architektur}{14}{subsection.5.1.3}
+\contentsline {subsection}{\numberline {5.1.4}Abh\"angigkeit zu Robotertechnik}{14}{subsection.5.1.4}
+\contentsline {section}{\numberline {5.2}Fachliche Vorgaben}{14}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Vorgaben durch \gls {MCI}}{14}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Klassifikation der Anwendung}{14}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Analyse der Gesten- und Sprachsteuerung}{14}{subsection.5.2.3}
+\contentsline {chapter}{\numberline {6}Modelle zur Gesten- und Spracherkennung}{15}{chapter.6}
+\contentsline {section}{\numberline {6.1}Hidden-Markov-Modell}{15}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}ToDo}{15}{subsection.6.1.1}
+\contentsline {section}{\numberline {6.2}Baum-Weich-Algorithmus}{15}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}ToDo}{15}{subsection.6.2.1}
+\contentsline {section}{\numberline {6.3}ToDo}{15}{section.6.3}
+\contentsline {chapter}{\numberline {7}Gesten}{16}{chapter.7}
+\contentsline {section}{\numberline {7.1}Kreisbewegung}{16}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}ToDo}{16}{subsection.7.1.1}
+\contentsline {section}{\numberline {7.2}Vorw\"artsbewegung}{16}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}ToDo}{16}{subsection.7.2.1}
+\contentsline {section}{\numberline {7.3}Haltesignal}{16}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}ToDo}{16}{subsection.7.3.1}
+\contentsline {chapter}{\numberline {8}Sprachbefehle}{17}{chapter.8}
+\contentsline {section}{\numberline {8.1}ToDo}{17}{section.8.1}
+\contentsline {chapter}{\numberline {9}Implementierung}{18}{chapter.9}
+\contentsline {section}{\numberline {9.1}OSGI--Bundles}{18}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}Gesten}{18}{subsection.9.1.1}
+\contentsline {subsection}{\numberline {9.1.2}Sprachbefehle}{18}{subsection.9.1.2}
+\contentsline {subsection}{\numberline {9.1.3}Roboterschnittstelle}{18}{subsection.9.1.3}
+\contentsline {subsection}{\numberline {9.1.4}Ausf\"uhrbare Aktionen}{18}{subsection.9.1.4}
+\contentsline {section}{\numberline {9.2}Oberfl\"ache}{18}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}RCP--Anwendung}{18}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}Grafische Darstellung}{18}{subsection.9.2.2}
+\contentsline {section}{\numberline {9.3}Ablaufbeschreibung}{18}{section.9.3}
+\contentsline {chapter}{\numberline {10}Ausblick - weitere Arbeiten}{19}{chapter.10}
+\contentsline {chapter}{Abbildungsverzeichnis}{20}{section*.12}
+\contentsline {chapter}{Tabellenverzeichnis}{21}{section*.14}
+\contentsline {chapter}{Quellcodeverzeichnis}{22}{section*.16}
+\contentsline {chapter}{Literaturverzeichnis}{23}{section*.18}
+\contentsline {chapter}{Glossar}{24}{section*.20}

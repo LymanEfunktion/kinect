@@ -8,10 +8,29 @@ All that matters is which key was pressed.
 \end{quote}
 Als solches bildet eine Geste abstrakte Strukturen und bildhafte Vorstellungen unmittelbar ab. Sie ist somit eine K\"orperbewegung, 
 die Informationen enth\"alt. Informationen, die herk\"ommliche Eingabeger\"ate, darunter Tastatur und Maus, nicht in dieser Form wiedergeben k\"onnen.
-Eine Problematik, die sich besonders im Bereich der \gls{MCI} ergibt.
-Das Ziel der \gls{MCI} ist es n\"amlich die Kommunikation so intuitiv und unmittelbar wie m\"oglich zu gestalten.
+Ein Umstand, der sich besonders im Bereich der \gls{MCI} auswirkt.
+Das Ziel der \gls{MCI} ist es, die Kommunikation intuitiv und unmittelbar zu gestalten.
 Genau an dieser Stelle setzen Gesten an, in dem sie eine bessere Schnittstelle zwischen Mensch und Maschine darstellen.
 \newline
-Fr\"uhe Ans\"atze, wie das \textbf{Theremin} - ein 1919 erfundenes elektornisches Musikinstrument,
-das mit H\"anden ber\"uhrungslos durch Beeinflussung eines elektromagnetischen Feldes gesteuert wird und dadurch T\"one erzeugt -
-oder \glspl{Datenhandschuh}, die erstmals 1983 von AT\& T Bell Labs entwickelt wurden zeigen, die gro\ss e Spannweite solcher \gls{MMS}
+Die Spannweite von Realisierungen von \gls{MMS} ist gro\ss .
+Fr\"uhe Ans\"atze zeigen bereits das Potential, Gesten zur Steuerung und Nutzung von diversen Ger\"aten zu verwenden. Das \textit{Theremin} - 
+ein 1919 erfundenes elektornisches Musikinstrument, das mit H\"anden ber\"uhrungslos durch Beeinflussung eines elektromagnetischen Feldes 
+gesteuert wird und dadurch T\"one erzeugt - ist eine der ersten technischen L\"osungen f\"ur eine Gestensteuerung.
+Eine weitere From, der \textit{\gls{Datenhandschuh}}, 1977 von Electronic Visualization Laboratory Labs entwickelt
+\footnote{Sturman, D.J., Zeltzer, D. (January 1994). \enquote{A survey of glove-based input}. IEEE Computer Graphics and Applications 14 (1): 30–39}, 
+erregte gro\ss es Interesse und wurde unter anderem als \textit{Power Glove} von Mattel vertrieben.
+\glspl{Datenhandschuh} werden bis heute in den verschiedensten Bereichen eingesetzt.
+Eine moderne Variante der Gestenerkennung ist die \gls{Bewegungsdetektion}. Dabei wird \"uber optische Sensoren der K\"orper oder einzelne K\"orperteile
+des Nutzers erkannt und somit die Steuerung durch Gesten erm\"oglicht. Der popul\"arste Vertreter ist \textit{\gls{Kinect}} mit \"uber 18 Millionen verkauften Exemplaren
+\footnote{Takahashi, Dean (Januar 9, 2012). \href{http://venturebeat.com/2012/01/09/xbox-360-surpassed-66m-sold-and-kinect-has-sold-18m-units/}{\enquote{Xbox 360 surpasses 66M sold and Kinect passes 18M units}}. venturebeat. Abgerufen Januar 10, 2012}.
+Im folgenden wird mit jener Kinect gearbeitet. 
+\newline
+In dieser Arbeit wird mit Hilfe der Kinect eine Gesten- und Spracherkennung entwickelt um eine Steuerung f\"ur einen mobilen Roboter zu implementieren.
+Aufgrund des Umfangs dieser Studienarbeit wird die Erarbeitung dieser Anwendung in zwei Teile aufgeteilt.
+Der erste Teil der Arbeit besch\"aftigt sich vorranging mit der Realisierung der Gesten- und Spracherkennung.
+Die eigentliche Steuerung f\"ur einen mobilen Roboter wird vorerst durch eine Schnittstelle und einer Testumgebung ersetzt.
+Der Fokus liegt hierbei in erster Linie auf der verwendeten Technik, in diesem Fall der Kinect zur \gls{Bewegungsdetektion}, den verwendeten Gesten und Sprachbefehlen,
+sowie der Umsetzung der Software und den darin verwendeten Technologien.
+Der zweite Teil wid an diese Arbeit ankn\"upfen und im weiteren die Umsetzung der Steuerung f\"ur und den Einsatz eines mobilen Roboters beschreiben.
+\newline
+Die folgende Ausarbeitung spiegelt die Umsetzung des ersten Teils dieser Arbeit wieder.

@@ -51,7 +51,7 @@ public class Activator implements BundleActivator, ServiceListener {
 //				.getProperty(IProductConstants.STARTUP_PROGRESS_RECT));
 //		System.out.println(product
 //				.getProperty(IProductConstants.STARTUP_MESSAGE_RECT));
-//		Activator.context = bundleContext;
+		Activator.context = bundleContext;
 
 		String kinectFilter = "(objectClass=" + KinectProvider.class.getName()
 				+ ")";

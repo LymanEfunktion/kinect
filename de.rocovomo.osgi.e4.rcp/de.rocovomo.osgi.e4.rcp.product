@@ -36,14 +36,17 @@
       <plugin id="de.rocovomo.osgi.jnect.gesture"/>
       <plugin id="de.rocovomo.osgi.jnect.gesture.spi"/>
       <plugin id="de.rocovomo.osgi.jnect.kinect"/>
+      <plugin id="de.rocovomo.osgi.log4j.fragment" fragment="true"/>
       <plugin id="javax.annotation"/>
       <plugin id="javax.inject"/>
       <plugin id="javax.servlet"/>
       <plugin id="javax.xml"/>
+      <plugin id="log4j"/>
       <plugin id="org.apache.batik.css"/>
       <plugin id="org.apache.batik.util"/>
       <plugin id="org.apache.batik.util.gui"/>
       <plugin id="org.apache.commons.logging"/>
+      <plugin id="org.apache.log4j"/>
       <plugin id="org.eclipse.ant.core"/>
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>

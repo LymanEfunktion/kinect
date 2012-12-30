@@ -12,6 +12,54 @@ war die Erweiterung mit dem Erscheinungsdatum 10. Novmeber 2010 in der Ausf\"uhr
 Nach einem sehr erfolgreichem Verkaufsstart \footnote{\href{http://www.guinnessworldrecords.com/records-9000/fastest-selling-gaming-peripheral/}{\enquote{Am schnellsten verkauftes Perepherieger\"at f\"ur Spiele}}. Guinnessworldrecords.com. Abgerufen Dezemeber 22, 2012}
 und anhaltender Nachfrage\footnote{Takahashi, Dean (Januar 9, 2012). \href{http://venturebeat.com/2012/01/09/xbox-360-surpassed-66m-sold-and-kinect-has-sold-18m-units/}{\enquote{Xbox 360 surpasses 66M sold and Kinect passes 18M units}}. venturebeat. Abgerufen Dezember 20, 2012}.
 k\"undigte Microsoft am 9. Januar 2012 ein weiteres Modell der Kinect, die sogenannte \textit{Kinect for Windows} f\"ur den 1. Februar 2012 an \footnote{\href{https://blogs.msdn.com/b/kinectforwindows/archive/2012/01/09/kinect-for-windows-commercial-program-announced.aspx?Redirected=true}{\enquote{Ank\"undigung der \textit{Kinect for Windows}}}. blogs.msdn.com. Abgerufen Dezember 22, 2012}.
+\newline
+Die beiden Modelle unterscheiden sich in einigen Details\footnote{\href{https://www.microsoft.com/en-us/kinectforwindows/news/faq.aspx}{\enquote{Informationsseite \"uber Unterschiede der Kinect Versionen}}. Microsoft.com. Abgerufen Dezember 22, 2012}.
+Der bedeutendste Faktor ist das sogenannte \textit{Near Mode} Feature:
+\begin{quote}
+Near Mode enables the depth sensor to see objects as close as 40 centimeters and also communicates more information about depth values outside the range than was previously available. There is also improved synchronization between color and depth, mapping depth to color, and a full frame API. \footnotemark[6]
+\end{quote}
+Neben dem aktualisierten Tiefensensor unterscheiden sich die beiden Varianten in keinen technischen Eigenschaften, die f\"ur eine Gestenerkennung relevant sind.
+
+\subsubsection{Technische Daten}
+Innerhalb des Geh\"auses, eine Kinect ent\"alt folgende Sensoren:
+\begin{itemize}
+  \item Eine RGB-Kamera mit einer Aufl\"osung von 1280x960.
+  Dies erm\"oglicht eine Farbbilderfassung
+  \item Ein Infrarot (IR) Emitter und ein IR Tiefensensor.
+  Der Emitter emittiert infrarote Lichtstrahlen und der Tiefensensor erfasst die an den Sensor reflektierten Strahlen.
+  Die reflektierten Strahlen werden in Tiefeninformation umgewandelt, in dem der Abstand zwischen Objekt und Sensor bestimmt wird.
+  Dies erm\"oglicht die Erfassung von Tiefenbildern
+  \item Ein \gls{Beamforming}, das vier Mikrofone zur Soundaufnahme enth\"alt. Die Anzahl der Mikrofone erm\"oglicht nicht nur die Aufzeichnung von Audiodaten,
+  sondern auch die Lokalisierung der Soundquelle und die Richtung des Audiosignals
+  \item Ein 3-Achsen-Beschleunigungssensor, konfiguriert f\"ur einen Bereich der zweifachen Erdbeschleunigung, um die gegenw\"artige Ausrichtung der Kinect zu bestimmen
+  \item Ein Kippmotor, zur automatischen Justierung der Sensoren
+\end{itemize}
+
+%Blickwinkel  43 \degree vertikales, 57 \degree horizontales Blickfeld  \pm 27 \degree
+
+\begin{table} [H] \scriptsize
+\begin{center}
+\caption{Additional  InfoObjects for Report}
+\label{tab:Additional Content InfoObjects for Report}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Kinect} & \textbf{Spezifikation} \\
+\hline
+Blickwinkel & $43\degree$ vertikales, $57\degree$ horizontales Blickfeld \\
+\hline
+Vertikaler Neigebereich & $\pm 27\degree$ \\
+\hline
+Bildwiederholrate (Farb und Tiefensignal) & 30 Bilder pro Sekunde (FPS) \\
+\hline
+Audioformat & 16-kHz, 24-bit mono pulse code modulation (PCM)\\
+\hline
+Audioeingang & \\
+\hline
+Accelerometer & \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 \subsection {Roboter - Ausblick}
 % offene Schnittstelle, Arbeiten f\"ur 2. Studienarbeit \ldots

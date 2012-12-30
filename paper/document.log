@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2012.11.30)  29 DEC 2012 21:50
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2012.11.30)  30 DEC 2012 01:57
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -1350,8 +1350,27 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 (c:/texlive/2012/texmf-dist/tex/latex/oberdiek/hypcap.sty
 Package: hypcap 2011/02/16 v1.11 Adjusting the anchors of captions (HO)
 )
-Package hyperref Info: Option `colorlinks' set `false' on input line 67.
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 67.
+(c:/texlive/2012/texmf-dist/tex/latex/was/gensymb.sty
+Package: gensymb 2003/07/02 v1.0 (WaS)
+)
+(c:/texlive/2012/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2009/06/22 v3.00
+
+(c:/texlive/2012/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+))
+(c:/texlive/2012/texmf-dist/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+Package hyperref Info: Option `colorlinks' set `false' on input line 73.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 73.
 )
 (c:/texlive/2012/texmf-dist/tex/latex/koma-script/scrhack.sty
 Package: scrhack 2012/07/29 v3.11b KOMA-Script package (hacking other packages)
@@ -1454,17 +1473,28 @@ LaTeX Info: Redefining \nameref on input line 28.
 \@outlinefile=\write8
 \openout8 = `document.out'.
 
+LaTeX Info: Redefining \celsius on input line 28.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 28.
+
+
+
+Package gensymb Warning: Not defining \perthousand.
+
+LaTeX Info: Redefining \ohm on input line 28.
+Package gensymb Info: Using \Omega for \ohm on input line 28.
+
+Package gensymb Warning: Not defining \micro.
+
 Package scrhack Info: undefining \float@addtolists on input line 28.
 \openout2 = `deckblatt.aux'.
 
- (./deckblatt.tex
-<img/logo/dhbw.png, id=248, 710.655pt x 299.1175pt>
+(./deckblatt.tex <img/logo/dhbw.png, id=248, 710.655pt x 299.1175pt>
 File: img/logo/dhbw.png Graphic file (type png)
- <use img/logo/dhbw.png>
+
+<use img/logo/dhbw.png>
 Package pdftex.def Info: img/logo/dhbw.png used on input line 5.
 (pdftex.def)             Requested size: 175.75482pt x 73.97733pt.
-
-[1
+ [1
 
 \openout3 = `document.ist'.
 
@@ -1491,14 +1521,29 @@ File: t2acmss.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 
 
 
-]) (./document.toc [4
+]) (./document.toc
+LaTeX Font Info:    Try loading font information for U+msa on input line 5.
+ (c:/texlive/2012/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 5.
+
+(c:/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 5.
+
+(c:/texlive/2012/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+) [4
 
 
 ] [5])
 \tf@toc=\write9
 \openout9 = `document.toc'.
 
- [6] (./content/01kapitel.tex
+ [6]
+(./content/01kapitel.tex
 Kapitel 1.
 ) (./content/02kapitel.tex [7
 
@@ -1508,45 +1553,53 @@ Kapitel 2.
 
 ]
 Kapitel 3.
-) (./content/04kapitel.tex [10
+[10
 
-] [11]
+]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 26.
+ (c:/texlive/2012/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 26.
+ [11])
+(./content/04kapitel.tex [12]
 Kapitel 4.
-) (./content/05kapitel.tex [12
+) (./content/05kapitel.tex [13
 
-] [13]
+] [14]
 Kapitel 5.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\gls' on input line 22.
 
-) (./content/06kapitel.tex [14
+) (./content/06kapitel.tex [15
 
 ]
 Kapitel 6.
-) (./content/07kapitel.tex [15
+) (./content/07kapitel.tex [16
 
 ]
 Kapitel 7.
-) (./content/08kapitel.tex [16
+) (./content/08kapitel.tex [17
 
 ]
 Kapitel 8.
-) (./content/09kapitel.tex [17
+) (./content/09kapitel.tex [18
 
 ]
 Kapitel 9.
-) (./content/nkapitel.tex [18
+) (./content/nkapitel.tex [19
 
 ]
 Kapitel 10.
-) [19
+) [20
 
 ] (./document.lof)
 \tf@lof=\write10
 \openout10 = `document.lof'.
 
- [20
+ [21
 
 
 
@@ -1554,7 +1607,7 @@ Kapitel 10.
 \tf@lot=\write11
 \openout11 = `document.lot'.
 
- [21
+ [22
 
 
 
@@ -1562,7 +1615,7 @@ Kapitel 10.
 \tf@lol=\write12
 \openout12 = `document.lol'.
 
- [22
+ [23
 
 
 
@@ -1572,13 +1625,13 @@ Kapitel 10.
 LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
                before end of `thebibliography' environment on input line 3.
 
-) (./document.acr) (./document.gls [23
+) (./document.acr) (./document.gls [24
 
 
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 101.
- [24
+ [25
 
 
 
@@ -1588,34 +1641,38 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 101.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 101.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 101.
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: C3A75BC41B1D4A4E23F11C58BAD97B90;4028.
+(rerunfilecheck)             Checksum: 88AF60AF7672CD932A8913CF6CB12234;4028.
  ) 
 Here is how much of TeX's memory you used:
- 23057 strings out of 493488
- 383874 string characters out of 3144747
- 525629 words of memory out of 3000000
- 25680 multiletter control sequences out of 15000+200000
- 20643 words of font info for 44 fonts, out of 3000000 for 9000
+ 23507 strings out of 493488
+ 389837 string characters out of 3144747
+ 528352 words of memory out of 3000000
+ 26088 multiletter control sequences out of 15000+200000
+ 24579 words of font info for 63 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 83i,8n,83p,1485b,587s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 83i,9n,83p,1485b,587s stack positions out of 5000i,500n,10000p,200000b,50000s
 {c:/texlive/2012/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc}<c:/tex
 live/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2012/
-texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2012/texmf-dist
-/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2012/texmf-dist/fonts/typ
-e1/public/cm-super/sfbx2074.pfb><c:/texlive/2012/texmf-dist/fonts/type1/public/
-cm-super/sfrm0700.pfb><c:/texlive/2012/texmf-dist/fonts/type1/public/cm-super/s
-frm0800.pfb><c:/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pf
-b><c:/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texl
-ive/2012/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb><c:/texlive/2012/t
-exmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb><c:/texlive/2012/texmf-dist/
-fonts/type1/public/cm-super/sfsx1728.pfb><c:/texlive/2012/texmf-dist/fonts/type
-1/public/cm-super/sfsx2488.pfb><c:/texlive/2012/texmf-dist/fonts/type1/public/c
-m-super/sfti1000.pfb><c:/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sf
-ti1200.pfb>
-Output written on document.pdf (24 pages, 319253 bytes).
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2012/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2012/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2012/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy8.pfb><c:/texlive/2012/texmf-dist/fonts/type1/public/cm-super/s
+fbx0800.pfb><c:/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pf
+b><c:/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texl
+ive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2012/t
+exmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><c:/texlive/2012/texmf-dist/
+fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2012/texmf-dist/fonts/type
+1/public/cm-super/sfrm1000.pfb><c:/texlive/2012/texmf-dist/fonts/type1/public/c
+m-super/sfrm1200.pfb><c:/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sf
+sx1200.pfb><c:/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb
+><c:/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfsx1728.pfb><c:/texli
+ve/2012/texmf-dist/fonts/type1/public/cm-super/sfsx2488.pfb><c:/texlive/2012/te
+xmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2012/texmf-dist/f
+onts/type1/public/cm-super/sfti1200.pfb>
+Output written on document.pdf (25 pages, 385779 bytes).
 PDF statistics:
- 540 PDF objects out of 1000 (max. 8388607)
- 493 compressed objects within 5 object streams
- 112 named destinations out of 1000 (max. 500000)
+ 573 PDF objects out of 1000 (max. 8388607)
+ 519 compressed objects within 6 object streams
+ 116 named destinations out of 1000 (max. 500000)
  498 words of extra memory for PDF output out of 10000 (max. 10000000)
 

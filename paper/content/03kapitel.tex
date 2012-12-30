@@ -7,7 +7,7 @@
 % genaue Auflistung aller Bestandteile \ldots ben\"otigte Software, Eigenschaften
 % Mikrofon, RGB-Kamera, Infrarot \ldots
 Kinect ist ein Ger\"at zur Dedektion von Bewegungen. Entwickelt wurde es von PrimeSense als Hardware zur Steuerung der Videokonsole 
-XBOX 360 von Microsoft Corp. . Nach der Ank\"undigung im M\"arz 2010 \footnote{Pressemitteilung, der Ver\"offentlichung. Siehe \href{https://www.microsoft.com/en-us/news/press/2010/mar10/03-31PrimeSensePR.aspx}{Link}. Microsoft.com.  Abgerufen Dezember 20, 2012}
+XBOX 360 von Microsoft Corp. Nach der Ank\"undigung im M\"arz 2010 \footnote{Pressemitteilung, der Ver\"offentlichung. Siehe \href{https://www.microsoft.com/en-us/news/press/2010/mar10/03-31PrimeSensePR.aspx}{Link}. Microsoft.com.  Abgerufen Dezember 20, 2012}
 war die Erweiterung mit dem Erscheinungsdatum 10. Novmeber 2010 in der Ausf\"uhrung \textit{Kinect for XBOX 360} in Europa erh\"altlich \footnote{Erscheinungsdatum der \textit{Kinect for XBOX 360}. Siehe \href{http://www.bbc.co.uk/newsbeat/10996389}{Link}. BBC UK. Abgerufen Dezember 20, 2012}.
 Nach einem sehr erfolgreichem Verkaufsstart \footnote{\href{http://www.guinnessworldrecords.com/records-9000/fastest-selling-gaming-peripheral/}{\enquote{Am schnellsten verkauftes Perepherieger\"at f\"ur Spiele}}. Guinnessworldrecords.com. Abgerufen Dezemeber 22, 2012}
 und anhaltender Nachfrage\footnote{Takahashi, Dean (Januar 9, 2012). \href{http://venturebeat.com/2012/01/09/xbox-360-surpassed-66m-sold-and-kinect-has-sold-18m-units/}{\enquote{Xbox 360 surpasses 66M sold and Kinect passes 18M units}}. venturebeat. Abgerufen Dezember 20, 2012}.
@@ -18,10 +18,10 @@ Der bedeutendste Faktor ist das sogenannte \textit{Near Mode} Feature:
 \begin{quote}
 Near Mode enables the depth sensor to see objects as close as 40 centimeters and also communicates more information about depth values outside the range than was previously available. There is also improved synchronization between color and depth, mapping depth to color, and a full frame API. \footnotemark[6]
 \end{quote}
-Neben dem aktualisierten Tiefensensor unterscheiden sich die beiden Varianten in keinen technischen Eigenschaften, die f\"ur eine Gestenerkennung relevant sind.
+Neben dem aktualisierten Tiefensensor unterscheiden sich die beiden Varianten auch in einer h\"oheren Aufl\"osung der RGB-Kamera, die f\"ur eine Gestenerkennung relevant sein kann.
 
 \subsubsection{Technische Daten}
-Innerhalb des Geh\"auses, eine Kinect ent\"alt folgende Sensoren:
+Eine Kinect ent\"alt innerhalb des Geh\"auses, folgende Sensoren \footnotemark[1]:
 \begin{itemize}
   \item Eine RGB-Kamera mit einer Aufl\"osung von 1280x960.
   Dies erm\"oglicht eine Farbbilderfassung
@@ -32,16 +32,16 @@ Innerhalb des Geh\"auses, eine Kinect ent\"alt folgende Sensoren:
   \item Ein \gls{Beamforming}, das vier Mikrofone zur Soundaufnahme enth\"alt. Die Anzahl der Mikrofone erm\"oglicht nicht nur die Aufzeichnung von Audiodaten,
   sondern auch die Lokalisierung der Soundquelle und die Richtung des Audiosignals
   \item Ein 3-Achsen-Beschleunigungssensor, konfiguriert f\"ur einen Bereich der zweifachen Erdbeschleunigung, um die gegenw\"artige Ausrichtung der Kinect zu bestimmen
-  \item Ein Kippmotor, zur automatischen Justierung der Sensoren
+  \item Ein Kippmotor, zur automatisierten Justierung der Sensoren
 \end{itemize}
 
-%Blickwinkel  43 \degree vertikales, 57 \degree horizontales Blickfeld  \pm 27 \degree
+Weitere Details der technischen Spezifikation einer \textit{Kinect for Windows} sind in Tabelle~\ref{tab:Kinect - technische Spezifikation} aufgelistet:
 
-\begin{table} [H] \scriptsize
+\begin{table} [H] % \scriptsize
 \begin{center}
-\caption{Additional  InfoObjects for Report}
-\label{tab:Additional Content InfoObjects for Report}
-\begin{tabular}{|l|l|}
+\caption[Caption for LOF]{Kinect - technische Spezifikation \footnotemark[1]}
+\label{tab:Kinect - technische Spezifikation}
+\begin{tabular}{|p{5.7cm}|p{9cm}|}
 \hline
 \textbf{Kinect} & \textbf{Spezifikation} \\
 \hline
@@ -53,13 +53,24 @@ Bildwiederholrate (Farb und Tiefensignal) & 30 Bilder pro Sekunde (FPS) \\
 \hline
 Audioformat & 16-kHz, 24-bit mono pulse code modulation (PCM)\\
 \hline
-Audioeingang & \\
+Audioeingang & Ein Vier-\gls{Beamforming} mit 24-Bit Analog-Digital-Wandler (ADC)\\
 \hline
-Accelerometer & \\
+Datensignal--Tiefensensor & 640x480 16-bit, 30 Bilder pro Sekunde \\
+\hline
+\multirow{2}{*}{Datensignal--RGB-Kamera} & 1280x960 16-Bit, 12 Bilder pro Sekunde\\
+& 640x480 16-Bit, 30 Bilder pro Sekunde \\
+\hline
+Tiefensensorreichweite & 0,4 -- 4 m\\
+\hline
+\multirow{2}{*}{
+\textit{Skeletal Tracking System}} & Erkennt bis zu sechs Benutzer, zwei davon trackbar/verfolgbar\\
+& trackt 20 Gelenke pro aktiven Nutzer\\
 \hline
 \end{tabular}
 \end{center}
 \end{table}
+
+\footnotetext[1]{\href{http://msdn.microsoft.com/en-us/library/jj131033.aspx}{\enquote{Kinect for Windows Sensor Components and Specifications}} msdn.microsoft.com. Abgerufen Dezember 21, 2012}
 
 \subsection {Roboter - Ausblick}
 % offene Schnittstelle, Arbeiten f\"ur 2. Studienarbeit \ldots

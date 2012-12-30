@@ -1,5 +1,7 @@
 set DOCUMENT_NAME=document
 del *.aux
+rmdir \tmp /S /Q
+rmdir tmp
 del %DOCUMENT_NAME%.acn 
 del %DOCUMENT_NAME%.glo 
 del %DOCUMENT_NAME%.ist 

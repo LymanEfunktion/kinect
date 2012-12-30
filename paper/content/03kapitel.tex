@@ -1,27 +1,43 @@
 \chapter{Stand der Technik}
 \label{chap:Stand der Technik}
 
-\section{Hardware}
-% Beschreibung und Vorgaben der genutzten Technik
-\subsection{Kinect}
+\section{Kinect}
 % genaue Auflistung aller Bestandteile \ldots ben\"otigte Software, Eigenschaften
 % Mikrofon, RGB-Kamera, Infrarot \ldots
-Kinect ist ein Ger\"at zur Dedektion von Bewegungen. Entwickelt wurde es von PrimeSense als Hardware zur Steuerung der Videokonsole 
+Kinect ist eine Ger\"at zur Dedektion von Bewegungen. Entwickelt wurde es von PrimeSense als Hardware zur Steuerung der Videokonsole 
 XBOX 360 von Microsoft Corp. Nach der Ank\"undigung im M\"arz 2010 \footnote{Pressemitteilung, der Ver\"offentlichung. Siehe \href{https://www.microsoft.com/en-us/news/press/2010/mar10/03-31PrimeSensePR.aspx}{Link}. Microsoft.com.  Abgerufen Dezember 20, 2012}
 war die Erweiterung mit dem Erscheinungsdatum 10. Novmeber 2010 in der Ausf\"uhrung \textit{Kinect for XBOX 360} in Europa erh\"altlich \footnote{Erscheinungsdatum der \textit{Kinect for XBOX 360}. Siehe \href{http://www.bbc.co.uk/newsbeat/10996389}{Link}. BBC UK. Abgerufen Dezember 20, 2012}.
 Nach einem sehr erfolgreichem Verkaufsstart \footnote{\href{http://www.guinnessworldrecords.com/records-9000/fastest-selling-gaming-peripheral/}{\enquote{Am schnellsten verkauftes Perepherieger\"at f\"ur Spiele}}. Guinnessworldrecords.com. Abgerufen Dezemeber 22, 2012}
 und anhaltender Nachfrage\footnote{Takahashi, Dean (Januar 9, 2012). \href{http://venturebeat.com/2012/01/09/xbox-360-surpassed-66m-sold-and-kinect-has-sold-18m-units/}{\enquote{Xbox 360 surpasses 66M sold and Kinect passes 18M units}}. venturebeat. Abgerufen Dezember 20, 2012}.
 k\"undigte Microsoft am 9. Januar 2012 ein weiteres Modell der Kinect, die sogenannte \textit{Kinect for Windows} f\"ur den 1. Februar 2012 an \footnote{\href{https://blogs.msdn.com/b/kinectforwindows/archive/2012/01/09/kinect-for-windows-commercial-program-announced.aspx?Redirected=true}{\enquote{Ank\"undigung der \textit{Kinect for Windows}}}. blogs.msdn.com. Abgerufen Dezember 22, 2012}.
 \newline
-Die beiden Modelle unterscheiden sich in einigen Details\footnote{\href{https://www.microsoft.com/en-us/kinectforwindows/news/faq.aspx}{\enquote{Informationsseite \"uber Unterschiede der Kinect Versionen}}. Microsoft.com. Abgerufen Dezember 22, 2012}.
+Dar\"uber hinaus ver\"offentlichte Microsoft bereits am 16. Juni 2011 eine erste Version ihrer \textit{Kinect for Windows SDK}\footnote{\href{https://www.microsoft.com/en-us/news/press/2011/jun11/06-16MSKinectSDKPR.aspx}{\enquote{Microsoft Releases Kinect for Windows SDK Beta for Academics and Enthusiasts}}. Microsoft.com. Abgerufen Dezember 21, 2012}.
+Mit diesem \gls{SDK} ist es m\"oglich auf einer Windows 7 Plattform Anwendungen zu entwickeln, die eine Kinect als Eingabeger\"at verwenden.
+\newline
+Mit der Verf\"ugbarkeit einer Kinect-Variante, die f\"ur den Einsatz am PC ausgelegt ist und der frei zug\"anglichen \acrshort{SDK} einer breiten \"Offentlichkeit als Forschungsgegenschaft zug\"anglich, 
+was auch der ausschlaggebende Punkt f\"ur den Einsatz der Kinect in dieser Studienarbeit ist.
+\subsection{Hardware}
+% Beschreibung und Vorgaben der genutzten Technik
+
+Die beiden Kinect-Modelle unterscheiden sich in einigen Details\footnote{\href{https://www.microsoft.com/en-us/kinectforwindows/news/faq.aspx}{\enquote{Informationsseite \"uber Unterschiede der Kinect Versionen}}. Microsoft.com. Abgerufen Dezember 22, 2012}.
 Der bedeutendste Faktor ist das sogenannte \textit{Near Mode} Feature:
 \begin{quote}
 Near Mode enables the depth sensor to see objects as close as 40 centimeters and also communicates more information about depth values outside the range than was previously available. There is also improved synchronization between color and depth, mapping depth to color, and a full frame API. \footnotemark[6]
 \end{quote}
 Neben dem aktualisierten Tiefensensor unterscheiden sich die beiden Varianten auch in einer h\"oheren Aufl\"osung der RGB-Kamera, die f\"ur eine Gestenerkennung relevant sein kann.
-
+Aus diesem Grund wird f\"ur diese Arbeit die \textit{Kinect for Windows} genutzt.
 \subsubsection{Technische Daten}
 Eine Kinect ent\"alt innerhalb des Geh\"auses, folgende Sensoren \footnotemark[1]:
+
+\footnotetext[1]{\href{http://msdn.microsoft.com/en-us/library/jj131033.aspx}{\enquote{Kinect for Windows Sensor Components and Specifications}} msdn.microsoft.com. Abgerufen Dezember 21, 2012}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{img/content/kinect_interior.png}
+\caption[Caption for LOFd]{Schematische Ansicht der Sensoren einer \textit{Kinect for Windows} (Quelle: Microsoft Corp.\footnotemark[1])}
+\label{fig:Schematische Ansicht der Sensoren einer Kinect for Windows}
+\end{figure}
+
 \begin{itemize}
   \item Eine RGB-Kamera mit einer Aufl\"osung von 1280x960.
   Dies erm\"oglicht eine Farbbilderfassung
@@ -63,8 +79,8 @@ Datensignal--Tiefensensor & 640x480 16-bit, 30 Bilder pro Sekunde \\
 Tiefensensorreichweite & 0,4 -- 4 m\\
 \hline
 \multirow{2}{*}{
-\textit{Skeletal Tracking System}} & Erkennt bis zu sechs Benutzer, zwei davon trackbar/verfolgbar\\
-& trackt 20 Gelenke pro aktiven Nutzer\\
+\textit{\gls{Skeletal Tracking System}}} & Erkennung von bis zu sechs Benutzern, zwei davon trackbar/verfolgbar\\
+& Verfolgung von 20 Gelenken pro aktivem Nutzer\\
 \hline
 \end{tabular}
 \end{center}
@@ -72,13 +88,23 @@ Tiefensensorreichweite & 0,4 -- 4 m\\
 
 \footnotetext[1]{\href{http://msdn.microsoft.com/en-us/library/jj131033.aspx}{\enquote{Kinect for Windows Sensor Components and Specifications}} msdn.microsoft.com. Abgerufen Dezember 21, 2012}
 
-\subsection {Roboter - Ausblick}
-% offene Schnittstelle, Arbeiten f\"ur 2. Studienarbeit \ldots
-\section{Software}
+\subsection{Software}
+Durch die Ver\"offentlichung eines \glslink{SDK}{Software Development Kits} ist es m\"oglich, die Kinect in eigene Pogramme einzubinden und neue Anwendungsf\"alle zu bearbeiten.
 
-\subsection{Microsoft Kinect SDK}
+\subsubsection{Kinect for Windows SDK}
 % N\"otig f\"ur Steuerung der Kinect
-\subsection{Java}
+Das \textit{Kinect for Windows SDK} steht aktuell in der Version 1.6 \footnote{\href{https://www.microsoft.com/en-us/kinectforwindows/develop/}{Downloadseite des SDK}. Microsoft.com. Abgerufen Dezember 21, 2012}
+bereit. Dabei kann direkt in den Programmiersprachen C++, C\# , und Visual Basic auf einer Windows 7 Plattform entwickelt werden.
+al;kdjfa;lkdjf;lekjf;lakdjf;alskjf
+\subsubsection{Weitere Frameworks}
+Da Microsoft die Nutzungsm\"oglichkeiten seines SDK hinsichtlich verwendeter Pogrammiersprache und Plattform einschr\"ankt, begannen Forscher eigene Frameworks und Treiber zur Nutzung der Kinect zu entwickeln\footnote{\href{http://hackaday.com/2010/11/11/open-source-kinect-contest-has-been-won/}{\enquote{Open Source Kinect contest has been won}}. hackaday.com. November 11, 2010. Abgerufen Dezember 21, 2012}.
+PrimeSense selbst ver\"offentlichte Treiber und Middleware f\"ur die Kinect \footnote{Mitchell, Richard (Dezember 10, 2010). \href{http://www.joystiq.com/2010/12/10/primesense-releases-open-source-drivers-middleware-for-kinect/}{\enquote{PrimeSense releases open source drivers, middleware for Kinect}}. Joystiq. Abgerufen Dezember 22, 2012}.
+Ein Teil dieser Ausarbeitung ist es, ein f\"ur die Aufgabenstellung und Zielsetzung der Studienarbeit passendes Framework zu bestimmen.
+
+\section {Roboter - Ausblick}
+% offene Schnittstelle, Arbeiten f\"ur 2. Studienarbeit \ldots
+
+\section{Java}
 % Entwicklungsumgebung \ldots
 
 \subsection{GUI}

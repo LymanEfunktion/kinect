@@ -52,22 +52,22 @@ public class Activator implements BundleActivator, ServiceListener {
 //		System.out.println(product
 //				.getProperty(IProductConstants.STARTUP_MESSAGE_RECT));
 //		Activator.context = bundleContext;
-
-		String kinectFilter = "(objectClass=" + KinectProvider.class.getName()
-				+ ")";
-
-		ServiceReference<?>[] references = bundleContext
-				.getAllServiceReferences(null, kinectFilter);
-
-		if (references != null) {
-			for (ServiceReference<?> serviceReference : references) {
-				System.out.println(serviceReference.getBundle()
-						.getSymbolicName());
-				registerService(serviceReference);
-			}
-		}
-
-		bundleContext.addServiceListener(this, kinectFilter);
+//
+//		String kinectFilter = "(objectClass=" + KinectProvider.class.getName()
+//				+ ")";
+//
+//		ServiceReference<?>[] references = bundleContext
+//				.getAllServiceReferences(null, kinectFilter);
+//
+//		if (references != null) {
+//			for (ServiceReference<?> serviceReference : references) {
+//				System.out.println(serviceReference.getBundle()
+//						.getSymbolicName());
+//				registerService(serviceReference);
+//			}
+//		}
+//
+//		bundleContext.addServiceListener(this, kinectFilter);
 	}
 
 	private void registerService(ServiceReference<?> serviceReference) {

@@ -11,6 +11,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
+import org.eclipse.ui.PlatformUI;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GLContext;
@@ -26,6 +27,9 @@ public class View {
 		manager.runAndCollect(new Runnable() {
 			public void run() {
 				main(composite);
+				if(!PlatformUI.isWorkbenchRunning()) {
+					System.out.println("Proble2m");
+				}
 			}
 		});
 	}

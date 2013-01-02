@@ -84,7 +84,7 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 		ServiceReference<?>[] references = bundleContext
 				.getAllServiceReferences(null, filter);
 
-		if (references != null) {
+		if (references != null) { 
 			connector = new Connector();
 			if (connector.isConnected()) {
 				for (ServiceReference<?> serviceReference : references) {
@@ -98,6 +98,7 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 				
 			} else {
 				logger.error("Init fehlgeschlagen");
+				System.out.println("asdflasdf");
 			}
 		}
 

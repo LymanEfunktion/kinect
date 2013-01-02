@@ -129,8 +129,9 @@ public class Connector {
 		public void run() {
 			try {
 				while(true) {
+					System.out.println(getWidthBetweenHands() + ":" + getHeightBetweenHands());
 					logger.info(getWidthBetweenHands() + ":" + getHeightBetweenHands());
-					sleep(500L);
+					sleep(500L);                                      
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();

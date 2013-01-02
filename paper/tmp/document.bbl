@@ -1,8 +1,28 @@
-\begin{thebibliography}{Cor12}
+\begin{thebibliography}{Rab89}
+
+\bibitem[BP66]{bib:hmmbaum}
+E.~Leonard Baum and Ted Petrie.
+\newblock Statistical inference for probabilistic functions of finite state
+  markov chains.
+\newblock {\em The Annals of Mathematical Statistics}, Vol. 37, No.
+  6:1554--1563, 1966.
 
 \bibitem[Cor12]{bib:kinect_hig}
 Microsoft Corp., editor.
 \newblock {\em HUMAN INTERFACE GUIDELINES}, volume v1.5.0.
 \newblock Microsoft Corp., 2012.
+
+\bibitem[Rab89]{bib:hmmrabiner}
+Lawrence~R. Rabiner.
+\newblock A tutorial on hidden markov models and selected applications in
+  speech recognition.
+\newblock {\em Proceedings of the IEEE}, Vol. 77, No. 2:257--286, 1989.
+
+\bibitem[ZS09]{bib:neuralnetwork}
+Chun Zhu and Weihua Sheng.
+\newblock Online hand gesture recognition using neural network based
+  segmentation.
+\newblock {\em Intelligent Robots and Systems, 2009. IROS 2009. IEEE/RSJ
+  International Conference on}, 1:2415--2420, 2009.
 
 \end{thebibliography}

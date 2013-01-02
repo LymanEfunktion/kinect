@@ -122,7 +122,15 @@ Verbreitete L\"osungen, die im Kapitel~\ref{chap:Kinect} n\"aher betrachtet werd
 Die Anwendung, die im Rahmen dieser Arbeit entsteht, wird auf Basis der Programmiersprache Java und der Entwicklungsumgebung Eclipse erstellt.
 Die Nutzung der Kinect und des Kinect SDK unterst\"utzt nativ nicht die Entwicklung auf Basis von Java, wie in Abschnitt~\ref{subsubsec:Kinect_SDK}
 festgestellt wurde. Da jedoch die Expertise der Autoren dieser Arbeit im Java-Umfeld liegt, wird die Anwendung dennoch in der Programmiersprache Java umgesetzt.
-TODO \ldots Eclipse
+\newline
+Als Entwicklungsumgebung kommt die \gls{Eclipse} \acrshort{IDE} zum Einsatz. Diese bietet alle Voraussetzungen zur Entwicklung von flexiblen Java-Anwendungen und bieten eine
+ausf\"uhrliche Support-Plattform f\"ur Entwickler. Zus\"atzlich setzt es auf eine dynamische Supportplattform zur Modularisierung von Anwendungen\footnote{\href{http://eclipse.org/osgi/}{\enquote{OSGi}}. eclipse.org. Abgerufen Januar 1, 2013}.
+
+\subsection{OSGi}
+Zur Entwicklung einer komplexen Anwendung mit vielen Abh\"angigkeiten und Schnittstellen, wie die hier zu erarbeitende, braucht es eine entsprechend \textit{m\"achtige} Software-Architektur. Dabei wird hier auf OSGi-Plattform gesetzt.
+OSGi\footnote{\href{http://www.osgi.org/Technology/HomePage}{\enquote{OSGi Alliance}}. osgi.org. Abgerufen Januar 1, 2013} ist ein \gls{Framework}, dass Spezifikationen zur Definition eines dynamischen \textit{Komponentenmodells} unter Java.
+Diese Komponenten werden \textit{Bundles} genannt und stehen anderen Komponenten als sogenannte \textit{Services} bereit.
+Die OSGi Alliance\footnotemark[1] selbst spezifiziert lediglich die \gls{API}. Die Umsetzung f\"ur die Eclipse \acrshort{IDE} lautet \gls{Equinox}\footnote{\href{http://eclipse.org/equinox/}{\enquote{equinox OSGi}}. eclipse.org. Abgerufen Januar 1, 2013}.
 
 \subsection{Grafische Oberfl\"ache}
 % Darstellung der Anwendung, der Gesteneingabe etc.
@@ -132,11 +140,10 @@ Dabei wird auf verschiedene Techniken gesetzt, die im folgenden kurz beschrieben
 Bei der grafischen Darstellung muss man zwischen Informationen der Anwendung und Interaktion des Nutzers mit der Software unterscheiden. Dazu werden n\"amlich unterschiedliche Techniken verwendet.
 
 \subsubsection{Rich client platform}
-Die \gls{RCP} ist Werkzeug zur Entwicklung von unabh\"angigen Software-Komponenten, die nicht nur auf \acrshort{GUI}-Komponenten beschr\"ankt ist
+Die \gls{RCP} ist ein Werkzeug zur Entwicklung von unabh\"angigen Software-Komponenten, die nicht nur auf \acrshort{GUI}-Komponenten beschr\"ankt ist
 \footnote{\href{http://wiki.eclipse.org/index.php/Rich_Client_Platform}{\enquote{Rich Client Platform}}. wiki.eclipse.org. Abgerufen Januar 1, 2013}.
 Dabei liegt der Fokus auf Client-Applikation, worunter auch die Andwendung dieser Arbeit f\"allt.
-aelkrjqw';lkjads; 
- 
+Daher wird \acrshort{RCP} im Rahmen dieser Arbeit zur Erstellung der Oberf\"ache der Anwendung verwendet.
 \subsubsection{Die Lightweight Java Game Library}
 Die grafische Darstellung der Interaktion zwischen Akteur und Kinect ist ein wichtiger Bestandteil dieser Anwendung.
 Zur Anzeige aufw\"andiger grafischer Objekte wird auf die \gls{LWJGL}\footnote{\href{http://www.lwjgl.org/}{\enquote{LWJGL Lightweight Java Game Library}}. lwjgl.org. Abgerufen Januar 1, 2013} gesetzt.
@@ -151,12 +158,23 @@ Es erm\"oglicht aus strukturierten Datenmodellen, Java-Code zu generieren. F\"ur
 Zur grafischen Darstellung und grafischen Manipulation der zuvor vorgestellten EMF-Modelle existiert das sogenannte \gls{GEF}\footnote{\href{http://www.eclipse.org/gef/}{\enquote{GEF (Graphical Editing Framework)}}. eclipse.org. Abgerufen Januar 1, 2013}.
 Es stellt Methoden zur Verf\"ugung, um Grafikeditoren und weitere Ansichten f\"r Eclipse Anwendungen zu erstellen. F\"ur die Studienarbeit relevante Bereiche, sind die Funktionen, die eine vereinfachte Darstellung der eben genannten EMF-Modelle erm\"oglichen.
 
-
-\subsection{OSGI}
-
-
-\section {Roboter - Ausblick}
+\section {Roboter -- Ausblick}
 % offene Schnittstelle, Arbeiten f\"ur 2. Studienarbeit \ldots
-
+Ziel und Aufgabenstellung dieser Arbeit ist, wie bereits in Kapitel~\ref{chap:Aufgabenstellung} erl\"autert, der Entwurf einer Steuerung f\"ur einen mobilen Roboter.
+Der erste Teil, der zweigeteilten Studienarbeit befasst sich dabei nicht direkt mit der eigentlichen Robotersteuerung oder der Beschreibung und Auswahl eines entsprechenden Modells.
+Dies ist Aufgabe und Fokus des zweiten Teils.
+\newline
+F\"ur die Zwecke der Arbeiten an diesem Teil und der dabei zu erstellenden Anwendung, wird lediglich ein Grundger\"urst und eine Schnittstelle erarbeitet, um auf die Kinect-Steuerung zuzugreifen.
+Siehe hierzu Abschnitt~\ref{subsec:Roboterschnittstelle}.
 \section{Mustererkennung}
 % kurzer Einblick in m\"ogliche Techniken/Techologien f\"ur Gestenerkennung \ldots
+Die \textit{Kinect for Windows} und die dazu geh\"ohrende \textit{Kinect for Windows SDK} besitzen bereits Algorithmen zur Detektion von Bewegungen einzelner K\"orperteile und der Erkennung von Sprache.
+Dabei muss festgehalten werden, dass zwischen der Detektion der Bewegung eines Gelenkes und der Erkennung einer Geste eine gro\ss e Diskrepanz besteht. Die Bewegung an sich macht noch keine Geste aus.
+Zur \textit{Gestenerkennung} sind Verfahren und Algorithmen notwendig, die \"uber den Funktionsumfang der Kinect \acrshort{SDK} hinausgehen.
+\newline
+Hierzu sind Verfahren der Mustererkennung notwendig, die auf mathematischen Modellen beruhen. Dabei haben sich zwei Richtungen herausgebildet.
+Eine Variante nutzt hierbei sogenannte \glspl{NeuroNetz}. Beschrieben und umgesetzt wurde dieser Ansatz unter anderem von Chun Zhu and Weihua Sheng~\cite{bib:neuralnetwork}.
+\newline
+Eine weitere Variante setzt das sogenannte \gls{HMM} ein, das von Leonard E. Baum~\cite{bib:hmmbaum} postuliert wurde. Dabei handelt es sich um ein stochastisches Modell, indem ein System durch eine Markov-Kette~(Siehe Abschnitt~\ref{subsec:MarkovKette}) modelliert wird. Eine der ersten Arbeiten zum Einsatz in der Gestenerkennung schrieb Lawrence R. Rabiner~\cite{bib:hmmrabiner}.
+Dieser Ansatz findet h\"aufige Verwendung in Bereichen der Spracherkennung, Gestenerkennung und in der \glslink{MMS}{Mensch-Maschine-Kommunikation}. Aus diesem Grund wurde entschieden, ein \gls{HMM} zu erstellen.
+Das stochastische Modell dahinter wird in Kapitel~\ref{chap:Modelle} und die Umsetzung in der Implementierung in Kapitel~\ref{chap:Implementierung} beschrieben.

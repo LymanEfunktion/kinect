@@ -27,7 +27,7 @@ Near Mode enables the depth sensor to see objects as close as 40 centimeters and
 Neben dem aktualisierten Tiefensensor unterscheiden sich die beiden Varianten auch in einer h\"oheren Aufl\"osung der RGB-Kamera, die f\"ur eine Gestenerkennung relevant sein kann.
 Aus diesem Grund wird f\"ur diese Arbeit die \textit{Kinect for Windows} genutzt.
 \subsubsection{Technische Daten}
-Eine Kinect ent\"alt innerhalb des Geh\"auses, folgende Sensoren \footnote{\href{http://msdn.microsoft.com/en-us/library/jj131033.aspx}{\enquote{Kinect for Windows Sensor Components and Specifications}} msdn.microsoft.com. Abgerufen Dezember 21, 2012}:
+Eine Kinect ent\"alt innerhalb des Geh\"auses, folgende Sensoren \footnote{\href{http://msdn.microsoft.com/en-us/library/jj131033.aspx}{\enquote{Kinect for Windows Sensor Components and Specifications}}. msdn.microsoft.com. Abgerufen Dezember 21, 2012}:
 
 \begin{figure}[htb]
 \centering
@@ -84,7 +84,7 @@ Tiefensensorreichweite & 0,4 -- 4 m\\
 \end{center}
 \end{table}
 
-\footnotetext[8]{\href{http://msdn.microsoft.com/en-us/library/jj131033.aspx}{\enquote{Kinect for Windows Sensor Components and Specifications}} msdn.microsoft.com. Abgerufen Dezember 21, 2012}
+\footnotetext[8]{\href{http://msdn.microsoft.com/en-us/library/jj131033.aspx}{\enquote{Kinect for Windows Sensor Components and Specifications}}. msdn.microsoft.com. Abgerufen Dezember 21, 2012}
 
 \subsection{Software}
 Durch die Ver\"offentlichung eines \glslink{SDK}{Software Development Kits} ist es m\"oglich, die Kinect in eigene Pogramme einzubinden und neue Anwendungsf\"alle zu bearbeiten.
@@ -117,27 +117,40 @@ Verbreitete L\"osungen, die im Kapitel~\ref{chap:Kinect} n\"aher betrachtet werd
   \item jnect
 \end{itemize}
 
-\section{Java}
+\section{Java -- Eclipse}
 % Entwicklungsumgebung \ldots
 Die Anwendung, die im Rahmen dieser Arbeit entsteht, wird auf Basis der Programmiersprache Java und der Entwicklungsumgebung Eclipse erstellt.
 Die Nutzung der Kinect und des Kinect SDK unterst\"utzt nativ nicht die Entwicklung auf Basis von Java, wie in Abschnitt~\ref{subsubsec:Kinect_SDK}
 festgestellt wurde. Da jedoch die Expertise der Autoren dieser Arbeit im Java-Umfeld liegt, wird die Anwendung dennoch in der Programmiersprache Java umgesetzt.
+TODO \ldots Eclipse
 
 \subsection{Grafische Oberfl\"ache}
 % Darstellung der Anwendung, der Gesteneingabe etc.
 Das \gls{GUI} ist ein wesentlicher Bestandteil der Anwendung, da hier\"uber der gesamte Informationsaustausch mit dem Nutzer der Kinect stattfindet.
 Dabei wird auf verschiedene Techniken gesetzt, die im folgenden kurz beschrieben werden.
-\subsubsection{Grafische Darstellung}
-Die grafische Darstellung der Interaktion zwischen Akteur und Kinect ist ein wichtiger Bestandteil dieser Anwendung.
-Zur Anzeige aufw\"andiger grafischer Objekte wird auf die \gls{LWJGL}\footnote{\href{http://www.lwjgl.org/}{\enquote{LWJGL Lightweight Java Game Library}} lwjgl.org. Abgerufen Januar 1, 2013} gesetzt. 
-Diese Java-Bibliothek stellt eine API zum Zugriff und zur Verwendung der bekannten \gls{OpenGL}\footnote{\href{https://www.opengl.org/}{\enquote{Startseite der Bibliothek}} opengl.org. Abgerufen Januar 1, 2013} bereit.
-ads;lfkj'w4kj'wrelk
-\subsection{Rich client platform}
+\newline
+Bei der grafischen Darstellung muss man zwischen Informationen der Anwendung und Interaktion des Nutzers mit der Software unterscheiden. Dazu werden n\"amlich unterschiedliche Techniken verwendet.
+
+\subsubsection{Rich client platform}
 Die \gls{RCP} ist Werkzeug zur Entwicklung von unabh\"angigen Software-Komponenten, die nicht nur auf \acrshort{GUI}-Komponenten beschr\"ankt ist
 \footnote{\href{http://wiki.eclipse.org/index.php/Rich_Client_Platform}{\enquote{Rich Client Platform}}. wiki.eclipse.org. Abgerufen Januar 1, 2013}.
 Dabei liegt der Fokus auf Client-Applikation, worunter auch die Andwendung dieser Arbeit f\"allt.
-aelkrjqw';lkjads;
-\subsubsection{EMF -- GEF}
+aelkrjqw';lkjads; 
+ 
+\subsubsection{Die Lightweight Java Game Library}
+Die grafische Darstellung der Interaktion zwischen Akteur und Kinect ist ein wichtiger Bestandteil dieser Anwendung.
+Zur Anzeige aufw\"andiger grafischer Objekte wird auf die \gls{LWJGL}\footnote{\href{http://www.lwjgl.org/}{\enquote{LWJGL Lightweight Java Game Library}}. lwjgl.org. Abgerufen Januar 1, 2013} gesetzt.
+Damit k\"onnen einfach zweidimensionale Grafiken, zum Beispiel Kreise, oder komplexe dreidimensionale Ansichten in einer Java-Anwendung angezeigt werden.
+Diese Java-Bibliothek stellt eine API zum Zugriff und zur Verwendung der bekannten \gls{OpenGL}\footnote{\href{https://www.opengl.org/}{\enquote{The Industry's Foundation for High Performance Graphics}}. opengl.org. Abgerufen Januar 1, 2013} bereit.
+
+\subsubsection{Eclipse Modeling Framework}
+Das \gls{EMF}\footnote{\href{http://www.eclipse.org/modeling/emf/}{\enquote{Eclipse Modeling Framework Project (EMF)}}. eclipse.org. Abgerufen Januar 1, 2013} ist ein Framework zur Modellierung von Java-Anwendungen.
+Es erm\"oglicht aus strukturierten Datenmodellen, Java-Code zu generieren. F\"ur die Kinect-Anwendung sind lediglich die Bereiche des Frameworks relevant, die diese \textit{Modelle} beschreiben.
+ 
+\subsubsection{Graphical Editing Framework}
+Zur grafischen Darstellung und grafischen Manipulation der zuvor vorgestellten EMF-Modelle existiert das sogenannte \gls{GEF}\footnote{\href{http://www.eclipse.org/gef/}{\enquote{GEF (Graphical Editing Framework)}}. eclipse.org. Abgerufen Januar 1, 2013}.
+Es stellt Methoden zur Verf\"ugung, um Grafikeditoren und weitere Ansichten f\"r Eclipse Anwendungen zu erstellen. F\"ur die Studienarbeit relevante Bereiche, sind die Funktionen, die eine vereinfachte Darstellung der eben genannten EMF-Modelle erm\"oglichen.
+
 
 \subsection{OSGI}
 

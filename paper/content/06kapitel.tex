@@ -1,12 +1,47 @@
 \chapter{Modelle zur Gesten- und Spracherkennung}
 \label{chap:Modelle}
 % Einf\"uhrende Worte
-
-\section{Hidden-Markov-Modell}
+Es existieren diverese Verfahren zur Gesten- und Spracherkennung. Die bekanntesten Vertreter sind \glspl{NeuroNetz} und \gls{HMM}.
+Nachdem neuronale Netze nach Lee und Kim~\cite[p.~3]{bib:hmmlee} ungeeignet sind, um dynamische Muster, wie Gesten, zu erkennen und 
+Rabiner~\cite[pp.~1]{bib:hmmrabiner} von den guten Erfolgen der stochastischen Modelle in diesem Bereich spricht,
+wird f\"ur diese Arbeit eine Implementierung mittels \acrshort{HMM} erarbeitet.
+\newline
+Im Folgenden werden die diversen Eigenschaften und Algorithmen hinter diesem Modell er\"ortert.
+\section{Hidden-Markov-Model}
 % Mit Zahlen und Funktionen erschlagen \ldots
 % Alles aus Wiki und Books rauskotzen
+Das \gls{HMM} ist ein stochastisches Modell, in dem ein System durch eine Markov-Kette mit unbeobachteten Zust\"anden modelliert wird.
+Die Theorie dazu wurde von Baum~\cite{bib:hmmbaum}, 1966 ver\"offentlicht.
+\newline
+Der versteckte (englisch \textit{hidden}) Prozess ist eine Markov-Kette und besteht aus aus Zust\"anden und \"Ubergangswahrscheinlichkeiten.
+Das Modell ist wie folgt definiert:
+
+\subsubsection{Definition}
+Ein \acrshort{HMM} $\lambda = (X, A, Y, B, \pi)$ ist gegeben durch
+\begin{itemize}
+  \item $X = {x_1,\ldots,x_n}$ -- Menge aller Zust\"ande,
+  \item $A = {a_{ij}}$ -- \"Ubergangsmatrix zwischen den Zust\"anden, wobei $a_{ij}$ die Wahrscheinlichkeit angibt, dass Zustand $x_i$ in Zustand $x_j$ gewechselt wird,
+  \item $Y = {y_1,\ldots,y_m}$ -- Menge der m\"oglichen Beobachtungen (\textit{Emissionen}),
+  \item $B = {b_{ij}}$ -- Beobachtungsmatrix, wobei $b_{ij}$ die Wahrscheinlichkeit angibt, im Zustand $x_i$ die Beobachtung $y_j \in Y$
+  \item $\pi$ -- Anfangswahrscheinlichkeitsverteilung mit $\pi (i)$ Wahrscheinlichkeit, dass $x_i$ der Startzustand ist.
+\end{itemize}
+
 \subsection{Markov-Kette}
 \label{subsec:MarkovKette}
+Bei einem \acrshort{HMM} werden ausschlie\ss lich diskrete Markov-Ketten verwendet, die wie folgt definiert sind.
+
+\subsubsection{Definition}
+Gegeben sei ein System, das zu jeder gegebenen Zeit $t$ beschrieben werden kann, als sich in einer Menge von $N$ verschiedenen Zust\"anden
+$S_1, S_2, \ldots, S_N$ befindend. Abbildung 
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=5cm]{img/markov/markov_chain.png}
+\caption[Markov-Kette mit f\"unf Zust\"anden]{Markov-Kette mit f\"unf Zust\"anden \protect{($S_1$ bis $S_5$)} mit Verbindungen (Quelle: \protect{\cite{bib:hmmrabiner}}}
+\label{fig:MarkovKette}
+\end{figure}
+
+\subsection{}
 
 \subsection{ToDo}
 % in einzelne Abschnitte aufteilen

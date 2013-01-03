@@ -12,6 +12,11 @@ Microsoft Corp., editor.
 \newblock {\em HUMAN INTERFACE GUIDELINES}, volume v1.5.0.
 \newblock Microsoft Corp., 2012.
 
+\bibitem[LK99]{bib:hmmlee}
+Hyeon-Kyu Lee and Jin~H. Kim.
+\newblock An hmm-based threshold model approach for gesture recognition.
+\newblock {\em IEEE Trans. Pattern Anal. Mach. Intell.}, 21(10):961--973, 1999.
+
 \bibitem[Rab89]{bib:hmmrabiner}
 Lawrence~R. Rabiner.
 \newblock A tutorial on hidden markov models and selected applications in

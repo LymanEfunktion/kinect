@@ -1,6 +1,4 @@
-
-<!-- saved from url=(0115)https://raw.github.com/LymanEfunktion/kinect/dev/de.rocovomo.osgi.e4.rcp/src/de/rocovomo/osgi/e4/rcp/Activator.java -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">package de.rocovomo.osgi.e4.rcp;
+package de.rocovomo.osgi.e4.rcp;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,8 +17,7 @@ public class Activator implements BundleActivator, ServiceListener {
 
 	private static BundleContext context;
 	
-	private Map&lt;ServiceReference&lt;?&gt;, ServiceRegistration&lt;?&gt;&gt; registeredKinect = new HashMap&lt;ServiceReference&lt;?&gt;, ServiceRegistration&lt;?&gt;&gt;();
-
+	private Map<ServiceReference<?>, ServiceRegistration<?>> registeredKinect = new HashMap<ServiceReference<?>, ServiceRegistration<?>>();
 	@SuppressWarnings("rawtypes")
 	private ServiceRegistration serviceRegistration;
 
@@ -58,11 +55,11 @@ public class Activator implements BundleActivator, ServiceListener {
 		String kinectFilter = "(objectClass=" + KinectProvider.class.getName()
 				+ ")";
 
-		ServiceReference&lt;?&gt;[] references = bundleContext
+		ServiceReference<?>[] references = bundleContext
 				.getAllServiceReferences(null, kinectFilter);
 
 		if (references != null) {
-			for (ServiceReference&lt;?&gt; serviceReference : references) {
+			for (ServiceReference<?> serviceReference : references) {
 				System.out.println(serviceReference.getBundle()
 						.getSymbolicName());
 				registerService(serviceReference);
@@ -72,7 +69,7 @@ public class Activator implements BundleActivator, ServiceListener {
 		bundleContext.addServiceListener(this, kinectFilter);
 	}
 
-	private void registerService(ServiceReference&lt;?&gt; serviceReference) {
+	private void registerService(ServiceReference<?> serviceReference) {
 		//TODO: Do something with Kinect
 		Object serviceObject = context.getService(serviceReference);
 
@@ -83,12 +80,12 @@ public class Activator implements BundleActivator, ServiceListener {
 		}
 	}
 
-	private void registerKinectProvider(ServiceReference&lt;?&gt; serviceReference,
+	private void registerKinectProvider(ServiceReference<?> serviceReference,
 			KinectProvider provider) {
 		// TODO Auto-generated method stub
 		Connector connector = provider.getConnector();
 
-		ServiceRegistration&lt;?&gt; kinectServiceRegistration = context
+		ServiceRegistration<?> kinectServiceRegistration = context
 				.registerService(Connector.class.getName(), connector,
 						provider.getKinectProperties());
 
@@ -109,7 +106,7 @@ public class Activator implements BundleActivator, ServiceListener {
 
 	@Override
 	public void serviceChanged(ServiceEvent event) {
-		ServiceReference&lt;?&gt; serviceReference = event.getServiceReference();
+		ServiceReference<?> serviceReference = event.getServiceReference();
 
 		switch (event.getType()) {
 		case ServiceEvent.REGISTERED: {
@@ -125,4 +122,3 @@ public class Activator implements BundleActivator, ServiceListener {
 		}
 	}
 }
-</pre></body><style type="text/css"></style></html>

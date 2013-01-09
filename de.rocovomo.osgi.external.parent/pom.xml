@@ -14,13 +14,17 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
+	<description>Parent for building osgi-compatible jars, 
+		use de.rocovomo.osgi.external - osgi installation test.launch verify that bundles are beeing installed
+	</description>
+
 	<properties>
 		<manifest-location>META-INF</manifest-location>
 		<lwjgl.version>2.8.5</lwjgl.version>
 		<jinput.version>2.0.5</jinput.version>
 		<AppleJavaExtensions.version>1.4</AppleJavaExtensions.version>
 	</properties>
-	
+
 	<modules>
 		<module>../de.rocovomo.osgi.external.jinput</module>
 		<module>../de.rocovomo.osgi.external.jinput-platform</module>
@@ -30,7 +34,7 @@
 		<module>../de.rocovomo.osgi.external.lwjgl-platform</module>
 		<module>../de.rocovomo.osgi.external.appleJavaExtensions</module>
 	</modules>
-	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

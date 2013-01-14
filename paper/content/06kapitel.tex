@@ -1,12 +1,23 @@
 \chapter{Modelle zur Gesten- und Spracherkennung}
 \label{chap:Modelle}
 % Einf\"uhrende Worte
-Es existieren diverese Verfahren zur Gesten- und Spracherkennung. Die bekanntesten Vertreter sind \glspl{NeuroNetz} und \gls{HMM}.
-Nachdem neuronale Netze nach Lee und Kim~\cite[p.~3]{bib:hmmlee} ungeeignet sind, um dynamische Muster, wie Gesten, zu erkennen und 
-Rabiner~\cite[pp.~1]{bib:hmmrabiner} von den guten Erfolgen der stochastischen Modelle in diesem Bereich spricht,
-wird f\"ur diese Arbeit eine Implementierung mittels \acrshort{HMM} erarbeitet.
+Es existieren diverese Verfahren zur Gesten- und Spracherkennung. Die bekanntesten Vertreter sind \glspl{NeuroNetz}, \gls{DTW} und \gls{HMM}.
 \newline
-Im Folgenden werden die diversen Eigenschaften und Algorithmen hinter diesem Modell er\"ortert.
+Im Folgenden werden dennoch kurz die diversen Eigenschaften und Algorithmen hinter den weiteren Modell er\"ortert, um eine fundierte Entscheidung \"uber die Auswahl eines dieser Modelle f\"ur diese Arbeit und das zu erarbeitende Programm zu treffen.
+ 
+
+\section{Dynamic Time Warping}
+\gls{DTW} ist ein Algorithmus zur Messung von \"Ahnlichkeiten zwischen einer Eingabesequenz und einem gegebenen Muster, die sich im zeitlichen Ablauf oder der Geschwindigkeit unterscheiden. Dabei w\"urden zum Bespiel die Gemeinsamkeiten im Laufmuster erkannt werden, selbst wenn eine Person in einem Video langsam l\"auft und diese Person in einer weiteren Aufnahme schneller laufen w\"urde, oder gar eine Beschleunigung oder Verlangsamung w\"ahrend des Zeitraumes der Beobachtung stattfindet.
+\newline
+Formalisiert versteht man unter \acrshort{DTW} eine vorlagenbasierte Erkennungstechnik auf Grundlage von dynamischer Programmierung~\cite[S.~963]{bib:hmmlee}.
+Trotz der Erfolge bei Aufgaben mit kleinem Vokabular, braucht \acrshort{DTW} eine gro\ss e Anzahl an Vorlagen f\"ur ein gr\"osseres Umfeld an Variation. Weiterhin kann es keine undefinierte Muster verarbeiten.
+\newline
+Takahashi et al.~\cite{bib:takahashi} haben einen sogenannten \textit{spotting algorithm} vorgeschlagen 
+Referenz~\cite{bib:finlay}~\cite{bib:kober}
+
+
+\section{K\"unstliche neueronale Netze}
+
 \section{Hidden Markov Model}
 % Mit Zahlen und Funktionen erschlagen \ldots
 % Alles aus Wiki und Books rauskotzen
@@ -25,6 +36,10 @@ Ein \gls{HMM} $\lambda = (S, A, O, B, \pi)$ ist gegeben durch
   \item $B = {b_{ij}}$ -- Beobachtungsmatrix, wobei $b_{ij}$ die Wahrscheinlichkeit angibt, im Zustand $S_i$ die Beobachtung $O_j \in O$
   \item $\pi$ -- Anfangswahrscheinlichkeitsverteilung mit $\pi (i)$ Wahrscheinlichkeit, dass $S_i$ der Startzustand ist.
 \end{itemize}
+
+\subsection{Auswahl des Modells f\"ur die Arbeit}
+Rabiner et al.~\cite[S.~257f]{bib:hmmrabiner}, sowie Lee und Kim~\cite[S.~961]{bib:hmmlee} sprechen von den guten Erfolgen des \gls{HMM} als stochastisches Werkzeug zur Modellierung von Gesten.
+Daher wird f\"ur diese Arbeit eine Implementierung mittels \acrshort{HMM} erarbeitet.
 
 \subsection{Diskrete Markov-Prozesse}
 \label{subsec:MarkovKette}
@@ -112,6 +127,7 @@ Die Gr\"o\ss e $p_i(d)$ ist die (diskrete) Wahrscheinlichkeitsdichtefunktion der
 Daraus ergeben sich die Anzahl aufeinanderfolgender Sonnentage, gem\"a\ss \, dem Modell $\frac{1}{0,2} = 5$,  die Anzahl aufeinanderfolgender bew\"olkter Tage entsprechend mit $2,5$ und die Anzahl aufeinanderfolgender Regentage mit $1,67$.
 
 \subsection{Erweiterung auf Hidden Markov Model}
+\label{subsec:HMM}
 % in einzelne Abschnitte aufteilen
 Um Markov Prozesse auf Probleme anwenden zu k\"onnen, in denen sich die Beobachtungen nicht auf Zustand beziehen, muss das bisher dargestellte Konzept erweitert werden. Dazu wird der Fall hinzugef\"ugt, dass eine Beobachtung durch eine Wahrscheinlichkeitsfunktion des Zustandes ausgedr\"uckt wird. Nach Rabiner~\cite{bib:hmmrabiner} besteht das resultierende Modell aus einem doppelt eingebetteten stochastischen Prozess mit einem darunterliegenden, nicht beobachtbaren(versteckten, daher \textit{hidden}), \glslink{StochProz}{stochastischen Prozess} und wird als \gls{HMM} bezeichnet.
 \newline
@@ -154,6 +170,11 @@ Meist wird hierf\"ur die kompakte Notation
 \lambda = (A, B, \pi)
 \end{equation}
 verwendet, um die Vollst\"andigkeit aller Paramter des Modells anzuzeigen.
+
+\subsection[Die drei grundlegenden Probleme eines Hidden Markov Model]{Die drei grundlegenden Probleme eines Hidden Markov Model \protect{\footnote{Die Ausf\"uhrungen basieren auf den Vortr\"agen von Jack Ferguson von IDA an den Bell Laboratories}}}
+Verwendet man die oben Form eines \acrshort{HMM}, die in Abschnitt~ref{subsec:HMM} beschrieben ist, so ergeben sich drei grundlegende Probleme, die vor einem Einsatz von \gls{HMM} in einer Anwendung gel\"ost werden m\"ussen. Diese lauten wie folgt:
+
+
 \section{Baum-Weich-Algorithmus}
 % weiter kotzen
 

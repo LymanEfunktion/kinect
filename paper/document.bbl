@@ -12,10 +12,27 @@ Microsoft Corp., editor.
 \newblock {\em HUMAN INTERFACE GUIDELINES}, volume v1.5.0.
 \newblock Microsoft Corp., 2012.
 
+\bibitem[FB93]{bib:finlay}
+Janet Finlay and Russell Beale.
+\newblock Neural networks and pattern recognition in human-computer
+  interaction.
+\newblock {\em SIGCHI Bull.}, 25(2):25--35, April 1993.
+
+\bibitem[KM12]{bib:kober}
+Matthew Kober, Jens;~Glisson and Michael Mistry.
+\newblock Playing catch and juggling with a humanoid robot.
+\newblock 2012.
+
 \bibitem[LK99]{bib:hmmlee}
 Hyeon-Kyu Lee and Jin~H. Kim.
 \newblock An hmm-based threshold model approach for gesture recognition.
 \newblock {\em IEEE Trans. Pattern Anal. Mach. Intell.}, 21(10):961--973, 1999.
+
+\bibitem[NO96]{bib:takahashi}
+T.~Nishimura and R.~Oka.
+\newblock Spotting recognition of human gestures from time-varying images.
+\newblock In {\em Automatic Face and Gesture Recognition, 1996., Proceedings of
+  the Second International Conference on}, pages 318 --322, oct 1996.
 
 \bibitem[Rab89]{bib:hmmrabiner}
 Lawrence~R. Rabiner.

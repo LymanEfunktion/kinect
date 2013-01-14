@@ -4,17 +4,35 @@ import org.jnect.core.SpeechListener;
 import org.jnect.gesture.Gesture;
 import org.jnect.gesture.GestureListener;
 
-public interface Action {
+import de.rocovomo.osgi.action.impl.RobotActionImpl;
 
-	GestureListener getGestureListener() throws NoValidGestureListenerException;
+public abstract class Action {
+
+	public abstract GestureListener getGestureListener() throws NoValidGestureListenerException;
+
+	public abstract SpeechListener getSpeechListener() throws NoValidSpeechListenerException;
+
+	public abstract Class<? extends Gesture> getRequiredGesture();
+
+	public abstract String getRequiredSpeechString();
+
+	public abstract boolean isGestureEnabled();
+
+	public abstract boolean isSpeechEnabled();
 	
-	SpeechListener getSpeechListener() throws NoValidSpeechListenerException;
+	protected RobotActionImpl impl;
 	
-	Class<? extends Gesture> getRequiredGesture();
-
-	String getRequiredSpeechString();
-
-	boolean isGestureEnabled();
-
-	boolean isSpeechEnabled();
+	public abstract void execute();
+	
+	public Action(RobotActionImpl impl) {
+		this.impl = impl;
+	}
+	
+	public RobotActionImpl getImpl() {
+		return impl;
+	}
+	
+	public void setImpl(RobotActionImpl impl) {
+		this.impl = impl;
+	}
 }

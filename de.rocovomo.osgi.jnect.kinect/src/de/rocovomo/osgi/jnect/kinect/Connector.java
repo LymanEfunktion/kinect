@@ -1,17 +1,22 @@
 package de.rocovomo.osgi.jnect.kinect;
 
+import java.util.Observable;
+
+import org.apache.log4j.Logger;
 import org.jnect.bodymodel.Body;
 import org.jnect.core.KinectManager;
 import org.jnect.gesture.GestureProxy;
 
-import org.apache.log4j.Logger;
-
+import de.rocovomo.osgi.action.Action;
+import de.rocovomo.osgi.action.NoValidGestureListenerException;
+import de.rocovomo.osgi.action.impl.testactionimplrobotx.TestActionImplRobotX;
+import de.rocovomo.osgi.action.testaction.TestAction;
 import de.rocovomo.osgi.jnect.adapter.RoCoVoMoAdapter;
 import de.rocovomo.osgi.jnect.adapter.spi.AdapterProvider;
 import de.rocovomo.osgi.jnect.gesture.RoCoVoMoGesture;
 import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
 
-public class Connector {
+public class Connector extends Observable{
 
 	private KinectManager kinect;
 	private Body model;
@@ -38,7 +43,7 @@ public class Connector {
 		} catch (Exception e) {
 			return false;
 		}
-		addListeners();
+		addActions();
 		// KinectManager.INSTANCE.addSpeechListener(speechListener);
 		// GestureProxy.INSTANCE.addGestureListener(gestureListener);
 		kinect.startSkeletonTracking();
@@ -52,19 +57,17 @@ public class Connector {
 		proxy.addGestureDetector(gesture);
 	}
 
-	private void addListeners() {
-		// TODO: Add Listeners
-		// gestureListener = new GestureListener() {
-		// @Override
-		// public void notifyGestureDetected(
-		// Class<? extends Gesture> gesture) {
-		// if (currentState.isGestureEnabled()
-		// && currentState.getRequiredGesture()
-		// .equals(gesture)) {
-		// performStateOperation();
-		// }
-		// }
-		// };
+	private void addActions() {
+		// TODO: Add actions
+		
+//		Beispiel Impl ... danach alles im activator auslesen und einbinden
+		Action action = new TestAction(new TestActionImplRobotX());
+		try {
+			proxy.addGestureListener(action.getGestureListener());
+		} catch (NoValidGestureListenerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//
 		// speechListener = new SpeechListener() {
 		//

@@ -4,5 +4,7 @@ Bundle-Name: Action
 Bundle-SymbolicName: de.rocovomo.osgi.action
 Bundle-Version: 0.0.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: org.jnect.core;bundle-version="0.2.2",
- org.jnect.gesture;bundle-version="0.2.2"
+Import-Package: de.rocovomo.osgi.action.impl,
+ org.jnect.gesture,
+ org.jnect.core
+Export-Package: de.rocovomo.osgi.action

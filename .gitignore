@@ -35,5 +35,7 @@
 *.gls
 *.ist
 *.synctex
-
+*.acn
+*.idx
+*.lol
 

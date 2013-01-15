@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Spi
-Bundle-SymbolicName: de.rocovomo.osgi.jnect.adapter.spi
+Bundle-Name: Rocovomo Adapter Spi
+Bundle-SymbolicName: de.rocovomo.jnect.adapter.spi
 Bundle-Version: 0.0.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: de.rocovomo.osgi.jnect.adapter
-Export-Package: de.rocovomo.osgi.jnect.adapter.spi
+Import-Package: de.rocovomo.jnect.adapter
+Export-Package: de.rocovomo.jnect.adapter.spi

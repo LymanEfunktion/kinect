@@ -1,12 +1,14 @@
-package de.rocovomo.osgi.jnect.gesture.jumpgesture;
+package de.rocovomo.jnect.gesture.osgi;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 
-import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
+import de.rocovomo.jnect.gesture.provider.JumpGestureProvider;
+import de.rocovomo.jnect.gesture.spi.GestureProvider;
 
-public class JumpGestureProviderActivator implements BundleActivator {
+// TODO javadoc missing, logging missing
+public class JumpGestureActivator implements BundleActivator {
 
 //	private static BundleContext context;
 

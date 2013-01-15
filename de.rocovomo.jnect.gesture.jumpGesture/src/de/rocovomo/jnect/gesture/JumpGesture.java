@@ -1,14 +1,14 @@
-package de.rocovomo.osgi.jnect.gesture.jumpgesture;
+package de.rocovomo.jnect.gesture;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EAttribute;
-import de.rocovomo.osgi.jnect.gesture.RoCoVoMoGesture;
 import org.jnect.bodymodel.Head;
 import org.jnect.bodymodel.LeftFoot;
 import org.jnect.bodymodel.PositionedElement;
 import org.jnect.bodymodel.RightFoot;
 import org.jnect.gesture.util.MovingAverageCalculator;
 
+//TODO javadoc missing
 public class JumpGesture extends RoCoVoMoGesture {
 
 	private static final int NUM_PERIODS = 10;

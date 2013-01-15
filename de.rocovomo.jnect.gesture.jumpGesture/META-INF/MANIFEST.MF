@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Jump Gesture
+Bundle-SymbolicName: de.rocovomo.jnect.gesture.jumpgesture
+Bundle-Version: 0.0.1.qualifier
+Bundle-Activator: de.rocovomo.jnect.gesture.osgi.JumpGestureActivator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.eclipse.emf.common.notify,
+ org.eclipse.emf.ecore,
+ org.jnect.bodymodel,
+ org.jnect.gesture.util,
+ de.rocovomo.jnect.gesture,
+ de.rocovomo.jnect.gesture.spi,
+ org.osgi.framework;version="1.3.0"

@@ -31,35 +31,36 @@
 \BOOKMARK [1][-]{section.6.1}{6.1 Dynamic Time Warping}{chapter.6}% 31
 \BOOKMARK [1][-]{section.6.2}{6.2 K\374nstliche neueronale Netze}{chapter.6}% 32
 \BOOKMARK [1][-]{section.6.3}{6.3 Hidden Markov Model}{chapter.6}% 33
-\BOOKMARK [2][-]{subsection.6.3.1}{6.3.1 Auswahl des Modells f\374r die Arbeit}{section.6.3}% 34
-\BOOKMARK [2][-]{subsection.6.3.2}{6.3.2 Diskrete Markov-Prozesse}{section.6.3}% 35
-\BOOKMARK [2][-]{subsection.6.3.3}{6.3.3 Erweiterung auf Hidden Markov Model}{section.6.3}% 36
-\BOOKMARK [2][-]{subsection.6.3.4}{6.3.4 Die drei grundlegenden Probleme eines Hidden Markov Model}{section.6.3}% 37
-\BOOKMARK [1][-]{section.6.4}{6.4 Baum-Weich-Algorithmus}{chapter.6}% 38
-\BOOKMARK [2][-]{subsection.6.4.1}{6.4.1 ToDo}{section.6.4}% 39
-\BOOKMARK [1][-]{section.6.5}{6.5 ToDo}{chapter.6}% 40
-\BOOKMARK [0][-]{chapter.7}{7 Gesten}{}% 41
-\BOOKMARK [1][-]{section.7.1}{7.1 Kreisbewegung}{chapter.7}% 42
-\BOOKMARK [2][-]{subsection.7.1.1}{7.1.1 ToDo}{section.7.1}% 43
-\BOOKMARK [1][-]{section.7.2}{7.2 Vorw\344rtsbewegung}{chapter.7}% 44
-\BOOKMARK [2][-]{subsection.7.2.1}{7.2.1 ToDo}{section.7.2}% 45
-\BOOKMARK [1][-]{section.7.3}{7.3 Haltesignal}{chapter.7}% 46
-\BOOKMARK [2][-]{subsection.7.3.1}{7.3.1 ToDo}{section.7.3}% 47
-\BOOKMARK [0][-]{chapter.8}{8 Sprachbefehle}{}% 48
-\BOOKMARK [1][-]{section.8.1}{8.1 ToDo}{chapter.8}% 49
-\BOOKMARK [0][-]{chapter.9}{9 Implementierung}{}% 50
-\BOOKMARK [1][-]{section.9.1}{9.1 OSGI\205Bundles}{chapter.9}% 51
-\BOOKMARK [2][-]{subsection.9.1.1}{9.1.1 Gesten}{section.9.1}% 52
-\BOOKMARK [2][-]{subsection.9.1.2}{9.1.2 Sprachbefehle}{section.9.1}% 53
-\BOOKMARK [2][-]{subsection.9.1.3}{9.1.3 Roboterschnittstelle}{section.9.1}% 54
-\BOOKMARK [2][-]{subsection.9.1.4}{9.1.4 Ausf\374hrbare Aktionen}{section.9.1}% 55
-\BOOKMARK [1][-]{section.9.2}{9.2 Oberfl\344che}{chapter.9}% 56
-\BOOKMARK [2][-]{subsection.9.2.1}{9.2.1 RCP\205Anwendung}{section.9.2}% 57
-\BOOKMARK [2][-]{subsection.9.2.2}{9.2.2 Grafische Darstellung}{section.9.2}% 58
-\BOOKMARK [1][-]{section.9.3}{9.3 Ablaufbeschreibung}{chapter.9}% 59
-\BOOKMARK [0][-]{chapter.10}{10 Ausblick - weitere Arbeiten}{}% 60
-\BOOKMARK [0][-]{section*.21}{Abbildungsverzeichnis}{}% 61
-\BOOKMARK [0][-]{section*.23}{Tabellenverzeichnis}{}% 62
-\BOOKMARK [0][-]{section*.25}{Quellcodeverzeichnis}{}% 63
-\BOOKMARK [0][-]{section*.27}{Literaturverzeichnis}{}% 64
-\BOOKMARK [0][-]{section*.29}{Glossar}{}% 65
+\BOOKMARK [1][-]{section.6.4}{6.4 Auswahl des Modells f\374r die Arbeit}{chapter.6}% 34
+\BOOKMARK [1][-]{section.6.5}{6.5 Diskrete Markov-Prozesse}{chapter.6}% 35
+\BOOKMARK [2][-]{subsection.6.5.1}{6.5.1 Erweiterung auf Hidden Markov Model}{section.6.5}% 36
+\BOOKMARK [2][-]{subsection.6.5.2}{6.5.2 Die drei grundlegenden Probleme eines Hidden Markov Model}{section.6.5}% 37
+\BOOKMARK [2][-]{subsection.6.5.3}{6.5.3 Das Vorw\344rts\205R\374ckw\344rtsverfahren}{section.6.5}% 38
+\BOOKMARK [2][-]{subsection.6.5.4}{6.5.4 Anmerkungen zu Problem 2}{section.6.5}% 39
+\BOOKMARK [2][-]{subsection.6.5.5}{6.5.5 Baum-Welch-Algorithmus}{section.6.5}% 40
+\BOOKMARK [2][-]{subsection.6.5.6}{6.5.6 Typen des Hidden Markov Model}{section.6.5}% 41
+\BOOKMARK [0][-]{chapter.7}{7 Gesten}{}% 42
+\BOOKMARK [1][-]{section.7.1}{7.1 Kreisbewegung}{chapter.7}% 43
+\BOOKMARK [2][-]{subsection.7.1.1}{7.1.1 ToDo}{section.7.1}% 44
+\BOOKMARK [1][-]{section.7.2}{7.2 Vorw\344rtsbewegung}{chapter.7}% 45
+\BOOKMARK [2][-]{subsection.7.2.1}{7.2.1 ToDo}{section.7.2}% 46
+\BOOKMARK [1][-]{section.7.3}{7.3 Haltesignal}{chapter.7}% 47
+\BOOKMARK [2][-]{subsection.7.3.1}{7.3.1 ToDo}{section.7.3}% 48
+\BOOKMARK [0][-]{chapter.8}{8 Sprachbefehle}{}% 49
+\BOOKMARK [1][-]{section.8.1}{8.1 ToDo}{chapter.8}% 50
+\BOOKMARK [0][-]{chapter.9}{9 Implementierung}{}% 51
+\BOOKMARK [1][-]{section.9.1}{9.1 OSGI\205Bundles}{chapter.9}% 52
+\BOOKMARK [2][-]{subsection.9.1.1}{9.1.1 Gesten}{section.9.1}% 53
+\BOOKMARK [2][-]{subsection.9.1.2}{9.1.2 Sprachbefehle}{section.9.1}% 54
+\BOOKMARK [2][-]{subsection.9.1.3}{9.1.3 Roboterschnittstelle}{section.9.1}% 55
+\BOOKMARK [2][-]{subsection.9.1.4}{9.1.4 Ausf\374hrbare Aktionen}{section.9.1}% 56
+\BOOKMARK [1][-]{section.9.2}{9.2 Oberfl\344che}{chapter.9}% 57
+\BOOKMARK [2][-]{subsection.9.2.1}{9.2.1 RCP\205Anwendung}{section.9.2}% 58
+\BOOKMARK [2][-]{subsection.9.2.2}{9.2.2 Grafische Darstellung}{section.9.2}% 59
+\BOOKMARK [1][-]{section.9.3}{9.3 Ablaufbeschreibung}{chapter.9}% 60
+\BOOKMARK [0][-]{chapter.10}{10 Ausblick - weitere Arbeiten}{}% 61
+\BOOKMARK [0][-]{section*.21}{Abbildungsverzeichnis}{}% 62
+\BOOKMARK [0][-]{section*.23}{Tabellenverzeichnis}{}% 63
+\BOOKMARK [0][-]{section*.25}{Quellcodeverzeichnis}{}% 64
+\BOOKMARK [0][-]{section*.27}{Literaturverzeichnis}{}% 65
+\BOOKMARK [0][-]{section*.29}{Glossar}{}% 66

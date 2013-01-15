@@ -7,6 +7,9 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {6.1}{\ignorespaces Markov-Kette mit f\"unf Zust\"anden}}{27}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces (a) Illustration der Oerpationsfolge zur Berechnung der Vorw\"artsvariable.(b) Implementierung der Berechung von $\alpha _t(i)$ im Netz der Beobachtungen $t$ und Zust\"ande $i$.}}{34}{figure.6.2}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Illustration der Oerpationsfolge zur Berechnung der R\"uckw\"artsvariable.}}{36}{figure.6.3}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Darstellung dreier verschiedener Typen eines HMMs. (a) 4-Zustand ergodisches Modell. (b) 4-Zustand links-rechts Modell. (c) 6-Zustand Parallelpfad links-rechts Modell}}{39}{figure.6.4}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

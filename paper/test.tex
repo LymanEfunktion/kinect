@@ -18,15 +18,23 @@
 \author{\autor}
 \date{\datum}
 
+%\usepackage{amsmath}
 \usepackage{style}
 \usepackage{scrhack}
 \input{header}
  
 \makeglossaries
 \input{glossary}
-
+\DeclareMathOperator*{\argmax}{argmax}
 \begin{document}
-$O = O_1 \, O_2 \, \cdots \, O_T$
+
+\begin{subequations}
+\begin{align}
+\label{E:TransitionProperties}
+a_{NN} &= 0  \\
+a_{Ni} &= 0 \, , & & i < N \, . 
+\end{align}
+\end{subequations}
 
 % Glossary
 	% Acronyms

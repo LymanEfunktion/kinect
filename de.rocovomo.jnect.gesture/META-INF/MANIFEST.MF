@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Gesture
-Bundle-SymbolicName: de.rocovomo.osgi.jnect.gesture
+Bundle-Name: Rocovomo Gesture
+Bundle-SymbolicName: de.rocovomo.jnect.gesture
 Bundle-Version: 0.0.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.emf.common,
  org.eclipse.emf.ecore,
  org.jnect.gesture
-Export-Package: de.rocovomo.osgi.jnect.gesture
+Export-Package: de.rocovomo.jnect.gesture

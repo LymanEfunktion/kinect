@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: LogPropertiesFragment
-Bundle-SymbolicName: de.rocovomo.osgi.log4j.fragment
+Bundle-SymbolicName: de.rocovomo.log4j.fragment
 Bundle-Version: 1.0.0.qualifier
 Fragment-Host: log4j;bundle-version="1.2.17"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

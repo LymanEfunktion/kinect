@@ -1,20 +1,21 @@
-package de.rocovomo.action.test;
+package de.rocovomo.action;
 
 import org.jnect.core.SpeechListener;
 import org.jnect.gesture.Gesture;
 import org.jnect.gesture.GestureListener;
 
-import de.rocovomo.action.Action;
-import de.rocovomo.action.NoValidGestureListenerException;
-import de.rocovomo.action.NoValidSpeechListenerException;
+import de.rocovomo.action.api.Action;
+import de.rocovomo.action.api.NoValidGestureListenerException;
+import de.rocovomo.action.api.NoValidSpeechListenerException;
+import de.rocovomo.jnect.gesture.RoCoVoMoGesture;
 import de.rocovomo.robot.action.RobotAction;
 
 public class TestAction extends Action {
 
 	TestAction testAction;
 
-	public TestAction(RobotAction impl) {
-		super(impl);
+	public TestAction(RobotAction impl, RoCoVoMoGesture gesture) {
+		super(impl, gesture);
 		testAction = this;
 		// TODO Auto-generated constructor stub
 	}
@@ -43,12 +44,6 @@ public class TestAction extends Action {
 	@Override
 	public SpeechListener getSpeechListener()
 			throws NoValidSpeechListenerException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Class<? extends Gesture> getRequiredGesture() {
 		// TODO Auto-generated method stub
 		return null;
 	}

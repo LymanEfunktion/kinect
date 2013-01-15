@@ -1,4 +1,4 @@
-package de.rocovomo.osgi.action.impl;
+package de.rocovomo.robot.action;
 
 public interface RobotActionImpl {
 

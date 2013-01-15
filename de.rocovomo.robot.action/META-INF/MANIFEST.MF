@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Impl
-Bundle-SymbolicName: de.rocovomo.osgi.action.impl
-Bundle-Version: 1.0.0.qualifier
+Bundle-Name: Robot Action API
+Bundle-SymbolicName: de.rocovomo.robot.action
+Bundle-Version: 0.0.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: de.rocovomo.osgi.action.impl
+Export-Package: de.rocovomo.robot.action

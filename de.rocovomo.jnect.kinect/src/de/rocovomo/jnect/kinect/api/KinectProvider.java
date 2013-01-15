@@ -1,7 +1,9 @@
-package de.rocovomo.osgi.jnect.kinect;
+package de.rocovomo.jnect.kinect.api;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
+
+import de.rocovomo.jnect.kinect.Connector;
 
 
 public class KinectProvider {
@@ -12,7 +14,7 @@ public class KinectProvider {
 
 	private final Dictionary<String, Object> properties = new Hashtable<String, Object>();
 
-	private Connector connector;
+	private IConnector connector;
 	
 	public KinectProvider() {
 		properties.put("process-id", PID);
@@ -20,7 +22,7 @@ public class KinectProvider {
 		this.connector = new Connector();
 	}
 
-	public Connector getConnector() {
+	public IConnector getConnector() {
 		return connector;
 	}
 

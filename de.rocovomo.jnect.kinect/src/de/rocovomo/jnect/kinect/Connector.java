@@ -1,4 +1,4 @@
-package de.rocovomo.osgi.jnect.kinect;
+package de.rocovomo.jnect.kinect;
 
 import java.util.Observable;
 
@@ -7,16 +7,18 @@ import org.jnect.bodymodel.Body;
 import org.jnect.core.KinectManager;
 import org.jnect.gesture.GestureProxy;
 
-import de.rocovomo.osgi.action.Action;
-import de.rocovomo.osgi.action.NoValidGestureListenerException;
-import de.rocovomo.osgi.action.impl.testactionimplrobotx.TestActionImplRobotX;
-import de.rocovomo.osgi.action.testaction.TestAction;
-import de.rocovomo.osgi.jnect.adapter.RoCoVoMoAdapter;
-import de.rocovomo.osgi.jnect.adapter.spi.AdapterProvider;
-import de.rocovomo.osgi.jnect.gesture.RoCoVoMoGesture;
-import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
+import de.rocovomo.action.Action;
+import de.rocovomo.action.NoValidGestureListenerException;
+import de.rocovomo.action.test.TestAction;
+import de.rocovomo.jnect.adapter.RoCoVoMoAdapter;
+import de.rocovomo.jnect.adapter.spi.AdapterProvider;
+import de.rocovomo.jnect.gesture.RoCoVoMoGesture;
+import de.rocovomo.jnect.gesture.spi.GestureProvider;
+import de.rocovomo.jnect.kinect.api.IConnector;
+import de.rocovomo.robot.action.test.TestRobotAction;
 
-public class Connector extends Observable{
+
+public class Connector extends Observable implements IConnector{
 
 	private KinectManager kinect;
 	private Body model;
@@ -61,7 +63,7 @@ public class Connector extends Observable{
 		// TODO: Add actions
 		
 //		Beispiel Impl ... danach alles im activator auslesen und einbinden
-		Action action = new TestAction(new TestActionImplRobotX());
+		Action action = new TestAction(new TestRobotAction());
 		try {
 			proxy.addGestureListener(action.getGestureListener());
 		} catch (NoValidGestureListenerException e) {
@@ -153,4 +155,5 @@ public class Connector extends Observable{
 	private float getHeightBetweenHands() {
 		return (model.getLeftHand().getY()-model.getRightHand().getY());
 	}
+
 }

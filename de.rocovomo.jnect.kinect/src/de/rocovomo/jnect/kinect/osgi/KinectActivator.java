@@ -1,4 +1,4 @@
-package de.rocovomo.osgi.jnect.kinect;
+package de.rocovomo.jnect.kinect.osgi;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,10 +12,14 @@ import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 import org.osgi.util.tracker.ServiceTracker;
 
-import de.rocovomo.osgi.jnect.adapter.RoCoVoMoAdapter;
-import de.rocovomo.osgi.jnect.adapter.spi.AdapterProvider;
-import de.rocovomo.osgi.jnect.gesture.RoCoVoMoGesture;
-import de.rocovomo.osgi.jnect.gesture.spi.GestureProvider;
+import de.rocovomo.jnect.adapter.RoCoVoMoAdapter;
+import de.rocovomo.jnect.adapter.spi.AdapterProvider;
+import de.rocovomo.jnect.gesture.RoCoVoMoGesture;
+import de.rocovomo.jnect.gesture.spi.GestureProvider;
+import de.rocovomo.jnect.kinect.Connector;
+import de.rocovomo.jnect.kinect.api.IConnector;
+import de.rocovomo.jnect.kinect.api.KinectProvider;
+
 
 public class KinectActivator implements BundleActivator, ServiceListener {
 
@@ -26,7 +30,7 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 	@SuppressWarnings("rawtypes")
 	private ServiceRegistration serviceRegistration;
 	
-	private Connector connector;
+	private IConnector connector;
 
 	private Map<ServiceReference<?>, ServiceRegistration<?>> registeredGestures = new HashMap<ServiceReference<?>, ServiceRegistration<?>>();
 

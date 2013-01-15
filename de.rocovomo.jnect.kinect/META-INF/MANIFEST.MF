@@ -1,20 +1,20 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Kinect
-Bundle-SymbolicName: de.rocovomo.osgi.jnect.kinect
+Bundle-Name: Kinect Connector
+Bundle-SymbolicName: de.rocovomo.jnect.kinect
 Bundle-Version: 0.0.1.qualifier
-Bundle-Activator: de.rocovomo.osgi.jnect.kinect.KinectActivator
+Bundle-Activator: de.rocovomo.jnect.kinect.osgi.KinectActivator
 Require-Bundle: org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: de.rocovomo.osgi.jnect.adapter,
- de.rocovomo.osgi.jnect.adapter.spi,
- de.rocovomo.osgi.jnect.gesture,
- de.rocovomo.osgi.jnect.gesture.spi,
- de.rocovomo.osgi.action,
- de.rocovomo.osgi.action.testaction,
- de.rocovomo.osgi.action.impl,
- de.rocovomo.osgi.action.impl.testactionimplrobotx,
+Import-Package: de.rocovomo.jnect.adapter,
+ de.rocovomo.jnect.adapter.spi,
+ de.rocovomo.jnect.gesture,
+ de.rocovomo.jnect.gesture.spi,
+ de.rocovomo.action,
+ de.rocovomo.action.test,
+ de.rocovomo.robot.action,
+ de.rocovomo.robot.action.test,
  org.apache.log4j;version="1.2.17",
  org.eclipse.emf.common.notify,
  org.eclipse.emf.common.util,
@@ -24,4 +24,4 @@ Import-Package: de.rocovomo.osgi.jnect.adapter,
  org.jnect.gesture,
  org.osgi.framework;version="1.7.0",
  org.osgi.util.tracker;version="1.5.1"
-Export-Package: de.rocovomo.osgi.jnect.kinect
+Export-Package: de.rocovomo.jnect.kinect.api

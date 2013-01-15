@@ -1,19 +1,19 @@
-package de.rocovomo.osgi.action.testaction;
+package de.rocovomo.action.test;
 
 import org.jnect.core.SpeechListener;
 import org.jnect.gesture.Gesture;
 import org.jnect.gesture.GestureListener;
 
-import de.rocovomo.osgi.action.Action;
-import de.rocovomo.osgi.action.NoValidGestureListenerException;
-import de.rocovomo.osgi.action.NoValidSpeechListenerException;
-import de.rocovomo.osgi.action.impl.RobotActionImpl;
+import de.rocovomo.action.Action;
+import de.rocovomo.action.NoValidGestureListenerException;
+import de.rocovomo.action.NoValidSpeechListenerException;
+import de.rocovomo.robot.action.RobotAction;
 
 public class TestAction extends Action {
 
 	TestAction testAction;
 
-	public TestAction(RobotActionImpl impl) {
+	public TestAction(RobotAction impl) {
 		super(impl);
 		testAction = this;
 		// TODO Auto-generated constructor stub

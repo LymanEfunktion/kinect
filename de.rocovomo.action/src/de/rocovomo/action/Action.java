@@ -1,10 +1,10 @@
-package de.rocovomo.osgi.action;
+package de.rocovomo.action;
 
 import org.jnect.core.SpeechListener;
 import org.jnect.gesture.Gesture;
 import org.jnect.gesture.GestureListener;
 
-import de.rocovomo.osgi.action.impl.RobotActionImpl;
+import de.rocovomo.robot.action.RobotActionImpl;
 
 public abstract class Action {
 

@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Action
-Bundle-SymbolicName: de.rocovomo.osgi.action
+Bundle-SymbolicName: de.rocovomo.action
 Bundle-Version: 0.0.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: de.rocovomo.osgi.action.impl,
- org.jnect.gesture,
- org.jnect.core
-Export-Package: de.rocovomo.osgi.action
+Import-Package: org.jnect.gesture,
+ org.jnect.core,
+ de.rocovomo.robot.action
+Export-Package: de.rocovomo.action

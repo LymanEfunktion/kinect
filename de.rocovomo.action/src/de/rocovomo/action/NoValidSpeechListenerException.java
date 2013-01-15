@@ -1,4 +1,4 @@
-package de.rocovomo.osgi.action;
+package de.rocovomo.action;
 
 public class NoValidSpeechListenerException extends Exception {
 

@@ -1,4 +1,4 @@
-package de.rocovomo.osgi.jnect.adapter;
+package de.rocovomo.jnect.adapter;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.jnect.bodymodel.PositionedElement;

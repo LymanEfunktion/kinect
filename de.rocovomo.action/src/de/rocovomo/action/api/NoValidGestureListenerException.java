@@ -1,4 +1,4 @@
-package de.rocovomo.action;
+package de.rocovomo.action.api;
 
 public class NoValidGestureListenerException extends Exception {
 

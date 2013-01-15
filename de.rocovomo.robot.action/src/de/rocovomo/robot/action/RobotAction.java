@@ -1,6 +1,6 @@
 package de.rocovomo.robot.action;
 
-public interface RobotActionImpl {
+public interface RobotAction {
 
 	public void execute();
 }

@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Testactionimplrobotx
-Bundle-SymbolicName: de.rocovomo.osgi.action.impl.testactionimplrobotx
+Bundle-Name: Robot Action Test
+Bundle-SymbolicName: de.rocovomo.robot.action.test
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.osgi.framework;version="1.3.0",
- de.rocovomo.osgi.action.impl
-Export-Package: de.rocovomo.osgi.action.impl.testactionimplrobotx
+ de.rocovomo.robot.action
+Export-Package: de.rocovomo.robot.action.test

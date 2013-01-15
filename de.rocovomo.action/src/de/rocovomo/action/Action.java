@@ -4,7 +4,7 @@ import org.jnect.core.SpeechListener;
 import org.jnect.gesture.Gesture;
 import org.jnect.gesture.GestureListener;
 
-import de.rocovomo.robot.action.RobotActionImpl;
+import de.rocovomo.robot.action.RobotAction;
 
 public abstract class Action {
 
@@ -20,19 +20,19 @@ public abstract class Action {
 
 	public abstract boolean isSpeechEnabled();
 	
-	protected RobotActionImpl impl;
+	protected RobotAction impl;
 	
 	public abstract void execute();
 	
-	public Action(RobotActionImpl impl) {
+	public Action(RobotAction impl) {
 		this.impl = impl;
 	}
 	
-	public RobotActionImpl getImpl() {
+	public RobotAction getImpl() {
 		return impl;
 	}
 	
-	public void setImpl(RobotActionImpl impl) {
+	public void setImpl(RobotAction impl) {
 		this.impl = impl;
 	}
 }

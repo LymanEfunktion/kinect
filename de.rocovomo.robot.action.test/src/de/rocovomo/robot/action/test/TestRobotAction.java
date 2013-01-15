@@ -1,8 +1,9 @@
-package de.rocovomo.osgi.action.impl.testactionimplrobotx;
+package de.rocovomo.robot.action.test;
 
-import de.rocovomo.osgi.action.impl.RobotActionImpl;
+import de.rocovomo.robot.action.RobotAction;
 
-public class TestActionImplRobotX implements RobotActionImpl{
+
+public class TestRobotAction implements RobotAction{
 
 	@Override
 	public void execute() {

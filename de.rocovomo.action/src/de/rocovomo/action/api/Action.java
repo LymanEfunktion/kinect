@@ -3,7 +3,7 @@ package de.rocovomo.action.api;
 import org.jnect.core.SpeechListener;
 import org.jnect.gesture.GestureListener;
 
-import de.rocovomo.jnect.gesture.RoCoVoMoGesture;
+import de.rocovomo.jnect.gesture.api.RoCoVoMoGesture;
 import de.rocovomo.robot.action.RobotAction;
 
 // TODO javadoc

@@ -6,7 +6,7 @@ import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.jnect.bodymodel.PositionedElement;
 import org.jnect.bodymodel.RightHand;
 
-import de.rocovomo.osgi.jnect.adapter.RoCoVoMoAdapter;
+import de.rocovomo.jnect.adapter.api.RoCoVoMoAdapter;
 
 public class RightHandAdapter extends AdapterImpl implements RoCoVoMoAdapter{
 	

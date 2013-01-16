@@ -13,7 +13,10 @@ import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 
 import de.rocovomo.action.provider.api.ActionProvider;
-import de.rocovomo.jnect.adapter.RoCoVoMoAdapter;
+import de.rocovomo.jnect.adapter.api.RoCoVoMoAdapter;
+import de.rocovomo.jnect.adapter.provider.api.AdapterProvider;
+import de.rocovomo.jnect.gesture.api.RoCoVoMoGesture;
+import de.rocovomo.jnect.gesture.provider.api.GestureProvider;
 import de.rocovomo.jnect.kinect.Connector;
 import de.rocovomo.jnect.kinect.api.IConnector;
 import de.rocovomo.jnect.kinect.provider.KinectProvider;
@@ -48,6 +51,7 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 
 		getActionReferences(bundleContext, null);
 		getAdapterReferences(bundleContext, null);
+		getGestureReferences(bundleContext, null);
 
 		// this.connector.run();
 
@@ -79,14 +83,29 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 	private void getAdapterReferences(BundleContext bundleContext, String filter)
 			throws InvalidSyntaxException {
 		ServiceReference<?>[] adapterReferences = bundleContext
-				.getAllServiceReferences(RoCoVoMoAdapter.class.getName(),
+				.getAllServiceReferences(AdapterProvider.class.getName(),
 						filter);
 
 		if (adapterReferences != null) {
 			for (ServiceReference<?> serviceReference : adapterReferences) {
-				RoCoVoMoAdapter adapter = (RoCoVoMoAdapter) this.context
+				AdapterProvider adapter = (AdapterProvider) this.context
 						.getService(serviceReference);
 				this.connector.connectAdapter(adapter);
+			}
+		}
+	}
+
+	private void getGestureReferences(BundleContext bundleContext, String filter)
+			throws InvalidSyntaxException {
+		ServiceReference<?>[] gestureReferences = bundleContext
+				.getAllServiceReferences(GestureProvider.class.getName(),
+						filter);
+
+		if (gestureReferences != null) {
+			for (ServiceReference<?> serviceReference : gestureReferences) {
+				GestureProvider gesture = (GestureProvider) this.context
+						.getService(serviceReference);
+				this.connector.connectGesture(gesture);
 			}
 		}
 	}
@@ -144,7 +163,10 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 			this.connector.connectAction((ActionProvider) serviceObject);
 		}
 		if (serviceObject instanceof RoCoVoMoAdapter) {
-			this.connector.connectAdapter((RoCoVoMoAdapter) serviceObject);
+			this.connector.connectAdapter((AdapterProvider) serviceObject);
+		}
+		if (serviceObject instanceof RoCoVoMoGesture) {
+			this.connector.connectGesture((GestureProvider) serviceObject);
 		}
 	}
 
@@ -161,7 +183,10 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 			this.connector.disconnectAction((ActionProvider) serviceObject);
 		}
 		if (serviceObject instanceof RoCoVoMoAdapter) {
-			this.connector.disconnectAdapter((RoCoVoMoAdapter) serviceObject);
+			this.connector.disconnectAdapter((AdapterProvider) serviceObject);
+		}
+		if (serviceObject instanceof RoCoVoMoGesture) {
+			this.connector.disconnectGesture((GestureProvider) serviceObject);
 		}
 	}
 

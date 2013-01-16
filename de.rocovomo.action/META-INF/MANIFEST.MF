@@ -4,9 +4,9 @@ Bundle-Name: Action
 Bundle-SymbolicName: de.rocovomo.action
 Bundle-Version: 0.0.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: org.jnect.gesture,
- org.jnect.core,
+Import-Package: de.rocovomo.jnect.gesture.api,
  de.rocovomo.robot.action,
- de.rocovomo.jnect.gesture
+ org.jnect.core,
+ org.jnect.gesture
 Export-Package: de.rocovomo.action.api,
  de.rocovomo.action.provider.api

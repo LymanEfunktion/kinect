@@ -1,4 +1,4 @@
-package de.rocovomo.osgi.jnect.adapter.lefthand;
+package de.rocovomo.jnect.adapter.lefthand;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
@@ -6,7 +6,8 @@ import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.jnect.bodymodel.LeftHand;
 import org.jnect.bodymodel.PositionedElement;
 
-import de.rocovomo.osgi.jnect.adapter.RoCoVoMoAdapter;
+import de.rocovomo.jnect.adapter.api.RoCoVoMoAdapter;
+
 
 public class LeftHandAdapter extends AdapterImpl implements RoCoVoMoAdapter {
 

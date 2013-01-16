@@ -8,7 +8,7 @@ import org.jnect.bodymodel.PositionedElement;
 import org.jnect.bodymodel.RightFoot;
 import org.jnect.gesture.util.MovingAverageCalculator;
 
-import de.rocovomo.jnect.gesture.RoCoVoMoGesture;
+import de.rocovomo.jnect.gesture.api.RoCoVoMoGesture;
 
 //TODO javadoc missing
 public class JumpGesture extends RoCoVoMoGesture {

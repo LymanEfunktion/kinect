@@ -15,8 +15,8 @@ import de.rocovomo.action.api.Action;
 import de.rocovomo.action.provider.TestActionProvider;
 import de.rocovomo.action.provider.api.ActionProvider;
 import de.rocovomo.action.robot.TestRobotAction;
-import de.rocovomo.jnect.gesture.RoCoVoMoGesture;
-import de.rocovomo.jnect.gesture.spi.GestureProvider;
+import de.rocovomo.jnect.gesture.api.RoCoVoMoGesture;
+import de.rocovomo.jnect.gesture.provider.api.GestureProvider;
 
 // TODO javadoc missing, logging missing
 public class ActionActivator implements BundleActivator, ServiceListener {

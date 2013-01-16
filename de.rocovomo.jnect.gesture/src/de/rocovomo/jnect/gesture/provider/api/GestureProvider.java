@@ -1,8 +1,8 @@
-package de.rocovomo.jnect.gesture.spi;
+package de.rocovomo.jnect.gesture.provider.api;
 
 import java.util.Dictionary;
 
-import de.rocovomo.jnect.gesture.RoCoVoMoGesture;
+import de.rocovomo.jnect.gesture.api.RoCoVoMoGesture;
 
 public interface GestureProvider {
 	

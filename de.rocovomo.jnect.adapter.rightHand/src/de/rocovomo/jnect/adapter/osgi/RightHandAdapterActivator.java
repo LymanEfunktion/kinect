@@ -1,25 +1,25 @@
-package de.rocovomo.jnect.gesture.osgi;
+package de.rocovomo.jnect.adapter.osgi;
 
 import org.apache.log4j.Logger;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 
-import de.rocovomo.jnect.gesture.api.RoCoVoMoGesture;
-import de.rocovomo.jnect.gesture.provider.JumpGestureProvider;
-import de.rocovomo.jnect.gesture.provider.api.GestureProvider;
+import de.rocovomo.jnect.adapter.api.RoCoVoMoAdapter;
+import de.rocovomo.jnect.adapter.provider.RightHandAdapterProvider;
+import de.rocovomo.jnect.adapter.provider.api.AdapterProvider;
 
-// TODO javadoc missing, logging missing
-public class JumpGestureActivator implements BundleActivator {
+public class RightHandAdapterActivator implements BundleActivator {
 
-	private static Logger logger = Logger.getLogger(JumpGestureActivator.class);
+	private static Logger logger = Logger
+			.getLogger(RightHandAdapterActivator.class);
 
 	private BundleContext context;
 
 	@SuppressWarnings("rawtypes")
 	private ServiceRegistration serviceRegistration;
 
-	private JumpGestureProvider provider;
+	private RightHandAdapterProvider provider;
 
 	/*
 	 * (non-Javadoc)
@@ -31,16 +31,18 @@ public class JumpGestureActivator implements BundleActivator {
 	public void start(BundleContext bundleContext) throws Exception {
 		this.context = bundleContext;
 		logger.info("Starting " + this.context.getBundle().getSymbolicName());
-		this.provider = new JumpGestureProvider();
+
+		this.provider = new RightHandAdapterProvider();
 
 		serviceRegistration = bundleContext.registerService(
-				GestureProvider.class.getName(), this.provider,
-				this.provider.getGestureProperties());
+				AdapterProvider.class.getName(), provider,
+				provider.getAdapterProperties());
 		logger.info("Registered "
-				+ this.provider.getGesture()
+				+ this.provider.getAdapter()
 				+ ":"
-				+ this.provider.getGestureProperties()
-						.get(RoCoVoMoGesture.TYPE));
+				+ this.provider.getAdapterProperties()
+						.get(RoCoVoMoAdapter.TYPE));
+
 		logger.info("Started " + this.context.getBundle().getSymbolicName());
 	}
 
@@ -53,16 +55,16 @@ public class JumpGestureActivator implements BundleActivator {
 	public void stop(BundleContext bundleContext) throws Exception {
 		logger.info("Stopping " + this.context.getBundle().getSymbolicName());
 		logger.info("Unregistering "
-				+ this.provider.getGesture()
+				+ this.provider.getAdapter()
 				+ ":"
-				+ this.provider.getGestureProperties()
-						.get(RoCoVoMoGesture.TYPE));
+				+ this.provider.getAdapterProperties()
+						.get(RoCoVoMoAdapter.TYPE));
 		serviceRegistration.unregister();
 		logger.info("Unregistered "
-				+ this.provider.getGesture()
+				+ this.provider.getAdapter()
 				+ ":"
-				+ this.provider.getGestureProperties()
-						.get(RoCoVoMoGesture.TYPE));
+				+ this.provider.getAdapterProperties()
+						.get(RoCoVoMoAdapter.TYPE));
 		logger.info("Stopped " + this.context.getBundle().getSymbolicName());
 	}
 }

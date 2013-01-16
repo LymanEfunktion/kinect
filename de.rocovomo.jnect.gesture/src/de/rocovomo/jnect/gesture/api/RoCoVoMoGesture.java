@@ -1,4 +1,4 @@
-package de.rocovomo.jnect.gesture;
+package de.rocovomo.jnect.gesture.api;
 
 import org.jnect.gesture.Gesture;
 

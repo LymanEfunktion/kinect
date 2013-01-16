@@ -4,5 +4,5 @@ Bundle-Name: Rocovomo Gesture Spi
 Bundle-SymbolicName: de.rocovomo.jnect.gesture.spi
 Bundle-Version: 0.0.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: de.rocovomo.jnect.gesture
+Import-Package: de.rocovomo.jnect.gesture.api
 Export-Package: de.rocovomo.jnect.gesture.spi

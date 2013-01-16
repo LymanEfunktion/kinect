@@ -16,7 +16,10 @@ import de.rocovomo.action.api.Action;
 import de.rocovomo.action.api.NoValidGestureListenerException;
 import de.rocovomo.action.api.NoValidSpeechListenerException;
 import de.rocovomo.action.provider.api.ActionProvider;
-import de.rocovomo.jnect.adapter.RoCoVoMoAdapter;
+import de.rocovomo.jnect.adapter.api.RoCoVoMoAdapter;
+import de.rocovomo.jnect.adapter.provider.api.AdapterProvider;
+import de.rocovomo.jnect.gesture.api.RoCoVoMoGesture;
+import de.rocovomo.jnect.gesture.provider.api.GestureProvider;
 import de.rocovomo.jnect.kinect.api.IConnector;
 
 public class Connector extends Observable implements IConnector {
@@ -28,6 +31,8 @@ public class Connector extends Observable implements IConnector {
 	private static Logger logger = Logger.getLogger(Connector.class);
 
 	private boolean isConnected;
+	private boolean lefthand;
+	private boolean righthand;
 
 	public Connector() {
 		isConnected = initialize();
@@ -47,20 +52,19 @@ public class Connector extends Observable implements IConnector {
 		} catch (Exception e) {
 			return false;
 		}
-		// KinectManager.INSTANCE.addSpeechListener(speechListener);
-		// GestureProxy.INSTANCE.addGestureListener(gestureListener);
 		this.kinect.startSkeletonTracking();
 		this.model = kinect.getSkeletonModel();
-		// TODO Volker Werling: proper speech recognition starting, restarting and stopping
+		// TODO Volker Werling: proper speech recognition starting, restarting
+		// and stopping
 		if (!this.kinect.isSpeechRecognitionStarted()) {
 			this.kinect.addSpeechListener(new SpeechListener() {
-				
+
 				@Override
 				public void notifySpeech(String speech) {
-					// TODO Auto-generated method stub
-					
+					// TODO VW: remove
+					System.out.println("Speech");
 				}
-				
+
 				@Override
 				public Set<String> getWords() {
 					Set<String> s = new HashSet<>();
@@ -73,66 +77,98 @@ public class Connector extends Observable implements IConnector {
 		return true;
 	}
 
-	// public void connectAdapter(AdapterProvider provider) {
-	// String type = (String) provider.getAdapterProperties().get(
-	// "adapter-type");
-	// // TODO: log4j Logging
-	// logger.debug("init:" + type);
-	// if (type.equals("RightHand-Adapter")) {
-	// addRightHandAdapter(provider.getAdapter());
-	// }
-	// if (type.equals("LeftHand-Adapter")) {
-	// addLeftHandAdapter(provider.getAdapter());
-	// }
-	// }
-	//
-	// private void addLeftHandAdapter(RoCoVoMoAdapter adapter) {
-	// // TODO Auto-generated method stub
-	// logger.debug("adapter:" + adapter.getClass().getSimpleName());
-	// adapter.setElement(kinect.getSkeletonModel().getLeftHand());
-	// kinect.getSkeletonModel().getLeftHand().eAdapters().add(adapter);
-	// }
-	//
-	// private void addRightHandAdapter(RoCoVoMoAdapter adapter) {
-	// // TODO: log4j Logging
-	// logger.debug("adapter:" + adapter.getClass().getSimpleName());
-	// adapter.setElement(kinect.getSkeletonModel().getRightHand());
-	// kinect.getSkeletonModel().getRightHand().eAdapters().add(adapter);
-	//
-	// }
-	//
-	// class IThread extends Thread {
-	// public IThread() {
-	//
-	// }
-	//
-	// public void run() {
-	// try {
-	// while (true) {
-	// System.out.println(getWidthBetweenHands() + ":"
-	// + getHeightBetweenHands());
-	// logger.info(getWidthBetweenHands() + ":"
-	// + getHeightBetweenHands());
-	// sleep(500L);
-	// }
-	// } catch (InterruptedException e) {
-	// e.printStackTrace();
-	// }
-	// }
-	// }
-	//
-	// public void run() {
-	// IThread thread = new IThread();
-	// thread.run();
-	// }
-	//
-	// private float getWidthBetweenHands() {
-	// return (model.getRightHand().getX() - model.getLeftHand().getX());
-	// }
-	//
-	// private float getHeightBetweenHands() {
-	// return (model.getLeftHand().getY() - model.getRightHand().getY());
-	// }
+	public void connectAdapter(AdapterProvider provider) {
+		String type = (String) provider.getAdapterProperties().get(
+				"adapter-type");
+		if (type.equals("RightHand-Adapter")) {
+			addRightHandAdapter(provider.getAdapter());
+		}
+		if (type.equals("LeftHand-Adapter")) {
+			addLeftHandAdapter(provider.getAdapter());
+		}
+		logger.info("Adapter added " + provider.getAdapter() + ":"
+				+ provider.getAdapterProperties().get(RoCoVoMoAdapter.TYPE));
+		evaluateRun();
+	}
+
+	// TODO test
+	private void evaluateRun() {
+		if (lefthand && righthand) {
+			run();
+		}
+	}
+
+	@Override
+	public void disconnectAdapter(AdapterProvider provider) {
+		String type = (String) provider.getAdapterProperties().get(
+				"adapter-type");
+		if (type.equals("RightHand-Adapter")) {
+			removeRightHandAdapter(provider.getAdapter());
+		}
+		if (type.equals("LeftHand-Adapter")) {
+			removeLeftHandAdapter(provider.getAdapter());
+		}
+		logger.info("Adapter removed " + provider.getAdapter() + ":"
+				+ provider.getAdapterProperties().get(RoCoVoMoAdapter.TYPE));
+	}
+
+	// TODO
+	private void removeLeftHandAdapter(RoCoVoMoAdapter adapter) {
+
+	}
+
+	// TODO
+	private void removeRightHandAdapter(RoCoVoMoAdapter adapter) {
+
+	}
+
+	private void addLeftHandAdapter(RoCoVoMoAdapter adapter) {
+		logger.debug("adapter:" + adapter.getClass().getSimpleName());
+		adapter.setElement(kinect.getSkeletonModel().getLeftHand());
+		kinect.getSkeletonModel().getLeftHand().eAdapters().add(adapter);
+		lefthand = true;
+	}
+
+	private void addRightHandAdapter(RoCoVoMoAdapter adapter) {
+		logger.debug("adapter:" + adapter.getClass().getSimpleName());
+		adapter.setElement(kinect.getSkeletonModel().getRightHand());
+		kinect.getSkeletonModel().getRightHand().eAdapters().add(adapter);
+		righthand = true;
+
+	}
+
+	class IThread extends Thread {
+		public IThread() {
+
+		}
+
+		public void run() {
+			try {
+				while (true) {
+					System.out.println(getWidthBetweenHands() + ":"
+							+ getHeightBetweenHands());
+					logger.info(getWidthBetweenHands() + ":"
+							+ getHeightBetweenHands());
+					sleep(500L);
+				}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void run() {
+		IThread thread = new IThread();
+		thread.run();
+	}
+
+	private float getWidthBetweenHands() {
+		return (model.getRightHand().getX() - model.getLeftHand().getX());
+	}
+
+	private float getHeightBetweenHands() {
+		return (model.getLeftHand().getY() - model.getRightHand().getY());
+	}
 
 	@Override
 	public void stop() {
@@ -145,12 +181,10 @@ public class Connector extends Observable implements IConnector {
 	public void connectAction(ActionProvider provider) {
 		Action action = provider.getAction();
 		if (action.isGestureEnabled()) {
-			addGesture(action.getRequiredGesture());
-			logger.info("Gesture added " + action.getRequiredGesture());
 			try {
 				addGestureListener(action.getGestureListener());
-				logger.info("GestureListener added "
-						+ action.getGestureListener());
+				logger.info("GestureListener added " + provider.getAction()
+						+ ":" + provider.getActionProperties().get(Action.TYPE));
 			} catch (NoValidGestureListenerException e) {
 				logger.error("No GestureListener available for: "
 						+ provider.getAction() + ":"
@@ -160,8 +194,8 @@ public class Connector extends Observable implements IConnector {
 		if (action.isSpeechEnabled()) {
 			try {
 				addSpeechListener(action.getSpeechListener());
-				logger.info("Speechlistener added "
-						+ action.getSpeechListener());
+				logger.info("Speechlistener added " + provider.getAction()
+						+ ":" + provider.getActionProperties().get(Action.TYPE));
 			} catch (NoValidSpeechListenerException e) {
 				logger.error("No SpeechListener available for: "
 						+ provider.getAction() + ":"
@@ -174,9 +208,10 @@ public class Connector extends Observable implements IConnector {
 	public void disconnectAction(ActionProvider provider) {
 		Action action = provider.getAction();
 		if (action.isGestureEnabled()) {
-			removeGesture(action.getRequiredGesture());
 			try {
 				removeGestureListener(action.getGestureListener());
+				logger.info("Gesturelistener removed " + provider.getAction()
+						+ ":" + provider.getActionProperties().get(Action.TYPE));
 			} catch (NoValidGestureListenerException e) {
 				logger.error("No GestureListener available for: "
 						+ provider.getAction() + ":"
@@ -186,6 +221,8 @@ public class Connector extends Observable implements IConnector {
 		if (action.isSpeechEnabled()) {
 			try {
 				removeSpeechListener(action.getSpeechListener());
+				logger.info("Speechlistener removed " + provider.getAction()
+						+ ":" + provider.getActionProperties().get(Action.TYPE));
 			} catch (NoValidSpeechListenerException e) {
 				logger.error("No SpeechListener available for: "
 						+ provider.getAction() + ":"
@@ -195,15 +232,19 @@ public class Connector extends Observable implements IConnector {
 	}
 
 	@Override
-	public void connectAdapter(RoCoVoMoAdapter provider) {
-		// TODO
-
+	public void connectGesture(GestureProvider provider) {
+		RoCoVoMoGesture gesture = provider.getGesture();
+		addGesture(gesture);
+		logger.info("Gesture added " + provider.getGesture() + ":"
+				+ provider.getGestureProperties().get(RoCoVoMoGesture.TYPE));
 	}
 
 	@Override
-	public void disconnectAdapter(RoCoVoMoAdapter provider) {
-		// TODO
-
+	public void disconnectGesture(GestureProvider provider) {
+		RoCoVoMoGesture gesture = provider.getGesture();
+		removeGesture(gesture);
+		logger.info("Gesture removed " + provider.getGesture() + ":"
+				+ provider.getGestureProperties().get(RoCoVoMoGesture.TYPE));
 	}
 
 	private void addGestureListener(GestureListener gestureListener) {

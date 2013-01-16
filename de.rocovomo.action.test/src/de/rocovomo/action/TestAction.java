@@ -10,7 +10,7 @@ import org.jnect.gesture.GestureListener;
 import de.rocovomo.action.api.Action;
 import de.rocovomo.action.api.NoValidGestureListenerException;
 import de.rocovomo.action.api.NoValidSpeechListenerException;
-import de.rocovomo.jnect.gesture.RoCoVoMoGesture;
+import de.rocovomo.jnect.gesture.api.RoCoVoMoGesture;
 import de.rocovomo.robot.action.RobotAction;
 
 public class TestAction extends Action {

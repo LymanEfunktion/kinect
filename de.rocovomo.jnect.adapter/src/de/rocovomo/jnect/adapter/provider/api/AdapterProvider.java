@@ -1,8 +1,8 @@
-package de.rocovomo.jnect.adapter.spi;
+package de.rocovomo.jnect.adapter.provider.api;
 
 import java.util.Dictionary;
 
-import de.rocovomo.jnect.adapter.RoCoVoMoAdapter;
+import de.rocovomo.jnect.adapter.api.RoCoVoMoAdapter;
 
 public interface AdapterProvider {
 

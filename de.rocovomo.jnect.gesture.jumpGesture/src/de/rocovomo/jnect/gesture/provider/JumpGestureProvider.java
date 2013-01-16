@@ -3,9 +3,9 @@ package de.rocovomo.jnect.gesture.provider;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
-import de.rocovomo.jnect.gesture.RoCoVoMoGesture;
+import de.rocovomo.jnect.gesture.api.RoCoVoMoGesture;
 import de.rocovomo.jnect.gesture.jump.JumpGesture;
-import de.rocovomo.jnect.gesture.spi.GestureProvider;
+import de.rocovomo.jnect.gesture.provider.api.GestureProvider;
 
 // TODO javadoc missing
 public class JumpGestureProvider implements GestureProvider{

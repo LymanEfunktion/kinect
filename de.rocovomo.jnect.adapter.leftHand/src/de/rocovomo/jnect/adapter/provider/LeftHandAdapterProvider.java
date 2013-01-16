@@ -1,10 +1,11 @@
-package de.rocovomo.osgi.jnect.adapter.lefthand;
+package de.rocovomo.jnect.adapter.provider;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
 
-import de.rocovomo.osgi.jnect.adapter.RoCoVoMoAdapter;
-import de.rocovomo.osgi.jnect.adapter.spi.AdapterProvider;
+import de.rocovomo.jnect.adapter.api.RoCoVoMoAdapter;
+import de.rocovomo.jnect.adapter.lefthand.LeftHandAdapter;
+import de.rocovomo.jnect.adapter.provider.api.AdapterProvider;
 
 public class LeftHandAdapterProvider implements AdapterProvider {
 

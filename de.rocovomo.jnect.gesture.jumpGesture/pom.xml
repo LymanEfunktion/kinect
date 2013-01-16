@@ -8,7 +8,7 @@
 	</parent>
 
 	<groupId>de.rocovomo</groupId>
-	<artifactId>de.rocovomo.osgi.jnect.gesture.jumpgesture</artifactId>
+	<artifactId>de.rocovomo.osgi.gesture.jumpGesture</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 

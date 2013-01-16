@@ -1,12 +1,14 @@
 package de.rocovomo.jnect.kinect.api;
 
-import de.rocovomo.jnect.adapter.spi.AdapterProvider;
-import de.rocovomo.jnect.gesture.spi.GestureProvider;
+import de.rocovomo.action.provider.api.ActionProvider;
+import de.rocovomo.jnect.adapter.RoCoVoMoAdapter;
 
 public interface IConnector {
 	
 	public boolean isConnected();
-	public void connectGesture(GestureProvider provider);
-	public void run();
-	public void connectAdapter(AdapterProvider provider);
+	public void stop();
+	public void connectAction(ActionProvider provider);
+	public void disconnectAction(ActionProvider provider);
+	public void connectAdapter(RoCoVoMoAdapter provider);
+	public void disconnectAdapter(RoCoVoMoAdapter provider);
 }

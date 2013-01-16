@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="de.rocovomo.osgi.e4.rcp" id="de.rocovomo.osgi.e4.rcp.product" application="de.rocovomo.osgi.e4.rcp.application" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="de.rocovomo.osgi.e4.rcp" id="de.rocovomo.osgi.e4.rcp.product" application="de.rocovomo.osgi.e4.rcp.application" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -30,13 +30,18 @@
 
    <plugins>
       <plugin id="com.ibm.icu"/>
+      <plugin id="de.rocovomo.action"/>
+      <plugin id="de.rocovomo.action.test"/>
+      <plugin id="de.rocovomo.jnect.adapter"/>
+      <plugin id="de.rocovomo.jnect.adapter.spi"/>
+      <plugin id="de.rocovomo.jnect.gesture"/>
+      <plugin id="de.rocovomo.jnect.gesture.jumpgesture"/>
+      <plugin id="de.rocovomo.jnect.gesture.spi"/>
+      <plugin id="de.rocovomo.jnect.kinect"/>
+      <plugin id="de.rocovomo.log4j.fragment" fragment="true"/>
       <plugin id="de.rocovomo.osgi.e4.rcp"/>
-      <plugin id="de.rocovomo.osgi.jnect.adapter"/>
-      <plugin id="de.rocovomo.osgi.jnect.adapter.spi"/>
-      <plugin id="de.rocovomo.osgi.jnect.gesture"/>
-      <plugin id="de.rocovomo.osgi.jnect.gesture.spi"/>
-      <plugin id="de.rocovomo.osgi.jnect.kinect"/>
-      <plugin id="de.rocovomo.osgi.log4j.fragment" fragment="true"/>
+      <plugin id="de.rocovomo.robot.action"/>
+      <plugin id="de.rocovomo.robot.action.test"/>
       <plugin id="javax.annotation"/>
       <plugin id="javax.inject"/>
       <plugin id="javax.servlet"/>
@@ -45,9 +50,11 @@
       <plugin id="org.apache.batik.css"/>
       <plugin id="org.apache.batik.util"/>
       <plugin id="org.apache.batik.util.gui"/>
+      <plugin id="org.apache.commons.codec"/>
       <plugin id="org.apache.commons.logging"/>
       <plugin id="org.apache.log4j"/>
       <plugin id="org.eclipse.ant.core"/>
+      <plugin id="org.eclipse.compare.core"/>
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.databinding"/>
@@ -55,6 +62,7 @@
       <plugin id="org.eclipse.core.databinding.observable"/>
       <plugin id="org.eclipse.core.databinding.property"/>
       <plugin id="org.eclipse.core.expressions"/>
+      <plugin id="org.eclipse.core.filebuffers"/>
       <plugin id="org.eclipse.core.filesystem"/>
       <plugin id="org.eclipse.core.filesystem.aix.ppc" fragment="true"/>
       <plugin id="org.eclipse.core.filesystem.hpux.ia64_32" fragment="true"/>
@@ -72,6 +80,7 @@
       <plugin id="org.eclipse.core.runtime.compatibility.auth"/>
       <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
       <plugin id="org.eclipse.core.variables"/>
+      <plugin id="org.eclipse.draw2d"/>
       <plugin id="org.eclipse.e4.core.commands"/>
       <plugin id="org.eclipse.e4.core.contexts"/>
       <plugin id="org.eclipse.e4.core.di"/>
@@ -94,6 +103,13 @@
       <plugin id="org.eclipse.emf.ecore"/>
       <plugin id="org.eclipse.emf.ecore.change"/>
       <plugin id="org.eclipse.emf.ecore.xmi"/>
+      <plugin id="org.eclipse.emf.edit"/>
+      <plugin id="org.eclipse.emf.emfstore.client"/>
+      <plugin id="org.eclipse.emf.emfstore.common"/>
+      <plugin id="org.eclipse.emf.emfstore.common.model"/>
+      <plugin id="org.eclipse.emf.emfstore.migration"/>
+      <plugin id="org.eclipse.emf.emfstore.server"/>
+      <plugin id="org.eclipse.emf.emfstore.server.model"/>
       <plugin id="org.eclipse.equinox.app"/>
       <plugin id="org.eclipse.equinox.common"/>
       <plugin id="org.eclipse.equinox.concurrent"/>
@@ -110,6 +126,7 @@
       <plugin id="org.eclipse.equinox.security.win32.x86" fragment="true"/>
       <plugin id="org.eclipse.equinox.util"/>
       <plugin id="org.eclipse.equinox.weaving.hook" fragment="true"/>
+      <plugin id="org.eclipse.gef"/>
       <plugin id="org.eclipse.help"/>
       <plugin id="org.eclipse.jface"/>
       <plugin id="org.eclipse.jface.databinding"/>
@@ -137,15 +154,18 @@
       <plugin id="org.eclipse.swt.win32.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.text"/>
       <plugin id="org.eclipse.ui"/>
+      <plugin id="org.eclipse.ui.editors"/>
       <plugin id="org.eclipse.ui.forms"/>
       <plugin id="org.eclipse.ui.ide"/>
       <plugin id="org.eclipse.ui.views"/>
       <plugin id="org.eclipse.ui.win32" fragment="true"/>
       <plugin id="org.eclipse.ui.workbench"/>
+      <plugin id="org.eclipse.ui.workbench.texteditor"/>
       <plugin id="org.jnect.bodymodel"/>
       <plugin id="org.jnect.core"/>
-      <plugin id="org.jnect.gesture"/>
+      <plugin id="org.jnect.demo.gef"/>
       <plugin id="org.jnect.emfstore"/>
+      <plugin id="org.jnect.gesture"/>
       <plugin id="org.w3c.css.sac"/>
       <plugin id="org.w3c.dom.smil"/>
       <plugin id="org.w3c.dom.svg"/>

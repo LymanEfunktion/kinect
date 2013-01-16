@@ -10,8 +10,8 @@ import org.osgi.framework.ServiceListener;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 
-import de.rocovomo.osgi.jnect.kinect.Connector;
-import de.rocovomo.osgi.jnect.kinect.KinectProvider;
+import de.rocovomo.jnect.kinect.api.IConnector;
+import de.rocovomo.jnect.kinect.provider.KinectProvider;
 
 public class Activator implements BundleActivator, ServiceListener {
 
@@ -83,10 +83,10 @@ public class Activator implements BundleActivator, ServiceListener {
 	private void registerKinectProvider(ServiceReference<?> serviceReference,
 			KinectProvider provider) {
 		// TODO Auto-generated method stub
-		Connector connector = provider.getConnector();
+		IConnector connector = provider.getConnector();
 
 		ServiceRegistration<?> kinectServiceRegistration = context
-				.registerService(Connector.class.getName(), connector,
+				.registerService(IConnector.class.getName(), connector,
 						provider.getKinectProperties());
 
 		registeredKinect.put(serviceReference, kinectServiceRegistration);

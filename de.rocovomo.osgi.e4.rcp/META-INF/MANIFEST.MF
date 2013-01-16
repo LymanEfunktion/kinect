@@ -17,8 +17,8 @@ Require-Bundle: javax.inject;bundle-version="1.0.0",
  org.eclipse.e4.core.di;bundle-version="1.1.0",
  org.eclipse.e4.core.contexts;bundle-version="1.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: 
- de.rocovomo.osgi.jnect.kinect,
+Import-Package: de.rocovomo.jnect.kinect.provider,
+ de.rocovomo.jnect.kinect.api,
  org.eclipse.core.resources,
  org.eclipse.draw2d,
  org.eclipse.gef,

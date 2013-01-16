@@ -1,9 +1,10 @@
-package de.rocovomo.jnect.kinect.api;
+package de.rocovomo.jnect.kinect.provider;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
 
 import de.rocovomo.jnect.kinect.Connector;
+import de.rocovomo.jnect.kinect.api.IConnector;
 
 
 public class KinectProvider {

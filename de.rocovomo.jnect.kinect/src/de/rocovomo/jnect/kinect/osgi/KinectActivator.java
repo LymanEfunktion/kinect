@@ -6,66 +6,33 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceEvent;
 import org.osgi.framework.ServiceListener;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
-import org.osgi.util.tracker.ServiceTracker;
 
+import de.rocovomo.action.provider.api.ActionProvider;
 import de.rocovomo.jnect.adapter.RoCoVoMoAdapter;
-import de.rocovomo.jnect.adapter.spi.AdapterProvider;
-import de.rocovomo.jnect.gesture.RoCoVoMoGesture;
-import de.rocovomo.jnect.gesture.spi.GestureProvider;
 import de.rocovomo.jnect.kinect.Connector;
 import de.rocovomo.jnect.kinect.api.IConnector;
-import de.rocovomo.jnect.kinect.api.KinectProvider;
-
+import de.rocovomo.jnect.kinect.provider.KinectProvider;
 
 public class KinectActivator implements BundleActivator, ServiceListener {
 
 	private static Logger logger = Logger.getLogger(KinectActivator.class);
-	
-	private static BundleContext context;
 
-	@SuppressWarnings("rawtypes")
-	private ServiceRegistration serviceRegistration;
-	
+	private BundleContext context;
+
+	private ServiceRegistration<?> serviceRegistration;
+
 	private IConnector connector;
 
 	private Map<ServiceReference<?>, ServiceRegistration<?>> registeredGestures = new HashMap<ServiceReference<?>, ServiceRegistration<?>>();
 
 	private Map<ServiceReference<?>, ServiceRegistration<?>> registeredAdapters = new HashMap<ServiceReference<?>, ServiceRegistration<?>>();
 
-	BundleContext getContext() {
-		return context;
-	}
-
-	@Deprecated
-	public RoCoVoMoGesture usingAServiceTracker(BundleContext bundleContext)
-			throws InterruptedException {
-		String filter = "(objectClass=" + RoCoVoMoGesture.class.getName() + ")";
-
-		ServiceTracker<Object, Object> tracker = new ServiceTracker<Object, Object>(
-				bundleContext, filter, null);
-
-		tracker.open();
-
-		RoCoVoMoGesture gesture = (RoCoVoMoGesture) tracker.waitForService(0);
-
-		return gesture;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
-	 */
-	public void stop(BundleContext bundleContext) throws Exception {
-		bundleContext.removeServiceListener(this);
-		
-		serviceRegistration.unregister();
-	}
+	private KinectProvider provider;
 
 	/*
 	 * (non-Javadoc)
@@ -75,42 +42,75 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 	 * )
 	 */
 	public void start(BundleContext bundleContext) throws Exception {
-		KinectActivator.context = bundleContext;
+		this.context = bundleContext;
+		logger.info("Starting " + this.context.getBundle().getSymbolicName());
+		this.connector = new Connector();
 
-		String gestureFilter = "(objectClass="
-				+ GestureProvider.class.getName() + ")";
+		getActionReferences(bundleContext, null);
+		getAdapterReferences(bundleContext, null);
 
-		String adapterFilter = "(objectClass="
-				+ AdapterProvider.class.getName() + ")";
+		// this.connector.run();
 
-		String filter = "(|" + gestureFilter + adapterFilter + ")";
+		bundleContext.addServiceListener(this);
 
-		ServiceReference<?>[] references = bundleContext
-				.getAllServiceReferences(null, filter);
+		this.provider = new KinectProvider();
+		serviceRegistration = bundleContext.registerService(
+				KinectProvider.class.getName(), this.provider,
+				this.provider.getKinectProperties());
+		logger.info("Registered " + this.provider.getConnector() + ":"
+				+ this.provider.getKinectProperties().get("type"));
+		logger.info("Started " + this.context.getBundle().getSymbolicName());
+	}
 
-		if (references != null) { 
-			connector = new Connector();
-			if (connector.isConnected()) {
-				for (ServiceReference<?> serviceReference : references) {
-					logger.info(serviceReference.getBundle()
-							.getSymbolicName());
-					registerService(serviceReference);
-				}
-				
-				connector.run();
-				bundleContext.addServiceListener(this, filter);
-				
-			} else {
-				logger.error("Init fehlgeschlagen");
-				System.out.println("asdflasdf");
+	private void getActionReferences(BundleContext bundleContext, String filter)
+			throws InvalidSyntaxException {
+		ServiceReference<?>[] actionReferences = bundleContext
+				.getAllServiceReferences(ActionProvider.class.getName(), filter);
+
+		if (actionReferences != null) {
+			for (ServiceReference<?> serviceReference : actionReferences) {
+				ActionProvider action = (ActionProvider) this.context
+						.getService(serviceReference);
+				this.connector.connectAction(action);
 			}
 		}
+	}
 
-		KinectProvider provider = new KinectProvider();
+	private void getAdapterReferences(BundleContext bundleContext, String filter)
+			throws InvalidSyntaxException {
+		ServiceReference<?>[] adapterReferences = bundleContext
+				.getAllServiceReferences(RoCoVoMoAdapter.class.getName(),
+						filter);
 
-		serviceRegistration = bundleContext.registerService(
-				KinectProvider.class.getName(), provider,
-				provider.getKinectProperties());
+		if (adapterReferences != null) {
+			for (ServiceReference<?> serviceReference : adapterReferences) {
+				RoCoVoMoAdapter adapter = (RoCoVoMoAdapter) this.context
+						.getService(serviceReference);
+				this.connector.connectAdapter(adapter);
+			}
+		}
+	}
+
+	BundleContext getContext() {
+		return context;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
+	 */
+	public void stop(BundleContext bundleContext) throws Exception {
+		logger.info("Stopping " + this.context.getBundle().getSymbolicName());
+		bundleContext.removeServiceListener(this);
+		this.connector.stop();
+		logger.info("Unregistering " + this.provider.getConnector() + ":"
+				+ this.provider.getKinectProperties().get("type"));
+		serviceRegistration.unregister();
+		logger.info("Unregistered " + this.provider.getConnector() + ":"
+				+ this.provider.getKinectProperties().get("type"));
+		logger.info("Stopped " + this.context.getBundle().getSymbolicName());
 	}
 
 	@Override
@@ -124,79 +124,45 @@ public class KinectActivator implements BundleActivator, ServiceListener {
 			break;
 		}
 		case ServiceEvent.UNREGISTERING: {
-			String[] serviceInterfaces = (String[]) serviceReference
-					.getProperty("objectClass");
-			for (String serviceInterface : serviceInterfaces) {
-				if (GestureProvider.class.getName().equals(serviceInterface)) {
-					unregisterGestureProvider(serviceReference);
-				}
-				if (AdapterProvider.class.getName().equals(serviceInterface)) {
-					unregisterAdapterProvider(serviceReference);
-				}
-				context.ungetService(serviceReference);
-				break;
-			}
+			unregisterService(serviceReference);
+			break;
 		}
 		default:
 			// do nothing
 		}
 	}
 
-	private void unregisterAdapterProvider(
-			ServiceReference<?> adapterProviderServiceReference) {
-		ServiceRegistration<?> adapterServiceRegistration = registeredAdapters
-				.remove(adapterProviderServiceReference);
-
-		if (adapterServiceRegistration != null) {
-			adapterServiceRegistration.unregister();
-		}
-	}
-
-	private void unregisterGestureProvider(
-			ServiceReference<?> gestureProviderServiceReference) {
-		ServiceRegistration<?> gestureServiceRegistration = registeredGestures
-				.remove(gestureProviderServiceReference);
-
-		if (gestureServiceRegistration != null) {
-			gestureServiceRegistration.unregister();
-		}
-	}
-
+	/**
+	 * checks the ServiceReference for its type and calls its registration
+	 * method
+	 * 
+	 * @param serviceReference
+	 */
 	private void registerService(ServiceReference<?> serviceReference) {
 		Object serviceObject = context.getService(serviceReference);
-
-		if (serviceObject instanceof AdapterProvider) {
-			registerAdapterProvider(serviceReference,
-					(AdapterProvider) serviceObject);
+		if (serviceObject instanceof ActionProvider) {
+			this.connector.connectAction((ActionProvider) serviceObject);
 		}
-
-		if (serviceObject instanceof GestureProvider) {
-			registerGestureProvider(serviceReference,
-					(GestureProvider) serviceObject);
+		if (serviceObject instanceof RoCoVoMoAdapter) {
+			this.connector.connectAdapter((RoCoVoMoAdapter) serviceObject);
 		}
 	}
 
-	private void registerAdapterProvider(ServiceReference<?> serviceReference,
-			AdapterProvider provider) {
-		RoCoVoMoAdapter adapter = provider.getAdapter();
+	/**
+	 * checks the ServiceReference for its type and calls its de-registration
+	 * method
+	 * 
+	 * @param serviceReference
+	 */
+	private void unregisterService(ServiceReference<?> serviceReference) {
+		Object serviceObject = context.getService(serviceReference);
 
-		ServiceRegistration<?> adapterServiceRegistration = context
-				.registerService(RoCoVoMoAdapter.class.getName(), adapter,
-						provider.getAdapterProperties());
-
-		registeredAdapters.put(serviceReference, adapterServiceRegistration);
-		connector.connectAdapter(provider);
+		if (serviceObject instanceof ActionProvider) {
+			this.connector.disconnectAction((ActionProvider) serviceObject);
+		}
+		if (serviceObject instanceof RoCoVoMoAdapter) {
+			this.connector.disconnectAdapter((RoCoVoMoAdapter) serviceObject);
+		}
 	}
 
-	private void registerGestureProvider(ServiceReference<?> serviceReference,
-			GestureProvider provider) {
-		RoCoVoMoGesture gesture = provider.getGesture();
-
-		ServiceRegistration<?> gestureServiceRegistration = context
-				.registerService(RoCoVoMoGesture.class.getName(), gesture,
-						provider.getGestureProperties());
-
-		registeredGestures.put(serviceReference, gestureServiceRegistration);
-		connector.connectGesture(provider);
-	}
 }

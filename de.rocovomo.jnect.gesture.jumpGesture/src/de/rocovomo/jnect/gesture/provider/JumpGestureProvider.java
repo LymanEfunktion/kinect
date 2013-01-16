@@ -3,8 +3,8 @@ package de.rocovomo.jnect.gesture.provider;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
-import de.rocovomo.jnect.gesture.JumpGesture;
 import de.rocovomo.jnect.gesture.RoCoVoMoGesture;
+import de.rocovomo.jnect.gesture.jump.JumpGesture;
 import de.rocovomo.jnect.gesture.spi.GestureProvider;
 
 // TODO javadoc missing

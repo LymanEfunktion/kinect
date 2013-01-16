@@ -1,4 +1,4 @@
-package de.rocovomo.jnect.gesture;
+package de.rocovomo.jnect.gesture.jump;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EAttribute;
@@ -7,6 +7,8 @@ import org.jnect.bodymodel.LeftFoot;
 import org.jnect.bodymodel.PositionedElement;
 import org.jnect.bodymodel.RightFoot;
 import org.jnect.gesture.util.MovingAverageCalculator;
+
+import de.rocovomo.jnect.gesture.RoCoVoMoGesture;
 
 //TODO javadoc missing
 public class JumpGesture extends RoCoVoMoGesture {

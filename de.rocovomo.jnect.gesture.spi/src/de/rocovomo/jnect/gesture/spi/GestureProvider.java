@@ -7,6 +7,5 @@ import de.rocovomo.jnect.gesture.RoCoVoMoGesture;
 public interface GestureProvider {
 	
 	RoCoVoMoGesture getGesture();
-	
 	Dictionary<String, Object> getGestureProperties();
 }

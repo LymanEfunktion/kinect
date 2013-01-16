@@ -2,7 +2,7 @@ package de.rocovomo.robot.action.test;
 
 import de.rocovomo.robot.action.RobotAction;
 
-
+// TODO delete bundle because it is no longer necessary?
 public class TestRobotAction implements RobotAction{
 
 	@Override

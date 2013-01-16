@@ -63,6 +63,22 @@
 
 \usepackage{eurosym}
 
+\usepackage{tikz}
+\usepackage{verbatim}
+
+\usetikzlibrary{arrows,positioning}
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    %Define style for boxes
+    % Define arrow style
+    pil/.style={
+           ->,
+           thick,
+           shorten <=2pt,
+           shorten >=2pt,}
+}
+
 % (Farb-)einstellungen f�r die Links im PDF
 \hypersetup{%
 	colorlinks=false, % Aktivieren von farbigen Links im Dokument

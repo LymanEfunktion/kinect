@@ -2,8 +2,43 @@
 \label{chap:Implementierung}
 % Blablabla
 
+%M\"ogliche Punkte: 
+
+%Architektur\"ubersicht/OSGi-Service
+%Kinect Bundle
+%Gesten Bundle(s)
+%Action Bundle(s)
+%RobotAction Bundle(s)
+%User Interface
+
+%Architektur\"ubersicht/OSGi-Service
+%spricht f\"ur sich
+
+%Kinect Bundle
+%Kinect lauscht ob Gesture(s), GestureListener und SpeechListener als Services verf\"ugbar sind, 
+%sind diese verf\"ugbar werden sie eingebunden
+
+%Gesten Bundle
+%Geste wird in einem Bundle implementiert und dort als Service ver\"offentlicht
+%Geste wird von Kinect gefunden und dem Repertoire hinzugefügt
+
+%Action Bundle
+%Eine Action sucht seine Geste, und kann erst starten, wenn es diese gefunden hat
+%Action implementier GestureSpeechListener und SpeechListener
+%Beide werden von der Kinect gefunden und hinzugef\"ugt
+
+%RobotAction
+
+%bisher einfach eine Klasse, sollte das auch als Service raus und von Action gesucht werden?
+
+%UserInterface
+
+%quasi nicht existent
+%Evtl anzeigen des GEF Bildes, Einblendungen, welche Sprachbefehle und Gesten erkannt wurden
+
 \section{OSGI--Bundles}
 % Aufbau der OSGI Archiktur der Anwendung erl\"autern, evtl. Grafik \ldots UML
+
 \subsection{Gesten}
 % Beschreibung des Bundles
 \subsection{Sprachbefehle}

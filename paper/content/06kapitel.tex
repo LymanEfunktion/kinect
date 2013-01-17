@@ -280,7 +280,7 @@ Das dritte und bei weitem schwierigste Problem eines \gls{HMM}, ist die Bestimmu
 \newline
 Es ist laut Rabiner~\cite[S.~264]{bib:hmmrabiner} kein analytisches Verfahren zur L\"osung des Problems bekannt. Es ist jedoch m\"oglich, so Rabiner weiter, ein $\lambda = (A, B, \pi)$ so zu w\"ahlen, dass $P (O \mid \lambda)$ lokal maximiert wird. Das bekannteste Verfahren hierzu ist der sogenannte Bauch-Welch-Algorithmus~\cite{bib:baumFellow}~\cite{bib:baumWelch}.
 \newline
-Rabiner~\cite[S.~264ff]{bib:hmmRabiner} stellt hierzu eine detaillierte Beschreibung des Algorithmus bereit.
+Rabiner~\cite[S.~264ff]{bib:hmmrabiner} stellt hierzu eine detaillierte Beschreibung des Algorithmus bereit.
 
 \subsection{Typen des Hidden Markov Model}
 Bislang wurde lediglich der Spezialfall eines sogenannten \glslink{Ergo}{\textit{ergodischen}} oder vollst\"andig verbundenen \acrshort{HMM}s betrachtet, wobei jeder Zustand des Modells von jedem anderen Zustand des Modells aus (in einem Schritt) erreicht werden. (Streng mathematisch gesprochen: in einer finiten Anzahl von Schritten). Wie in Abbildung~\ref{fig:HMMTypes}(a) zu sehen, hat dieses $N = 4$ Zustandsmodell, die Eigenschaft, dass jeder $a_{ij}$ Koeffizient positiv ist. Aus dem Beispiel in Abbildung~\ref{fig:HMMTypes}(a) erhalten wir
@@ -301,7 +301,7 @@ a_{41} & a_{42} & a_{43} & a_{44} \\
 \label{fig:HMMTypes}
 \end{figure}
 
-Andere Typen von \acrshort{HMM}s bieten bessere Beobachtungseigenschaften des Signals und stellen sich f\"ur einige Anwendungen daher als besser modelliert heraus, als das ergodische Modell. Eines dieser Modelle ist das aus  Abbildung~\ref{fig:HMMTypes}(b). Dieses Modell ist ein sogenanntes links-rechts Model oder Bakis Model~\cite{bib:jelinek}~\cite{bib:baki}, da die dahinterliegende Zustandsfolge, die mit dem Modell verbunden ist, die Eigenschaft hat, dass sofern die Zeit zunimmt, der Zustandsindex zunimmt (oder gleich bleibt), d. h., die Zust\"ande verlaufen von links nach rechts. Die fundamentale Eigenschaft aller links-rechts HMMs ist, dass die Zustands\"ubergangskoeffizienten die Eigenschaft
+Andere Typen von \acrshort{HMM}s bieten bessere Beobachtungseigenschaften des Signals und stellen sich f\"ur einige Anwendungen daher als besser modelliert heraus, als das ergodische Modell. Eines dieser Modelle ist das aus  Abbildung~\ref{fig:HMMTypes}(b). Dieses Modell ist ein sogenanntes links-rechts Model oder Bakis Model~\cite{bib:jelinek}~\cite{bib:bakis}, da die dahinterliegende Zustandsfolge, die mit dem Modell verbunden ist, die Eigenschaft hat, dass sofern die Zeit zunimmt, der Zustandsindex zunimmt (oder gleich bleibt), d. h., die Zust\"ande verlaufen von links nach rechts. Die fundamentale Eigenschaft aller links-rechts HMMs ist, dass die Zustands\"ubergangskoeffizienten die Eigenschaft
 \begin{align}
 a_{ij} = 0 \, , & & j \leq i
 \end{align}

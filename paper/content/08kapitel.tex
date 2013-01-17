@@ -1,10 +1,50 @@
 \chapter{Sprachbefehle}
 \label{chap:Sprachbefehle}
-% Einf\"uhrung
 
-% Spracherkennung durch Kinect SDK \ldots
+%8.1
+\section{Sprache}
+%8.2
+\section{Sprache und Gesten}
+%8.3
+\section{Kinect for Windows SDK und Spracherkennung}
 
-% Befehl erlautern und mit Aktion verbinden
-% Abh\"angigkeit zu Geste klarstellen, etc.
-\section{ToDo}
-% Befehl einf\"ugen
+Die Spracherkennung erfolgt in diesem Fall durch die Sprachengine des Kinect for Windows SDKs.
+
+Zur Verwendung von Sprachkommandos mit jnect 
+
+\subsubsection{W\"orter und Phrasen}
+
+
+
+\subsubsection{User Interfaces f\"ur Spracheingabe}
+% visual clues for users
+% show words that can be accepted or have been recognized
+Zur besseren Nutzbarkeit von Sprachkommandos ist es sinnvoll dem Nutzer ein entsprechendes Feedback zu geben. Dies
+
+%8.4
+\section{Sprachkommandos f\"ur Roboter}
+
+Da bisher keine n\"aheren Informationen zum Roboter, welcher im zweiten Teil der Arbeit angesteuert werden soll, vorliegen, ist es an dieser Stelle schwer 
+konkrete Sprachbefehle zu bestimmen, mit denen der Roboter sp\"ater fernsgesteuert werden soll.
+Die einzige konkrete Information die vorliegt ist, dass es sich um einen mobilen Roboter handeln wird. 
+Jedoch l\"asst auch dies offen, ob der Roboter sich nur zweidimensional auf einer Ebene bewegen wird oder ob es sich m\"oglicherweise um eine Drohne 
+handeln wird, welche ferngesteuert wird. Diese kann sich auch dreidimensional fortbewegen.
+\par\smallskip 
+
+\subsubsection{Grunds\"atzliche Sprachbefehle}
+
+Da es sich um einen mobilen Roboter handlen wird, k\"onnen insofern schon einmal Annahmen getroffen werden. Auf jeden Fall wird dieser sich vorw\"arts 
+und r\"uckwarts bewegen k\"onnen. Hieraus ergeben sich die ersten Befehle: ``Forward'' und ``Backward''. Der Roboter bewegt sich nun. Davon ausgehend 
+ist der n\"achste Befehl das Anhalten, also ``Stop''. Hierauf beschr\"anken sich aber schon die M\"oglichkeiten, die man an dieser Stelle hat um 
+Befehle zu definieren. Eine Drehung oder ein Abbiegen f\"uhrt hier schon zu Problemen. 
+
+Doch zun\"achst noch zu grunds\"atzlichen Befehlen die abh\"angig von aktuellen Zustand des Roboters sind. Einer weitere M\"oglichkeit besteht 
+darin die Bewegung des Roboters zu beschleunigen oder zu verlangsamen. Hieraus ergeben sich die Befehle ``Faster'' und ```Slower''.
+
+
+\subsubsection{Richtungsver\"anderungen}
+
+Wie bereits erw\"ahnt ergeben sich bei Richtungsver\"anderungen schon die ersten Probleme. Es stellt sich die Schwierigkeit, wie man einen 
+Richtungswechsel definiert. Soll sich der Roboter um 90 Grad drehen oder eine bestimmte, gesprochene Gradzahl. Auch stellt sich die Frage wie 
+der Roboter sich fortbewegt. F\"ahrt dieser auf Ketten so dreht er sich auf der Stelle, das ist relativ unproblematisch. F\"ahrt er jedoch 
+auf R\"andern, oder l\"auft gar auf Beinen muss die Richtungsver\"anderung

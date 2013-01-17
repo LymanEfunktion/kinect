@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Lefthand Adapter
+Bundle-Name: RoCoVoMo::Adapter::LeftHand
 Bundle-SymbolicName: de.rocovomo.jnect.adapter.lefthand
 Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: de.rocovomo.jnect.adapter.osgi.LeftHandAdapterActivator

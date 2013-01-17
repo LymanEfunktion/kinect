@@ -1,0 +1,27 @@
+\select@language {german}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Schematische Ansicht der Sensoren einer Kinect for Windows}}{14}{figure.3.1}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Markov-Kette mit f\"unf Zust\"anden}}{31}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces (a) Illustration der Oerpationsfolge zur Berechnung der Vorw\"artsvariable.(b) Implementierung der Berechung von $\alpha _t(i)$ im Netz der Beobachtungen $t$ und Zust\"ande $i$.}}{38}{figure.6.2}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Illustration der Oerpationsfolge zur Berechnung der R\"uckw\"artsvariable.}}{40}{figure.6.3}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Darstellung dreier verschiedener Typen eines HMMs. (a) 4-Zustand ergodisches Modell. (b) 4-Zustand links-rechts Modell. (c) 6-Zustand Parallelpfad links-rechts Modell}}{43}{figure.6.4}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Abstrakte Darstellung einer Kreisbewegung im Koordinatensystem inklusiver ihrer 8 Zustandspunkte}}{49}{figure.7.1}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Darstellung von Kreisbewegungen im Koordinatensystem die aus realen Trainingsdaten stammen}}{50}{figure.7.2}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Abstrakte Darstellung einer Vorw\"artsbewegung im Koordinatensystem inklusiver ihrer 4 Zustandspunkte}}{51}{figure.7.3}
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Idealisierte Darstellung der 1. Variante einer erweiterten Vorw\"artsbewegung mit 6 Zust\"anden}}{58}{figure.7.4}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Darstellung der gesamten erweiterten Vorw\"artsbewegung mit 6 Zust\"anden}}}{58}{figure.7.4}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Detaildarstellung der Seitw\"artsbewegung der erweiterten Vorw\"artsbewegung und ihrer 2 Zust\"ande}}}{58}{figure.7.4}
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Idealisierte Darstellung der 2. Variante einer erweiterten Vorw\"artsbewegung mit 4 Zust\"anden}}{59}{figure.7.5}
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Abstrakte Darstellung der Modelle f\"ur die Geste des Haltesignals mit jeweils 4 Zust\"anden}}{60}{figure.7.6}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Abstrakte Darstellung des Haltesignals aus einer m\"oglichen Vorwz"artsbewegung heraus, mit ihren 4 Zust\"anden}}}{60}{figure.7.6}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Abstrakte Darstellung des Haltesignals aus einer m\"oglichen Kreisbewegung heraus, mit ihren 4 Zust\"anden}}}{60}{figure.7.6}
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Idealisierte Darstellung der Geste zum Blockieren und Freigeben der Gesteneingabe mit 4 Zust\"anden}}{61}{figure.7.7}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

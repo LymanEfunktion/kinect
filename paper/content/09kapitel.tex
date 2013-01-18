@@ -37,25 +37,181 @@
 %quasi nicht existent
 %Evtl anzeigen des GEF Bildes, Einblendungen, welche Sprachbefehle und Gesten erkannt wurden
 
-\section{OSGI--Bundles}
-% Aufbau der OSGI Archiktur der Anwendung erl\"autern, evtl. Grafik \ldots UML
+\section{Architektur}
 
-\subsection{Gesten}
-% Beschreibung des Bundles
-\subsection{Sprachbefehle}
-% Beschreibung des Bundles
-\subsection{Roboterschnittstelle}
-\label{subsec:Roboterschnittstelle}
-% Beschreibung des Bundles 
-\subsection{Ausf\"uhrbare Aktionen}
-% Beschreibung des Bundles
+Nachfolgend wird der derzeitige Stand der Architektur der Anwendung beschrieben. Da dies lediglich der erste Teil einer gr\"oßeren Arbeit ist, k\"onnen infolge des zweiten Teils der Arbeit Ver\"anderungen an der Architektur auftreten. 
 
-\section{Oberfl\"ache}
-% Wie benutzt der Nutzer die Anwendung, was kann er sehen \ldots
-\subsection{RCP--Anwendung}
-% Warum RCP \ldots
-\subsection{Grafische Darstellung}
-% Darstellung der Geste etc.
+Wie in Abschnitt~\ref{subsec:OSGi} bereits angesprochen, wird die Anwendung unter Verwendung von OSGi~\footnotemark[1] umgesetzt. Als Implementierung des OSGi-Standard wurde im Rahmen dieser Arbeit das Framework Equinox~\footnotemark[2] gew\"ahlt. Die Eclipse IDE und die von jnect verwendeten Frameworks basieren ebenfalls auf dieser Plattform, sie ist daher optimal geeignet. Durch Implementierung der Gesten, Sprachbefehle und Aktionen durch OSGi-Bundles~\footnotemark[3] ist es m\"oglich zur Laufzeit der Anwendung neue Gesten nachzuladen oder Aktionen neu zu definieren. Geschaffen wird diese lose Kopplung der Komponenten durch die Nutzun der Service-Funktionalit\"at der OSGi-Plattform.
 
-\section{Ablaufbeschreibung}
-% Erl\"auternung der Anwendung an Beispiel einer Geste
+In Abbildung~\ref{fig:osgiArchitecture} ist die aktuelle Architektur der Anwendung zu sehen. In Abschnitt~\ref{sec:osgiBundles} werden die dargestellten Komponenten n\"aher beschrieben. Die Komponenten stellen ihre Funktionalit\"at in Form von Services~\footnotemark[3] bereit. Ein Service wird mittels eines Interface am Framework registriert. Somit k\"onnen andere Bundles einen Service nutzen, ohne dessen konkrete Implementierung 
+kennen zu m\"ussen.
+
+\footnotetext[1]{Osgi Alliance (2013) \href{http://www.osgi.org/Technology/HomePage}{\textit{OSGi Alliance}} osgi.org, Abgerufen Januar 07, 2013}
+\footnotetext[2]{The Eclipse Foundation (2013) \href{http://www.eclipse.org/equinox/}{\textit{Eclipse Equinox}} eclipse.org, Abgerufen Januar 07, 2013}
+\footnotetext[3]{Osgi Alliance (2013) \href{hhttp://www.osgi.org/Technology/WhatIsOSGi}{\textit{OSGi Technology}} osgi.org, Abgerufen Januar 07, 2013}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=1\textwidth]{img/09kapitel/osgi-architecture.png}
+\caption[Anwendungsarchitektur]{Architektur der Anwendung}
+\label{fig:osgiArchitecture}
+\end{figure}
+
+\section{Bundles}
+\label{sec:osgiBundles}
+
+Bundles stellen ihre Funktionalit\"at mittels Services zur Verf\"ugung. Dies geschieht mittels eines Interface. Das Interface wird in einem eigenen Bundle definiert. Hierdurch entsteht eine statische Abh\"angigkeit zwischen einem API-Bundle und seinen implementierenden Bundles. Dieser wird geschaffen mittels der Deklaration von importierten und exportierten Bundles im Manifest des Bundles (Abbildung~\ref{listing:manifestGestureAPI}). Die OSGi-Runtime liest beim Start eines Bundles das Manifest ein und l\"ost die Abh\"angigkeiten auf. Ist dies nicht m\"oglich, kann ein Bundle nicht gestartet werden. Ebenso k\"onnen laufende Bundles wieder beendet werden. Hierf\"ur existiert das Konzept des Bundle-Lifecycle~\footnotemark[3].
+
+\lstset{language=Java,
+ basicstyle=\footnotesize, 
+ numbers=left,
+ captionpos=b,
+ showspaces=false,             
+ showstringspaces=false,}
+\begin{lstlisting}[caption={Manifest der Gesture API}, label={listing:manifestGestureAPI}]
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Rocovomo Gesture API
+Bundle-SymbolicName: de.rocovomo.jnect.gesture
+Bundle-Version: 0.0.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.eclipse.emf.common,
+ org.eclipse.emf.ecore,
+ org.jnect.gesture
+Export-Package: de.rocovomo.jnect.gesture.api,
+ de.rocovomo.jnect.gesture.provider.api
+\end{lstlisting}
+
+\subsection{Kinect}
+
+Das Kinect-Bundle hat Abh\"angigkeiten zu den jnect-Bundles. In dieser Komponente wird die Anbindung zur Kinect implementiert. Dieses Bundle sucht nach Services, welche durch die Gesture- und Action-Bundles zur Verf\"ugung gestellt werden. Es registriert Gesten, sowie die Gesten-Listener und Sprach-Listener der Action-Bundles an der Kinect. Durch die Listener erhalten die Action-Bundles die Information ob sie ausgel\"ost wurden.
+Das Bundle stellt die effiziente Verwaltung von Gesten und Listenern sicher, sowie die Verwaltung der angeschlossenen Kinect. Ohne das Kinect for Windows SDK kann dieses Bundle nicht gestartet werden.
+
+\subsection{Gesture}
+
+In den Gesture-Bundles werden Gesten implementiert. Finden Ver\"anderungen im Modell statt, so wird dies den Gesture-Bundles mitgeteilt und diese analysieren mittels HMMs ob sie ausgel\"ost wurden. Gesten stellen sich als Service zur Verf\"ugung. Sie werden vom KinectBundle zur Erkennung verwendet. Auch die Action-Bundles m\"ussen ihre entsprechenden Gesten kennen. Gesten werden als unabh\"angige Bundles von Aktionen realisiert. Hierdurch wird eine Codeduplikation bei Aktionen die gleiche Gesten verwenden vermieden.
+
+\lstset{language=Java,
+ basicstyle=\footnotesize, 
+ numbers=left,
+ captionpos=b,
+ showspaces=false,             
+ showstringspaces=false,}
+\begin{lstlisting}[caption={Klasse Gesture}, label={listing:Gesture}]
+public abstract class Gesture extends EContentAdapter {
+
+	private GestureProxyCallback gestureProxy;
+
+	/**
+	 * DO NOT CALL THIS METHOD, IT WILL BE CALLED BY THE GESTUREPROXY
+	 * 
+	 * @param gestureProxy
+	 *            the proxy to notify when a gesture is detected
+	 */
+	public void setGestureProxy(GestureProxyCallback gestureProxy) {
+		this.gestureProxy = gestureProxy;
+	}
+
+	@Override
+	public void notifyChanged(Notification notification) {
+		if (gestureProxy != null && isGestureDetected(notification)) {
+			this.gestureProxy.notifyGestureDetected(this.getClass());
+		}
+	}
+
+	/**
+	 * checks whether the searched gesture is detected
+	 * 
+	 * @param notification
+	 *            the notification containing the model changes
+	 * @return true if the gesture was detected
+	 */
+	protected abstract boolean isGestureDetected(Notification notification);
+}
+\end{lstlisting}
+
+\subsection{Action}
+
+Die Action-Bundles bilden einen Befehl ab. Dieser Befehl kann entweder eine Geste, eine Sprachbefehl oder eine Kombination aus beidem sein. Je nachdem verf\"ugt die Action \"uber einen Speech- oder einen GestureListener. Eine Kombination aus beidem ist hier auch m\"oglich. Eine Aktion ist abh\"angig von
+
+\lstset{language=Java,
+ basicstyle=\footnotesize, 
+ numbers=left,
+ captionpos=b,
+ showspaces=false,             
+ showstringspaces=false,}
+\begin{lstlisting}[caption={Klasse GestureListener}, label={listing:GestureListener}]
+public abstract class GestureListener {
+
+	/**
+	 * callback method, that gets called when a {@link Gesture} is detected
+	 * 
+	 * @param gesture
+	 *            - the class of the {@link Gesture} that was detected
+	 */
+	public abstract void notifyGestureDetected(Class<? extends Gesture> gesture);
+
+	/**
+	 * {@link Set} of {@link Gesture}s this {@link GestureListener} listens to
+	 * 
+	 * @return {@link Set} of {@link Gesture}s to be notified about, can be
+	 *         empty but not null
+	 */
+	public Set<Gesture> getGestures() {
+		return Collections.emptySet();
+	}
+
+	/**
+	 * Whether the {@link GestureListener} listens only to special
+	 * {@link Gesture}s.
+	 * 
+	 * @return true if only the {@link Gesture}s provided in
+	 *         {@link #getGestures()} should be provided to the listener, false
+	 *         otherwise
+	 */
+	public boolean isFiltered() {
+		return false;
+	}
+\end{lstlisting}
+
+\lstset{language=Java,
+ basicstyle=\footnotesize, 
+ numbers=left,
+ captionpos=b,
+ showspaces=false,             
+ showstringspaces=false,}
+\begin{lstlisting}[caption={Klasse SpeechListener}, label={listing:SpeechListener}]
+public abstract class SpeechListener {
+	/**
+	 * callback when a relevant speech is recognized
+	 * 
+	 * @param speech
+	 *            - the speech recognized
+	 */
+	public abstract void notifySpeech(String speech);
+
+	/**
+	 * a set of words that this {@link SpeechListener} wants to be recognized
+	 * and notified about
+	 * 
+	 * @return a {@link Set} of {@link String}s building the relevant words
+	 */
+	public abstract Set<String> getWords();
+
+	/**
+	 * if a {@link SpeechListener} is filtered than it will be only notified
+	 * about recognized words that are contained in the {@link Set} provided by
+	 * {@link #getWords()}
+	 * 
+	 * @return true if should be filtered, false otherwise
+	 */
+	public boolean isFiltered() {
+		return true;
+	}
+}
+\end{lstlisting}
+
+\subsection{Robot Action}
+
+\section{User Interface}
+

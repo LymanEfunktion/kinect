@@ -14,7 +14,7 @@ Verbindet man die beiden Modalit\"aten Sprache und Geste wird es m\"oglich Gedan
 
 Die Spracherkennung erfolgt in diesem Fall durch die Sprachengine des Kinect for Windows SDK.
 
-Zur Verwendung von Sprachkommandos mit jnect wird das Interface SpeechListener implementiert \ref{listing:speechlistener}. Diese Implementierung wird dem KinectManager 
+Zur Verwendung von Sprachkommandos mit jnect wird das Interface SpeechListener implementiert. Eine Implementierung ist in Listing~\ref{listing:speechlistener} zu sehen. Diese Implementierung wird dem KinectManager 
 \"ubergeben. Erkennt das KinectSDK eines der Worte, auf das es mittels der Methode \textit{getWords()} Zugriff hat, wird die Methode \textit{notifySpeech(...)} mit dem 
 erkannten Wort als String aufgerufen.
 

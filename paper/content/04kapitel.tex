@@ -98,6 +98,7 @@ Zusammen formen diese unter dem Namen OpenNI eine Non-Profit-Organisation.
 
 \subsubsection{Technische Daten}
 
+<<<<<<< HEAD
 Durch OpenNI wird ein SDK und eine Plattform zur Verf\"ugung gestellt, mit der eine Verbindung mit verschiedenen Ger\"aten m\"oglich ist. Zu sehen ist der Aufbau in Abbildung~\ref{fig:opennisdk}.
 Das SDK stellt eine Schnittstelle zu den grunds\"atzlichen Sensoren der Hardware und den davon generierten Datenstr\"omen dar.
 Einzig der Audiostrom wird zum jetzigen Zeitpunkt noch nicht nutzbar.
@@ -105,6 +106,15 @@ Durch den Einsatz von \textit{Middleware Libraries} k\"onnen abstraktere Funktio
 hierf\"ur ist die Middleware Nite 2\footnotemark[10] von Primesense. Das SDK eignet sich grunds\"atzlich zur Nutzung verschiedener Ger\"ate, 
 sofern Treiber verf\"ugbar sind, ist also nicht auf die Kinect festgelegt.
 Eigene Anwendungen lassen sich mittels der API in C++ entwickeln. Außerdem werden \gls{Wrapper} Java und C\# bereitgestellt.
+=======
+Durch OpenNI wird ein SDK und eine Plattform zur Verf\"ugung gestellt, mit der eine Verbindung mit verschiedenen Ger\"aten m\"oglich ist. Zu sehen ist der Aufbau in Abbildung~\ref{fig:opennisdki}.
+Das SDK stellt eine Schnittstelle zu den grunds\"atzlichen Sensoren der Hardware und den davon generierten Datenstr\"omen dar.
+Einzig der Audiostrom wird zum jetztigen Zeitpunkt noch nicht nutzbar.
+Durch den Einsatz von \textit{Middleware Libraries} k\"onnen abstraktere Funktionen, wie das Tracking eines Skeletts abgebildet werden. Ein Beispiel 
+hierf\"ur ist die Middleware Nite 2\footnotemark[10] von Primesense. Das SDK eignet sich grunds\"atzlich zur Nutzung verschiedener Ger\"ate, 
+sofern Treiber verf\"ugbar sind, ist also nicht auf die Kinect festgelegt.
+Eigene Anwendungen lassen sich mittels der API in C++ entwickeln. Außerdem werden Wrapper Java und C\# bereitgestellt.
+>>>>>>> 2bb7e10335176dc446d28fa0516733abbf1cc9ef
 Zugriff auf das Mikrofonarray ist jedoch nicht gegeben und muss vom Benutzer selbst implementiert werden. 
 Somit steht hier auch keine nutzbare Engine zur Spracherkennung zur Verf\"ugung.
 Auch durch Middleware wird hier keine L\"osung geboten.
@@ -120,7 +130,11 @@ Auch durch Middleware wird hier keine L\"osung geboten.
 \subsubsection{Analyse der Anwendbarkeit}
 
 Eine Java-Schnittstelle ist vorhanden. Das Skeleton-Tracking wird durch das SDK direkt nicht geboten, wird jedoch von einer Middleware zur Verf\"ugung gestellt, 
+<<<<<<< HEAD
 welche ebenfalls eine Java-Schnittstelle besitzt. Jedoch verf\"ugt dieses SDK nicht \"uber die M\"oglichkeit die Spracheingabe auf Muster zu untersuchen. Eine Spracherkennung ist also nicht geboten.
+=======
+welche ebenfalls eine Java-Schnittstelle beseitzt. Jedoch verf\"ugt dieses SDK nicht \"uber die M\"oglichkeit die Spracheingabe auf Muster zu untersuchen. Eine Spracherkennung ist also nicht geboten.
+>>>>>>> 2bb7e10335176dc446d28fa0516733abbf1cc9ef
 
 \newpage
 
@@ -129,7 +143,11 @@ welche ebenfalls eine Java-Schnittstelle besitzt. Jedoch verf\"ugt dieses SDK ni
 \subsubsection{Beschreibung}
 
 OpenKinect\footnotemark[11] ist eine Open Source Community, die sich aus Personen zusammensetzt deren Interesse in der Entwicklung rund um die Kinect und \"ahnlichen Ger\"aten liegt.
+<<<<<<< HEAD
 Diese Community entwickelt derzeitig die Software libfreenect. Diese ist die Schnittstelle zur Kinect. Das Projekt ist allein durch seine Community getragen.
+=======
+Diese Community entwickelt derzeitig die Software lifreenect. Diese ist die Schnittstelle zur Kinect. Das Projekt ist allein durch seine Community getragen.
+>>>>>>> 2bb7e10335176dc446d28fa0516733abbf1cc9ef
 
 \subsubsection{Technische Daten}
 
@@ -157,13 +175,21 @@ Im Gegensatz zu OpenNI und OpenKinect stellt jnect keine eigene Schnittstelle zu
 
 \subsubsection{Technische Daten}
 
+<<<<<<< HEAD
 Das Projekt besitzt einen Wrapper f\"ur die genutzten Funktionen des Kinect SDK. Die durch jnect genutzten Funktionen sind das Skeleton-Tracking 
+=======
+Das Project besitzt einen Wrapper f\"ur die genutzten Funktionen des Kinect SDK. Die durch jnect genutzen Funktionen sind das Skeleton-Tracking 
+>>>>>>> 2bb7e10335176dc446d28fa0516733abbf1cc9ef
 und die Sprachengine. Das Skeleton der Kinect wird innerhalb von jnect in einem Modell des \gls{EMF} gespeichert. Die Software wird in Form von OSGi-Bundles ausgeliefert 
 und ist in erster Linie dazu gedacht in einer Eclipse-basierten Anwendung eingesetzt zu werden.
 
 \subsubsection{Analyse der Anwendbarkeit}
 
+<<<<<<< HEAD
 Auch dieses Projekt ist durch die Implementierung in Java schon einmal grunds\"atzlich als nutzbar einzustufen. Die Datenstr\"ome 
+=======
+Auch dieses Projekt ist durch die Implementierung in Java schon einmal grunds\"atzlich als nutzbar einzustufen. Die Datenstrome 
+>>>>>>> 2bb7e10335176dc446d28fa0516733abbf1cc9ef
 der Sensoren werden jedoch nicht zur Verf\"ugung gestellt. Das stellt aber kein Problem dar, da f\"ur diese Arbeit Gesten und Sprachbefehle 
 erfasst werden sollen, was durch die Verf\"ugbarkeit des Skelett-Modells und den Zugang zur Sprachengine gegeben sind.
 
@@ -176,7 +202,11 @@ Hierf\"ur werden die folgenden 5 Kriterien herangezogen:
   \item \textbf{Java Schnittstelle}, beziehungsweise die Verf\"ugbarkeit dieser. Dies ist ein wichtiger Punkt, da das KnowHow der Autoren dieser Arbeit vor allem im Bereich der Java Programmierung liegt.
   \item \textbf{Abdeckung SDK}, die Abdeckung der Sensoren und Funktionen der Kinect. Notwendigerwei\ss e werden hier nur die nachfolgenden 2 Funktionen ben\"otigt, jedoch w\"are eine ABdeckung der weiteren Sensoren f\"ur zuk\"unftige Erweiterungen w\"unschenswert.
   \item \textbf{Skeleton Stream}, die Verf\"ugbarkeit eines Skeleton-Modell, wie es auch auch durch das Kinect SDK zur Verf\"ugung gestellt wird. Dies ist wichtig f\"ur diese Arbeit, da das Erfassen von Gesten das Thema ist, und das Aufstellen eines eigenen Modells auf Basis der Rohdaten sehr aufwendig w\"Are.
+<<<<<<< HEAD
   \item \textbf{Speech Recognition}, eine Engine, die die Analyse des Audiostroms vornimmt und daraus gew\"unschte Sprachbefehle erkennen kann. Ebenfalls absolut wichtig f\"ur das Thema dieser Arbeit.
+=======
+  \item \textbf{Speech Recognition}, eine Engine, die die Analyse des Audiostroms vornimmt und daraus gew\"unschte Sprachbefehle erkennen kann. Ebefalls absolut wichtig f\"ur das Thema dieser Arbeit.
+>>>>>>> 2bb7e10335176dc446d28fa0516733abbf1cc9ef
   \item \textbf{Dokumentation}, Dokumentation der API
 \end{itemize}
 Entsprechend wurden die Kriterien gewichtet.

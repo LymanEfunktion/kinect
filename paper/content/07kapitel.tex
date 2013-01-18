@@ -40,7 +40,7 @@ Es ist daher wichtig, Gesten, die in einer Anwendung verwendet werden sollen, so
 % verkn\"upfung mit aktion f\"ur roboter
 \section{Gesten in der Anwendung}
 
-Nachdem bereits in Abschnitt~\ref{subsec:Analyse} die Anforderungen an Gesten ausgef\"uhrt wurden, werden hier die daraus entwickelten Gesten aufgef'\"uhrt. Dabei werden alle grundlegenden Vorgaben f\"ur ein \gls{MCI} aus Abschnitt~\ref{subsec:MCI} ber\"ucksichtigt und die zu entwerfenden Gesten auf Basis der oben beschriebenen Kategorie der \glslink{Semiotik}{semiotischen} Gesten modelliert.
+Nachdem bereits in Abschnitt~\ref{subsec:Konzept} die Anforderungen an Gesten ausgef\"uhrt wurden, werden hier die daraus entwickelten Gesten aufgef'\"uhrt. Dabei werden alle grundlegenden Vorgaben f\"ur ein \gls{MCI} aus Abschnitt~\ref{subsec:MCI} ber\"ucksichtigt und die zu entwerfenden Gesten auf Basis der oben beschriebenen Kategorie der \glslink{Semiotik}{semiotischen} Gesten modelliert.
 
 \subsection{Kreisbewegung}
 Ein abstrakter Roboter, ist in aller Regel in der Lage, sich im Stand vollst\"andig um seine eigene Achse zu drehen. Dies ist eine hilfreiche Funktion zur Steuerung eines solchen Ger\"ats. Betrachtet man diese Drehung, so findet im Grunde eine Kreisbewegung statt. Um eine intuitive Assoziation zwischen dieser Drehung und der daf\"ur zu verwendeten Geste herzustellen, wird zur Durchf\"uhrung dieser Geste, eine Kreisbewegung verlangt. Das hei\ss t bildlich gesprochen, dass der Bediener mit seinen H\"anden einen Kreis in die Luft zeichnen muss, um die Geste auszuf\"uhren.
@@ -92,7 +92,7 @@ In einem \acrshort{HMM} wird diese Bewegung durch acht Zust\"ande modelliert. Ab
 \centering
 \includegraphics[width=0.5\textwidth]{img/gesture/gesture_circle_real.png}
 \caption[Darstellung von Kreisbewegungen im Koordinatensystem die aus realen Trainingsdaten stammen]{Darstellung von Kreisbewegungen im Koordinatensystem die aus realen Trainingsdaten stammen\protect{\footnotemark[1]}}
-\label{fig:Circle_reall}
+\label{fig:Circle_real}
 \end{figure}
 
 Diese acht Zust\"ande bilden ein Mittelma\ss dar, um auf der einen Seite kein unterdimensioniertes \gls{HMM} aufzustellen, auf der anderen Seite, aber gen\"ugend Spielraum f\"ur die Akzeptanz von Kreisbewegungen einer etwas ungenauen Form zuzulassen. Abbildung~\ref{fig:Circle_real} zeigt mehrere solcher Kreise, die aus Trainingsdaten ermittelt worden sind.
@@ -157,8 +157,8 @@ In einem \acrshort{HMM} wird diese Bewegung durch vier Zust\"ande modelliert. Di
 \fill  (0.48,0.48) circle (.4pt) node[above right] {$S_4$}
  edge[pil,<-, bend right=60] (a);
 \end{tikzpicture}
-\caption[Abstrakte Darstellung einer Vorw\"artsbewegung im Koordinatensystem inklusiver ihrer 4 Zustandspunkte]{Abstrakte Darstellung einer  Vorw\"artsbewegung im Koordinatensystem inklusiver ihrer 4 Zustandspunkte}
-\label{fig:Foward_ideal}
+\caption[Abstrakte Darstellung einer Vorw\"artsbewegung im Koordinatensystem inklusiver ihrer 4 Zustandspunkte]{Abstrakte Darstellung einer  Vorw\"artsbewegung im Koordinatensystem inklusive ihrer 4 Zustandspunkte}
+\label{fig:Forward_ideal}
 \end{figure}
 
 Die \"Ubergangsmatrix $A$, f\"ur diese Geste wird definiert, als
@@ -171,12 +171,12 @@ a_{11} & a_{12} & 0 & 0\\
 0 & 0 & 0 & a_{44} \\
 \end{pmatrix} \, .
 \end{equation}
-Die selben Bedinungen f\"ur die \"Ubergangskoeffizienten gelten f\"ur die Vorw\"artsbewegung, als f\"ur die Kreisbewegung definiert wurden. 
+Die selben Bedingungen f\"ur die \"Ubergangskoeffizienten gelten f\"ur die Vorw\"artsbewegung, als f\"ur die Kreisbewegung definiert wurden. 
 \newline
-Der\"Ubergangskoeffizient $a_{44}$ ist gleich $1$. Weiter wird zur Initialisierung f\"ur die weiteren Indizes $i, j$ auf der Hauptiagonalen und der rechten Nebendiagonalen, $a_{ij} = 0,5$ gesetzt. In Trainingsdurchl\"aufen m\"ussen diese Wahrscheinlichkeiten eventuell vereinzelt angepasst werden.
+Der\"Ubergangskoeffizient $a_{44}$ ist gleich $1$. Weiter wird zur Initialisierung f\"ur die weiteren Indizes $i, j$ auf der Hauptdiagonalen und der rechten Nebendiagonalen, $a_{ij} = 0,5$ gesetzt. In Trainingsdurchl\"aufen m\"ussen diese Wahrscheinlichkeiten eventuell vereinzelt angepasst werden.
 
 \subsection{Erweiterte Vorw\"artsbewegung}
-\centering
+\label{subsec:gesture-extforward}
 \begin{figure}[htb]
     \centering
     \subfigure[Darstellung der gesamten erweiterten Vorw\"artsbewegung mit 6 Zust\"anden]
@@ -251,7 +251,7 @@ every node/.style={color=black}
     \label{fig:Forward_ideal_var1}
 \end{figure}
 
-Die oben beschriebene Vorw\"artsbewegung beinhaltet keine Information \"uber einen Winkel, in dem sich der Roboter fortbewegen soll. Um diese Information zu erhalten, muss die Geste und das darunterliegende \acrshort{HMM} angepasst und erweitert werden.
+Die oben beschriebene Vorw\"artsbewegung beinhaltet keine Information \"uber einen Winkel, in dem sich der Roboter fortbewegen soll. Um diese Information zu erhalten, muss die Geste und das darunter liegende \acrshort{HMM} angepasst und erweitert werden.
 \newline
 \begin{equation}
 \mathbf{A} = 
@@ -264,7 +264,7 @@ a_{11} & a_{12} & 0 & 0\\
 \end{equation}
 Die selben Bedinungen f\"ur die \"Ubergangskoeffizienten gelten f\"ur die Vorw\"artsbewegung, als f\"ur die Kreisbewegung definiert wurden. 
 \newline
-Der\"Ubergangskoeffizient $a_{44}$ ist gleich $1$. Weiter wird zur Initialisierung f\"ur die weiteren Indizes $i, j$ auf der Hauptiagonalen und der rechten Nebendiagonalen, $a_{ij} = 0,5$ gesetzt. In Trainingsdurchl\"aufen m\"ussen diese Wahrscheinlichkeiten eventuell vereinzelt angepasst werden.\begin{equation}
+Der\"Ubergangskoeffizient $a_{44}$ ist gleich $1$. Weiter wird zur Initialisierung f\"ur die weiteren Indizes $i, j$ auf der Hauptdiagonalen und der rechten Nebendiagonalen, $a_{ij} = 0,5$ gesetzt. In Trainingsdurchl\"aufen m\"ussen diese Wahrscheinlichkeiten eventuell vereinzelt angepasst werden.\begin{equation}
 \mathbf{A} = 
 \begin{pmatrix}
 a_{11} & a_{12} & 0 & 0\\
@@ -273,9 +273,9 @@ a_{11} & a_{12} & 0 & 0\\
 0 & 0 & 0 & a_{44} \\
 \end{pmatrix} \, .
 \end{equation}
-Die selben Bedinungen f\"ur die \"Ubergangskoeffizienten gelten f\"ur die Vorw\"artsbewegung, als f\"ur die Kreisbewegung definiert wurden. 
+Die selben Bedingungen f\"ur die \"Ubergangskoeffizienten gelten f\"ur die Vorw\"artsbewegung, als f\"ur die Kreisbewegung definiert wurden. 
 \newline
-Der\"Ubergangskoeffizient $a_{44}$ ist gleich $1$. Weiter wird zur Initialisierung f\"ur die weiteren Indizes $i, j$ auf der Hauptiagonalen und der rechten Nebendiagonalen, $a_{ij} = 0,5$ gesetzt. In Trainingsdurchl\"aufen m\"ussen diese Wahrscheinlichkeiten eventuell vereinzelt angepasst werden.
+Der\"Ubergangskoeffizient $a_{44}$ ist gleich $1$. Weiter wird zur Initialisierung f\"ur die weiteren Indizes $i, j$ auf der Hauptdiagonalen und der rechten Nebendiagonalen, $a_{ij} = 0,5$ gesetzt. In Trainingsdurchl\"aufen m\"ussen diese Wahrscheinlichkeiten eventuell vereinzelt angepasst werden.
 
 \begin{figure}[htb]
 \centering
@@ -311,11 +311,11 @@ every node/.style={color=black}
 \label{fig:Forward_ideal_var2}
 \end{figure}
 
-Dabei gibt es zwei Varianten, wie diese Information exktrahiert werden kann. Variante 1, siehe Abbildung~\ref{fig:Forward_ideal_var1}, zeigt, wie an die bestehende Geste eine weitere Bewegung angef\"ugt wird, um die Winkelinformation $\theta$ zuerhalten, Variante 2, siehe Abbildung~\ref{fig:Forward_ideal_var2} , eine \"uberarbeitete Geste, in der der Winkel $\theta$ direkt \"uber das Koordinatensystem extrapoliert wird.
+Dabei gibt es zwei Varianten, wie diese Information extrahiert werden kann. Variante 1, siehe Abbildung~\ref{fig:Forward_ideal_var1}, zeigt, wie an die bestehende Geste eine weitere Bewegung angef\"ugt wird, um die Winkelinformation $\theta$ zu erhalten, Variante 2, siehe Abbildung~\ref{fig:Forward_ideal_var2} , eine \"uberarbeitete Geste, in der der Winkel $\theta$ direkt \"uber das Koordinatensystem extrapoliert wird.
 \newline
-Variante 2 stellt sich unter realen Testbedinungen als Problemanf\"allig und ungenau heraus, da bereits bei der Gestenerkennung eine gewisse Unsch\"arfe vorherrscht. Der Winkel $\theta$ wird dabei also verf\"alscht wiedergegeben und es kann nicht sichergestellt werden, dass die Intention des Bedieners vollst\"andig in die Informationen, die die Geste an den Roboter liefert einflie\ss t. Daher wird diese Variante nicht weiter verfolgt.
+Variante 2 stellt sich unter realen Testbedingungen als Problemanf\"allig und ungenau heraus, da bereits bei der Gestenerkennung eine gewisse Unsch\"arfe vorherrscht. Der Winkel $\theta$ wird dabei also verf\"alscht wiedergegeben und es kann nicht sichergestellt werden, dass die Intention des Bedieners vollst\"andig in die Informationen, die die Geste an den Roboter liefert einflie\ss t. Daher wird diese Variante nicht weiter verfolgt.
 \newline
-Variante 1 kann anschaulich in zwei Teile zerlegt werden. Neben Abbildung~\ref{fig:forward_first_sub}, die den gesamten Ablauf zeigt, weisst Abbildung~\ref{fig:forward_second_sub} auf den zweiten Teil hin, der die Geste dahingehend erweitert, dass mit einer relativen Genauigkeit, der Winkel $\theta$ aus der Geste ausgelesen werden kann. Die Gr\"o\ss e des Winkels, oder die Geschwindigkeit, mit der die Geste ausgef\"uhrt wird, spielt keine besondere Rolle, denn sobald das \acrshort{HMM} entsprechend trainiert wurde, wird die Geste in aller Regel, verl\"asslich erkannt.
+Variante 1 kann anschaulich in zwei Teile zerlegt werden. Neben Abbildung~\ref{fig:forward_first_sub}, die den gesamten Ablauf zeigt, weist Abbildung~\ref{fig:forward_second_sub} auf den zweiten Teil hin, der die Geste dahingehend erweitert, dass mit einer relativen Genauigkeit, der Winkel $\theta$ aus der Geste ausgelesen werden kann. Die Gr\"o\ss e des Winkels, oder die Geschwindigkeit, mit der die Geste ausgef\"uhrt wird, spielt keine besondere Rolle, denn sobald das \acrshort{HMM} entsprechend trainiert wurde, wird die Geste in aller Regel, verl\"asslich erkannt.
 
 \subsubsection{Technische Aspekte der Variante 1}
 Ausgehend von der vorhandenen Vorw\"artsbewegung und kann das \acrshort{HMM} der erweiterten 
@@ -332,7 +332,7 @@ a_{11} & a_{12} & 0 & 0 & 0 & 0 & \\
 \end{pmatrix} \, .
 \end{equation}
 
-Dabei ist der \"Ubergangskoeffizient $a_{66}$ gleich $1$. Weiter wird zur Initialisierung f\"ur die weiteren Indizes $i, j$ auf der Hauptiagonalen und der rechten Nebendiagonalen, $a_{ij} = 0,5$ gesetzt. In Trainingsdurchl\"aufen m\"ussen diese Wahrscheinlichkeiten eventuell vereinzelt angepasst werden.
+Dabei ist der \"Ubergangskoeffizient $a_{66}$ gleich $1$. Weiter wird zur Initialisierung f\"ur die weiteren Indizes $i, j$ auf der Hauptdiagonalen und der rechten Nebendiagonalen, $a_{ij} = 0,5$ gesetzt. In Trainingsdurchl\"aufen m\"ussen diese Wahrscheinlichkeiten eventuell vereinzelt angepasst werden.
 
 \subsection{Haltesignal}
 
@@ -407,23 +407,23 @@ every node/.style={color=black}
     \label{fig:halt_ideal}
 \end{figure}
 
-Die M\"oglichkeit den Roboter anzuhalten ist die wichtigste Funktion, da hierbei die Sicherheit vor Unf\"allen eine wesentliche Rolle spielt. Der Roboter muss m\"oglichst schnell und einfach zu stoppen sein. Sei es einfach aus dem Grund, dass der Bediener seine Aufgabe abgeschlossen hat, oder der nicht unerhebliche Fall der Unfallvermeidung oder Sicherstellung des Robots eintritt.
+Die M\"oglichkeit den Roboter anzuhalten ist die wichtigste Funktion, da hierbei die Sicherheit vor Unf\"allen eine wesentliche Rolle spielt. Der Roboter muss m\"oglichst schnell und einfach zu stoppen sein. Sei es einfach aus dem Grund, dass der Bediener seine Aufgabe abgeschlossen hat, oder der nicht unerhebliche Fall der Unfallvermeidung oder Sicherstellung des Roboters eintritt.
 \newline
 Auf Basis dieses Sicherheitsgedanken wurde das Haltesignal modelliert und hierzu die menschliche Haltung bei Gefahr betrachtet. Der Mensch tritt bei drohender Gefahr in eine defensive Stellung, tritt einen Schritt zur\"uck, oder zieht Gelenke, wie Arme oder Beine n\"aher zum K\"orperschwerpunkt.
 \newline
-Um die Erkennung der Geste zu optimieren und auch in den verschiedenen Startzust\"anden zu erkennen zeigt die Abbildung~\ref{fig:halt_ideal}, zwei abstrakte Modelle mit ensprechenden Zust\"anden. 
+Um die Erkennung der Geste zu optimieren und auch in den verschiedenen Startzust\"anden zu erkennen zeigt die Abbildung~\ref{fig:halt_ideal}, zwei abstrakte Modelle mit entsprechenden Zust\"anden. 
 \newline
 Abbildung~\ref{fig:halt_first_sub} zeigt, wie ein Haltesignal aus einer Vorw\"artsbewegung heraus erzeugt werden. Dabei spielt der Winkel $\theta$ nur dann eine Rolle, wenn er sich w\"ahrend der laufenden Geste stark \"andert, da dann nicht mehr sichergestellt ist, ob diese Geste \"uberhaubt beabsichtigt war.
 \newline
 In Abbildung~\ref{fig:halt_second_sub} is dargestellt, wie aus einer Kreisbewegung in das Haltesignal \"ubergegangen wird. Dabei ist der Winkel $\theta$ ebenfalls nur dann relevant, sofern zweifeln an der Intention der Geste besteht, da dieser sich \"andert.
 
 \subsubsection{Fachliche Aspekte}
-Das Haltesignal ist eine \glslink{Panto}{pantomimische} Geste, da sie den Schutgedanken wiedergibt und hierbei die Emotion in eine defenisve Bewegung oder Haltung resultiert. 
+Das Haltesignal ist eine \glslink{Panto}{pantomimische} Geste, da sie den Schutzgedanken wiedergibt und hierbei die Emotion in eine defensive Bewegung oder Haltung resultiert. 
 
 \subsubsection{Technische Aspekte}
-Die Geste f\"ur das Haltesignal daran angelehnt, so ausgef\"uhrt, dass der Bediener mindestens eine Hand zum K\"orper zur\"uckziehen muss. Eine abstrakte Ansicht hierzu liefert die Abbildung~\ref{fig:Hold_ideal}. Mittels vier Zust\"anden wird hier ein \acrshort{HMM} modelliert.
+Die Geste f\"ur das Haltesignal daran angelehnt, so ausgef\"uhrt, dass der Bediener mindestens eine Hand zum K\"orper zur\"uckziehen muss. Eine abstrakte Ansicht hierzu liefert die Abbildung~\ref{fig:halt_ideal}. Mittels vier Zust\"anden wird hier ein \acrshort{HMM} modelliert.
 \newline
-Wichtig hierbei ist, dass der Bediener sich zum Start des Haltesignals gerade in einer Vorw\"artsbewegung, oder einer Kreisbewegung befinden kann. Daher werden, wie in Abbildung~\ref{fig:Hold_ideal} zu sehen, zwei Varianten erkannt und akzeptiert. F\"ur die \"Ubergangsmatrix $A$ hat das keine Auswirkung, diese ist f\"ur beide F\"alle definiert, als
+Wichtig hierbei ist, dass der Bediener sich zum Start des Haltesignals gerade in einer Vorw\"artsbewegung, oder einer Kreisbewegung befinden kann. Daher werden, wie in Abbildung~\ref{fig:halt_ideal} zu sehen, zwei Varianten erkannt und akzeptiert. F\"ur die \"Ubergangsmatrix $A$ hat das keine Auswirkung, diese ist f\"ur beide F\"alle definiert, als
 \begin{equation}
 \mathbf{A} = 
 \begin{pmatrix}
@@ -433,13 +433,13 @@ a_{11} & a_{12} & 0 & 0\\
 0 & 0 & 0 & a_{44} \\
 \end{pmatrix} \, .
 \end{equation}
-Die selben Bedinungen f\"ur die \"Ubergangskoeffizienten, wie zuvor, gelten auch hier, jedoch mit einer wichtigen Ausnahme: Der\"Ubergangskoeffizient $a_{44}$ ist gleich $1$. Weiter wird zur Initialisierung f\"ur die weiteren Indizes $i, j$ auf der Hauptiagonalen und der rechten Nebendiagonalen, $a_{ij} = 0,5$ gesetzt. In Trainingsdurchl\"aufen m\"ussen diese Wahrscheinlichkeiten eventuell vereinzelt angepasst werden. Die Beobachtungsfolge $O = O_1\, O_2\, O_3\, O_4$ besteht bei den zwei Varianten, jedoch aus verschiedenen Zust\"anden $S_1, S_2, S_3, S_4$.
+Die selben Bedingungen f\"ur die \"Ubergangskoeffizienten, wie zuvor, gelten auch hier, jedoch mit einer wichtigen Ausnahme: Der\"Ubergangskoeffizient $a_{44}$ ist gleich $1$. Weiter wird zur Initialisierung f\"ur die weiteren Indizes $i, j$ auf der Hauptdiagonalen und der rechten Nebendiagonalen, $a_{ij} = 0,5$ gesetzt. In Trainingsdurchl\"aufen m\"ussen diese Wahrscheinlichkeiten eventuell vereinzelt angepasst werden. Die Beobachtungsfolge $O = O_1\, O_2\, O_3\, O_4$ besteht bei den zwei Varianten, jedoch aus verschiedenen Zust\"anden $S_1, S_2, S_3, S_4$.
 
 \subsection{Entriegeln --- Blockieren}
 
 Eine zur Steuerung eines Roboters nicht notwendige, dennoch recht n\"utzliche Geste zur Entriegelung und Blockierung weiterer Gesteneingaben. Dem Bediener, auf der einen Seite, wird ein gewisser Komfort dadurch geboten, dass er nicht st\"andig gegenw\"artig und bewusst darauf achten muss, nat\"urliche Bewegungen nicht mit Gestenbefehlen zu vermischen. Auf der anderen Seite erlangt das gesamte System der Anwendung dabei an Stabilit\"at, da Fehleingaben des Nutzers minimiert werden.
 \newline
-Angelehnt an ein Schiebeschloss muss hierbei ledigliche entweder eine Handbewegung von links nach rechts (zum Blockieren), wie in Abbildung~\ref{fig:Lock_ideal} dargestellt, als auch eine Handbewegung von rechts nach links (zum Entriegeln) ausgef\"uhrt werden.
+Angelehnt an ein Schiebeschloss muss hierbei lediglich entweder eine Handbewegung von links nach rechts (zum Blockieren), wie in Abbildung~\ref{fig:Lock_ideal} dargestellt, als auch eine Handbewegung von rechts nach links (zum Entriegeln) ausgef\"uhrt werden.
 
 \begin{figure}[htb]
 \centering
@@ -486,4 +486,4 @@ a_{11} & a_{12} & 0 & 0\\
 0 & 0 & a_{43} & a_{44} \\
 \end{pmatrix} \, .
 \end{equation}
-Der\"Ubergangskoeffizient $a_{44}$ ist hier ungleich $1$, da er nicht nur Endpunkt, sondern auch Start der Geste sein kann. Daher werden zur Initialisierung f\"ur alle Indizes $i, j$ auf der Hauptiagonalen und den Nebendiagonalen, $a_{ij} = 0,5$ gesetzt. In Trainingsdurchl\"aufen m\"ussen diese Wahrscheinlichkeiten eventuell vereinzelt angepasst werden, um insbesondere $a_{11}$ und $a_{44}$ optimal zu bestimmen. Die Beobachtungsfolge $O = O_1\, O_2\, O_3\, O_4$ besteht bei den zwei Varianten ($\Leftarrow, \Rightarrow$), jedoch aus den umgedrehten Zustandensfolgen $S_1\, S_2\, S_3\, S_4 (\Rightarrow)$ und $S_4\, S_3\, S_2\, S_1 (\Leftarrow)$.
+Der\"Ubergangskoeffizient $a_{44}$ ist hier ungleich $1$, da er nicht nur Endpunkt, sondern auch Start der Geste sein kann. Daher werden zur Initialisierung f\"ur alle Indizes $i, j$ auf der Hauptdiagonalen und den Nebendiagonalen, $a_{ij} = 0,5$ gesetzt. In Trainingsdurchl\"aufen m\"ussen diese Wahrscheinlichkeiten eventuell vereinzelt angepasst werden, um insbesondere $a_{11}$ und $a_{44}$ optimal zu bestimmen. Die Beobachtungsfolge $O = O_1\, O_2\, O_3\, O_4$ besteht bei den zwei Varianten ($\Leftarrow, \Rightarrow$), jedoch aus den umgedrehten Zustandensfolgen $S_1\, S_2\, S_3\, S_4 (\Rightarrow)$ und $S_4\, S_3\, S_2\, S_1 (\Leftarrow)$.

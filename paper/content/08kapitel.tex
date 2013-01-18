@@ -1,10 +1,108 @@
 \chapter{Sprachbefehle}
 \label{chap:Sprachbefehle}
-% Einf\"uhrung
 
-% Spracherkennung durch Kinect SDK \ldots
+\section{Sprache}
 
-% Befehl erlautern und mit Aktion verbinden
-% Abh\"angigkeit zu Geste klarstellen, etc.
-\section{ToDo}
-% Befehl einf\"ugen
+Sprache ist f\"ur Menschen die nat\"urlichste Form der der Verst\"andigung. So definiert Edward Sapir (1921): 
+\begin{quote}
+Sprache ist eine ausschlie\ss lich dem Menschen eigene, nicht im Instinkt wurzelnde Methode zur \"ubermittlung von 
+Gedanken, Gef\"uhlen und W\"unschen mittels eines Systems von frei geschaffenen Symbolen\footnotemark[1]
+\end{quote}
+Menschen nutzen Sprache zum Ausdruck ihrer selbst, sowie f\"ur Beschreibung und Manipulation ihrer Umgebung.
+
+\footnotetext[1]{Zitiert nach John Lyons, 4.Auflage, 1992, S.13}
+
+\section{Sprache und Gesten}
+
+Da die menschliche Sprache sehr komplex und auch unpr\"azise ist, ist die die korrekte Deutung der erkannten Sprache f\"ur eine Maschine sehr komplex.
+Stellt man jedoch den Bezug zu weiteren menschlichen Interaktionen her, wie die Gestik, so wird die Deutung der Bedeutung erheblich vereinfacht.
+Umgekehrt kann durch Sprache beschrieben werden, was durch eine Geste ungenau ausgedr\"uckt wurde.
+Cohen~\cite{bib:cohen1,bib:cohen2} zeigt hierzu, dass Sprache sich besser zur Beschreibung eignet als Gesten und das umgekehrt Gesten besser f\"ur
+eine direkte Manipulation geeignet sind.
+Dass eine Kombination dieser beiden Modalit\"aten f\"ur Nutzern bei grafischen Aufgaben bevorzugt werden zeigen auch Hauptman und McAvinney~\cite{bib:hauptmann}.
+
+\section{Kinect for Windows SDK und Spracherkennung}
+
+Die Spracherkennung erfolgt in diesem Fall durch die Sprachengine des Kinect for Windows SDK.
+
+Zur Verwendung von Sprachbefehlen mit jnect wird das Interface \textit{SpeechListener} implementiert. Eine Implementierung ist in 
+Listing~\ref{listing:speechlistener} zu sehen. Diese Implementierung wird dem \textit{KinectManager} \"ubergeben. Erkennt das 
+Kinect~SDK eines der Worte, auf das es mittels der Methode \textit{getWords()} Zugriff hat, wird die Methode \textit{notifySpeech(...)} mit dem 
+erkannten Wort als String aufgerufen. Umgesetzt ist der \textit{SpeechListener} derzeit im Action Bundle (Abschnitt~\ref{subsec:osgiaction}).
+
+\par\smallskip
+\lstset{language=Java}
+\begin{lstlisting}[caption={jnect SpeechListener Implementation}, label={listing:speechlistener}]
+public class SpeechlistenerImpl implements SpeechListener{
+{
+			
+	Set<String> words = new HashSet<String>();
+			
+	@Override
+	public void notifySpeech(String speech) {
+		System.out.println("Detected :" +speech);
+	}
+		
+	@Override
+	public Set<String> getWords() {
+		words.add("Hello");
+		words.add("World");
+		words.add("Hello World");
+				
+		return words;
+	}
+};
+\end{lstlisting}
+\par\smallskip
+
+
+\subsubsection{W\"orter und Phrasen}
+
+Bei Auswahl der verwendbaren Befehle sollte neben ihrer Zweckm\"a\ss igkeit auch darauf geachtet werden, dass diese f\"ur die Sprachengine 
+des Kinect SDK gut erkennbar bleiben~\cite{bib:kinect_hig}. Probleme k\"onnen hier komplexe oder exotische Worte bereiten. Aber auch einfache Worte k\"onnen schwer
+erkennbar sein, wenn es viele \"ahnliche oder gleich klingende Worte in der Zielsprache gibt. Wichtig ist es hier die richtige Kombination aus
+passenden und m\"ogichst klaren Worten zu finden. 
+
+\subsubsection{User Interfaces f\"ur Spracheingabe}
+% visual clues for users
+% show words that can be accepted or have been recognized
+Zur besseren Nutzbarkeit von Sprachkommandos ist es sinnvoll dem Nutzer ein entsprechendes Feedback zu geben~\cite{bib:kinect_hig}.
+Sinnvoll hierf\"ur erweist es sich dem Nutzer visuell dar zu bieten, welchen aktuell nutzbaren Sprachbefehle verf\"ugbar sind.
+Als ebenfalls hilfreich erweist sich die Ausgabe des erkannten Befehls, und eventuellen Nachfragen oder Verbesserungen, falls 
+ein Befehl nicht eindeutig erkannt werden konnte.
+
+%8.4
+\section{Sprachkommandos f\"ur Roboter}
+
+Da bisher keine n\"aheren Informationen zum Roboter, welcher im zweiten Teil der Arbeit angesteuert werden soll, vorliegen, ist es an dieser Stelle schwer 
+konkrete Sprachbefehle zu bestimmen, mit denen der Roboter sp\"ater ferngesteuert werden soll.
+Die einzige konkrete Information die vorliegt ist, dass es sich um einen mobilen Roboter handeln wird. 
+Jedoch l\"asst auch dies offen, ob der Roboter sich nur zweidimensional auf einer Ebene bewegen wird oder ob es sich m\"oglicherweise um eine Drohne 
+handeln wird, welche ferngesteuert wird. Diese kann sich auch dreidimensional fortbewegen.
+\par\smallskip 
+
+\subsubsection{Bewegung}
+
+Da es sich um einen mobilen Roboter handelt wird, k\"onnen insofern schon einmal Annahmen getroffen werden. Auf jeden Fall wird dieser sich vorw\"arts 
+und r\"uckwarts bewegen k\"onnen. Hieraus ergeben sich die ersten Befehle: ``Forward'' und ``Backward''. Der Roboter bewegt sich nun. Davon ausgehend 
+ist der n\"achste Befehl das Anhalten, also ``Stop''. Hierauf beschr\"anken sich aber schon die M\"oglichkeiten, die man an dieser Stelle hat um 
+Befehle zu definieren. Eine Drehung oder ein Abbiegen f\"uhrt hier schon zu Problemen. 
+
+Doch zun\"achst noch zu grunds\"atzlichen Befehlen die abh\"angig von aktuellen Zustand des Roboters sind. Einer weitere M\"oglichkeit besteht 
+darin die Bewegung des Roboters zu beschleunigen oder zu verlangsamen. Hieraus ergeben sich die Befehle ``Faster'' und ```Slower''.
+
+
+\subsubsection{Richtungsver\"anderungen}
+
+Wie bereits erw\"ahnt ergeben sich bei Richtungsver\"anderungen schon die ersten Probleme. Es stellt sich die Schwierigkeit, wie man einen 
+Richtungswechsel definiert. Soll sich der Roboter um 90 Grad drehen oder eine bestimmte, gesprochene Gradzahl. Auch stellt sich die Frage wie 
+der Roboter sich fortbewegt. F\"ahrt dieser auf Ketten so dreht er sich auf der Stelle, das ist relativ unproblematisch. F\"ahrt er jedoch 
+auf R\"andern, oder l\"auft gar auf Beinen muss die Richtungsver\"anderung detaillierter beschrieben werden. 
+
+\subsubsection{Geste und Sprache in Kombination}
+
+Bei dem zuvor beschriebenen Problem bietet es sich an Sprache und Geste zu kombinieren. W\"ahrend es durch Sprache schwierig ist, den Winkel in 
+welchem die Richtungs\"anderung stattfinden soll zu benennen, so wird dies erheblich vereinfacht durch eine weisende Geste, wie in~\ref{subsec:gesture-extforward} beschrieben.
+
+Je nach Art des Roboters kann es auch noch weitere sinnvolle Kombinationen geben. Da dies an dieser Stelle jedoch zu weit in den Bereich der Spekulation geht,
+wird sich dieser Problematik im zweiten Teil dieser Arbeit gewidmet.

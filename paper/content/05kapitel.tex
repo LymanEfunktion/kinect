@@ -1,7 +1,7 @@
 \chapter{Konzeption}
 \label{chap:Konzeption}
 
-In diesem Kapitel wird kurz die Konzeption der Anwendung und der dazu geh\"origen Komponenten beleuchtet und die Restriktionen aufgelistet, die aufgrund der Vorgaben durch die genutzen Techniken und Softwarekomponten zustande kommen.
+In diesem Kapitel wird kurz die Konzeption der Anwendung und der dazu geh\"origen Komponenten beleuchtet und die Restriktionen aufgelistet, die aufgrund der Vorgaben durch die genutzten Techniken und Softwarekomponenten zustande kommen.
 
 \section{Technische Vorgaben}
 % Einf\"uhrende Worte
@@ -9,7 +9,7 @@ Hierunter fallen die Abh\"angigkeiten zu der Robotertechnik, die in den weiteren
 
 \subsection{Vorgaben durch Kinect}
 % Entfernung zur Kinect \ldots Maximale Nutzerzahl \ldots, nur sicher nutzbar unter windwos \ldots
-Die Kinect for Windows ist ein Produkt von Microsoft, so auch die Kinect for Windows \acrshort{SDK}. Microsoft vertreibt beides mit der Vorgabe, dass diese nur unter Windows-Betriebssystemen, vorrangig Windows 7, lauff\"ahig sind, und vollst\"andig unterst\"utzt werden, sowie eien Installation des .Net Framework 4.0 auf dem System vorhanden sein muss \footnote{\href{https://www.microsoft.com/en-us/kinectforwindows/develop/}{Downloadseite des SDK}. Microsoft.com. Abgerufen Dezember 21, 2012} \footnote{\href{http://msdn.microsoft.com/en-us/library/jj131033.aspx}{\enquote{Kinect for Windows Sensor Components and Specifications}}. msdn.microsoft.com. Abgerufen Dezember 21, 2012}.
+Die Kinect for Windows ist ein Produkt von Microsoft, so auch die Kinect for Windows \acrshort{SDK}. Microsoft vertreibt beides mit der Vorgabe, dass diese nur unter Windows-Betriebssystemen, vorrangig Windows 7, lauff\"ahig sind, und vollst\"andig unterst\"utzt werden, sowie eine Installation des .Net Framework 4.0 auf dem System vorhanden sein muss \footnote{\href{https://www.microsoft.com/en-us/kinectforwindows/develop/}{Downloadseite des SDK}. Microsoft.com. Abgerufen Dezember 21, 2012} \footnote{\href{http://msdn.microsoft.com/en-us/library/jj131033.aspx}{\enquote{Kinect for Windows Sensor Components and Specifications}}. msdn.microsoft.com. Abgerufen Dezember 21, 2012}.
 
 \subsection{Vorgaben durch Java---Eclipse}
 
@@ -38,9 +38,9 @@ Da bereits alle technischen Abh\"angigkeiten aufgezeigt wurden, werden nun die B
 Baudel und Beaudouin-Lafon~\cite{bib:baudel} beschreiben die Vorteile der Gestensteuerung gegen\"uber der, herk\"ommlicher Eingabeger\"ate. Dazu m\"ussen aber einige Voraussetzungen erf\"ullt sein. Nach Baudel und Beaudouin-Lafon, sind dies:
 \begin{itemize}
 \item[Handanspannung:] Eine angespannte Hand erleichtert die Wahrnehmung der Intention des Bedieners in einer Startposition eine Geste auszuf\"uhren. Endpositionen sollten hingegen frei von solch einer Anspannung sein
-\item[Schnelle, aufbauende, revidierbare Aktionen:] Geschwindigkeit ist ein grundlegender Faktor in der Andwendung von Gesten, denn nur wenn Gesten einen Geschwindigkeitsvorteil bringen, werden diese auch eingesetzt. Zudem macht der Aufbau einer Geste aus kleinen Teilgesten, die Anwendung \"uberschaubarer und r\"ucknahme von Gesten bieten einen Komfortvorteil f\"ur den Nutzer
-\item[Favorisiere eine einfache Nutzung:] Es muss stehts ein Kompromis zwischen einfachen und nat\"urlichen Gesten, die einfach zu lernen sind, und komplexen Gesten, die mehr Kontrolle bieten, eingegangen werden. Dabei sollte stehts die einfache Nutzung bevorzugt werden
-\item[Nutze Gesten, wo sinnvoll:] Obgleich Gesten klare Vorteile bieten, muss stehts ber\"ucksichtigt werden, dass diese auch ihre Grenzen haben. Gesten sind bisweilen unter anderem ungeeignet, um pr\"azise Interaktionen durchzuf\"uhren. Hierf\"ur wird immer noch ein physischer Kontakt ben\"otigt (z.B., Steuerung des Cursors weiterhin per Maus)
+\item[Schnelle, aufbauende, revidierbare Aktionen:] Geschwindigkeit ist ein grundlegender Faktor in der Anwendung von Gesten, denn nur wenn Gesten einen Geschwindigkeitsvorteil bringen, werden diese auch eingesetzt. Zudem macht der Aufbau einer Geste aus kleinen Teilgesten, die Anwendung \"uberschaubarer und r\"ucknahme von Gesten bieten einen Komfortvorteil f\"ur den Nutzer
+\item[Favorisiere eine einfache Nutzung:] Es muss stets ein Kompromiss zwischen einfachen und nat\"urlichen Gesten, die einfach zu lernen sind, und komplexen Gesten, die mehr Kontrolle bieten, eingegangen werden. Dabei sollte stets die einfache Nutzung bevorzugt werden
+\item[Nutze Gesten, wo sinnvoll:] Obgleich Gesten klare Vorteile bieten, muss stets ber\"ucksichtigt werden, dass diese auch ihre Grenzen haben. Gesten sind bisweilen unter anderem ungeeignet, um pr\"azise Interaktionen durchzuf\"uhren. Hierf\"ur wird immer noch ein physischer Kontakt ben\"otigt (z.B., Steuerung des Cursors weiterhin per Maus)
 \end{itemize}
 
 \section{Das resultierende Konzept}
@@ -54,7 +54,7 @@ In Abschnitt~\ref{subsec:Robot} wurde bereits der hier verwendete hypothetische 
 \item In einem Winkel fahren
 \item Anhalten
 \end{itemize}
-Dar\"uber hinaus kann noch das Blockieren der Gesteneingabe hinzugef\"ugt werden. Setzt man nun all diese Funktionen und M\"oglichkeiten in Gesten und Bedienanweisungen um, so erh\"alt man folgende Anweisungen:
+Dar\"uber hinaus kann noch das Blockieren der Gesteneingabe hinzugef\"ugt werden. Setzt man nun all diese Funktionen und M\"oglichkeiten in Gesten und Bedienungsanweisungen um, so erh\"alt man folgende Anweisungen:
 \begin{itemize}
 \item Kreisbewegung
 \item Vorw\"artsbewegung

@@ -6,14 +6,14 @@ Es existieren diverese Verfahren zur Gesten- und Spracherkennung. Die bekanntest
 Im Folgenden werden kurz die diversen Eigenschaften und Algorithmen hinter den weiteren Modell er\"ortert, um eine fundierte Entscheidung \"uber die Auswahl eines dieser Modelle f\"ur diese Arbeit und das zu erarbeitende Programm zu treffen.
 
 \section{Dynamic Time Warping}
-\gls{DTW} ist ein Algorithmus zur Messung von \"Ahnlichkeiten zwischen einer Eingabesequenz und einem gegebenen Muster, die sich im zeitlichen Ablauf oder der Geschwindigkeit unterscheiden. Dabei w\"urden zum Bespiel die Gemeinsamkeiten im Laufmuster erkannt werden, selbst wenn eine Person in einem Video langsam l\"auft und diese Person in einer weiteren Aufnahme schneller laufen w\"urde, oder gar eine Beschleunigung oder Verlangsamung w\"ahrend des Zeitraumes der Beobachtung stattfindet.
+\gls{DTW} ist ein Algorithmus zur Messung von \"Ahnlichkeiten zwischen einer Eingabesequenz und einem gegebenen Muster, die sich im zeitlichen Ablauf oder der Geschwindigkeit unterscheiden. Dabei w\"urden zum Beispiel die Gemeinsamkeiten im Laufmuster erkannt werden, selbst wenn eine Person in einem Video langsam l\"auft und diese Person in einer weiteren Aufnahme schneller laufen w\"urde, oder gar eine Beschleunigung oder Verlangsamung w\"ahrend des Zeitraumes der Beobachtung stattfindet.
 \newline
 Formalisiert versteht man unter \acrshort{DTW} eine vorlagenbasierte Erkennungstechnik auf Grundlage von \glslink{DP}{dynamischer Programmierung}~\cite[S.~963]{bib:hmmlee}.
 Trotz der Erfolge bei Aufgaben mit kleinem Vokabular, braucht \acrshort{DTW} eine gro\ss e Anzahl an Vorlagen f\"ur ein gr\"osseres Umfeld an Variation. Weiterhin kann es keine undefinierte Muster verarbeiten.
 \newline
 Takahashi et al.~\cite{bib:takahashi} haben einen \textit{Erkundungsalgorithmus} vorgeschlagen, um Gesten des K\"orpers und der Arme zu erkennen. Lee beschreibt die Funktionalit\"at wie folgt: Ein Eingabemuster wird von einer Bildeingabesequenz zu jeder Zeit $t$ generiert. Dabei wird der Zeitpunkt $t$ als m\"oglicher Endpunkt der Geste betrachtet und das Eingabemuster mit allen vordefinierten Mustern verglichen. \gls{DP} wird dabei genutzt, um die Entfernung zwischen zwei Mustern zu berechnen, ungeachtet der zeitlichen Differenz.
 \newline
-Der Nachteil dieses Ansatzes ist die geringe Robustheit gegen\"uber Variationen der From und Gestalt.
+Der Nachteil dieses Ansatzes ist die geringe Robustheit gegen\"uber Variationen der Form und Gestalt.
 
 \section{K\"unstliche neueronale Netze}
 Ein weiterer Ansatz ist die Nutzung von \gls{KNN}. Beale und Edwards~\cite{bib:beale} nutzten diese trainierbare Erkennungssysteme zur Erkennung von Handgesten. Eine weitere Arbeit von Beale und Finlay~\cite{bib:finlay} nutzten diese Technik, denn sobald gro\ss e Datenmengen verf\"ugbar werden, um so mehr Relevanz erh\"alt der Einsatz von \glslink{KNN}{k\"unstlichen neuronalen Netzen}.\footnote{Vergleiche Lee und Kim~\cite{bib:hmmlee}.}
@@ -108,7 +108,7 @@ wobei
 \end{align}
 die Wahrscheinlichkeit f\"ur den initialen Status darstellt.
 \newline
-Auch die Frage nach der Wahrscheinlichkeit wie lange das Modell in einem gegebenen und bekannten Status genau $d$ Tage verbleibt, kann mittels \gls{HMM} beantwortert werden. Dabei kann die Wahrscheinlichkeit durch die Beobachtungssequenz
+Auch die Frage nach der Wahrscheinlichkeit wie lange das Modell in einem gegebenen und bekannten Status genau $d$ Tage verbleibt, kann mittels \gls{HMM} beantwortet werden. Dabei kann die Wahrscheinlichkeit durch die Beobachtungssequenz
 \begin{equation}
 O = {\underset{1}{S_i}, \underset{2}{S_i}, \underset{3}{S_i}, \cdots, \underset{d}{S_i}\, , \underset{d+1}{S_j} \ne S_i} \notag
 \end{equation}
@@ -124,12 +124,12 @@ Die Gr\"o\ss e $p_i(d)$ ist die (diskrete) Wahrscheinlichkeitsdichtefunktion der
       &= \sum_{d = 1}^{\infty} d(a_{ii})^{d - 1} (1 - a_{ii}) = \frac{1}{1 - a_{ii}} \, . \label{E:MarkovDuration2}
     \end{alignat}
   \end{subequations}
-Daraus ergeben sich die Anzahl aufeinanderfolgender Sonnentage, gem\"a\ss \, dem Modell $\frac{1}{0,2} = 5$,  die Anzahl aufeinanderfolgender bew\"olkter Tage entsprechend mit $2,5$ und die Anzahl aufeinanderfolgender Regentage mit $1,67$.
+Daraus ergeben sich die Anzahl aufeinander folgender Sonnentage, gem\"a\ss \, dem Modell $\frac{1}{0,2} = 5$,  die Anzahl aufeinanderfolgender bew\"olkter Tage entsprechend mit $2,5$ und die Anzahl aufeinanderfolgender Regentage mit $1,67$.
 
 \subsection{Erweiterung auf Hidden Markov Model}
 \label{subsec:HMM}
 % in einzelne Abschnitte aufteilen
-Um Markov Prozesse auf Probleme anwenden zu k\"onnen, in denen sich die Beobachtungen nicht auf Zustand beziehen, muss das bisher dargestellte Konzept erweitert werden. Dazu wird der Fall hinzugef\"ugt, dass eine Beobachtung durch eine Wahrscheinlichkeitsfunktion des Zustandes ausgedr\"uckt wird. Nach Rabiner~\cite{bib:hmmrabiner} besteht das resultierende Modell aus einem doppelt eingebetteten stochastischen Prozess mit einem darunterliegenden, nicht beobachtbaren(versteckten, daher \textit{hidden}), \glslink{StochProz}{stochastischen Prozess} und wird als \gls{HMM} bezeichnet.
+Um Markov Prozesse auf Probleme anwenden zu k\"onnen, in denen sich die Beobachtungen nicht auf Zustand beziehen, muss das bisher dargestellte Konzept erweitert werden. Dazu wird der Fall hinzugef\"ugt, dass eine Beobachtung durch eine Wahrscheinlichkeitsfunktion des Zustandes ausgedr\"uckt wird. Nach Rabiner~\cite{bib:hmmrabiner} besteht das resultierende Modell aus einem doppelt eingebetteten stochastischen Prozess mit einem darunter liegenden, nicht beobachtbaren(versteckten, daher \textit{hidden}), \glslink{StochProz}{stochastischen Prozess} und wird als \gls{HMM} bezeichnet.
 \newline
 Ein \acrshort{HMM} ist wie folgt charakterisiert:
 \begin{enumerate}
@@ -169,7 +169,7 @@ Meist wird hierf\"ur die kompakte Notation
 \begin{equation}
 \lambda = (A, B, \pi)
 \end{equation}
-verwendet, um die Vollst\"andigkeit aller Paramter des Modells anzuzeigen.
+verwendet, um die Vollst\"andigkeit aller Parameter des Modells anzuzeigen.
 
 \subsection[Die drei grundlegenden Probleme eines Hidden Markov Model]{Die drei grundlegenden Probleme eines Hidden
 \label{subsec:HMMProbleme}
@@ -241,7 +241,7 @@ Ebenfalls induktiv wird $\beta_t(i)$ wie folgt gel\"ost:
 \end{itemize}
 Der Induktionsschritt definiert $ \beta_T(i)$ willk\"urlich als $1$ f\"ur alle $i$. Der Induktionsschritt, dargestellt in Abbildung~\ref{fig:BackwardVariable}, zeigt, dass man um im Zustand $S_i$ zum Zeitpunkt $t$ gewesen zu sein, man alle m\"oglichen Zust\"ande $S_j$ zum Zeitpunkt $t + 1$ ber\"ucksichtungen muss.
 \newline
-Die Berechung von $\beta_t(i)$ kann ebenfalls in einer Gitterstruktur, \"ahnlich der in Abbildung~\ref{fig:ForwardVariable}(b) durchgef\"uhrt werden.
+Die Berechnung von $\beta_t(i)$ kann ebenfalls in einer Gitterstruktur, \"ahnlich der in Abbildung~\ref{fig:ForwardVariable}(b) durchgef\"uhrt werden.
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.35\textwidth]{img/markov/backward_variable.png}
@@ -260,7 +260,7 @@ definiert, das hei\ss t, die Wahrscheinlichkeit zum Zeitpunkt $t$ im Zustand $S_
 \label{E:FracGamma}
 \gamma_t(i) = \frac{\alpha_t(i) \beta_t(i)}{P (O  \mid \lambda)} = \frac{\alpha_t(i) \beta_t(i)}{\sum_{i = 1}^{N} \alpha_t(i) \beta_t(i)}
 \end{equation}
-wobei $\alpha_t(i)$ f\"ur die partielle Beobachtungsfolge $(O_1 \, O_2 \, \cdots \, O_t$  und  und Zustand $S_i$ zum Zeitpunt $t$ steht, w\"ahrend $\beta_t(i)$ f\"ur die restliche Beobachtungsfolge $O_{t +1} \, O_{t + 2} \, \cdots \, O_T$ steht, sofern Zustand $S_i$ bei $t$ gegeben ist. Der Normierungsfaktor $P (O  \mid \lambda) = \sum_{i = 1}^{N} \alpha_t(i) \beta_t(i)$ macht $\gamma_t(i)$ \u einer Wahrscheinlichkeitsgr\"o \ss e, so dass 
+wobei $\alpha_t(i)$ f\"ur die partielle Beobachtungsfolge $(O_1 \, O_2 \, \cdots \, O_t$  und  und Zustand $S_i$ zum Zeitpunkt $t$ steht, w\"ahrend $\beta_t(i)$ f\"ur die restliche Beobachtungsfolge $O_{t +1} \, O_{t + 2} \, \cdots \, O_T$ steht, sofern Zustand $S_i$ bei $t$ gegeben ist. Der Normierungsfaktor $P (O  \mid \lambda) = \sum_{i = 1}^{N} \alpha_t(i) \beta_t(i)$ macht $\gamma_t(i)$ \u einer Wahrscheinlichkeitsgr\"o \ss e, so dass 
 \begin{equation}
 \sum_{i = 1}^{N} \gamma_t(i) = 1 \, .
 \end{equation}
@@ -273,10 +273,10 @@ Trotz der Tatsache, dass Gleichung~\ref{E:argmaxGamma} die erwartete Anzahl an k
 \newline
 Daher wird meist ein anderes Optimierungskriterium verwendet, das Auffinden der \textit{einzelnen} besten Zustandesfolge, d. h., die Maximierung von $P (Q \mid O \, , \lambda)$. Die Technik, diese beste Zustandsfolge zu finden, basiert auf \glslink{DP}{dynamischer Programmierung} und ist der sogenannte Viterbi Algorithmus~\cite{bib:viterbi}~\cite{bib:forney}.
 \newline
-Dieser spielt f\"ur diese Arbeit aber keine Rolle und wird daher nicht weiter betrachtet. F\"ur weitere Informationen wird auf die Literaturreferenz verwiesen.
+Dieser spielt f\"ur diese Arbeit aber keine Rolle und wird daher nicht weiter betrachtet. F\"ur weitere Informationen wird auf die Literatur verwiesen.
 
 \subsection{Baum-Welch-Algorithmus}
-Das dritte und bei weitem schwierigste Problem eines \gls{HMM}, ist die Bestimmung einer Methode zur Anpassung der Modellparameter $(A, B, \pi)$, um die Wahrscheinlichkeit der Beoboachtungssequenz eines gebenen Modells zu maximieren.
+Das dritte und bei weitem schwierigste Problem eines \gls{HMM}, ist die Bestimmung einer Methode zur Anpassung der Modellparameter $(A, B, \pi)$, um die Wahrscheinlichkeit der Beobachtungssequenz eines gegebenen Modells zu maximieren.
 \newline
 Es ist laut Rabiner~\cite[S.~264]{bib:hmmrabiner} kein analytisches Verfahren zur L\"osung des Problems bekannt. Es ist jedoch m\"oglich, so Rabiner weiter, ein $\lambda = (A, B, \pi)$ so zu w\"ahlen, dass $P (O \mid \lambda)$ lokal maximiert wird. Das bekannteste Verfahren hierzu ist der sogenannte Bauch-Welch-Algorithmus~\cite{bib:baumFellow}~\cite{bib:baumWelch}.
 \newline
@@ -301,7 +301,7 @@ a_{41} & a_{42} & a_{43} & a_{44} \\
 \label{fig:HMMTypes}
 \end{figure}
 
-Andere Typen von \acrshort{HMM}s bieten bessere Beobachtungseigenschaften des Signals und stellen sich f\"ur einige Anwendungen daher als besser modelliert heraus, als das ergodische Modell. Eines dieser Modelle ist das aus  Abbildung~\ref{fig:HMMTypes}(b). Dieses Modell ist ein sogenanntes links-rechts Model oder Bakis Model~\cite{bib:jelinek}~\cite{bib:bakis}, da die dahinterliegende Zustandsfolge, die mit dem Modell verbunden ist, die Eigenschaft hat, dass sofern die Zeit zunimmt, der Zustandsindex zunimmt (oder gleich bleibt), d. h., die Zust\"ande verlaufen von links nach rechts. Die fundamentale Eigenschaft aller links-rechts HMMs ist, dass die Zustands\"ubergangskoeffizienten die Eigenschaft
+Andere Typen von \acrshort{HMM}s bieten bessere Beobachtungseigenschaften des Signals und stellen sich f\"ur einige Anwendungen daher als besser modelliert heraus, als das \glslink{Ergo}{ergodische} Modell. Eines dieser Modelle ist das aus  Abbildung~\ref{fig:HMMTypes}(b). Dieses Modell ist ein sogenanntes links-rechts Model oder Bakis Model~\cite{bib:jelinek}~\cite{bib:bakis}, da die dahinter liegende Zustandsfolge, die mit dem Modell verbunden ist, die Eigenschaft hat, dass sofern die Zeit zunimmt, der Zustandsindex zunimmt (oder gleich bleibt), d. h., die Zust\"ande verlaufen von links nach rechts. Die fundamentale Eigenschaft aller links-rechts HMMs ist, dass die Zustands\"ubergangskoeffizienten die Eigenschaft
 \begin{align}
 a_{ij} = 0 \, , & & j \leq i
 \end{align}

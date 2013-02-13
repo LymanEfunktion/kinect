@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   
+<extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="de.rocovomo.osgi.e4.rcp.Application">
+         </run>
+      </application>
+   </extension>
+
+<extension id="product" point="org.eclipse.core.runtime.products">
+  <product application="de.rocovomo.osgi.e4.rcp.application" name="de.rocovomo.osgi.e4.rcp">
+    <property name="appName" value="de.rocovomo.osgi.e4.rcp"> </property>
+    <property name="applicationXMI" value="de.rocovomo.osgi.e4.rcp/Application.e4xmi"> </property>
+    <property
+          name="startupForegroundColor"
+          value="FFFFFF">
+    </property>
+    <property
+          name="startupMessageRect"
+          value="7,252,445,20">
+    </property>
+    <property
+          name="startupProgressRect"
+          value="5,275,445,15">
+    </property>
+    <property
+          name="preferenceCustomization"
+          value="plugin_customization.ini">
+    </property>
+  </product>
+</extension>
+<extension
+      point="org.eclipse.ui.editors">
+   <editor
+         class="de.rocovomo.osgi.e4.rcp.editor.HumanDiagramGraphicalEditor"
+         default="true"
+         id="de.rocovomo.osgi.e4.rcp.editor.HumanDiagramGraphicalEditor"
+         name="name">
+   </editor>
+</extension>
+</plugin>

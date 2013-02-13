@@ -9,7 +9,7 @@
 		<relativePath>../de.rocovomo.master/pom.xml</relativePath>
 	</parent>
 
-	<artifactId>de.rocovomo.jnect.gesture</artifactId>
+	<artifactId>de.rocovomo.jnect.gesture.api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 

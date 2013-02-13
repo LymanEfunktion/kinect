@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Aktion/src"/>
+	<classpathentry kind="src" path="de.rocovomo.action.test/src"/>
+	<classpathentry kind="src" path="de.rocovomo.action/src"/>
+	<classpathentry kind="src" path="de.rocovomo.jnect.adapter.leftHand/src"/>
+	<classpathentry kind="src" path="de.rocovomo.jnect.adapter.rightHand/src"/>
+	<classpathentry kind="src" path="de.rocovomo.jnect.adapter/src"/>
+	<classpathentry kind="src" path="de.rocovomo.jnect.gesture.jumpGesture/src"/>
+	<classpathentry kind="src" path="de.rocovomo.jnect.gesture/src"/>
+	<classpathentry kind="src" path="de.rocovomo.jnect.kinect/src"/>
+	<classpathentry kind="src" path="de.rocovomo.osgi.e4.rcp/src"/>
+	<classpathentry kind="src" path="de.rocovomo.robot.action.test/src"/>
+	<classpathentry kind="src" path="de.rocovomo.robot.action/src"/>
+	<classpathentry kind="src" path="SimpleRCPApp/src"/>
+	<classpathentry kind="lib" path="de.rocovomo.osgi.e4.rcp/res/lwjgl/2.8.5/jar/AppleJavaExtensions.jar"/>
+	<classpathentry kind="lib" path="de.rocovomo.osgi.e4.rcp/res/lwjgl/2.8.5/jar/asm-debug-all.jar"/>
+	<classpathentry kind="lib" path="de.rocovomo.osgi.e4.rcp/res/lwjgl/2.8.5/jar/jinput.jar"/>
+	<classpathentry kind="lib" path="de.rocovomo.osgi.e4.rcp/res/lwjgl/2.8.5/jar/lwjgl_test.jar"/>
+	<classpathentry kind="lib" path="de.rocovomo.osgi.e4.rcp/res/lwjgl/2.8.5/jar/lwjgl_util_applet.jar"/>
+	<classpathentry kind="lib" path="de.rocovomo.osgi.e4.rcp/res/lwjgl/2.8.5/jar/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="de.rocovomo.osgi.e4.rcp/res/lwjgl/2.8.5/jar/lwjgl-debug.jar"/>
+	<classpathentry kind="lib" path="de.rocovomo.osgi.e4.rcp/res/lwjgl/2.8.5/jar/lwjgl.jar"/>
+	<classpathentry kind="lib" path="de.rocovomo.osgi.e4.rcp/res/lwjgl/2.8.5/jar/lzma.jar"/>
+	<classpathentry kind="lib" path="SimpleRCPApp/res/lwjgl/2.8.5/jar/AppleJavaExtensions.jar"/>
+	<classpathentry kind="lib" path="SimpleRCPApp/res/lwjgl/2.8.5/jar/asm-debug-all.jar"/>
+	<classpathentry kind="lib" path="SimpleRCPApp/res/lwjgl/2.8.5/jar/jinput.jar"/>
+	<classpathentry kind="lib" path="SimpleRCPApp/res/lwjgl/2.8.5/jar/lwjgl_test.jar"/>
+	<classpathentry kind="lib" path="SimpleRCPApp/res/lwjgl/2.8.5/jar/lwjgl_util_applet.jar"/>
+	<classpathentry kind="lib" path="SimpleRCPApp/res/lwjgl/2.8.5/jar/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="SimpleRCPApp/res/lwjgl/2.8.5/jar/lwjgl-debug.jar"/>
+	<classpathentry kind="lib" path="SimpleRCPApp/res/lwjgl/2.8.5/jar/lwjgl.jar"/>
+	<classpathentry kind="lib" path="SimpleRCPApp/res/lwjgl/2.8.5/jar/lzma.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="de.rocovomo.robot.action.test/bin"/>
+</classpath>

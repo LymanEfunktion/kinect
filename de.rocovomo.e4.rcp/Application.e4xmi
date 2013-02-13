@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_OUjt4C5IEeKYX6oZyqw2rA" elementId="org.eclipse.e4.ide.application" bindingContexts="_OUjt4S5IEeKYX6oZyqw2rA">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_OUjt9y5IEeKYX6oZyqw2rA" label="de.rocovomo.e4.rcp" width="500" height="400">
+    <mainMenu xmi:id="_OUjt-C5IEeKYX6oZyqw2rA" elementId="menu:org.eclipse.ui.main.menu">
+      <children xsi:type="menu:Menu" xmi:id="_OUjt-S5IEeKYX6oZyqw2rA" label="File">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_OUjt-i5IEeKYX6oZyqw2rA" label="Openasdf" iconURI="platform:/plugin/de.rocovomo.e4.rcp/icons/sample.gif" command="_OUjt7i5IEeKYX6oZyqw2rA"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_OUjt-y5IEeKYX6oZyqw2rA" label="Save" iconURI="platform:/plugin/de.rocovomo.e4.rcp/icons/save_edit.gif" command="_OUjt8S5IEeKYX6oZyqw2rA"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_OUjt_C5IEeKYX6oZyqw2rA" label="Quit" command="_OUjt6i5IEeKYX6oZyqw2rA"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_OUjt_S5IEeKYX6oZyqw2rA" label="Help">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_OUjt_i5IEeKYX6oZyqw2rA" label="About" command="_OUjt9C5IEeKYX6oZyqw2rA"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_4zVsAFRCEeKBb_tqE1ViVw" elementId="" label="Start Gef" command="_8jQTUFRCEeKBb_tqE1ViVw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_AvaZ4HXxEeK1CaESqhj4Og" elementId="de.rocovomo.e4.rcp.handledmenuitem.0" label="start Kinect" command="_8jQTUFRCEeKBb_tqE1ViVw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_EhgLcHXxEeK1CaESqhj4Og" elementId="de.rocovomo.e4.rcp.handledmenuitem.0" label="Show View" command="_wfcLUHXwEeK1CaESqhj4Og"/>
+      </children>
+    </mainMenu>
+    <trimBars xmi:id="_OUjuAy5IEeKYX6oZyqw2rA">
+      <children xsi:type="menu:ToolBar" xmi:id="_OUjuBC5IEeKYX6oZyqw2rA" elementId="toolbar:org.eclipse.ui.main.toolbar">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_OUjuBS5IEeKYX6oZyqw2rA" iconURI="platform:/plugin/de.rocovomo.e4.rcp/icons/sample.gif" command="_OUjt7i5IEeKYX6oZyqw2rA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_OUmxMC5IEeKYX6oZyqw2rA" iconURI="platform:/plugin/de.rocovomo.e4.rcp/icons/save_edit.gif" command="_OUjt8S5IEeKYX6oZyqw2rA"/>
+      </children>
+    </trimBars>
+  </children>
+  <handlers xmi:id="_OUjt6y5IEeKYX6oZyqw2rA" contributionURI="bundleclass://de.rocovomo.e4.rcp/de.rocovomo.e4.rcp.handlers.QuitHandler" command="_OUjt6i5IEeKYX6oZyqw2rA"/>
+  <handlers xmi:id="_OUjt7y5IEeKYX6oZyqw2rA" contributionURI="bundleclass://de.rocovomo.e4.rcp/de.rocovomo.e4.rcp.handlers.OpenHandler" command="_OUjt7i5IEeKYX6oZyqw2rA"/>
+  <handlers xmi:id="_OUjt8i5IEeKYX6oZyqw2rA" contributionURI="bundleclass://de.rocovomo.e4.rcp/de.rocovomo.e4.rcp.handlers.SaveHandler" command="_OUjt8S5IEeKYX6oZyqw2rA"/>
+  <handlers xmi:id="_OUjt9S5IEeKYX6oZyqw2rA" contributionURI="bundleclass://de.rocovomo.e4.rcp/de.rocovomo.e4.rcp.handlers.AboutHandler" command="_OUjt9C5IEeKYX6oZyqw2rA"/>
+  <handlers xmi:id="_pHIWwDxlEeK9_7oP_qPNuQ" elementId="" contributionURI="bundleclass://de.rocovomo.e4.rcp/de.rocovomo.e4.rcp.handlers.ExitHandler" command="_tO7SkDxlEeK9_7oP_qPNuQ"/>
+  <handlers xmi:id="_CIKtYFRDEeKBb_tqE1ViVw" elementId="de.rocovomo.e4.rcp.handler.start" contributionURI="bundleclass://de.rocovomo.e4.rcp/de.rocovomo.e4.rcp.handlers.StartGefHandler" command="_8jQTUFRCEeKBb_tqE1ViVw"/>
+  <handlers xmi:id="_O_TYUHX3EeK1CaESqhj4Og" elementId="de.rocovomo.e4.rcp.handler.0" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.internal.workbench.swt.handlers.ShowViewHandler" command="_wfcLUHXwEeK1CaESqhj4Og"/>
+  <bindingTables xmi:id="_OUjt7C5IEeKYX6oZyqw2rA" bindingContext="_OUjt4S5IEeKYX6oZyqw2rA">
+    <bindings xmi:id="_OUjt7S5IEeKYX6oZyqw2rA" keySequence="M1+Q" command="_OUjt6i5IEeKYX6oZyqw2rA"/>
+    <bindings xmi:id="_OUjt8C5IEeKYX6oZyqw2rA" keySequence="M1+O" command="_OUjt7i5IEeKYX6oZyqw2rA"/>
+    <bindings xmi:id="_OUjt8y5IEeKYX6oZyqw2rA" keySequence="M1+S" command="_OUjt8S5IEeKYX6oZyqw2rA"/>
+    <bindings xmi:id="_OUjt9i5IEeKYX6oZyqw2rA" keySequence="M1+A" command="_OUjt9C5IEeKYX6oZyqw2rA"/>
+  </bindingTables>
+  <rootContext xmi:id="_OUjt4S5IEeKYX6oZyqw2rA" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
+    <children xmi:id="_OUjt4i5IEeKYX6oZyqw2rA" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
+    <children xmi:id="_OUjt4y5IEeKYX6oZyqw2rA" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
+  </rootContext>
+  <descriptors xmi:id="_xk-IoHXzEeK1CaESqhj4Og" elementId="de.rocovomo.e4.rcp.lwjglview" label="lwjgl View" category="org.eclipse.e4.secondaryDataStack" contributionURI="bundleclass://de.rocovomo.e4.rcp/de.rocovomo.e4.rcp.view.View"/>
+  <menuContributions xmi:id="_9QZHkHXrEeK1CaESqhj4Og" elementId="" accessibilityPhrase="Menu" parentId="org.eclipse.ui.main.menu">
+    <children xsi:type="menu:HandledMenuItem" xmi:id="_Fp8zgHXsEeK1CaESqhj4Og" label="Start Kinect" command="_8jQTUFRCEeKBb_tqE1ViVw"/>
+    <children xsi:type="menu:HandledMenuItem" xmi:id="_r6YrwHXwEeK1CaESqhj4Og" label="Show View" command="_wfcLUHXwEeK1CaESqhj4Og"/>
+  </menuContributions>
+  <commands xmi:id="_OUjt6i5IEeKYX6oZyqw2rA" elementId="org.eclipse.ui.file.exit" commandName="quitCommand"/>
+  <commands xmi:id="_OUjt7i5IEeKYX6oZyqw2rA" elementId="de.rocovomo.e4.rcp.open" commandName="openCommand"/>
+  <commands xmi:id="_OUjt8S5IEeKYX6oZyqw2rA" elementId="org.eclipse.ui.file.save" commandName="saveCommand"/>
+  <commands xmi:id="_OUjt9C5IEeKYX6oZyqw2rA" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
+  <commands xmi:id="_tO7SkDxlEeK9_7oP_qPNuQ" elementId="org.eclipse.e4.ui.internal.workbench.ExitHandler" commandName="exitCommand"/>
+  <commands xmi:id="_8jQTUFRCEeKBb_tqE1ViVw" elementId="de.rocovomo.e4.rcp.command.startGef" commandName="startCommand">
+    <parameters xmi:id="_kYxGsHXrEeK1CaESqhj4Og" elementId="de.rocovomo.e4.rcp.commandparameter.0" name="Start"/>
+  </commands>
+  <commands xmi:id="_wfcLUHXwEeK1CaESqhj4Og" elementId="e4.showview" commandName="%command.name.showView">
+    <parameters xmi:id="_0ArdcHXwEeK1CaESqhj4Og" elementId="org.eclipse.ui.views.showView.viewId" name="View"/>
+  </commands>
+  <addons xmi:id="_XGB3wPZlEd-XstlTZ6nTXg" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_XGB3wPZlEd-XstlTZ6nTXh" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_XGB3wPZlEd-XstlTZ6nTXi" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_LK0NgPZmEd-XstlTZ6nTXj" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_LK0NgPZmEd-XstlTZ6nTXk" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_LK0NgPZmEd-XstlTZ6nTXl" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+</application:Application>

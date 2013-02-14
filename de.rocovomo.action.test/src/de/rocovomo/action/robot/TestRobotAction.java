@@ -1,6 +1,6 @@
 package de.rocovomo.action.robot;
 
-import de.rocovomo.robot.action.RobotAction;
+import de.rocovomo.robot.action.api.RobotAction;
 
 public class TestRobotAction implements RobotAction{
 

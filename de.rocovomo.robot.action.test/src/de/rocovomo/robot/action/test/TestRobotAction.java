@@ -1,6 +1,6 @@
 package de.rocovomo.robot.action.test;
 
-import de.rocovomo.robot.action.RobotAction;
+import de.rocovomo.robot.action.api.RobotAction;
 
 // TODO delete bundle because it is no longer necessary?
 public class TestRobotAction implements RobotAction{

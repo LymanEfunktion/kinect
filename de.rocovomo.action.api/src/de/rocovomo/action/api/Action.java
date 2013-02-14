@@ -4,7 +4,7 @@ import org.jnect.core.SpeechListener;
 import org.jnect.gesture.GestureListener;
 
 import de.rocovomo.jnect.gesture.api.RoCoVoMoGesture;
-import de.rocovomo.robot.action.RobotAction;
+import de.rocovomo.robot.action.api.RobotAction;
 
 // TODO javadoc
 public abstract class Action {

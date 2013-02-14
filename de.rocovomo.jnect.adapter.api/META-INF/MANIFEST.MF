@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Rocovomo Adapter API
-Bundle-SymbolicName: de.rocovomo.jnect.adapter
+Bundle-Name: Rocovomo::Adapter::API
+Bundle-SymbolicName: de.rocovomo.jnect.adapter.api
 Bundle-Version: 0.0.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.emf.common.notify,

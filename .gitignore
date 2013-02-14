@@ -1,0 +1,41 @@
+*.class
+
+# Package Files #
+
+*.war
+*.ear
+
+# Maven #
+
+*/target/*
+
+# Eclipse #
+
+*/bin
+
+# LateX
+
+*.synctex.gz
+*.aux
+*.log
+*.toc
+*.ind
+*.ilg
+*.bbl
+*.blg
+*.lot
+*.snm
+*.nav
+*.out
+*.vrb
+*.run.xml
+*.bcf
+*.glo
+*.glg
+*.gls
+*.ist
+*.synctex
+*.acn
+*.idx
+*.lol
+

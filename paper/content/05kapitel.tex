@@ -1,0 +1,67 @@
+\chapter{Konzeption}
+\label{chap:Konzeption}
+
+In diesem Kapitel wird kurz die Konzeption der Anwendung und der dazu geh\"origen Komponenten beleuchtet und die Restriktionen aufgelistet, die aufgrund der Vorgaben durch die genutzten Techniken und Softwarekomponenten zustande kommen.
+
+\section{Technische Vorgaben}
+% Einf\"uhrende Worte
+Hierunter fallen die Abh\"angigkeiten zu der Robotertechnik, die in den weiteren Arbeiten rund um diese Ausarbeitung entstehen, die Ma\ss gaben, der Verwendung der Kinect und der Vorgaben der Software--Architektur.
+
+\subsection{Vorgaben durch Kinect}
+% Entfernung zur Kinect \ldots Maximale Nutzerzahl \ldots, nur sicher nutzbar unter windwos \ldots
+Die Kinect for Windows ist ein Produkt von Microsoft, so auch die Kinect for Windows \acrshort{SDK}. Microsoft vertreibt beides mit der Vorgabe, dass diese nur unter Windows-Betriebssystemen, vorrangig Windows 7, lauff\"ahig sind, und vollst\"andig unterst\"utzt werden, sowie eine Installation des .Net Framework 4.0 auf dem System vorhanden sein muss \footnote{\href{https://www.microsoft.com/en-us/kinectforwindows/develop/}{Downloadseite des SDK}. Microsoft.com. Abgerufen Dezember 21, 2012} \footnote{\href{http://msdn.microsoft.com/en-us/library/jj131033.aspx}{\enquote{Kinect for Windows Sensor Components and Specifications}}. msdn.microsoft.com. Abgerufen Dezember 21, 2012}.
+
+\subsection{Vorgaben durch Java---Eclipse}
+\label{subsec:vorgabeJava}
+
+\subsubsection{Vorgaben durch das jnect-Framework}
+% Einschr\"ankung in Nutzung der KinectSchnittstelle \ldots entsprechende Entwurfsmuster n\"otig, nur eine Kinect \ldots
+Das Framework jnect wurde bereits im Abschnitt~\ref{subsec:jnect}. Um das \gls{Framework} in der Eclipse Umgebung zu nutzen, muss lediglich das jnect-Plugin, sowie die beiden Module \begin{verbatim}org.eclipse.emf.core\end{verbatim} und \begin{verbatim}org.eclipse.emf.common\end{verbatim} des \gls{EMF}'s.
+
+\subsubsection{Service--Architektur}
+% Kurze Einf\"uhrung in OSGi und Begr\"undung
+Durch die Nutzung der OSGi-Plattform und der \gls{Eclipse} \acrshort{IDE} wird f\"ur die Service-Architektur auf \gls{Equinox} gesetzt. 
+
+\subsection{Abh\"angigkeit zu Robotertechnik}
+\label{subsec:Robot}
+% Nutzbare Roboter einschr\"anken - argumentieren, Schnittstelle beschreiben
+Der Betrieb eines Roboters und die Verwendung innerhalb der Anwendung, die im Rahmen dieser Arbeit entsteht, ist bisher nicht entg\"ultig gekl\"ahrt, da noch keine Auswahl eines speziellen Modells getroffen wurden ist.
+\newline
+F\"ur die Implementierung in dieser Arbeit wurde ein hypothetisches Modell eines abstrakten Roboters angenommen, der in der Lage ist, sich in alle Richtungen eines drei dimensionalen Koordinatensystems zu bewegen. Es wird weiterhin davon ausgegangen, dass ein solcher Roboter in der Lage ist, sich in einem Kreis zu drehen und binnen weniger Sekunden anzuhalten.
+
+\section{Fachliche Vorgaben}
+% Einf\"uhrende Worte, warum buxton, warum kategorisieren \ldots
+Da bereits alle technischen Abh\"angigkeiten aufgezeigt wurden, werden nun die Bedingungen aufgelistet, die eigentlicher Fokus dieser Arbeit, n\"amlich der Analyse und Vorgaben der Gestensteuerung.
+
+\subsection{Vorgaben durch Mensch-Computer-Interaktion}
+\label{subsec:MCI}
+% was k\"onnen gesten, was soll geste f\"ur Schnittstelle k\"onnen etc.
+Baudel und Beaudouin-Lafon~\cite{bib:baudel} beschreiben die Vorteile der Gestensteuerung gegen\"uber der, herk\"ommlicher Eingabeger\"ate. Dazu m\"ussen aber einige Voraussetzungen erf\"ullt sein. Nach Baudel und Beaudouin-Lafon, sind dies:
+\begin{itemize}
+\item[Handanspannung:] Eine angespannte Hand erleichtert die Wahrnehmung der Intention des Bedieners in einer Startposition eine Geste auszuf\"uhren. Endpositionen sollten hingegen frei von solch einer Anspannung sein
+\item[Schnelle, aufbauende, revidierbare Aktionen:] Geschwindigkeit ist ein grundlegender Faktor in der Anwendung von Gesten, denn nur wenn Gesten einen Geschwindigkeitsvorteil bringen, werden diese auch eingesetzt. Zudem macht der Aufbau einer Geste aus kleinen Teilgesten, die Anwendung \"uberschaubarer und r\"ucknahme von Gesten bieten einen Komfortvorteil f\"ur den Nutzer
+\item[Favorisiere eine einfache Nutzung:] Es muss stets ein Kompromiss zwischen einfachen und nat\"urlichen Gesten, die einfach zu lernen sind, und komplexen Gesten, die mehr Kontrolle bieten, eingegangen werden. Dabei sollte stets die einfache Nutzung bevorzugt werden
+\item[Nutze Gesten, wo sinnvoll:] Obgleich Gesten klare Vorteile bieten, muss stets ber\"ucksichtigt werden, dass diese auch ihre Grenzen haben. Gesten sind bisweilen unter anderem ungeeignet, um pr\"azise Interaktionen durchzuf\"uhren. Hierf\"ur wird immer noch ein physischer Kontakt ben\"otigt (z.B., Steuerung des Cursors weiterhin per Maus)
+\end{itemize}
+
+\section{Das resultierende Konzept}
+\label{subsec:Konzept}
+% Benotigt wird Kreisbewegung, Bewengung in Richtung mit Richtungsanpassung, und Haltezeichen - 3 + Sprache \ldots
+% Modelle zur Erkennung in separatem Kapitel
+In Abschnitt~\ref{subsec:Robot} wurde bereits der hier verwendete hypothetische Roboter kurz vorgestellt. Dabei ergab sich folgende Liste an Funktionen:
+\begin{itemize}
+\item Kreisdrehung
+\item Geradeaus fahren
+\item In einem Winkel fahren
+\item Anhalten
+\end{itemize}
+Dar\"uber hinaus kann noch das Blockieren der Gesteneingabe hinzugef\"ugt werden. Setzt man nun all diese Funktionen und M\"oglichkeiten in Gesten und Bedienungsanweisungen um, so erh\"alt man folgende Anweisungen:
+\begin{itemize}
+\item Kreisbewegung
+\item Vorw\"artsbewegung
+\item Haltesignal
+\item Blockieren--Entriegeln
+\end{itemize}
+Diese Liste wird in Kapitel~\ref{chap:Gesten} verwendet, um die in der Anwendung eingesetzten Gesten zu modellieren.
+\newline
+Die aus der Liste entworfenen Sprachbefehle werden in Kapitel~\ref{chap:Sprachbefehle} erl\"autert.

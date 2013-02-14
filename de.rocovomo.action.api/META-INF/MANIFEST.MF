@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: RoCoVoMo::Action::API
-Bundle-SymbolicName: de.rocovomo.action
+Bundle-SymbolicName: de.rocovomo.action.api
 Bundle-Version: 0.0.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: de.rocovomo.jnect.gesture.api,

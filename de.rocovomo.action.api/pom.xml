@@ -10,9 +10,10 @@
 	</parent>
 
 	<groupId>de.rocovomo</groupId>
-	<artifactId>de.rocovomo.action</artifactId>
+	<artifactId>de.rocovomo.action.api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 
+        <name>Action::API</name>
 
 </project>

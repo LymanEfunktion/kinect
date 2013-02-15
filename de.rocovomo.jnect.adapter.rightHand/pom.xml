@@ -4,12 +4,13 @@
 
 	<parent>
 		<groupId>de.rocovomo</groupId>
-		<artifactId>rocovomo-master</artifactId>
+		<artifactId>de.rocovomo.build</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../de.rocovomo.build/pom.xml</relativePath>
 	</parent>
 
 	<groupId>de.rocovomo</groupId>
-	<artifactId>de.rocovomo.jnect.adapter.righthand</artifactId>
+	<artifactId>de.rocovomo.jnect.adapter.rightHand</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 

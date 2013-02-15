@@ -10,9 +10,9 @@
 	<name>RoCoVoMo Product</name>
 	
 	<parent>
-		<relativePath>../de.rocovomo.master/pom.xml</relativePath>
+		<relativePath>../de.rocovomo.build/pom.xml</relativePath>
 		<groupId>de.rocovomo</groupId>
-		<artifactId>rocovomo-master</artifactId>
+		<artifactId>de.rocovomo.build</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 

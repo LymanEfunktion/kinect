@@ -13,8 +13,8 @@ import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 
 import de.rocovomo.action.provider.api.ActionProvider;
+import de.rocovomo.jnect.adapter.api.AdapterProvider;
 import de.rocovomo.jnect.adapter.api.RoCoVoMoAdapter;
-import de.rocovomo.jnect.adapter.provider.api.AdapterProvider;
 import de.rocovomo.jnect.gesture.api.RoCoVoMoGesture;
 import de.rocovomo.jnect.gesture.provider.api.GestureProvider;
 import de.rocovomo.jnect.kinect.Connector;

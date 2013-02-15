@@ -7,10 +7,10 @@ Bundle-Activator: de.rocovomo.jnect.kinect.osgi.KinectActivator
 Require-Bundle: org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: de.rocovomo.action.api,
+Import-Package: de.rocovomo.osgi.api,
+ de.rocovomo.action.api,
  de.rocovomo.action.provider.api,
  de.rocovomo.jnect.adapter.api,
- de.rocovomo.jnect.adapter.provider.api,
  de.rocovomo.jnect.gesture.api,
  de.rocovomo.jnect.gesture.provider.api,
  de.rocovomo.robot.action.api,

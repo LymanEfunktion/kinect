@@ -5,9 +5,9 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 
+import de.rocovomo.jnect.adapter.api.AdapterProvider;
 import de.rocovomo.jnect.adapter.api.RoCoVoMoAdapter;
 import de.rocovomo.jnect.adapter.provider.RightHandAdapterProvider;
-import de.rocovomo.jnect.adapter.provider.api.AdapterProvider;
 
 public class RightHandAdapterActivator implements BundleActivator {
 
@@ -36,11 +36,11 @@ public class RightHandAdapterActivator implements BundleActivator {
 
 		serviceRegistration = bundleContext.registerService(
 				AdapterProvider.class.getName(), provider,
-				provider.getAdapterProperties());
+				provider.getProperties());
 		logger.info("Registered "
-				+ this.provider.getAdapter()
+				+ this.provider.getProvided()
 				+ ":"
-				+ this.provider.getAdapterProperties()
+				+ this.provider.getProperties()
 						.get(RoCoVoMoAdapter.TYPE));
 
 		logger.info("Started " + this.context.getBundle().getSymbolicName());
@@ -55,15 +55,15 @@ public class RightHandAdapterActivator implements BundleActivator {
 	public void stop(BundleContext bundleContext) throws Exception {
 		logger.info("Stopping " + this.context.getBundle().getSymbolicName());
 		logger.info("Unregistering "
-				+ this.provider.getAdapter()
+				+ this.provider.getProvided()
 				+ ":"
-				+ this.provider.getAdapterProperties()
+				+ this.provider.getProperties()
 						.get(RoCoVoMoAdapter.TYPE));
 		serviceRegistration.unregister();
 		logger.info("Unregistered "
-				+ this.provider.getAdapter()
+				+ this.provider.getProvided()
 				+ ":"
-				+ this.provider.getAdapterProperties()
+				+ this.provider.getProperties()
 						.get(RoCoVoMoAdapter.TYPE));
 		logger.info("Stopped " + this.context.getBundle().getSymbolicName());
 	}

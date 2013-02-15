@@ -16,8 +16,8 @@ import de.rocovomo.action.api.Action;
 import de.rocovomo.action.api.NoValidGestureListenerException;
 import de.rocovomo.action.api.NoValidSpeechListenerException;
 import de.rocovomo.action.provider.api.ActionProvider;
+import de.rocovomo.jnect.adapter.api.AdapterProvider;
 import de.rocovomo.jnect.adapter.api.RoCoVoMoAdapter;
-import de.rocovomo.jnect.adapter.provider.api.AdapterProvider;
 import de.rocovomo.jnect.gesture.api.RoCoVoMoGesture;
 import de.rocovomo.jnect.gesture.provider.api.GestureProvider;
 import de.rocovomo.jnect.kinect.api.IConnector;
@@ -78,16 +78,16 @@ public class Connector extends Observable implements IConnector {
 	}
 
 	public void connectAdapter(AdapterProvider provider) {
-		String type = (String) provider.getAdapterProperties().get(
-				"adapter-type");
+		String type = (String) provider.getProperties().get(
+				RoCoVoMoAdapter.TYPE);
 		if (type.equals("RightHand-Adapter")) {
-			addRightHandAdapter(provider.getAdapter());
+			addRightHandAdapter(provider.getProvided());
 		}
 		if (type.equals("LeftHand-Adapter")) {
-			addLeftHandAdapter(provider.getAdapter());
+			addLeftHandAdapter(provider.getProvided());
 		}
-		logger.info("Adapter added " + provider.getAdapter() + ":"
-				+ provider.getAdapterProperties().get(RoCoVoMoAdapter.TYPE));
+		logger.info("Adapter added " + provider.getProvided() + ":"
+				+ provider.getProperties().get(RoCoVoMoAdapter.TYPE));
 		evaluateRun();
 	}
 
@@ -100,16 +100,16 @@ public class Connector extends Observable implements IConnector {
 
 	@Override
 	public void disconnectAdapter(AdapterProvider provider) {
-		String type = (String) provider.getAdapterProperties().get(
-				"adapter-type");
+		String type = (String) provider.getProperties().get(
+				RoCoVoMoAdapter.TYPE);
 		if (type.equals("RightHand-Adapter")) {
-			removeRightHandAdapter(provider.getAdapter());
+			removeRightHandAdapter(provider.getProvided());
 		}
 		if (type.equals("LeftHand-Adapter")) {
-			removeLeftHandAdapter(provider.getAdapter());
+			removeLeftHandAdapter(provider.getProvided());
 		}
-		logger.info("Adapter removed " + provider.getAdapter() + ":"
-				+ provider.getAdapterProperties().get(RoCoVoMoAdapter.TYPE));
+		logger.info("Adapter removed " + provider.getProvided() + ":"
+				+ provider.getProperties().get(RoCoVoMoAdapter.TYPE));
 	}
 
 	// TODO

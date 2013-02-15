@@ -10,7 +10,7 @@
 	</parent>
 
 	<groupId>de.rocovomo</groupId>
-	<artifactId>de.rocovomo.osgi.jnect.kinect</artifactId>
+	<artifactId>de.rocovomo.jnect.kinect</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 

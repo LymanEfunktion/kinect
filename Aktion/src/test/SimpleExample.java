@@ -65,7 +65,7 @@ public class SimpleExample
 	};
 	
 	
-	static public void main(String[] argv) 
+	static public void main(String[] argv)
 	throws java.io.IOException
 	{	
 		/* Build a HMM and generate observation sequences using this HMM */

@@ -1,4 +1,4 @@
-package de.rocovomo.osgi;
+package de.rocovomo.osgi.util;
 
 public final class OsgiUtil {
 

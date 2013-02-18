@@ -1,6 +1,7 @@
 package hmm.input;
 
-import java.io.FileReader;
+import hmm.file.FileProvider;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.util.List;
@@ -27,12 +28,12 @@ public class SequenceProvider {
 	public List<List<ObservationVector>> readInput() {
 		Reader reader;
 		List<List<ObservationVector>> v = null;
-		
+
 		try {
-			reader = new FileReader("A.seq");
+			reader = new FileProvider().initDefaultInputStream();
 			
 			v = ObservationSequencesReader.readSequences(
-					new ObservationVectorReader(3), reader);
+					new ObservationVectorReader(), reader);
 			reader.close();
 		} catch (IOException | FileFormatException e) {
 			e.printStackTrace();

@@ -41,5 +41,7 @@
 			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
 		</accessrules>
 	</classpathentry>
+	<classpathentry kind="src" path="/org.jnect.core"/>
+	<classpathentry kind="src" path="/org.jnect.bodymodel"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

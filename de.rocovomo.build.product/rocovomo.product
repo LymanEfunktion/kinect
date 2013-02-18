@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product uid="rocovomo-product" id="de.rocovomo.osgi.e4.rcp.product" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product uid="rocovomo-product" id="de.rocovomo.e4.rcp.product" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
 
 
    <configIni use="">

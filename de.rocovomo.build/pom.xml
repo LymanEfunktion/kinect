@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.rocovomo</groupId>
-	<artifactId>rocovomo-master</artifactId>
+	<artifactId>de.rocovomo.build</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -15,6 +15,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<modules>
+<!--
 				<module>../de.rocovomo.osgi.jnect.gesture.spi</module>
 				<module>../de.rocovomo.osgi.jnect.gesture</module>
 				<module>../de.rocovomo.osgi.jnect.gesture.jumpgesture</module>
@@ -38,6 +39,7 @@
 				<module>../de.rocovomo.osgi.e4.rcp</module>
 				<module>../de.rocovomo.feature</module>
 				<module>../de.rocovomo.product</module>
+-->
 			</modules>
 		</profile>
 		<profile>
@@ -49,6 +51,7 @@
 				<activeByDefault>false</activeByDefault>
 			</activation>
 			<modules>
+<!--
 				<module>../de.rocovomo.osgi.jnect.gesture.spi</module>
 				<module>../de.rocovomo.osgi.jnect.gesture</module>
 				<module>../de.rocovomo.osgi.jnect.gesture.jumpgesture</module>
@@ -68,6 +71,7 @@
 
 				<module>../de.rocovomo.osgi.robot.api</module>
 				<module>../de.rocovomo.osgi.robot.spi</module>
+-->
 			</modules>
 		</profile>
 	</profiles>
@@ -201,6 +205,7 @@
 					<artifactId>tycho-source-plugin</artifactId>
 					<version>${tycho.version}</version>
 					<configuration>
+						<useDefaultManifestFile>false</useDefaultManifestFile>
 						<strictSrcIncludes>false</strictSrcIncludes>
 					</configuration>
 				</plugin>

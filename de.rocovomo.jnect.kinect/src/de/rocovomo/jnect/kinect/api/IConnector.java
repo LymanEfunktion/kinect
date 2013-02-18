@@ -1,8 +1,8 @@
 package de.rocovomo.jnect.kinect.api;
 
-import de.rocovomo.action.provider.api.ActionProvider;
-import de.rocovomo.jnect.adapter.provider.api.AdapterProvider;
-import de.rocovomo.jnect.gesture.provider.api.GestureProvider;
+import de.rocovomo.action.api.ActionProvider;
+import de.rocovomo.jnect.adapter.api.AdapterProvider;
+import de.rocovomo.jnect.gesture.api.GestureProvider;
 
 public interface IConnector {
 	

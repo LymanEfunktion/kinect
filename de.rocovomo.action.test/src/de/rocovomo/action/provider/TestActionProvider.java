@@ -1,32 +1,14 @@
 package de.rocovomo.action.provider;
 
-import java.util.Dictionary;
-import java.util.Hashtable;
-
 import de.rocovomo.action.api.Action;
-import de.rocovomo.action.provider.api.ActionProvider;
+import de.rocovomo.action.api.ActionProvider;
 
-public class TestActionProvider implements ActionProvider{
+public class TestActionProvider extends ActionProvider{
 	
-	private final static String ACTION = "Jump-Action";
-
-	private final Dictionary<String, Object> properties = new Hashtable<String, Object>();
-
-	private final Action action;
+	private final static String TYPE = "Jump-Action";
 
 	public TestActionProvider(Action action) {
-		properties.put(Action.TYPE, ACTION);
-		this.action = action;
-	}
-	
-	@Override
-	public Action getAction() {
-		return action;
+		super(action, TYPE);
 	}
 
-	@Override
-	public Dictionary<String, Object> getActionProperties() {
-		return properties;
-	}
-	
 }

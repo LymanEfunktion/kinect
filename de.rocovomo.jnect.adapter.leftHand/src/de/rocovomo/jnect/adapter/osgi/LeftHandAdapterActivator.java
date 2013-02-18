@@ -5,9 +5,10 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 
+import de.rocovomo.jnect.adapter.api.AdapterProvider;
 import de.rocovomo.jnect.adapter.api.RoCoVoMoAdapter;
 import de.rocovomo.jnect.adapter.provider.LeftHandAdapterProvider;
-import de.rocovomo.jnect.adapter.provider.api.AdapterProvider;
+import de.rocovomo.osgi.util.OsgiUtil;
 
 public class LeftHandAdapterActivator implements BundleActivator {
 
@@ -34,14 +35,10 @@ public class LeftHandAdapterActivator implements BundleActivator {
 
 		this.provider = new LeftHandAdapterProvider();
 
-		serviceRegistration = bundleContext.registerService(
-				AdapterProvider.class.getName(), provider,
-				provider.getAdapterProperties());
-		logger.info("Registered "
-				+ this.provider.getAdapter()
-				+ ":"
-				+ this.provider.getAdapterProperties()
-						.get(RoCoVoMoAdapter.TYPE));
+		OsgiUtil.registerService(bundleContext, AdapterProvider.class,
+				provider, provider.getProperties());
+		logger.info("Registered " + this.provider.getProvided() + ":"
+				+ this.provider.getProperties().get(RoCoVoMoAdapter.TYPE));
 
 		logger.info("Started " + this.context.getBundle().getSymbolicName());
 	}
@@ -54,17 +51,11 @@ public class LeftHandAdapterActivator implements BundleActivator {
 	 */
 	public void stop(BundleContext bundleContext) throws Exception {
 		logger.info("Stopping " + this.context.getBundle().getSymbolicName());
-		logger.info("Unregistering "
-				+ this.provider.getAdapter()
-				+ ":"
-				+ this.provider.getAdapterProperties()
-						.get(RoCoVoMoAdapter.TYPE));
+		logger.info("Unregistering " + this.provider.getProvided() + ":"
+				+ this.provider.getProperties().get(RoCoVoMoAdapter.TYPE));
 		serviceRegistration.unregister();
-		logger.info("Unregistered "
-				+ this.provider.getAdapter()
-				+ ":"
-				+ this.provider.getAdapterProperties()
-						.get(RoCoVoMoAdapter.TYPE));
+		logger.info("Unregistered " + this.provider.getProvided() + ":"
+				+ this.provider.getProperties().get(RoCoVoMoAdapter.TYPE));
 		logger.info("Stopped " + this.context.getBundle().getSymbolicName());
 	}
 

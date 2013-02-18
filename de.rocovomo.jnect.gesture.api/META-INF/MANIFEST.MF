@@ -4,8 +4,8 @@ Bundle-Name: RoCoVoMo::Gesture::API
 Bundle-SymbolicName: de.rocovomo.jnect.gesture.api
 Bundle-Version: 0.0.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: org.eclipse.emf.common,
+Import-Package: de.rocovomo.osgi.api,
+ org.eclipse.emf.common,
  org.eclipse.emf.ecore,
  org.jnect.gesture
-Export-Package: de.rocovomo.jnect.gesture.api,
- de.rocovomo.jnect.gesture.provider.api
+Export-Package: de.rocovomo.jnect.gesture.api

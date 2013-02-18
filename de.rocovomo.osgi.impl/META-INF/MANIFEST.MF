@@ -5,5 +5,6 @@ Bundle-SymbolicName: de.rocovomo.osgi.util
 Bundle-Version: 0.0.1.qualifier
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: de.rocovomo.osgi.api
+Import-Package: de.rocovomo.osgi.api,
+ org.osgi.framework;version="1.3.0"
 Export-Package: de.rocovomo.osgi.util

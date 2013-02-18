@@ -2,7 +2,7 @@ package de.rocovomo.jnect.gesture.api;
 
 import org.jnect.gesture.Gesture;
 
-public abstract class RoCoVoMoGesture extends Gesture {
+public abstract class RoCoVoMoGesture extends Gesture{
 	/**
 	 * Value: String
 	 */

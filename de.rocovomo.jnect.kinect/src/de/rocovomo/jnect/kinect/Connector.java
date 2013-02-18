@@ -13,13 +13,13 @@ import org.jnect.gesture.GestureListener;
 import org.jnect.gesture.GestureProxy;
 
 import de.rocovomo.action.api.Action;
+import de.rocovomo.action.api.ActionProvider;
 import de.rocovomo.action.api.NoValidGestureListenerException;
 import de.rocovomo.action.api.NoValidSpeechListenerException;
-import de.rocovomo.action.provider.api.ActionProvider;
 import de.rocovomo.jnect.adapter.api.AdapterProvider;
 import de.rocovomo.jnect.adapter.api.RoCoVoMoAdapter;
+import de.rocovomo.jnect.gesture.api.GestureProvider;
 import de.rocovomo.jnect.gesture.api.RoCoVoMoGesture;
-import de.rocovomo.jnect.gesture.provider.api.GestureProvider;
 import de.rocovomo.jnect.kinect.api.IConnector;
 
 public class Connector extends Observable implements IConnector {
@@ -179,72 +179,72 @@ public class Connector extends Observable implements IConnector {
 
 	@Override
 	public void connectAction(ActionProvider provider) {
-		Action action = provider.getAction();
+		Action action = provider.getProvided();
 		if (action.isGestureEnabled()) {
 			try {
 				addGestureListener(action.getGestureListener());
-				logger.info("GestureListener added " + provider.getAction()
-						+ ":" + provider.getActionProperties().get(Action.TYPE));
+				logger.info("GestureListener added " + provider.getProvided()
+						+ ":" + provider.getProperties().get(Action.TYPE));
 			} catch (NoValidGestureListenerException e) {
 				logger.error("No GestureListener available for: "
-						+ provider.getAction() + ":"
-						+ provider.getActionProperties().get(Action.TYPE));
+						+ provider.getProvided() + ":"
+						+ provider.getProperties().get(Action.TYPE));
 			}
 		}
 		if (action.isSpeechEnabled()) {
 			try {
 				addSpeechListener(action.getSpeechListener());
-				logger.info("Speechlistener added " + provider.getAction()
-						+ ":" + provider.getActionProperties().get(Action.TYPE));
+				logger.info("Speechlistener added " + provider.getProvided()
+						+ ":" + provider.getProperties().get(Action.TYPE));
 			} catch (NoValidSpeechListenerException e) {
 				logger.error("No SpeechListener available for: "
-						+ provider.getAction() + ":"
-						+ provider.getActionProperties().get(Action.TYPE));
+						+ provider.getProvided() + ":"
+						+ provider.getProperties().get(Action.TYPE));
 			}
 		}
 	}
 
 	@Override
 	public void disconnectAction(ActionProvider provider) {
-		Action action = provider.getAction();
+		Action action = provider.getProvided();
 		if (action.isGestureEnabled()) {
 			try {
 				removeGestureListener(action.getGestureListener());
-				logger.info("Gesturelistener removed " + provider.getAction()
-						+ ":" + provider.getActionProperties().get(Action.TYPE));
+				logger.info("Gesturelistener removed " + provider.getProvided()
+						+ ":" + provider.getProperties().get(Action.TYPE));
 			} catch (NoValidGestureListenerException e) {
 				logger.error("No GestureListener available for: "
-						+ provider.getAction() + ":"
-						+ provider.getActionProperties().get(Action.TYPE));
+						+ provider.getProvided() + ":"
+						+ provider.getProperties().get(Action.TYPE));
 			}
 		}
 		if (action.isSpeechEnabled()) {
 			try {
 				removeSpeechListener(action.getSpeechListener());
-				logger.info("Speechlistener removed " + provider.getAction()
-						+ ":" + provider.getActionProperties().get(Action.TYPE));
+				logger.info("Speechlistener removed " + provider.getProvided()
+						+ ":" + provider.getProperties().get(Action.TYPE));
 			} catch (NoValidSpeechListenerException e) {
 				logger.error("No SpeechListener available for: "
-						+ provider.getAction() + ":"
-						+ provider.getActionProperties().get(Action.TYPE));
+						+ provider.getProvided() + ":"
+						+ provider.getProperties().get(Action.TYPE));
 			}
 		}
 	}
 
 	@Override
 	public void connectGesture(GestureProvider provider) {
-		RoCoVoMoGesture gesture = provider.getGesture();
+		RoCoVoMoGesture gesture = provider.getProvided();
 		addGesture(gesture);
-		logger.info("Gesture added " + provider.getGesture() + ":"
-				+ provider.getGestureProperties().get(RoCoVoMoGesture.TYPE));
+		logger.info("Gesture added " + provider.getProvided() + ":"
+				+ provider.getProperties().get(RoCoVoMoGesture.TYPE));
 	}
 
 	@Override
 	public void disconnectGesture(GestureProvider provider) {
-		RoCoVoMoGesture gesture = provider.getGesture();
+		RoCoVoMoGesture gesture = provider.getProvided();
 		removeGesture(gesture);
-		logger.info("Gesture removed " + provider.getGesture() + ":"
-				+ provider.getGestureProperties().get(RoCoVoMoGesture.TYPE));
+		logger.info("Gesture removed " + provider.getProvided() + ":"
+				+ provider.getProperties().get(RoCoVoMoGesture.TYPE));
 	}
 
 	private void addGestureListener(GestureListener gestureListener) {

@@ -12,11 +12,11 @@ import org.osgi.framework.ServiceRegistration;
 
 import de.rocovomo.action.TestAction;
 import de.rocovomo.action.api.Action;
+import de.rocovomo.action.api.ActionProvider;
 import de.rocovomo.action.provider.TestActionProvider;
-import de.rocovomo.action.provider.api.ActionProvider;
 import de.rocovomo.action.robot.TestRobotAction;
+import de.rocovomo.jnect.gesture.api.GestureProvider;
 import de.rocovomo.jnect.gesture.api.RoCoVoMoGesture;
-import de.rocovomo.jnect.gesture.provider.api.GestureProvider;
 
 // TODO javadoc missing, logging missing
 public class ActionActivator implements BundleActivator, ServiceListener {
@@ -60,11 +60,11 @@ public class ActionActivator implements BundleActivator, ServiceListener {
 	 */
 	public void stop(BundleContext bundleContext) throws Exception {
 		logger.info("Stopping " + this.context.getBundle().getSymbolicName());
-		logger.info("Unregistering " + this.provider.getAction() + ":"
-				+ this.provider.getActionProperties().get(Action.TYPE));
+		logger.info("Unregistering " + this.provider.getProvided() + ":"
+				+ this.provider.getProperties().get(Action.TYPE));
 		serviceRegistration.unregister();
-		logger.info("Unregistered " + this.provider.getAction() + ":"
-				+ this.provider.getActionProperties().get(Action.TYPE));
+		logger.info("Unregistered " + this.provider.getProvided() + ":"
+				+ this.provider.getProperties().get(Action.TYPE));
 		logger.info("Stopped " + this.context.getBundle().getSymbolicName());
 	}
 
@@ -90,19 +90,19 @@ public class ActionActivator implements BundleActivator, ServiceListener {
 		}
 	}
 
-	private void registerActionProvider(GestureProvider pro) {
-		Dictionary<String, Object> dic = pro.getGestureProperties();
+	private void registerActionProvider(GestureProvider provider) {
+		Dictionary<String, Object> dic = provider.getProperties();
 		String type = (String) dic.get(RoCoVoMoGesture.TYPE);
 		// TODO lookup via String?
-		if (type.equals("Jump-Gesture")) {
+		if (type.equals(TestAction.TYPE)) {
 			Action action = new TestAction(new TestRobotAction(),
-					pro.getGesture());
+					provider.getProvided());
 			this.provider = new TestActionProvider(action);
 			serviceRegistration = context.registerService(
 					ActionProvider.class.getName(), this.provider,
-					this.provider.getActionProperties());
-			logger.info("Registered " + this.provider.getAction() + ":"
-					+ this.provider.getActionProperties().get(Action.TYPE));
+					this.provider.getProperties());
+			logger.info("Registered " + this.provider.getProvided()+ ":"
+					+ this.provider.getProperties().get(Action.TYPE));
 		}
 	}
 }

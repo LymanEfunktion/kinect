@@ -9,10 +9,8 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: de.rocovomo.osgi.api,
  de.rocovomo.action.api,
- de.rocovomo.action.provider.api,
  de.rocovomo.jnect.adapter.api,
  de.rocovomo.jnect.gesture.api,
- de.rocovomo.jnect.gesture.provider.api,
  de.rocovomo.robot.action.api,
  de.rocovomo.robot.action.test,
  org.apache.log4j;version="1.2.17",

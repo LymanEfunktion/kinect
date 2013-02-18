@@ -1,8 +1,15 @@
 package de.rocovomo.action.osgi;
 
+import static de.rocovomo.osgi.util.OsgiLogging.logBundleShutdown;
+import static de.rocovomo.osgi.util.OsgiLogging.logBundleStarted;
+import static de.rocovomo.osgi.util.OsgiLogging.logBundleStartup;
+import static de.rocovomo.osgi.util.OsgiLogging.logBundleStopped;
+import static de.rocovomo.osgi.util.OsgiLogging.logServiceRegistered;
+import static de.rocovomo.osgi.util.OsgiLogging.logServiceUnregistered;
+import static de.rocovomo.osgi.util.OsgiLogging.logServiceUnregistering;
+
 import java.util.Dictionary;
 
-import org.apache.log4j.Logger;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceEvent;
@@ -21,8 +28,6 @@ import de.rocovomo.jnect.gesture.api.RoCoVoMoGesture;
 // TODO javadoc missing, logging missing
 public class ActionActivator implements BundleActivator, ServiceListener {
 
-	private static Logger logger = Logger.getLogger(ActionActivator.class);
-
 	@SuppressWarnings("rawtypes")
 	private ServiceRegistration serviceRegistration;
 	private BundleContext context;
@@ -38,7 +43,7 @@ public class ActionActivator implements BundleActivator, ServiceListener {
 	 */
 	public void start(BundleContext bundleContext) throws Exception {
 		this.context = bundleContext;
-		logger.info("Starting " + this.context.getBundle().getSymbolicName());
+		logBundleStartup(bundleContext);
 
 		ServiceReference<?>[] ref = bundleContext.getAllServiceReferences(
 				GestureProvider.class.getName(), null);
@@ -49,7 +54,7 @@ public class ActionActivator implements BundleActivator, ServiceListener {
 
 		this.context.addServiceListener(this);
 
-		logger.info("Started " + this.context.getBundle().getSymbolicName());
+		logBundleStarted(bundleContext);
 	}
 
 	/*
@@ -59,18 +64,15 @@ public class ActionActivator implements BundleActivator, ServiceListener {
 	 * org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
 	 */
 	public void stop(BundleContext bundleContext) throws Exception {
-		logger.info("Stopping " + this.context.getBundle().getSymbolicName());
-		logger.info("Unregistering " + this.provider.getProvided() + ":"
-				+ this.provider.getProperties().get(Action.TYPE));
-		serviceRegistration.unregister();
-		logger.info("Unregistered " + this.provider.getProvided() + ":"
-				+ this.provider.getProperties().get(Action.TYPE));
-		logger.info("Stopped " + this.context.getBundle().getSymbolicName());
+		logBundleShutdown(bundleContext);
+		logServiceUnregistering(bundleContext, this.serviceRegistration);
+		this.serviceRegistration.unregister();
+		logServiceUnregistered(bundleContext, this.serviceRegistration);
+		logBundleStopped(bundleContext);
 	}
 
 	@Override
 	public void serviceChanged(ServiceEvent event) {
-		logger.debug("ServiceChanged");
 		int eventType = event.getType();
 		ServiceReference<?> ref = event.getServiceReference();
 
@@ -93,16 +95,15 @@ public class ActionActivator implements BundleActivator, ServiceListener {
 	private void registerActionProvider(GestureProvider provider) {
 		Dictionary<String, Object> dic = provider.getProperties();
 		String type = (String) dic.get(RoCoVoMoGesture.TYPE);
-		// TODO lookup via String?
-		if (type.equals(TestAction.TYPE)) {
+		// TODO String?!?!?!?!
+		if (type.equals("Jump-Gesture")) {
 			Action action = new TestAction(new TestRobotAction(),
 					provider.getProvided());
 			this.provider = new TestActionProvider(action);
 			serviceRegistration = context.registerService(
 					ActionProvider.class.getName(), this.provider,
 					this.provider.getProperties());
-			logger.info("Registered " + this.provider.getProvided()+ ":"
-					+ this.provider.getProperties().get(Action.TYPE));
+			logServiceRegistered(this.context, serviceRegistration);
 		}
 	}
 }

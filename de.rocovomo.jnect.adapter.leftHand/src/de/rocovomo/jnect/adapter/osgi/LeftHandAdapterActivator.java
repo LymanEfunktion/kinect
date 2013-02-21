@@ -5,6 +5,7 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 
+import de.rocovomo.jnect.adapter.api.AdapterProvider;
 import de.rocovomo.jnect.adapter.api.RoCoVoMoAdapter;
 import de.rocovomo.jnect.adapter.provider.LeftHandAdapterProvider;
 import de.rocovomo.osgi.util.OsgiUtil;

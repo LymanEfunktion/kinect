@@ -11,7 +11,6 @@ import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.opengl.GLCanvas;
 import org.eclipse.swt.opengl.GLData;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.lwjgl.LWJGLException;
@@ -64,7 +63,8 @@ private ObservablesManager manager;
 	}
 
 	public static void main(Composite compo) {
-		final Display display = compo.getDisplay();
+		final org.eclipse.swt.widgets.Display display = compo.getDisplay();
+		
 //		Shell shell = compo.getShell();
 //		shell.setLayout(new FillLayout());
 //		Composite comp = new Composite(compo, SWT.NONE);

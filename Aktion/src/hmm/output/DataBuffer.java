@@ -35,6 +35,11 @@ public class DataBuffer {
 		}
 		buffer.put(RIGHT_SQUARE_BRACKET);
 		buffer.put(SEMICOLON);
+		return buffer;
+	}
+	
+	public ByteBuffer bufferVectorInclWhitespace(float[] vector) {
+		ByteBuffer buffer = bufferVector(vector);
 		buffer.put(NEW_LINE);
 		return buffer;
 	}
@@ -43,5 +48,12 @@ public class DataBuffer {
 		byte[] array = Float.toString(value).getBytes();
 		buffer.put(array);
 		buffer.put(WHITESPACE);
+	}
+
+	public ByteBuffer bufferWhitespace()
+	{
+		ByteBuffer buffer = initialize(BUFFER_SIZE);
+		buffer.put(NEW_LINE);
+		return buffer;
 	}
 }

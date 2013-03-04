@@ -25,6 +25,7 @@ import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.widgets.Shell;
 
+@SuppressWarnings("restriction")
 public class SaveHandler {
 	@CanExecute
 	public boolean canExecute(

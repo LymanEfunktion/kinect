@@ -20,6 +20,7 @@ import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 
+@SuppressWarnings("restriction")
 public class OpenHandler {
 
 	@Execute

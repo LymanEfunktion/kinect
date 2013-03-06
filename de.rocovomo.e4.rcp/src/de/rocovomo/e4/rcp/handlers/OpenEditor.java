@@ -9,6 +9,7 @@ import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 
+@SuppressWarnings("restriction")
 public class OpenEditor {
 
 	@Execute

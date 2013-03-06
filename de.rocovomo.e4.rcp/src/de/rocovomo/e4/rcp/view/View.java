@@ -23,13 +23,13 @@ public class View {
 private ObservablesManager manager;
 	
 	private boolean disabled = true;
-	private Logger logger;
+//	private Logger logger;
 	
 	@Inject
-	public View(Logger logger) {
+	public View() {
 		//label = new Label(parent, SWT.NONE);
-		this.logger = logger;
-		logger.info("Pure 4.x part created");
+//		this.logger = logger;
+//		logger.info("Pure 4.x part created");
 		manager = new ObservablesManager();
 		
 	}
@@ -153,13 +153,13 @@ private ObservablesManager manager;
 			}
 		});
 		disabled = false;
-		logger.info("Pure 4.x part UI created and enabled");
+//		logger.info("Pure 4.x part UI created and enabled");
 	}
 
 	@PreDestroy
 	public void destroy() {
 		disabled = true;
-		logger.info("Pure 4.x part disabled and destroyed");
+//		logger.info("Pure 4.x part disabled and destroyed");
 	}
 	
 //	@Inject

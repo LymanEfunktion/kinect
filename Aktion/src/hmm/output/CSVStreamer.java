@@ -82,8 +82,8 @@ public class CSVStreamer
 	public static void main(String[] args) throws IOException
 	{
 		CSVStreamer streamer = new CSVStreamer(new String[] {
-				"data/test/circle_x.csv", "data/test/circle_y.csv",
-				"data/test/circle_z.csv" }, "rw");
-		streamer.writeContent("data/test.stream", "rw");
+				"data/train/circle_x.csv", "data/train/circle_y.csv",
+				"data/train/circle_z.csv" }, "rw");
+		streamer.writeContent("data/train.stream", "rw");
 	}
 }

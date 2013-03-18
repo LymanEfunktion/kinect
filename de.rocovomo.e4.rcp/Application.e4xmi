@@ -2,7 +2,7 @@
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_OUjt4C5IEeKYX6oZyqw2rA" elementId="org.eclipse.e4.ide.application" bindingContexts="_OUjt4S5IEeKYX6oZyqw2rA">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_OUjt9y5IEeKYX6oZyqw2rA" label="de.rocovomo.e4.rcp" width="500" height="400">
     <mainMenu xmi:id="_OUjt-C5IEeKYX6oZyqw2rA" elementId="menu:org.eclipse.ui.main.menu">
-      <children xsi:type="menu:Menu" xmi:id="_OUjt-S5IEeKYX6oZyqw2rA" label="File">
+      <children xsi:type="menu:Menu" xmi:id="_OUjt-S5IEeKYX6oZyqw2rA" elementId="org.eclipse.ui.main.menu" label="File">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_OUjt-i5IEeKYX6oZyqw2rA" label="Openasdf" iconURI="platform:/plugin/de.rocovomo.e4.rcp/icons/sample.gif" command="_OUjt7i5IEeKYX6oZyqw2rA"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_OUjt-y5IEeKYX6oZyqw2rA" label="Save" iconURI="platform:/plugin/de.rocovomo.e4.rcp/icons/save_edit.gif" command="_OUjt8S5IEeKYX6oZyqw2rA"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_OUjt_C5IEeKYX6oZyqw2rA" label="Quit" command="_OUjt6i5IEeKYX6oZyqw2rA"/>
@@ -10,7 +10,6 @@
       <children xsi:type="menu:Menu" xmi:id="_OUjt_S5IEeKYX6oZyqw2rA" label="Help">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_OUjt_i5IEeKYX6oZyqw2rA" label="About" command="_OUjt9C5IEeKYX6oZyqw2rA"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_4zVsAFRCEeKBb_tqE1ViVw" elementId="" label="Start Gef" command="_8jQTUFRCEeKBb_tqE1ViVw"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_AvaZ4HXxEeK1CaESqhj4Og" elementId="de.rocovomo.e4.rcp.handledmenuitem.0" label="start Kinect" command="_8jQTUFRCEeKBb_tqE1ViVw"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_EhgLcHXxEeK1CaESqhj4Og" elementId="de.rocovomo.e4.rcp.handledmenuitem.0" label="Show View" command="_wfcLUHXwEeK1CaESqhj4Og"/>
       </children>
     </mainMenu>
@@ -39,6 +38,7 @@
     <children xmi:id="_OUjt4y5IEeKYX6oZyqw2rA" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
   <descriptors xmi:id="_xk-IoHXzEeK1CaESqhj4Og" elementId="de.rocovomo.e4.rcp.lwjglview" label="lwjgl View" category="org.eclipse.e4.secondaryDataStack" contributionURI="bundleclass://de.rocovomo.e4.rcp/de.rocovomo.e4.rcp.view.View"/>
+  <descriptors xmi:id="_E4ka4I5LEeKGusnwzcKoSQ" elementId="de.rocovomo.e4.rcp.recorder" label="Recorder View" contributionURI="bundleclass://de.rocovomo.e4.rcp/de.rocovomo.e4.rcp.gesture.recorder.RecorderView"/>
   <menuContributions xmi:id="_9QZHkHXrEeK1CaESqhj4Og" elementId="" accessibilityPhrase="Menu" parentId="org.eclipse.ui.main.menu">
     <children xsi:type="menu:HandledMenuItem" xmi:id="_Fp8zgHXsEeK1CaESqhj4Og" label="Start Kinect" command="_8jQTUFRCEeKBb_tqE1ViVw"/>
     <children xsi:type="menu:HandledMenuItem" xmi:id="_r6YrwHXwEeK1CaESqhj4Og" label="Show View" command="_wfcLUHXwEeK1CaESqhj4Og"/>

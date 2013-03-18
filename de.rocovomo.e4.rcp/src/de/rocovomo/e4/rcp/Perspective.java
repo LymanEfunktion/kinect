@@ -30,6 +30,7 @@ public class Perspective implements IPerspectiveFactory {
 		IFolderLayout bottom = layout.createFolder("bottom",
 				IPageLayout.BOTTOM, 0.70f, editorArea);
 		bottom.addView("de.rocovomo.e4.rcp.lwjglview");
+		bottom.addView("de.rocovomo.e4.rcp.recorder");
 //		bottom.addView("simplercpapp.puree4part");
 //
 //		layout.getViewLayout(NavigationView.ID).setCloseable(false);

@@ -1,0 +1,102 @@
+\documentclass[
+	pdftex,
+	oneside,		% Einseitiger Druck.
+	a4paper,
+	12pt,			% Schriftgroesse
+	parskip=half,	% Halbe Zeile Abstand zwischen Absätzen.
+	headsepline,	% Linie nach Kopfzeile.
+	footsepline,	% Linie vor Fusszeile.
+	abstracton,	    % Abstract Überschriften
+]{scrreprt}
+
+\newcommand{\pdftitel}{Gesten- und Sprachsteuerung fuer einen mobilen Roboter mittels Kinect for Windows unter Java}
+\newcommand{\autor}{Simon Ebner, Volker Werling}
+\newcommand{\arbeit}{Studienarbeit}
+\newcommand{\titel}{Gesten- und Sprachsteuerung f\"ur einen mobilen Roboter mittels Kinect for Windows unter Java}
+
+% Autor und Datum
+\author{\autor}
+\date{\datum}
+
+\usepackage{style}
+\usepackage{scrhack}
+\input{header}
+ 
+\makeglossaries
+\input{glossary}
+
+\DeclareMathOperator*{\argmax}{argmax}
+
+\begin{document}
+% Deckblatt
+	%\begin{spacing}{1.5}
+	\include{deckblatt}
+	%\end{spacing}
+	
+	\include{erklaerung}
+	
+	\include{abstract}
+
+	\pagestyle{plain}
+	
+% Inhaltsverzeichnis
+	\begin{spacing}{1.1}
+	%\setcounter{tocdepth}{1}
+	\tableofcontents
+	\end{spacing}
+	\newpage
+
+	\renewcommand{\thepage}{\arabic{page}}
+	%\setcounter{page}{1}
+
+% Inhalt
+	\input{content/01kapitel}
+	\input{content/02kapitel}
+	\input{content/03kapitel}
+	\input{content/04kapitel}
+	\input{content/05kapitel}
+	\input{content/06kapitel}
+	\input{content/07kapitel}
+	\input{content/08kapitel}
+	\input{content/nkapitel}
+	
+% Abbildungsverzeichnis
+	\cleardoublepage
+	\phantomsection \label{listoffig}
+	\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+	\listoffigures
+
+% Tabellenverzeichnis
+	\cleardoublepage
+	\phantomsection \label{listoftab}
+	\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+	\listoftables
+
+% Quellcodeverzeichnis
+	\cleardoublepage
+	\phantomsection \label{listoflist}
+	\renewcommand\lstlistlistingname{Quellcodeverzeichnis}
+	\addcontentsline{toc}{chapter}{Quellcodeverzeichnis}
+	\lstlistoflistings
+	
+% Bibliography:
+	\cleardoublepage
+	\phantomsection \label{listoflit}
+	\renewcommand{\bibname}{Literaturverzeichnis}
+	\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+	\bibliographystyle{alpha}
+	\bibliography{bib}
+
+% Glossary
+	% Acronyms
+	\printglossary[type=\acronymtype]
+	
+	% Glossary
+	\printglossary[style=altlist,title=Glossar]
+
+% Appendix
+	%\appendix
+	%\input{content/appendicies/01appendix}
+	%\input{content/appendicies/02appendix}
+	%\input{content/appendicies/03appendix}
+\end{document}

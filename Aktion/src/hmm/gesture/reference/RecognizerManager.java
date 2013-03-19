@@ -8,8 +8,7 @@ import java.util.Hashtable;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 class RecognizerManager {
 	
@@ -19,7 +18,7 @@ class RecognizerManager {
 	static final int NUM_ONE_HANDED_RINGMASTER_GESTURE_NODES = 5;
 	static final int NUM_TWO_HANDED_RINGMASTER_GESTURE_NODES = 7;
 	
-	private static Logger logger = LoggerFactory.getLogger(RecognizerManager.class);
+	private static Logger logger = Logger.getLogger(RecognizerManager.class);
 	
 	private Map<GestureType, Recognizer> recognizerMap =
 			new HashMap<GestureType, Recognizer>(GestureType.values().length);

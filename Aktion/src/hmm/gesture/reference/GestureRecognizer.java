@@ -1,15 +1,9 @@
 package hmm.gesture.reference;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
-import java.util.ArrayList;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 /**
  * Public facade for the gesturerecognizer module. Use this class to perform the following...
@@ -34,7 +28,7 @@ public class GestureRecognizer {
 	public final static double MAXIMUM_GESTURE_RECOGNITION_TIME_IN_SECS  = 4.0;
 	
 	private RecognizerManager recognizerMgr = null;
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	private Logger logger = Logger.getLogger(GestureRecognizer.class);
 	
 	public GestureRecognizer() {
 		this.recognizerMgr = new RecognizerManager();

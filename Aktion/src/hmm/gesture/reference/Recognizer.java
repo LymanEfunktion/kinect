@@ -6,8 +6,7 @@ import java.io.Reader;
 import java.io.Writer;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import be.ac.ulg.montefiore.run.jahmm.Hmm;
 import be.ac.ulg.montefiore.run.jahmm.ObservationVector;
@@ -19,7 +18,7 @@ import be.ac.ulg.montefiore.run.jahmm.learn.KMeansLearner;
 @Deprecated
 public class Recognizer
 {
-	private static Logger logger = LoggerFactory.getLogger(Recognizer.class);
+	private static Logger logger = Logger.getLogger(Recognizer.class);
 	private Hmm<ObservationVector> recognizer;
 
 	private static ObservationProvider provider = ObservationProvider

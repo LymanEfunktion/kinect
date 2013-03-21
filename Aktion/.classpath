@@ -5,40 +5,8 @@
 	<classpathentry kind="src" path="/org.jnect.core"/>
 	<classpathentry kind="src" path="/org.jnect.bodymodel"/>
 	<classpathentry kind="lib" path="res/jahmm-0.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Simon/Downloads/eclipse-rcp-juno-SR1-win32/eclipse/plugins/log4j-1.2.17.jar" sourcepath="C:/Users/Simon/Downloads/eclipse-rcp-juno-SR1-win32/eclipse/plugins/log4j-1.2.17.jar">
-		<accessrules>
-			<accessrule kind="accessible" pattern="org/apache/log4j/*"/>
-			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
-		</accessrules>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Simon/Downloads/eclipse-rcp-juno-SR1-win32/eclipse/plugins/org.eclipse.swt.win32.win32.x86_3.100.1.v4234e.jar" sourcepath="C:/Users/Simon/Downloads/eclipse-rcp-juno-SR1-win32/eclipse/plugins/org.eclipse.swt.win32.win32.x86.source_3.100.1.v4234e.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/Simon/Downloads/eclipse-rcp-juno-SR1-win32/eclipse/plugins/org.eclipse.platform.doc.isv_4.2.1.v20120823-094319.jar!/reference/api"/>
-		</attributes>
-		<accessrules>
-			<accessrule kind="accessible" pattern="org/eclipse/swt/*"/>
-			<accessrule kind="accessible" pattern="org/eclipse/swt/accessibility/*"/>
-			<accessrule kind="accessible" pattern="org/eclipse/swt/awt/*"/>
-			<accessrule kind="accessible" pattern="org/eclipse/swt/browser/*"/>
-			<accessrule kind="accessible" pattern="org/eclipse/swt/custom/*"/>
-			<accessrule kind="accessible" pattern="org/eclipse/swt/dnd/*"/>
-			<accessrule kind="accessible" pattern="org/eclipse/swt/events/*"/>
-			<accessrule kind="accessible" pattern="org/eclipse/swt/graphics/*"/>
-			<accessrule kind="accessible" pattern="org/eclipse/swt/layout/*"/>
-			<accessrule kind="accessible" pattern="org/eclipse/swt/opengl/*"/>
-			<accessrule kind="accessible" pattern="org/eclipse/swt/printing/*"/>
-			<accessrule kind="accessible" pattern="org/eclipse/swt/program/*"/>
-			<accessrule kind="accessible" pattern="org/eclipse/swt/widgets/*"/>
-			<accessrule kind="discouraged" pattern="org/eclipse/swt/internal/*"/>
-			<accessrule kind="discouraged" pattern="org/eclipse/swt/internal/image/*"/>
-			<accessrule kind="discouraged" pattern="org/eclipse/swt/internal/theme/*"/>
-			<accessrule kind="accessible" pattern="org/eclipse/swt/ole/win32/*"/>
-			<accessrule kind="discouraged" pattern="org/eclipse/swt/internal/gdip/*"/>
-			<accessrule kind="discouraged" pattern="org/eclipse/swt/internal/ole/win32/*"/>
-			<accessrule kind="discouraged" pattern="org/eclipse/swt/internal/win32/*"/>
-			<accessrule kind="discouraged" pattern="org/eclipse/swt/internal/opengl/win32/*"/>
-			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
-		</accessrules>
-	</classpathentry>
+	<classpathentry kind="lib" path="res/slf4j-api-1.7.3.jar"/>
+	<classpathentry kind="lib" path="res/log4j-1.2.17.jar"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -4,18 +4,17 @@
 \section{Kinect}
 % genaue Auflistung aller Bestandteile \ldots ben\"otigte Software, Eigenschaften
 % Mikrofon, RGB-Kamera, Infrarot \ldots
-Kinect ist eine Ger\"at zur Detektion von Bewegungen. Entwickelt wurde es von PrimeSense als Hardware zur Steuerung der Videokonsole 
+Kinect ist ein Ger\"at zur Detektion von Bewegungen. Entwickelt wurde es von PrimeSense als Hardware zur Steuerung der Videokonsole 
 XBOX 360 von Microsoft Corp. Nach der Ank\"undigung im M\"arz 2010 \footnote{Pressemitteilung, der Ver\"offentlichung. Siehe \href{https://www.microsoft.com/en-us/news/press/2010/mar10/03-31PrimeSensePR.aspx}{Link}. Microsoft.com.  Abgerufen Dezember 20, 2012}
 war die Erweiterung mit dem Erscheinungsdatum 10. November 2010 in der Ausf\"uhrung \textit{Kinect for XBOX 360} in Europa erh\"altlich \footnote{Erscheinungsdatum der \textit{Kinect for XBOX 360}. Siehe \href{http://www.bbc.co.uk/newsbeat/10996389}{Link}. BBC UK. Abgerufen Dezember 20, 2012}.
 Nach einem sehr erfolgreichem Verkaufsstart \footnote{\href{http://www.guinnessworldrecords.com/records-9000/fastest-selling-gaming-peripheral/}{\enquote{Am schnellsten verkauftes Perepherieger\"at f\"ur Spiele}}. Guinnessworldrecords.com. Abgerufen Dezemeber 22, 2012}
-und anhaltender Nachfrage\footnote{Takahashi, Dean (Januar 9, 2012). \href{http://venturebeat.com/2012/01/09/xbox-360-surpassed-66m-sold-and-kinect-has-sold-18m-units/}{\enquote{Xbox 360 surpasses 66M sold and Kinect passes 18M units}}. venturebeat. Abgerufen Dezember 20, 2012}.
+und anhaltender Nachfrage\footnote{Takahashi, Dean (Januar 9, 2012). \href{http://venturebeat.com/2012/01/09/xbox-360-surpassed-66m-sold-and-kinect-has-sold-18m-units/}{\enquote{Xbox 360 surpasses 66M sold and Kinect passes 18M units}}. venturebeat. Abgerufen Dezember 20, 2012},
 k\"undigte Microsoft am 9. Januar 2012 ein weiteres Modell der Kinect, die sogenannte \textit{Kinect for Windows} f\"ur den 1. Februar 2012 an \footnote{\href{https://blogs.msdn.com/b/kinectforwindows/archive/2012/01/09/kinect-for-windows-commercial-program-announced.aspx?Redirected=true}{\enquote{Ank\"undigung der \textit{Kinect for Windows}}}. blogs.msdn.com. Abgerufen Dezember 22, 2012}.
 \newline
 Dar\"uber hinaus ver\"offentlichte Microsoft bereits am 16. Juni 2011 eine erste Version ihrer \textit{Kinect for Windows SDK}\footnote{\href{https://www.microsoft.com/en-us/news/press/2011/jun11/06-16MSKinectSDKPR.aspx}{\enquote{Microsoft Releases Kinect for Windows SDK Beta for Academics and Enthusiasts}}. Microsoft.com. Abgerufen Dezember 21, 2012}.
 Mit diesem \gls{SDK} ist es m\"oglich auf einer Windows 7 Plattform Anwendungen zu entwickeln, die eine Kinect als Eingabeger\"at verwenden.
 \newline
-Mit der Verf\"ugbarkeit einer Kinect-Variante, die f\"ur den Einsatz am PC ausgelegt ist und der frei zug\"anglichen \acrshort{SDK} einer breiten \"Offentlichkeit als Forschungsgegenstand zug\"anglich, 
-was auch der ausschlaggebende Punkt f\"ur den Einsatz der Kinect in dieser Studienarbeit ist.
+Mit der Verf\"ugbarkeit einer Kinect-Variante, die f\"ur den Einsatz am PC ausgelegt ist und der frei zug\"anglichen \glslink{SDK}{SDK} wurde diese zum Forschungsgegenstand, was auch der ausschlaggebende Punkt f\"ur den Einsatz der Kinect in dieser Studienarbeit ist.
 \subsection{Hardware}
 % Beschreibung und Vorgaben der genutzten Technik
 
@@ -123,13 +122,13 @@ Die Anwendung, die im Rahmen dieser Arbeit entsteht, wird auf Basis der Programm
 Die Nutzung der Kinect und des Kinect SDK unterst\"utzt nativ nicht die Entwicklung auf Basis von Java, wie in Abschnitt~\ref{subsubsec:Kinect_SDK}
 festgestellt wurde. Da jedoch die Expertise der Autoren dieser Arbeit im Java-Umfeld liegt, wird die Anwendung dennoch in der Programmiersprache Java umgesetzt.
 \newline
-Als Entwicklungsumgebung kommt die \gls{Eclipse} \acrshort{IDE} zum Einsatz. Diese bietet alle Voraussetzungen zur Entwicklung von flexiblen Java-Anwendungen und bieten eine
+Als Entwicklungsumgebung kommt die \gls{Eclipse} \acrshort{IDE} zum Einsatz. Diese bietet alle Voraussetzungen zur Entwicklung von flexiblen Java-Anwendungen und eine
 ausf\"uhrliche Support-Plattform f\"ur Entwickler. Zus\"atzlich setzt es auf eine dynamische Supportplattform zur Modularisierung von Anwendungen\footnote{\href{http://eclipse.org/osgi/}{\enquote{OSGi}}. eclipse.org. Abgerufen Januar 1, 2013}.
 
 \subsection{OSGi}
 \label{subsec:OSGi}
-Zur Entwicklung einer komplexen Anwendung mit vielen Abh\"angigkeiten und Schnittstellen, wie die hier zu erarbeitende, braucht es eine entsprechend \textit{m\"achtige} Software-Architektur. Dabei wird hier auf OSGi-Plattform gesetzt.
-OSGi\footnote{\href{http://www.osgi.org/Technology/HomePage}{\enquote{OSGi Alliance}}. osgi.org. Abgerufen Januar 1, 2013} ist ein \gls{Framework}, dass Spezifikationen zur Definition eines dynamischen \textit{Komponentenmodells} unter Java.
+Zur Entwicklung einer komplexen Anwendung mit vielen Abh\"angigkeiten und Schnittstellen, wie die hier zu erarbeitende, braucht es eine entsprechend \textit{m\"achtige} Software-Architektur. Dabei wird hier auf die OSGi-Plattform gesetzt.
+OSGi\footnote{\href{http://www.osgi.org/Technology/HomePage}{\enquote{OSGi Alliance}}. osgi.org. Abgerufen Januar 1, 2013} ist ein \gls{Framework}, das Spezifikationen zur Definition eines dynamischen \textit{Komponentenmodells} unter Java bereitstellt.
 Diese Komponenten werden \textit{Bundles} genannt und stehen anderen Komponenten als sogenannte \textit{Services} bereit.
 Die OSGi Alliance\footnotemark[1] selbst spezifiziert lediglich die \gls{API}. Die Umsetzung f\"ur die Eclipse \acrshort{IDE} lautet \gls{Equinox}\footnote{\href{http://eclipse.org/equinox/}{\enquote{equinox OSGi}}. eclipse.org. Abgerufen Januar 1, 2013}.
 
@@ -143,7 +142,7 @@ Bei der grafischen Darstellung muss man zwischen Informationen der Anwendung und
 \subsubsection{Rich client platform}
 Die \gls{RCP} ist ein Werkzeug zur Entwicklung von unabh\"angigen Software-Komponenten, die nicht nur auf \acrshort{GUI}-Komponenten beschr\"ankt ist
 \footnote{\href{http://wiki.eclipse.org/index.php/Rich_Client_Platform}{\enquote{Rich Client Platform}}. wiki.eclipse.org. Abgerufen Januar 1, 2013}.
-Dabei liegt der Fokus auf Client-Applikation, worunter auch die Anwendung dieser Arbeit f\"allt.
+Dabei liegt der Fokus auf einer Client-Applikation, worunter auch die Anwendung dieser Arbeit f\"allt.
 Daher wird \acrshort{RCP} im Rahmen dieser Arbeit zur Erstellung der Oberf\"ache der Anwendung verwendet.
 \subsubsection{Die Lightweight Java Game Library}
 Die grafische Darstellung der Interaktion zwischen Akteur und Kinect ist ein wichtiger Bestandteil dieser Anwendung.
@@ -157,7 +156,7 @@ Es erm\"oglicht aus strukturierten Datenmodellen, Java-Code zu generieren. F\"ur
  
 \subsubsection{Graphical Editing Framework}
 Zur grafischen Darstellung und grafischen Manipulation der zuvor vorgestellten EMF-Modelle existiert das sogenannte \gls{GEF}\footnote{\href{http://www.eclipse.org/gef/}{\enquote{GEF (Graphical Editing Framework)}}. eclipse.org. Abgerufen Januar 1, 2013}.
-Es stellt Methoden zur Verf\"ugung, um Grafikeditoren und weitere Ansichten f\"r Eclipse Anwendungen zu erstellen. F\"ur die Studienarbeit relevante Bereiche, sind die Funktionen, die eine vereinfachte Darstellung der eben genannten EMF-Modelle erm\"oglichen.
+Es stellt Methoden zur Verf\"ugung, um Grafikeditoren und weitere Ansichten f\"ur Eclipse Anwendungen zu erstellen. F\"ur die Studienarbeit relevante Bereiche, sind die Funktionen, die eine vereinfachte Darstellung der eben genannten EMF-Modelle erm\"oglichen.
 
 \section {Roboter -- Ausblick}
 % offene Schnittstelle, Arbeiten f\"ur 2. Studienarbeit \ldots

@@ -14,10 +14,6 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
     public ApplicationWorkbenchWindowAdvisor(IWorkbenchWindowConfigurer configurer) {
         super(configurer);
     }
-
-//    public ActionBarAdvisor createActionBarAdvisor(IActionBarConfigurer configurer) {
-////        return new ApplicationActionBarAdvisor(configurer);
-//    }
     
 //    public void preWindowOpen() {
 //        IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
@@ -31,9 +27,9 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 	 */
 	@Override
 	public void preWindowOpen() {
-		getWindowConfigurer().setShowCoolBar(true);
-		getWindowConfigurer().setShowStatusLine(true);
-		getWindowConfigurer().setShowMenuBar(true);
+//		getWindowConfigurer().setShowCoolBar(true);
+//		getWindowConfigurer().setShowStatusLine(true);
+//		getWindowConfigurer().setShowMenuBar(true);
 	}
 
     public boolean preWindowShellClose() {

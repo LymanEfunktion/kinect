@@ -16,7 +16,7 @@ public class Perspective implements IPerspectiveFactory {
 	public void createInitialLayout(IPageLayout layout) {
 		String editorArea = layout.getEditorArea();
 		layout.setEditorAreaVisible(false);
-//
+
 //		 layout.addStandaloneView(NavigationView.ID, false, IPageLayout.LEFT,
 //		 0.25f, editorArea);
 //		 IFolderLayout folder = layout.createFolder("messages",
@@ -31,7 +31,6 @@ public class Perspective implements IPerspectiveFactory {
 				IPageLayout.BOTTOM, 0.70f, editorArea);
 		bottom.addView("de.rocovomo.e4.rcp.lwjglview");
 		bottom.addView("de.rocovomo.e4.rcp.recorder");
-//		bottom.addView("simplercpapp.puree4part");
 //
 //		layout.getViewLayout(NavigationView.ID).setCloseable(false);
 	}

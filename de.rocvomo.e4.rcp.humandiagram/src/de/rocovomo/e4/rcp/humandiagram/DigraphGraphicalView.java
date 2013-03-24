@@ -27,6 +27,7 @@ import de.rocovomo.e4.rcp.humandiagram.editpart.HumanDiagramEditPartFactory;
  * 
  * @author Anthony Hunter
  */
+@Deprecated
 public class DigraphGraphicalView extends ViewPart {
 
 	public static final String ID = "de.rocovomo.e4.rcp.humandiagram.view";

@@ -3,8 +3,11 @@ package de.rocovomo.e4.rcp.view;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.eclipse.core.databinding.ObservablesManager;
+import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.opengl.GLCanvas;
@@ -160,15 +163,14 @@ private ObservablesManager manager;
 //		logger.info("Pure 4.x part disabled and destroyed");
 	}
 	
-//	@Inject
-//	public void setSelection(@Optional @Named(IServiceConstants.ACTIVE_SELECTION) Object selection) {
-//		if (disabled) {
-//			return;
-//		}
-//		if (selection == null) {
-//			label.setText("Selection changed to 'null'");
-//		} else {
-//			label.setText("Selection changed: " + selection.toString());
-//		}
-//	}
+	@Inject
+	public void setSelection(
+			@Optional @Named(IServiceConstants.ACTIVE_SELECTION) Object selection)
+	{
+		if (!disabled)
+		{
+			System.out.println("Selection changed to "
+					+ ((selection == null) ? "'null'" : selection.toString()));
+		}
+	}
 }

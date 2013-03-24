@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
-
-   
 <extension
          id="application"
          point="org.eclipse.core.runtime.applications">
@@ -19,7 +17,6 @@
          name="name">
    </perspective>
 </extension>
-
 <extension id="product" point="org.eclipse.core.runtime.products">
   <product application="de.rocovomo.e4.rcp.application" name="de.rocovomo.e4.rcp">
     <property name="appName" value="de.rocovomo.e4.rcp"> </property>

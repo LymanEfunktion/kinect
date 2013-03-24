@@ -5,9 +5,9 @@
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_XZHEMJP5EeKYR9i3ApIg8w" featurename="children" parentElementId="menu:org.eclipse.ui.main.menu"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_cx9vUJPlEeK4l6UnSj_xuQ" featurename="handlers" parentElementId="org.eclipse.e4.ide.application">
-    <elements xsi:type="commands:Handler" xmi:id="_IuZ6YJPlEeK4l6UnSj_xuQ" elementId="" contributionURI="bundleclass://de.rocvomo.e4.rcp.humandiagram/de.rocovomo.e4.rcp.humandiagram.handler.StartGefHandler" command="_H1gjgJPlEeK4l6UnSj_xuQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_IuZ6YJPlEeK4l6UnSj_xuQ" elementId="" contributionURI="bundleclass://de.rocovomo.e4.rcp.humandiagram/de.rocovomo.e4.rcp.humandiagram.handler.StartGefHandler" command="_H1gjgJPlEeK4l6UnSj_xuQ"/>
   </fragments>
-  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_QhJ6cJPkEeK4l6UnSj_xuQ" featurename="partDescriptors" parentElementId="org.eclipse.e4.ide.application">
-    <elements xsi:type="basic:PartDescriptor" xmi:id="_cZ0xkJPkEeK4l6UnSj_xuQ" elementId="de.rocovomo.e4.rcp.humandiagram" label="Human View" contributionURI="bundleclass://de.rocvomo.e4.rcp.humandiagram/de.rocovomo.e4.rcp.humandiagram.DigraphGraphicalView"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_QhJ6cJPkEeK4l6UnSj_xuQ" featurename="descriptors" parentElementId="org.eclipse.e4.ide.application">
+    <elements xsi:type="basic:PartDescriptor" xmi:id="_cZ0xkJPkEeK4l6UnSj_xuQ" elementId="de.rocovomo.e4.rcp.humandiagram.e4view" label="E4 View" contributionURI="bundleclass://de.rocovomo.e4.rcp.humandiagram/de.rocovomo.e4.rcp.humandiagram.E4View"/>
   </fragments>
 </fragment:ModelFragments>

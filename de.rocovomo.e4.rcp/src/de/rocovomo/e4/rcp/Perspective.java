@@ -29,8 +29,8 @@ public class Perspective implements IPerspectiveFactory {
 //		// matching the PartDescriptor ID in "MyLegacyIDE.e4xmi"
 		IFolderLayout bottom = layout.createFolder("bottom",
 				IPageLayout.BOTTOM, 0.70f, editorArea);
-		bottom.addView("de.rocovomo.e4.rcp.lwjglview");
-		bottom.addView("de.rocovomo.e4.rcp.recorder");
+//		bottom.addView("de.rocovomo.e4.rcp.lwjglview");
+		bottom.addView("de.rocovomo.e4.rcp.hmmrecorder.hmmview");
 //
 //		layout.getViewLayout(NavigationView.ID).setCloseable(false);
 	}

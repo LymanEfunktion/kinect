@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileChannel;
 
+@Deprecated
 public class FileProvider
 {
 	private static RandomAccessFile file;
@@ -14,6 +15,8 @@ public class FileProvider
 			throws IOException
 	{
 		file = new RandomAccessFile(name, mode);
+		file.seek(file.length());
+		System.out.println(file.getFilePointer());
 		return file.getChannel();
 	}
 

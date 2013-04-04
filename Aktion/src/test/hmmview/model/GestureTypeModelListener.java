@@ -1,6 +1,5 @@
 package test.hmmview.model;
 
-import test.hmmview.ModelListener;
 
 
 /**

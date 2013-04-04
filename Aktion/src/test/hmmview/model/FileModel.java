@@ -1,15 +1,12 @@
 package test.hmmview.model;
 
-import java.io.RandomAccessFile;
-
-import test.hmmview.Model;
-
+import java.io.File;
 
 public class FileModel extends Model<FileModelListener>
 {
-	public final Property<RandomAccessFile> file;
+	public final Property<File> property;
 	
 	public FileModel() {
-		file = new Property<RandomAccessFile>(null);
+		property = new Property<File>(null);
 	}
 }

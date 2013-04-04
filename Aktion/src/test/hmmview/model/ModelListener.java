@@ -1,4 +1,4 @@
-package test.hmmview;
+package test.hmmview.model;
 
 /**
  * A generic MVC view, or model listener.

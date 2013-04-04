@@ -1,0 +1,10 @@
+package test.hmmview.view;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Display;
+
+public interface Colors {
+
+	Color COLOR_WHITE = Display.getDefault().getSystemColor(SWT.COLOR_WHITE);
+}

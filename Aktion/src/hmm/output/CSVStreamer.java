@@ -70,7 +70,7 @@ public class CSVStreamer
 						fileChannel.write(buffer);
 					}
 				}
-				ByteBuffer buffer = data.bufferWhitespace();
+				ByteBuffer buffer = data.bufferNewLine();
 				buffer.flip();
 				fileChannel.write(buffer);
 			}

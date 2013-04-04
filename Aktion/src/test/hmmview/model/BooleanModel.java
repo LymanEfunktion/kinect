@@ -1,6 +1,5 @@
 package test.hmmview.model;
 
-import test.hmmview.Model;
 
 
 public class BooleanModel extends Model<BooleanModelListener>

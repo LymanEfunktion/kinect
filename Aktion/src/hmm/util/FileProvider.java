@@ -15,8 +15,6 @@ public class FileProvider
 			throws IOException
 	{
 		file = new RandomAccessFile(name, mode);
-		file.seek(file.length());
-		System.out.println(file.getFilePointer());
 		return file.getChannel();
 	}
 

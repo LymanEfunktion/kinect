@@ -6,26 +6,33 @@ import java.nio.channels.FileChannel;
 import java.util.List;
 import java.util.ListIterator;
 
-public class NewChannel
+public class GestureChannel
 {
 	private FileChannel channel;
-	private NewBuffer data;
+	private GestureBuffer data;
 
-	public NewChannel(FileChannel channel)
+	public GestureChannel(FileChannel channel) throws IOException
 	{
-		data = new NewBuffer();
+		data = new GestureBuffer();
 		this.channel = channel;
 	}
 
-	public void write(List<List<Float>> sequence) throws IOException
-	{
-		System.out.println(channel.position());
-		channel.position(channel.size());
+	public void map(List<List<Float>> sequence) throws IOException{
 		ListIterator<List<Float>> seq_iterator = sequence.listIterator();
 		while (seq_iterator.hasNext())
 		{
-			List<Float> vector = seq_iterator.next();
-			channel.write(data.bufferVector(vector));
+			data.mapVector(seq_iterator.next());
+		}
+		data.mapNewLine();
+	}
+	
+	public void write(List<List<Float>> sequence) throws IOException
+	{
+		System.out.println(channel.position());
+		ListIterator<List<Float>> seq_iterator = sequence.listIterator();
+		while (seq_iterator.hasNext())
+		{
+			channel.write(data.bufferVector(seq_iterator.next()));
 		}
 		channel.write(data.bufferNewLine());
 	}

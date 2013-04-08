@@ -4,4 +4,7 @@ Bundle-Name: RoCoVoMo::Aktion
 Bundle-SymbolicName: Aktion
 Bundle-Version: 0.0.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: org.eclipse.swt.widgets
+Import-Package: org.eclipse.swt,
+ org.eclipse.swt.layout,
+ org.eclipse.swt.widgets
+Require-Bundle: org.eclipse.swt

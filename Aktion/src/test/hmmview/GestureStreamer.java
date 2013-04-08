@@ -1,7 +1,7 @@
 package test.hmmview;
 
-import hmm.test.NewChannel;
-import hmm.util.FileProvider;
+import hmm.test.GestureChannel;
+import hmm.util.FileHandler;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,15 +10,19 @@ import java.util.List;
 
 public class GestureStreamer extends Thread
 {
-	private NewChannel newchannel;
+	private FileHandler handler;
+	
+	private GestureChannel newchannel;
 
 	private List<List<Float>> sequence;
 
 	private long interval;
 	private long frame;
 
-	public GestureStreamer(long interval, long frame)
+	public GestureStreamer(long interval, long frame) throws IOException
 	{
+		handler = new FileHandler("data/data.stream", "rws");
+		newchannel = new GestureChannel(handler.getChannelAppendigFile());
 		this.interval = interval;
 		this.frame = frame;
 		this.sequence = new ArrayList<List<Float>>();
@@ -26,16 +30,12 @@ public class GestureStreamer extends Thread
 
 	public void stream() throws IOException
 	{
-		newchannel = new NewChannel(FileProvider.initFileChannel("data/data.stream", "rws"));
 		long start = System.nanoTime();
 		newchannel.write(sequence);
+//		newchannel.map(sequence);
 		long end = System.nanoTime();
 		System.out.println("It took " + (end - start) + " nanoseconds");
-		
-//		FileChannel rwChannel = new RandomAccessFile(new File("A.seq"), "rw").getChannel();
-//	    ByteBuffer wrBuf = rwChannel.map(FileChannel.MapMode.READ_WRITE, 0, (int) rwChannel.size());
 	}
-	
 
 //	float f = 23f;
 //    byte[] op = new byte[4];

@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: TestBundle
+Bundle-SymbolicName: de.rocovomo.util
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.rocovomo.util.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.apache.log4j
+Export-Package: de.rocovomo.util,
+ de.rocovomo.util.hmm.gesture.reference,
+ de.rocovomo.util.hmm.refactor,
+ de.rocovomo.util.hmm.util

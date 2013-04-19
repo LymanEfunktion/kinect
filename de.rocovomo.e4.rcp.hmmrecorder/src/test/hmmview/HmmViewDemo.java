@@ -9,8 +9,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
-import test.hmmview.model.FileModel;
-import test.hmmview.view.Preview;
+import test.hmmview.deprecated.model.FileModel;
+import test.hmmview.deprecated.view.PreviewView;
 
 public class HmmViewDemo
 {
@@ -44,7 +44,7 @@ public class HmmViewDemo
 		
 		File file = new File("data/defaultdata.stream");
 		model.property.setValue(file);
-		Preview pre = new Preview(display, model);
+		PreviewView pre = new PreviewView(display, model);
 	}
 
 	private static void startMVC(Composite parent)

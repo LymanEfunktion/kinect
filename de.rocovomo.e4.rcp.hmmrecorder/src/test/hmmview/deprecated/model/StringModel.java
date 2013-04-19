@@ -4,13 +4,14 @@
  *     RoCoVoMo - Simon Ebner, Volker Werling
  *******************************************************************************/
 
-package test.hmmview.view;
+package test.hmmview.deprecated.model;
 
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.widgets.Display;
+public class StringModel extends Model<StringModelListener> {
+	
+	public final Property<String> property;
 
-public interface Colors {
-
-	Color COLOR_WHITE = Display.getDefault().getSystemColor(SWT.COLOR_WHITE);
+	public StringModel()
+	{
+		this.property = new Property<String>("");
+	}
 }

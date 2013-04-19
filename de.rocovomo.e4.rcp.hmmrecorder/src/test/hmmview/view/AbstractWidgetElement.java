@@ -1,3 +1,9 @@
+/*******************************************************************************
+ * Copyright (c) 2013, RoCoVoMo
+ * Contributors:
+ *     RoCoVoMo - Simon Ebner, Volker Werling
+ *******************************************************************************/
+
 package test.hmmview.view;
 
 import org.eclipse.swt.SWT;

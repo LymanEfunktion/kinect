@@ -4,13 +4,12 @@
  *     RoCoVoMo - Simon Ebner, Volker Werling
  *******************************************************************************/
 
-package test.hmmview.view;
+package test.hmmview.deprecated.model;
 
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.widgets.Display;
-
-public interface Colors {
-
-	Color COLOR_WHITE = Display.getDefault().getSystemColor(SWT.COLOR_WHITE);
+/**
+ * A generic MVC view, or model listener.
+ */
+public interface ModelListener <M>
+{
+  void modelChanged (M model);
 }

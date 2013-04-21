@@ -1,4 +1,4 @@
-package de.rocovomo.osgi.api;
+package de.rocovomo.osgi.api.provider;
 
 import java.util.Collection;
 

@@ -1,7 +1,6 @@
-package de.rocovomo.osgi.api;
+package de.rocovomo.osgi.api.provider;
 
-import java.util.Dictionary;
-import java.util.UUID;
+import java.util.Map;
 
 /**
  * 
@@ -13,8 +12,7 @@ import java.util.UUID;
 public interface GenericProvider<T> {
 
 	T getProvided();
-	UUID getPid();
-	String getType();
-	Dictionary<String, Object> getProperties();
+	Type getType();
+	Map<String, Object> getProperties();
 
 }

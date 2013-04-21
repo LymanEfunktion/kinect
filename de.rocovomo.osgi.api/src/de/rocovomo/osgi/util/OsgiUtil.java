@@ -1,8 +1,11 @@
 package de.rocovomo.osgi.util;
 
+import java.util.Collection;
 import java.util.Dictionary;
 
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.InvalidSyntaxException;
+import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 
 /**
@@ -27,6 +30,11 @@ public final class OsgiUtil {
 		return (ServiceRegistration<S>) bundleContext.registerService(
 				clazz.getName(), service, null);
 	}
-	
-	
+
+	public static <T> Collection<ServiceReference<T>> discoverService(
+			BundleContext bundleContext, Class<T> clazz, String filter)
+			throws InvalidSyntaxException {
+		return bundleContext.getServiceReferences(clazz, filter);
+	}
+
 }

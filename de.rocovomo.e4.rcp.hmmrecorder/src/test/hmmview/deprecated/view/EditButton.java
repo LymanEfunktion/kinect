@@ -16,6 +16,7 @@ import org.eclipse.swt.widgets.Composite;
 import test.hmmview.deprecated.model.BooleanModel;
 import test.hmmview.view.AbstractWidgetElement;
 
+@Deprecated
 public class EditButton extends AbstractWidgetElement {
 
 	Button button;

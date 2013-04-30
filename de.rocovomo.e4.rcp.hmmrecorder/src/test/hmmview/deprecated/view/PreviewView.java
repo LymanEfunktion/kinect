@@ -28,7 +28,7 @@ import test.hmmview.deprecated.model.StringModel;
 import test.hmmview.deprecated.model.StringModelListener;
 import test.hmmview.view.AbstractView;
 
-
+@Deprecated
 public class PreviewView extends AbstractView
 {
 

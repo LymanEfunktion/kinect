@@ -13,6 +13,7 @@ import org.eclipse.swt.widgets.Composite;
 
 import test.hmmview.view.AbstractWidgetElement;
 
+@Deprecated
 public class DemoTab extends AbstractWidgetElement
 {
 

@@ -24,7 +24,7 @@ import test.hmmview.deprecated.model.FileModel;
 import test.hmmview.deprecated.model.StringModel;
 import test.hmmview.view.AbstractWidgetElement;
 
-
+@Deprecated
 public class SaveButton extends AbstractWidgetElement {
 
 	private Button button;

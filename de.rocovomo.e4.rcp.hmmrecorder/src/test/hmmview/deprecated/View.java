@@ -31,6 +31,7 @@ import test.hmmview.deprecated.view.RecorderButton;
 import test.hmmview.deprecated.view.SpeechCommandButton;
 import test.hmmview.view.AbstractView;
 
+@Deprecated
 public class View extends AbstractView
 {
 	private BooleanModel isRunnableModel;

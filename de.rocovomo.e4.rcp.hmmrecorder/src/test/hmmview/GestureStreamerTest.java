@@ -1,19 +1,14 @@
 package test.hmmview;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.eclipse.core.databinding.observable.value.WritableValue;
-
-import test.hmmview.model.Trainer;
-
 import de.rocovomo.util.hmm.util.FileHandler;
 import de.rocovomo.util.hmm.refactor.GestureChannel;
 
-public class GestureStreamer extends Thread
+public class GestureStreamerTest extends Thread
 {
 	private FileHandler handler;
 	private GestureChannel newchannel;
@@ -22,22 +17,21 @@ public class GestureStreamer extends Thread
 	private long interval;
 	private long frame;
 
-	public GestureStreamer(WritableValue value) throws IOException
+	public GestureStreamerTest(long interval, long frame) throws IOException
 	{
-		URL url = ((Trainer) value.getValue()).getFileUrl();
-		handler = new FileHandler(url.getFile(), "rws");
+		handler = new FileHandler("data/data.stream", "rws");
 		newchannel = new GestureChannel(handler.getChannelAppendigFile());
-		setInterval(0L);
-		setFrame(0L);
+		this.interval = interval;
+		this.frame = frame;
 		this.sequence = new ArrayList<List<Float>>();
 	}
 
 	public void stream() throws IOException
 	{
-		// long start = System.nanoTime();
+		long start = System.nanoTime();
 		newchannel.write(sequence);
 		// newchannel.map(sequence);
-		// long end = System.nanoTime();
+		long end = System.nanoTime();
 		// System.out.println("It took " + (end - start) + " nanoseconds");
 	}
 
@@ -47,12 +41,12 @@ public class GestureStreamer extends Thread
 		long time = 0L;
 		try
 		{
-			while (time < getFrame())
+			while (time < frame)
 			{
 				sequence.add(Arrays.asList((float) Math.random(), (float) Math.random(),
 						(float) Math.random()));
-				time += getInterval();
-				sleep(getInterval());
+				time += interval;
+				sleep(interval);
 			}
 
 		} catch (InterruptedException e)
@@ -61,23 +55,10 @@ public class GestureStreamer extends Thread
 		}
 	}
 
-	public long getInterval()
+	public static void main(String[] args) throws IOException
 	{
-		return interval;
-	}
-
-	public void setInterval(long interval)
-	{
-		this.interval = interval;
-	}
-
-	public long getFrame()
-	{
-		return frame;
-	}
-
-	public void setFrame(long frame)
-	{
-		this.frame = frame;
+		GestureStreamerTest test = new GestureStreamerTest(100L, 800L);
+		test.run();
+		test.stream();
 	}
 }

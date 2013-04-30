@@ -3,6 +3,7 @@ package de.rocovomo.util.hmm.gesture.reference;
 
 import java.io.Reader;
 import java.io.Writer;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -13,6 +14,9 @@ import be.ac.ulg.montefiore.run.jahmm.Hmm;
 import be.ac.ulg.montefiore.run.jahmm.ObservationVector;
 import be.ac.ulg.montefiore.run.jahmm.OpdfMultiGaussian;
 import be.ac.ulg.montefiore.run.jahmm.OpdfMultiGaussianFactory;
+import be.ac.ulg.montefiore.run.jahmm.io.ObservationSequencesReader;
+import be.ac.ulg.montefiore.run.jahmm.io.ObservationSequencesWriter;
+import be.ac.ulg.montefiore.run.jahmm.io.ObservationVectorReader;
 import be.ac.ulg.montefiore.run.jahmm.learn.BaumWelchScaledLearner;
 import be.ac.ulg.montefiore.run.jahmm.learn.KMeansLearner;
 
@@ -56,7 +60,7 @@ public class Recognizer
 		{
 			Hmm<ObservationVector> kMeansHmm = kMeansLerner.iterate();
 			BaumWelchScaledLearner bwl = new BaumWelchScaledLearner();
-			bwl.setNbIterations(15);
+		bwl.setNbIterations(15);
 			recognizer = bwl.learn(kMeansHmm, sequences);
 			for (int i = 0; i < recognizer.nbStates(); i++)
 			{
@@ -93,7 +97,7 @@ public class Recognizer
 								this.recognizer
 										.mostLikelyStateSequence(sequences
 												.get(i)))
-						+ ", ln Probability: " + lnProb);
+						+ ", ln Probability: " + lnProb + ")");
 			}
 		} catch (IllegalArgumentException e)
 		{
@@ -106,6 +110,8 @@ public class Recognizer
 	public static void main(String[] args)
 	{
 		Recognizer test = new Recognizer(GestureType.HAND_CIRCLE);
+		List<ObservationVector> test2 = new ArrayList<ObservationVector>();
+		ObservationVector vector = new ObservationVector(new double[]{1.0d, 1.0d, 2.0});
 		System.out.println(test.train(8));
 		System.out.println(test.highestLnProbability + " "
 				+ test.lowestLnProbability);

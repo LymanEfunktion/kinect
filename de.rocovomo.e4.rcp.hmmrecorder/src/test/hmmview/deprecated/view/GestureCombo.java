@@ -19,6 +19,7 @@ import test.hmmview.deprecated.model.IntegerModel;
 import test.hmmview.view.AbstractWidgetElement;
 import de.rocovomo.util.hmm.gesture.reference.GestureType;
 
+@Deprecated
 public class GestureCombo extends AbstractWidgetElement
 {
 	private ComboViewer viewer;

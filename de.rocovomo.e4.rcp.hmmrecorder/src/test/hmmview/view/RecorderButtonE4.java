@@ -1,3 +1,9 @@
+/*******************************************************************************
+ * Copyright (c) 2013, RoCoVoMo
+ * Contributors:
+ *     RoCoVoMo - Simon Ebner, Volker Werling
+ *******************************************************************************/
+
 package test.hmmview.view;
 
 import org.eclipse.core.databinding.observable.value.WritableValue;
@@ -36,5 +42,4 @@ public class RecorderButtonE4
 	{
 		button.setText((button.getSelection()) ? "Running" : "Start");
 	}
-
 }

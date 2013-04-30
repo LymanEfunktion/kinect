@@ -15,7 +15,7 @@ import org.eclipse.swt.widgets.Display;
 
 import test.hmmview.deprecated.model.FileModel;
 
-
+@Deprecated
 public class PreviewButton {
 
 	private FileModel model;

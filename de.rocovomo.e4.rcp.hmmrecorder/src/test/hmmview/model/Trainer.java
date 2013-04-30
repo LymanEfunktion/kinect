@@ -9,6 +9,7 @@ package test.hmmview.model;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.net.URL;
 
 public class Trainer implements PropertyChangeListener
 {
@@ -17,6 +18,7 @@ public class Trainer implements PropertyChangeListener
 	private Double interval;
 	private Boolean runnable;
 	private Boolean speakable;
+	private URL fileUrl;
 
 	private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
 	private Preview preview;
@@ -92,5 +94,15 @@ public class Trainer implements PropertyChangeListener
 	public void setPreview(Preview preview) {
 	    propertyChangeSupport.firePropertyChange("preview", this.preview,
 	        this.preview = preview);
+	}
+
+	public URL getFileUrl()
+	{
+		return fileUrl;
+	}
+
+	public void setFileUrl(URL fileUrl)
+	{
+		propertyChangeSupport.firePropertyChange("url", this.fileUrl, this.fileUrl= fileUrl);
 	}
 }

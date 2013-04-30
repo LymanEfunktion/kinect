@@ -1,3 +1,9 @@
+/*******************************************************************************
+ * Copyright (c) 2013, RoCoVoMo
+ * Contributors:
+ *     RoCoVoMo - Simon Ebner, Volker Werling
+ *******************************************************************************/
+
 package test.hmmview.view;
 
 import java.io.IOException;
@@ -42,7 +48,6 @@ public class PreviewButtonE4
 
 	private void widgeting(Display display) throws IOException
 	{
-		System.out.println(display.isDisposed());
 		new PreviewE4(display,(Trainer) value.getValue());
 	}
 }

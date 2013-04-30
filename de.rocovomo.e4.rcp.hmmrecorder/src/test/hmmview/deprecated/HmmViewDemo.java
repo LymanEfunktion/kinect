@@ -1,4 +1,4 @@
-package test.hmmview;
+package test.hmmview.deprecated;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,9 +9,11 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
+import test.hmmview.Control;
 import test.hmmview.deprecated.model.FileModel;
 import test.hmmview.deprecated.view.PreviewView;
 
+@Deprecated
 public class HmmViewDemo
 {
 	public static void main(String[] args) throws IOException

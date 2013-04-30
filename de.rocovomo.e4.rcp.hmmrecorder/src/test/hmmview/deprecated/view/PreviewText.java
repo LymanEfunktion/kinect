@@ -20,7 +20,7 @@ import test.hmmview.deprecated.model.BooleanModelListener;
 import test.hmmview.deprecated.model.StringModel;
 import test.hmmview.deprecated.model.StringModelListener;
 
-
+@Deprecated
 public class PreviewText {
 
 	private Text text;

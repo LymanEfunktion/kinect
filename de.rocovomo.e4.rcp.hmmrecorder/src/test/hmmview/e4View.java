@@ -6,6 +6,9 @@
 
 package test.hmmview;
 
+import java.io.IOException;
+import java.net.URL;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
@@ -16,6 +19,8 @@ import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.core.databinding.validation.IValidator;
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.jface.databinding.fieldassist.ControlDecorationSupport;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
@@ -31,11 +36,12 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
+import org.osgi.framework.Bundle;
 
 import test.hmmview.deprecated.view.DemoTab;
-import test.hmmview.deprecated.view.FileButton;
 import test.hmmview.model.Trainer;
 import test.hmmview.view.Colors;
+import test.hmmview.view.FileButtonE4;
 import test.hmmview.view.GestureComboE4;
 import test.hmmview.view.PreviewButtonE4;
 import test.hmmview.view.RecorderButtonE4;
@@ -66,10 +72,19 @@ public class e4View implements Colors
 		trainer.setNodes(0);
 		trainer.setRunnable(false);
 		trainer.setSpeechCommand(false);
+		Bundle bundle = Platform.getBundle("de.rocovomo.e4.rcp.hmmrecorder");
+		URL fileURL = bundle.getEntry("data/defaultdata.stream");
+		try
+		{
+			trainer.setFileUrl(FileLocator.resolve(fileURL));
+		} catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	@PostConstruct
-	public void createUI(Composite parent)
+	public void createUI(Composite parent) throws IOException
 	{
 		Display display = parent.getDisplay();
 		display.addFilter(SWT.KeyDown, new Listener()
@@ -94,7 +109,7 @@ public class e4View implements Colors
 		sashForm.setBackground(COLOR_WHITE);
 
 		new DemoTab(sashForm);
-
+		
 		Composite hmmParts = new Composite(sashForm, SWT.NONE);
 		GridLayout gridLayout = new GridLayout(5, false);
 		gridLayout.verticalSpacing = 3;
@@ -145,7 +160,9 @@ public class e4View implements Colors
 		final Button bAppend = addButton("Append", hmmParts, SWT.PUSH, new GridData(
 				GridData.HORIZONTAL_ALIGN_BEGINNING, -1, false, false, 1, 1));
 
-		new FileButton(hmmParts);
+		new FileButtonE4(hmmParts);
+		
+		GestureStreamer streamer = new GestureStreamer(value);
 
 		new PreviewButtonE4(addButton("Preview", hmmParts, SWT.PUSH, new GridData(GridData.END, -1,
 				false, false, 4, 1)), value);
@@ -164,8 +181,6 @@ public class e4View implements Colors
 
 	private void bindValues(Text interval)
 	{
-		// The DataBindingContext object will manage the databindings
-		// Lets bind it
 		DataBindingContext ctx = new DataBindingContext();
 
 		IObservableValue widgetValue = WidgetProperties.text(SWT.Modify).observe(interval);

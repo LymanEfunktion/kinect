@@ -12,6 +12,7 @@ import org.eclipse.swt.widgets.Button;
 
 import test.hmmview.deprecated.model.BooleanModel;
 
+@Deprecated
 public class RecorderButton
 {
 	private BooleanModel model;

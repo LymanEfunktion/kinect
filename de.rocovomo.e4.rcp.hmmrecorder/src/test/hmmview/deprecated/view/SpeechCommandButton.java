@@ -17,6 +17,7 @@ import test.hmmview.deprecated.model.BooleanModel;
 import test.hmmview.deprecated.model.BooleanModelListener;
 import test.hmmview.view.AbstractWidgetElement;
 
+@Deprecated
 public class SpeechCommandButton extends AbstractWidgetElement
 {
 	private BooleanModel model;

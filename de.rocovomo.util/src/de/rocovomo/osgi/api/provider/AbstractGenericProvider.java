@@ -13,11 +13,12 @@ import java.util.Set;
  * @param <T>
  *            class to be provieded by this implementation
  */
-public abstract class AbstractGenericProvider<T> implements GenericProvider<T>{
+public abstract class AbstractGenericProvider<T> implements GenericProvider<T> {
 
 	private final T provided;
 	private final Type type;
 	private Map<String, Object> properties;
+
 	/**
 	 * Constructor
 	 * 

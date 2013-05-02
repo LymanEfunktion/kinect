@@ -4,4 +4,5 @@ Bundle-Name: RoCoVoMo::Robot::leJOS NXJ
 Bundle-SymbolicName: de.rocovomo.robot.leJOS.nxj
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: de.rocovomo.robot.api
+Import-Package: de.rocovomo.robot.api,
+ org.osgi.framework;version="1.7.0"

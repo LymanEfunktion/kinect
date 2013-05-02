@@ -4,8 +4,9 @@ Bundle-Name: RoCoVoMo::Action::API
 Bundle-SymbolicName: de.rocovomo.action.api
 Bundle-Version: 0.0.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: de.rocovomo.osgi.api,
+Import-Package: de.rocovomo.action.api,
  de.rocovomo.jnect.gesture.api,
+ de.rocovomo.osgi.api,
  de.rocovomo.robot.action.api,
  org.jnect.core,
  org.jnect.gesture

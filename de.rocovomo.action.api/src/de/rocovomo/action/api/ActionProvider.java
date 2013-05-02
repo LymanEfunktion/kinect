@@ -2,15 +2,15 @@ package de.rocovomo.action.api;
 
 import de.rocovomo.osgi.api.AbstractGenericProvider;
 
-public abstract class ActionProvider extends AbstractGenericProvider<Action>{
+public abstract class ActionProvider extends AbstractGenericProvider<SpeechDetector>{
 
-	public ActionProvider(Action provided, String type) {
+	public ActionProvider(SpeechDetector provided, String type) {
 		super(provided);
-		addProperty(Action.TYPE, type);
+		addProperty(SpeechDetector.TYPE, type);
 	}
 	
 	@Override
 	public String getType() {
-		return (String) getProperties().get(Action.TYPE);
+		return (String) getProperties().get(SpeechDetector.TYPE);
 	}
 }

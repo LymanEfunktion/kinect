@@ -37,4 +37,9 @@ public final class OsgiUtil {
 		return bundleContext.getServiceReferences(clazz, filter);
 	}
 
+	public static <T> T getService(BundleContext context,
+			ServiceReference<T> reference) {
+		return context.getService(reference);
+	}
+
 }

@@ -1,5 +1,7 @@
 package de.rocovomo.jnect.gesture.osgi;
 
+import static de.rocovomo.util.Dictionaries.toDictionary;
+
 import org.apache.log4j.Logger;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -35,7 +37,7 @@ public class JumpGestureActivator implements BundleActivator {
 		this.provider = new JumpGestureProvider();
 
 		OsgiUtil.registerService(bundleContext, GestureProvider.class,
-				this.provider, this.provider.getProperties());
+				this.provider, toDictionary(this.provider.getProperties()));
 
 		logger.info("Registered "
 				+ this.provider.getProvided()

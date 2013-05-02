@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: RoCoVoMo::Manager::Speech
+Bundle-SymbolicName: de.rocovomo.manager.speech
+Bundle-Version: 0.0.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: de.rocovomo.action.api,
+ de.rocovomo.speech.api,
+ org.jnect.core,
+ org.eclipse.emf.common,
+ org.eclipse.emf.ecore,
+ org.osgi.framework;version="1.3.0"

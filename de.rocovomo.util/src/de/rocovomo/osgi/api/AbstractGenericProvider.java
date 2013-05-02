@@ -1,4 +1,4 @@
-package de.rocovomo.osgi.api.provider;
+package de.rocovomo.osgi.api;
 
 import java.util.HashMap;
 import java.util.Hashtable;

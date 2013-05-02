@@ -8,6 +8,7 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: de.rocovomo.osgi.api,
  de.rocovomo.osgi.util,
+ de.rocovomo.util,
  de.rocovomo.jnect.adapter.api,
  org.eclipse.emf.common.notify,
  org.eclipse.emf.common.notify.impl,

@@ -1,5 +1,7 @@
 package de.rocovomo.jnect.adapter.osgi;
 
+import static de.rocovomo.util.Dictionaries.toDictionary;
+
 import org.apache.log4j.Logger;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -36,7 +38,7 @@ public class LeftHandAdapterActivator implements BundleActivator {
 		this.provider = new LeftHandAdapterProvider();
 
 		OsgiUtil.registerService(bundleContext, AdapterProvider.class,
-				provider, provider.getProperties());
+				provider, toDictionary(provider.getProperties()));
 		logger.info("Registered " + this.provider.getProvided() + ":"
 				+ this.provider.getProperties().get(RoCoVoMoAdapter.TYPE));
 

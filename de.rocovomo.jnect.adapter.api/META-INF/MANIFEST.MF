@@ -6,6 +6,7 @@ Bundle-Version: 0.0.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: de.rocovomo.osgi.api,
  org.eclipse.emf.common.notify,
+ org.eclipse.emf.common.notify.impl,
  org.eclipse.emf.ecore,
  org.jnect.bodymodel
 Export-Package: de.rocovomo.jnect.adapter.api

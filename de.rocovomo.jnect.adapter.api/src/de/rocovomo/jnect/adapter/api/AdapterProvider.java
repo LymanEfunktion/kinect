@@ -1,6 +1,8 @@
 package de.rocovomo.jnect.adapter.api;
 
 import de.rocovomo.osgi.api.AbstractGenericProvider;
+import de.rocovomo.osgi.api.Type;
+
 
 /**
  * Implementation of Abstract Class {@link AbstractGenericProvider}, <br />
@@ -12,13 +14,10 @@ import de.rocovomo.osgi.api.AbstractGenericProvider;
 public abstract class AdapterProvider extends
 		AbstractGenericProvider<RoCoVoMoAdapter> {
 
-	public AdapterProvider(RoCoVoMoAdapter adapter, String adapterType) {
-		super(adapter);
-		addProperty(RoCoVoMoAdapter.TYPE, adapterType);
-	}
+	private AdapterType adapterType;
 
-	@Override
-	public String getType() {
-		return (String) getProperties().get(RoCoVoMoAdapter.TYPE);
+	public AdapterProvider(RoCoVoMoAdapter adapter, AdapterType adapterType) {
+		super(adapter,Type.Adapter);
+		this.adapterType = adapterType;
 	}
 }

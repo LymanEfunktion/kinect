@@ -2,30 +2,34 @@ package de.rocovomo.robot.leJOS.nxj.impl;
 
 import de.rocovomo.robot.api.RobotMovement;
 
-public class RobotMovementImpl implements RobotMovement {
+public class RobotMovementImpl implements RobotMovement{
 
+	private Propulsion propulsion = new Propulsion();
+	private Steering steering = new Steering();
+	
 	@Override
 	public void moveForward() {
-		// TODO Auto-generated method stub
-		
+		this.propulsion.moveForward();
 	}
 
 	@Override
 	public void moveBackward() {
-		// TODO Auto-generated method stub
-		
+		this.propulsion.moveBackward();
 	}
 
 	@Override
 	public void turnLeft() {
-		// TODO Auto-generated method stub
-		
+		this.steering.turnLeft();
 	}
 
 	@Override
 	public void turnRight() {
-		// TODO Auto-generated method stub
-		
+		this.steering.turnRight();
+	}
+
+	@Override
+	public void stopMovement() {
+		this.propulsion.stopMovement();
 	}
 
 }

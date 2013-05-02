@@ -9,4 +9,6 @@ public interface RobotMovement {
 	void turnLeft();
 
 	void turnRight();
+	
+	void stopMovement();
 }

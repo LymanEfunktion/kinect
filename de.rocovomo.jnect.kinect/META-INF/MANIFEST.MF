@@ -1,18 +1,15 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Kinect Connector
+Bundle-Name: RoCoVoMo::Kinect
 Bundle-SymbolicName: de.rocovomo.jnect.kinect
 Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: de.rocovomo.jnect.kinect.osgi.KinectActivator
 Require-Bundle: org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: de.rocovomo.osgi.api,
- de.rocovomo.action.api,
- de.rocovomo.jnect.adapter.api,
- de.rocovomo.jnect.gesture.api,
- de.rocovomo.robot.action.api,
- de.rocovomo.robot.action.test,
+Import-Package: de.rocovomo.jnect.kinect.api,
+ de.rocovomo.osgi.api,
+ de.rocovomo.osgi.util,
  org.apache.log4j;version="1.2.17",
  org.eclipse.emf.common.notify,
  org.eclipse.emf.common.util,
@@ -22,5 +19,3 @@ Import-Package: de.rocovomo.osgi.api,
  org.jnect.gesture,
  org.osgi.framework;version="1.7.0",
  org.osgi.util.tracker;version="1.5.1"
-Export-Package: de.rocovomo.jnect.kinect.api,
- de.rocovomo.jnect.kinect.provider

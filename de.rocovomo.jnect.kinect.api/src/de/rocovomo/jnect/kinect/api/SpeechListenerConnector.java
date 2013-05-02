@@ -4,7 +4,7 @@ import org.jnect.core.SpeechListener;
 
 public interface SpeechListenerConnector {
 
-	public void connectGesture(SpeechListener speechListener);
-	public void disconnectGesture(SpeechListener speechListener);
+	public void connectSpeechListener(SpeechListener speechListener);
+	public void disconnectSpeechListener(SpeechListener speechListener);
 
 }

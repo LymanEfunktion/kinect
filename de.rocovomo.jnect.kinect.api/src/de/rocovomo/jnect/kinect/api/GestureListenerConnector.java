@@ -4,6 +4,6 @@ import org.jnect.gesture.GestureListener;
 
 public interface GestureListenerConnector {
 	
-	public void connectGesture(GestureListener gestureListener);
-	public void disconnectGesture(GestureListener gestureListener);
+	public void connectGestureListener(GestureListener gestureListener);
+	public void disconnectGestureListener(GestureListener gestureListener);
 }

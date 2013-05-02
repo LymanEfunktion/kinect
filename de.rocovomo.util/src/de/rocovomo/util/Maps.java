@@ -1,29 +1,15 @@
 package de.rocovomo.util;
 
 import java.util.Dictionary;
-import java.util.Hashtable;
-import java.util.Iterator;
+import java.util.Enumeration;
 import java.util.Map;
-import java.util.Set;
 
 public class Maps {
 
-	public static <K, V> Dictionary<K, V> toDictionary(Map<K, V> source, Dictionary<K, V> destination) {
-		Set<K> keys = source.keySet();
-		Iterator<K> keyIterator = keys.iterator();
-		while (keyIterator.hasNext()) {
-			K key = keyIterator.next();
-			destination.put(key, source.get(key));
-		}
-		return destination;
-	}
-	
-	public static <K,V> Dictionary<K, V> toDictionary(Map<K, V> source){
-		Dictionary<K, V> destination = new Hashtable<>();
-		Set<K> keys = source.keySet();
-		Iterator<K> keyIterator = keys.iterator();
-		while (keyIterator.hasNext()) {
-			K key = keyIterator.next();
+	public static <K, V> Map<K, V> toMap(Dictionary<K, V> source,
+			Map<K, V> destination) {
+		for (Enumeration<K> keys = source.keys(); keys.hasMoreElements();) {
+			K key = keys.nextElement();
 			destination.put(key, source.get(key));
 		}
 		return destination;

@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: RoCoVoMo::OSGi Helper::API
-Bundle-SymbolicName: de.rocovomo.osgi.api
-Bundle-Version: 0.0.1.qualifier
-Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: de.rocovomo.osgi.api

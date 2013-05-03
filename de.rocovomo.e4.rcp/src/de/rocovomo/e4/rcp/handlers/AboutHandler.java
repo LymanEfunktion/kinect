@@ -21,7 +21,6 @@ import org.eclipse.swt.widgets.Shell;
 public class AboutHandler {
 	@Execute
 	public void execute(@Named(IServiceConstants.ACTIVE_SHELL) Shell shell) {
-		System.out.println("Test");
 		MessageDialog
 				.openInformation(shell, "About", "e4 Application example.");
 

@@ -23,7 +23,6 @@ public class ExitHandler {
 	public void execute(IWorkbench workbench, IEclipseContext context,
 			@Named(IServiceConstants.ACTIVE_SHELL) Shell shell)
 			throws InvocationTargetException, InterruptedException {
-		System.out.println("Test");
 		close(shell);
 	}
 

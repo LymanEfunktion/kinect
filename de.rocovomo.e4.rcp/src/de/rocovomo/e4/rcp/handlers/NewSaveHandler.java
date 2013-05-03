@@ -19,7 +19,6 @@ public class NewSaveHandler {
 
 	  @Execute
 	  void execute(EPartService partService, @Named(IServiceConstants.ACTIVE_PART) MPart part) {
-		  System.out.println("Test");
 	    partService.savePart(part, false);
 	  }
 

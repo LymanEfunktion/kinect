@@ -4,7 +4,7 @@ Bundle-Name: RoCoVoMo::Speech::API
 Bundle-SymbolicName: de.rocovomo.speech.api
 Bundle-Version: 0.0.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: de.rocovomo.action.api.deprecated,
+Import-Package: de.rocovomo.action.api,
  org.eclipse.emf.common,
  org.eclipse.emf.ecore,
  org.jnect.core,

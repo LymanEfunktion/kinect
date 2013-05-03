@@ -5,30 +5,12 @@ import de.rocovomo.robot.leJOS.nxj.impl.RobotMovementImpl;
 
 public class RobotMovementImplTest {
 
-	private static RobotMovement robot;
-
 	public static void main(String[] args) throws InterruptedException {
-		robot = new RobotMovementImpl();
-		circleRight();
-		circleLeft();
-
-		 robot.moveForward();
-		 Thread.sleep(500);
-		 robot.stopMovement();
+		RobotMovement robot = new RobotMovementImpl();
+		robot.turnRight();
+		robot.turnLeft();
+//		robot.moveForward();
+//		Thread.sleep(500);
+//		robot.stopMovement();
 	}
-
-	private static void circleLeft() {
-		robot.turnLeft();
-		robot.turnLeft();
-		robot.turnLeft();
-		robot.turnLeft();
-	}
-
-	private static void circleRight() {
-		robot.turnRight();
-		robot.turnRight();
-		robot.turnRight();
-		robot.turnRight();
-	}
-
 }

@@ -9,18 +9,17 @@ public class Steering{
 	private RemoteMotor propulsion = Motor.C;
 	
 	private int steeringAngle = 45;
-	private int propulsionAngleRight = 510;
-	private int propulsionAngleLeft = 510;
+	private int propulsionAngle = 180;
 	
 	public void turnLeft() {
 		steering.rotate(-steeringAngle);
-		propulsion.rotate(propulsionAngleLeft);
+		propulsion.rotate(propulsionAngle);
 		steering.rotate(steeringAngle);
 	}
 
 	public void turnRight() {
 		steering.rotate(steeringAngle);
-		propulsion.rotate(propulsionAngleRight);
+		propulsion.rotate(propulsionAngle);
 		steering.rotate(-steeringAngle);
 	}
 

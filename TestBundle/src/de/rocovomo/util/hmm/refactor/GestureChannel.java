@@ -1,3 +1,9 @@
+/*******************************************************************************
+ * Copyright (c) 2013, RoCoVoMo
+ * Contributors:
+ *     RoCoVoMo - Simon Ebner, Volker Werling
+ *******************************************************************************/
+
 package de.rocovomo.util.hmm.refactor;
 
 import java.io.IOException;

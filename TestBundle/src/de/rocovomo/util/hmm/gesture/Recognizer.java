@@ -1,3 +1,9 @@
+/*******************************************************************************
+ * Copyright (c) 2013, RoCoVoMo
+ * Contributors:
+ *     RoCoVoMo - Simon Ebner, Volker Werling
+ *******************************************************************************/
+
 package de.rocovomo.util.hmm.gesture;
 
 import java.util.ArrayList;
@@ -15,15 +21,11 @@ import de.rocovomo.util.hmm.util.ObservationProvider;
 public class Recognizer
 {
 	private Hmm<ObservationVector> recognizer;
+	private GestureType type;
 
-	final GestureType HAND_CIRCLE = GestureType.HAND_CIRCLE;
-	GestureType HAND_DIRECTION = GestureType.HAND_DIRECTION;
-	GestureType HAND_HALT = GestureType.HAND_HALT;
-	GestureType HAND_STRAIGHT = GestureType.HAND_STRAIGHT;
-	GestureType HAND_UNLOCK = GestureType.HAND_UNLOCK;
-
-	public Recognizer()
+	public Recognizer(GestureType type)
 	{
+		this.type = type;
 	}
 
 	double getLowestAcceptableLnProbability(GestureType type)
@@ -41,7 +43,7 @@ public class Recognizer
 		 * gewinnt und wird erkannt!
 		 */
 		System.out.println(recognizer.lnProbability(sequence));
-		System.out.println(getLowestAcceptableLnProbability(HAND_CIRCLE));
+		System.out.println(getLowestAcceptableLnProbability(type));
 	}
 
 	public void train()
@@ -51,7 +53,7 @@ public class Recognizer
 		 * separart durchgeführt werden und dessen HMM im System gespeichert
 		 * werden
 		 */
-		train(HAND_CIRCLE, "data/train.stream", "rw");
+		train(type, "data/train.stream", "rw");
 	}
 
 	private boolean train(GestureType type, String name, String mode)
@@ -119,7 +121,7 @@ public class Recognizer
 	public static void main(String[] args)
 	{
 		//Training der Daten - hier nur für Kreisbewegung
-		Recognizer recog = new Recognizer();
+		Recognizer recog = new Recognizer(GestureType.HAND_CIRCLE);
 		recog.train();
 
 		//Test mittels verschiedener Daten

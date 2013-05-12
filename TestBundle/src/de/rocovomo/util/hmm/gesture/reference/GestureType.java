@@ -5,25 +5,22 @@ import java.util.List;
 
 public enum GestureType
 {
-	HAND_CIRCLE(8, ActionType.CIRCLE_AROUND, GestureGenre.ROBOTC_ONTROL, Arrays.asList("HAND_CIRCLE")),
-	HAND_STRAIGHT(5, ActionType.CIRCLE_AROUND, GestureGenre.ROBOTC_ONTROL, Arrays.asList("HAND_STRAIGHT")),
-	HAND_DIRECTION(8, ActionType.CIRCLE_AROUND, GestureGenre.ROBOTC_ONTROL, Arrays.asList("HAND_DIRECTION")),
-	HAND_UNLOCK(4,ActionType.CIRCLE_AROUND, GestureGenre.ROBOTC_ONTROL, Arrays.asList("HAND_UNLOCK")),
-	HAND_HALT(5, ActionType.CIRCLE_AROUND, GestureGenre.ROBOTC_ONTROL, Arrays.asList("HAND_HALT"));
-	
+	HAND_CIRCLE(8, ActionType.CIRCLE_AROUND, GestureGenre.ROBOT_CONTROL, Arrays.asList("HAND_CIRCLE")),
+	HAND_STRAIGHT(5, ActionType.CIRCLE_AROUND, GestureGenre.ROBOT_CONTROL, Arrays.asList("HAND_STRAIGHT")),
+	HAND_DIRECTION(8, ActionType.CIRCLE_AROUND, GestureGenre.ROBOT_CONTROL, Arrays.asList("HAND_DIRECTION")),
+	HAND_UNLOCK(4, ActionType.CIRCLE_AROUND, GestureGenre.ROBOT_CONTROL, Arrays.asList("HAND_UNLOCK")),
+	HAND_HALT(5, ActionType.CIRCLE_AROUND, GestureGenre.ROBOT_CONTROL, Arrays.asList("HAND_HALT"));
 
 	final private ActionType actionFactoryType;
 	final private GestureGenre genre;
-	
+	final private int numHmmNodes;
+	final private List<String> parentDirNames;
+
 	private double lowestLnProbability;
 	private double highestLnProbability;
 
-	final private int numHmmNodes;
-
-	final private List<String> parentDirNames;
-
-	GestureType(int numHmmNodes, ActionType actionFactoryType,
-			GestureGenre genre, List<String> parentDirNames)
+	GestureType(int numHmmNodes, ActionType actionFactoryType, GestureGenre genre,
+			List<String> parentDirNames)
 	{
 		this.actionFactoryType = actionFactoryType;
 		this.genre = genre;

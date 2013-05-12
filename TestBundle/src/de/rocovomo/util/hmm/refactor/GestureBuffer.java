@@ -1,3 +1,9 @@
+/*******************************************************************************
+ * Copyright (c) 2013, RoCoVoMo
+ * Contributors:
+ *     RoCoVoMo - Simon Ebner, Volker Werling
+ *******************************************************************************/
+
 package de.rocovomo.util.hmm.refactor;
 
 import java.io.IOException;
@@ -46,6 +52,8 @@ public class GestureBuffer {
 
 	public ByteBuffer bufferNewLine() {
 		ByteBuffer buffer = ByteBuffer.allocate(10);
+		byte cr = 13;
+		buffer.put(cr);
 		buffer.put(NEW_LINE).flip();
 		return buffer;
 	}

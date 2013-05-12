@@ -3,7 +3,8 @@ package de.rocovomo.util.hmm.gesture.reference;
 import java.util.Arrays;
 import java.util.List;
 
-public enum GestureType
+@Deprecated
+public enum GestureTypeOLD
 {
 	HAND_CIRCLE(8, ActionType.CIRCLE_AROUND, GestureGenre.ROBOT_CONTROL, Arrays.asList("HAND_CIRCLE")),
 	HAND_STRAIGHT(5, ActionType.CIRCLE_AROUND, GestureGenre.ROBOT_CONTROL, Arrays.asList("HAND_STRAIGHT")),
@@ -19,7 +20,7 @@ public enum GestureType
 	private double lowestLnProbability;
 	private double highestLnProbability;
 
-	GestureType(int numHmmNodes, ActionType actionFactoryType, GestureGenre genre,
+	GestureTypeOLD(int numHmmNodes, ActionType actionFactoryType, GestureGenre genre,
 			List<String> parentDirNames)
 	{
 		this.actionFactoryType = actionFactoryType;

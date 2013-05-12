@@ -27,11 +27,11 @@ public class GestureRecognizer {
 	public final static double MINIMUM_GESTURE_RECOGNITION_TIME_IN_SECS  = 0.011;
 	public final static double MAXIMUM_GESTURE_RECOGNITION_TIME_IN_SECS  = 4.0;
 	
-	private RecognizerManager recognizerMgr = null;
+	private RecognizerManagerOLD recognizerMgr = null;
 	private Logger logger = Logger.getLogger(GestureRecognizer.class);
 	
 	public GestureRecognizer() {
-		this.recognizerMgr = new RecognizerManager();
+		this.recognizerMgr = new RecognizerManagerOLD();
 	}
 	
 	// GESTURE TRAINING FUNCTIONALITY ***********************************************************************
@@ -42,16 +42,16 @@ public class GestureRecognizer {
 	 * @param gestureDataSet The gesture data that will be used for training.
 	 * @return true on successful training, false on failure.
 	 */
-	public boolean trainGesture(GestureType gestureType) {
+	public boolean trainGesture(GestureTypeOLD gestureType) {
 		return this.recognizerMgr.train(gestureType);
 	}
-	public void untrainAndClearGesture(GestureType gestureType) {
+	public void untrainAndClearGesture(GestureTypeOLD gestureType) {
 		this.recognizerMgr.untrain(gestureType);
 	}
 	
 	// GESTURE VALIDITY FUNCTIONALITY ***********************************************************************
 	public static boolean isAcceptableGesture(GestureInstance gestureInstance) {
-		return RecognizerManager.isAcceptableGesture(gestureInstance);
+		return RecognizerManagerOLD.isAcceptableGesture(gestureInstance);
 	}
 	// GESTURE RECOGNIZER I/O (LOADING/SAVING) FUNCTIONALITY ************************************************
 	
@@ -88,7 +88,7 @@ public class GestureRecognizer {
 	 * @param gestureInstance The gesture instance to recognize.
 	 * @return The winning gesture that would be executed in-game, null if no gesture was suitable.
 	 */
-	public GestureType recognizePlayerGestureAsGameWould(GestureInstance gestureInstance) {
+	public GestureTypeOLD recognizePlayerGestureAsGameWould(GestureInstance gestureInstance) {
 		return this.recognizerMgr.recognize(gestureInstance);
 	}
 	
@@ -106,7 +106,7 @@ public class GestureRecognizer {
 		assert(gestureInstance != null);
 
 		// Attempt to recognize the gesture as one of the archetypal SSF gestures...
-		GestureType result = this.recognizePlayerGestureAsGameWould(gestureInstance);
+		GestureTypeOLD result = this.recognizePlayerGestureAsGameWould(gestureInstance);
 		if (result == null) {
 			// No gesture was recognized
 			this.logger.info("Failed to recognize player gesture.");
@@ -187,7 +187,7 @@ public class GestureRecognizer {
 		
 	}
 
-	private void trainGesture(GestureType type, GestureDataSet dataSet)
+	private void trainGesture(GestureTypeOLD type, GestureDataSet dataSet)
 	{
 		// TODO Auto-generated method stub
 		

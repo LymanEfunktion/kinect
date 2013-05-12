@@ -8,6 +8,9 @@ package de.rocovomo.util.hmm.gesture;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
+
+import org.apache.log4j.Logger;
 
 import be.ac.ulg.montefiore.run.jahmm.Hmm;
 import be.ac.ulg.montefiore.run.jahmm.ObservationVector;
@@ -15,12 +18,13 @@ import be.ac.ulg.montefiore.run.jahmm.OpdfMultiGaussian;
 import be.ac.ulg.montefiore.run.jahmm.OpdfMultiGaussianFactory;
 import be.ac.ulg.montefiore.run.jahmm.learn.BaumWelchScaledLearner;
 import be.ac.ulg.montefiore.run.jahmm.learn.KMeansLearner;
-import de.rocovomo.util.hmm.gesture.reference.GestureType;
+import de.rocovomo.util.hmm.gesture.GestureType;
 import de.rocovomo.util.hmm.util.ObservationProvider;
 
 public class Recognizer
 {
 	private Hmm<ObservationVector> recognizer;
+//	private static Logger logger = Logger.getLogger(Recognizer.class);
 	private GestureType type;
 
 	public Recognizer(GestureType type)
@@ -28,22 +32,15 @@ public class Recognizer
 		this.type = type;
 	}
 
-	double getLowestAcceptableLnProbability(GestureType type)
+	public GestureType getGestureType()
+	{
+		return type;
+	}
+
+	public double getLowestAcceptableLnProbability()
 	{
 		return type.getLowestLnProbability()
 				+ ((type.getHighestLnProbability() - type.getLowestLnProbability()) / 10.0);
-	}
-
-	private void test(List<ObservationVector> sequence)
-	{
-		/**
-		 * Liest die Sequenz aus Daten in das HMM ein und spuckt lnProb aus
-		 * Diese muss mit Probs der anderen HMMs der anderen Gesten verglichen
-		 * werden Die Sequenz - sprich Geste - mit der niedrigsten lnProb Zahl
-		 * gewinnt und wird erkannt!
-		 */
-		System.out.println(recognizer.lnProbability(sequence));
-		System.out.println(getLowestAcceptableLnProbability(type));
 	}
 
 	public void train()
@@ -53,9 +50,9 @@ public class Recognizer
 		 * separart durchgeführt werden und dessen HMM im System gespeichert
 		 * werden
 		 */
-		train(type, "data/train.stream", "rw");
+		train(type, type.getFile(), "rw");
 	}
-
+	
 	private boolean train(GestureType type, String name, String mode)
 	{
 		/**
@@ -102,12 +99,12 @@ public class Recognizer
 				{
 					highestLnProbability = lnProb;
 				}
-				System.out.println("Index "
-						+ i
-						+ ": (Base Probability: "
-						+ this.recognizer.probability(sequences.get(i),
-								this.recognizer.mostLikelyStateSequence(sequences.get(i)))
-						+ ", ln Probability: " + lnProb + ")");
+//				logger.info("Index "
+//						+ i
+//						+ ": (Base Probability: "
+//						+ this.recognizer.probability(sequences.get(i),
+//								this.recognizer.mostLikelyStateSequence(sequences.get(i)))
+//						+ ", ln Probability: " + lnProb + ")");
 			}
 		} catch (IllegalArgumentException e)
 		{
@@ -118,13 +115,18 @@ public class Recognizer
 		return true;
 	}
 
+	public double lnProbability(List<ObservationVector> observation)
+	{
+		return recognizer.lnProbability(observation);
+	}
+	
 	public static void main(String[] args)
 	{
-		//Training der Daten - hier nur für Kreisbewegung
+		// Training der Daten - hier nur für Kreisbewegung
 		Recognizer recog = new Recognizer(GestureType.HAND_CIRCLE);
 		recog.train();
 
-		//Test mittels verschiedener Daten
+		// Test mittels verschiedener Daten
 		List<ObservationVector> sequence = new ArrayList<ObservationVector>();
 		for (int i = 0; i < 10; i++)
 		{
@@ -134,7 +136,7 @@ public class Recognizer
 		recog.test(sequence);
 		recog.test(setupTest2());
 		recog.test(setupTest());
-		//Nach Prinzip wird Sequenz aus setupTest2 erkannt
+		// Nach Prinzip wird Sequenz aus setupTest2 erkannt
 	}
 
 	private static List<ObservationVector> setupTest2()
@@ -167,5 +169,17 @@ public class Recognizer
 		sequence.add(new ObservationVector(new double[] { -36.680676, -375.0737, 1095.3447 }));
 		sequence.add(new ObservationVector(new double[] { 112.940186, -320.9169, 1133.5038 }));
 		return sequence;
+	}
+	
+	private void test(List<ObservationVector> sequence)
+	{
+		/**
+		 * Liest die Sequenz aus Daten in das HMM ein und spuckt lnProb aus
+		 * Diese muss mit Probs der anderen HMMs der anderen Gesten verglichen
+		 * werden Die Sequenz - sprich Geste - mit der niedrigsten lnProb Zahl
+		 * gewinnt und wird erkannt!
+		 */
+		System.out.println(recognizer.lnProbability(sequence));
+		System.out.println(getLowestAcceptableLnProbability());
 	}
 }

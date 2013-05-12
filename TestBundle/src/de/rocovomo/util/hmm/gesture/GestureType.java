@@ -21,27 +21,27 @@ import de.rocovomo.util.hmm.gesture.reference.GestureGenre;
 
 public enum GestureType
 {
-	HAND_CIRCLE(8, ActionType.CIRCLE_AROUND, GestureGenre.ROBOT_CONTROL, RightHand.class,"HAND_CIRCLE"),
-	HAND_STRAIGHT(5, ActionType.CIRCLE_AROUND, GestureGenre.ROBOT_CONTROL, RightHand.class,"HAND_STRAIGHT"),
-	HAND_DIRECTION(8, ActionType.CIRCLE_AROUND, GestureGenre.ROBOT_CONTROL, RightHand.class,"HAND_DIRECTION"),
-	HAND_UNLOCK(4, ActionType.CIRCLE_AROUND, GestureGenre.ROBOT_CONTROL, RightHand.class, "HAND_UNLOCK"),
-	HAND_HALT(5, ActionType.CIRCLE_AROUND, GestureGenre.ROBOT_CONTROL, RightHand.class,"HAND_HALT");
+	HAND_CIRCLE(8, ActionType.CIRCLE_AROUND, GestureGenre.ROBOT_CONTROL, RightHand.class, "HAND_CIRCLE", "data/train.stream"),
+	HAND_STRAIGHT(5, ActionType.CIRCLE_AROUND, GestureGenre.ROBOT_CONTROL, RightHand.class, "HAND_STRAIGHT", "data/train.stream"),
+	HAND_DIRECTION(8, ActionType.CIRCLE_AROUND, GestureGenre.ROBOT_CONTROL, RightHand.class, "HAND_DIRECTION", "data/train.stream"),
+	HAND_UNLOCK(4, ActionType.CIRCLE_AROUND, GestureGenre.ROBOT_CONTROL, RightHand.class, "HAND_UNLOCK", "data/train.stream"),
+	HAND_HALT(5, ActionType.CIRCLE_AROUND, GestureGenre.ROBOT_CONTROL, RightHand.class, "HAND_HALT", "data/train.stream");
 
 	final private ActionType actionFactoryType;
 	final private GestureGenre genre;
 	final private int numHmmNodes;
 	final private String name;
-	private Class<PositionedElement> test;
+	private Class<? extends PositionedElement> test;
+	private String file;
 
 	private double lowestLnProbability;
 	private double highestLnProbability;
 
-	<T> GestureType(int numHmmNodes, ActionType actionFactoryType, GestureGenre genre, Class<? extends PositionedElement> test, String name)
+	<T> GestureType(int numHmmNodes, ActionType actionFactoryType, GestureGenre genre, Class<? extends PositionedElement> test, String name, String file)
 	{
 		this(numHmmNodes,actionFactoryType,genre,name);
-		if (test instanceof Class<?>) {
-		this.test =  (Class<PositionedElement>) test;
-		}
+		this.setFile(file);
+		this.test = test;
 	}
 	
 	GestureType(int numHmmNodes, ActionType actionFactoryType, GestureGenre genre, String name)
@@ -135,5 +135,15 @@ public enum GestureType
 			}
 		}
 		return null;
+	}
+
+	public String getFile()
+	{
+		return file;
+	}
+
+	public void setFile(String file)
+	{
+		this.file = file;
 	}
 }

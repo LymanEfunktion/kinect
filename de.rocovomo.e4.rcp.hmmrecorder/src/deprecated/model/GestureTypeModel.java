@@ -6,13 +6,13 @@
 
 package deprecated.model;
 
-import de.rocovomo.util.hmm.gesture.reference.GestureType;
+import de.rocovomo.util.hmm.gesture.reference.GestureTypeOLD;
 
 public class GestureTypeModel extends Model<GestureTypeModelListener>
 {
-	public final Property<GestureType> property;
+	public final Property<GestureTypeOLD> property;
 	
 	public GestureTypeModel() {
-		property = new Property<GestureType>(null);
+		property = new Property<GestureTypeOLD>(null);
 	}
 }

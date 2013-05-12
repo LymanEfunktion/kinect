@@ -32,7 +32,7 @@ public class Recognizer
 	private double lowestLnProbability;
 	private double highestLnProbability;
 
-	public Recognizer(GestureType gesture)
+	public Recognizer(GestureTypeOLD gesture)
 	{
 		recognizer = null;
 	}
@@ -109,7 +109,7 @@ public class Recognizer
 
 	public static void main(String[] args)
 	{
-		Recognizer test = new Recognizer(GestureType.HAND_CIRCLE);
+		Recognizer test = new Recognizer(GestureTypeOLD.HAND_CIRCLE);
 		List<ObservationVector> test2 = new ArrayList<ObservationVector>();
 		ObservationVector vector = new ObservationVector(new double[]{1.0d, 1.0d, 2.0});
 		System.out.println(test.train(8));
@@ -117,7 +117,7 @@ public class Recognizer
 				+ test.lowestLnProbability);
 	}
 
-	public GestureType getGestureType()
+	public GestureTypeOLD getGestureType()
 	{
 		// TODO Auto-generated method stub
 		return null;

@@ -16,7 +16,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.widgets.Composite;
 
 import de.rocovomo.e4.rcp.hmmrecorder.util.AbstractWidgetElement;
-import de.rocovomo.util.hmm.gesture.reference.GestureType;
+import de.rocovomo.util.hmm.gesture.reference.GestureTypeOLD;
 import deprecated.model.IntegerModel;
 
 @Deprecated
@@ -36,16 +36,16 @@ public class GestureCombo extends AbstractWidgetElement
 			@Override
 			public String getText(Object element)
 			{
-				if (element instanceof GestureType)
+				if (element instanceof GestureTypeOLD)
 				{
-					GestureType type = (GestureType) element;
+					GestureTypeOLD type = (GestureTypeOLD) element;
 					return type.getParentDirNameList().toString();
 				}
 				return super.getText(element);
 			}
 		});
 
-		viewer.setInput(GestureType.values());
+		viewer.setInput(GestureTypeOLD.values());
 
 		viewer.addSelectionChangedListener(new ISelectionChangedListener()
 		{
@@ -54,12 +54,12 @@ public class GestureCombo extends AbstractWidgetElement
 			{
 				IStructuredSelection selection = (IStructuredSelection) event
 						.getSelection();
-				model.property.setValue(((GestureType) selection.getFirstElement())
+				model.property.setValue(((GestureTypeOLD) selection.getFirstElement())
 						.getNumHmmNodes());
 			}
 		});
 
-		viewer.setSelection(new StructuredSelection(GestureType.HAND_CIRCLE));
+		viewer.setSelection(new StructuredSelection(GestureTypeOLD.HAND_CIRCLE));
 
 		// IStructuredSelection selection = (IStructuredSelection)
 		// viewer.getSelection();

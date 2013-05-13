@@ -1,5 +1,6 @@
 package de.rocovomo.manager.kinect.osgi;
 
+import org.apache.log4j.Logger;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
 
@@ -7,7 +8,10 @@ import de.rocovomo.jnect.kinect.api.SpeechListenerConnector;
 import de.rocovomo.osgi.api.AbstractServiceHandler;
 
 public class SpeechListenerConnectorHandler extends
-		AbstractServiceHandler<SpeechListenerConnector>{
+		AbstractServiceHandler<SpeechListenerConnector> {
+
+	private final Logger Log = Logger
+			.getLogger(SpeechListenerConnectorHandler.class);
 
 	private SpeechListenerConnector service;
 	private SpeechListenerHandler handler;
@@ -21,15 +25,22 @@ public class SpeechListenerConnectorHandler extends
 	private void checkInitialDetectedService() {
 		if (!this.services.isEmpty()) {
 			this.service = this.services.get(0);
-			this.handler = new SpeechListenerHandler(this.bundleContext, this.service);
+			newSpeechListenerHandler();
 		}
+	}
+
+	private void newSpeechListenerHandler() {
+		this.handler = new SpeechListenerHandler(this.bundleContext,
+				this.service);
+		this.bundleContext.addServiceListener(this.handler);
+		Log.info("Service Manager for SpeechListeners started");
 	}
 
 	@Override
 	public void serviceRegistered(SpeechListenerConnector service) {
 		if (this.service == null && this.handler == null) {
 			this.service = service;
-			this.handler = new SpeechListenerHandler(this.bundleContext, this.service);
+			newSpeechListenerHandler();
 		}
 	}
 
@@ -44,8 +55,7 @@ public class SpeechListenerConnectorHandler extends
 
 	@Override
 	public void stopListener() {
-		// TODO Auto-generated method stub
-		
+		Log.info("Service Manager for SpeechListeners stopped");
 	}
 
 }

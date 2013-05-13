@@ -3,6 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: RoCoVoMo::Manager::Kinect
 Bundle-SymbolicName: de.rocovomo.manager.kinect
 Bundle-Version: 0.0.1.qualifier
+Bundle-Activator: de.rocovomo.manager.kinect.osgi.KinectManagerActivator
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.emf.common,
  org.eclipse.emf.ecore,
@@ -12,4 +13,5 @@ Import-Package: org.eclipse.emf.common,
  de.rocovomo.jnect.gesture.api,
  de.rocovomo.jnect.kinect.api,
  org.jnect.core,
- org.jnect.gesture
+ org.jnect.gesture,
+ org.apache.log4j;version="1.2.17"

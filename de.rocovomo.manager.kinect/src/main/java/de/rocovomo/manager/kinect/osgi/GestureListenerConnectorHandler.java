@@ -1,5 +1,6 @@
 package de.rocovomo.manager.kinect.osgi;
 
+import org.apache.log4j.Logger;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
 
@@ -7,7 +8,10 @@ import de.rocovomo.jnect.kinect.api.GestureListenerConnector;
 import de.rocovomo.osgi.api.AbstractServiceHandler;
 
 public class GestureListenerConnectorHandler extends
-		AbstractServiceHandler<GestureListenerConnector>{
+		AbstractServiceHandler<GestureListenerConnector> {
+
+	private final Logger Log = Logger
+			.getLogger(GestureListenerConnectorHandler.class);
 
 	private GestureListenerConnector service;
 	private GestureListenerHandler handler;
@@ -21,15 +25,23 @@ public class GestureListenerConnectorHandler extends
 	private void checkInitialDetectedService() {
 		if (!this.services.isEmpty()) {
 			this.service = this.services.get(0);
-			this.handler = new GestureListenerHandler(this.bundleContext, this.service);
+			newGestureListenerHandler();
 		}
+	}
+
+	private void newGestureListenerHandler() {
+		this.handler = new GestureListenerHandler(this.bundleContext,
+				this.service);
+		this.bundleContext.addServiceListener(this.handler);
+		Log.info("ServiceManager for GestureListeners started");
 	}
 
 	@Override
 	public void serviceRegistered(GestureListenerConnector service) {
 		if (this.service == null && this.handler == null) {
 			this.service = service;
-			this.handler = new GestureListenerHandler(this.bundleContext, this.service);
+			this.handler = new GestureListenerHandler(this.bundleContext,
+					this.service);
 		}
 	}
 
@@ -44,8 +56,7 @@ public class GestureListenerConnectorHandler extends
 
 	@Override
 	public void stopListener() {
-		// TODO Auto-generated method stub
-		
+		Log.info("ServiceManager for GestureListeners stopped");
 	}
 
 }

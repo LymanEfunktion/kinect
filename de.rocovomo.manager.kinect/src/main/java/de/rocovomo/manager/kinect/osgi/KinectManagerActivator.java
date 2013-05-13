@@ -18,6 +18,10 @@ public class KinectManagerActivator implements BundleActivator {
 				this.context);
 		this.speechListenerConnectorHandler = new SpeechListenerConnectorHandler(
 				this.context);
+
+		this.context.addServiceListener(this.gestureConnectorHandler);
+		this.context.addServiceListener(this.gestureListenerConnectorHandler);
+		this.context.addServiceListener(this.speechListenerConnectorHandler);
 	}
 
 	@Override

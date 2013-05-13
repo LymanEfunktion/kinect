@@ -1,5 +1,6 @@
 package de.rocovomo.manager.kinect.osgi;
 
+import org.apache.log4j.Logger;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
 
@@ -8,6 +9,8 @@ import de.rocovomo.osgi.api.AbstractServiceHandler;
 
 public class GestureConnectorHandler extends
 		AbstractServiceHandler<GestureConnector> {
+
+	private final Logger Log = Logger.getLogger(GestureConnectorHandler.class);
 
 	private GestureConnector service;
 	private GestureHandler handler;
@@ -21,8 +24,7 @@ public class GestureConnectorHandler extends
 	private void checkInitialDetectedService() {
 		if (!this.services.isEmpty()) {
 			this.service = this.services.get(0);
-			this.handler = new GestureHandler(this.bundleContext,
-					this.service);
+			newGestureHandler();
 		}
 	}
 
@@ -30,9 +32,14 @@ public class GestureConnectorHandler extends
 	public void serviceRegistered(GestureConnector service) {
 		if (this.service == null && this.handler == null) {
 			this.service = service;
-			this.handler = new GestureHandler(this.bundleContext,
-					service);
+			newGestureHandler();
 		}
+	}
+
+	private void newGestureHandler() {
+		this.handler = new GestureHandler(this.bundleContext, service);
+		this.bundleContext.addServiceListener(this.handler);
+		Log.info("ServiceManager for Gestures started");
 	}
 
 	@Override
@@ -46,8 +53,7 @@ public class GestureConnectorHandler extends
 
 	@Override
 	public void stopListener() {
-		// TODO Auto-generated method stub
-
+		Log.info("ServiceManager for Gestures stopped");
 	}
 
 }

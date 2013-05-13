@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: RoCoVoMo::Kinect::API
 Bundle-SymbolicName: de.rocovomo.jnect.kinect.api
 Bundle-Version: 0.0.1.qualifier
-Bundle-Activator: de.rocovomo.jnect.kinect.osgi.KinectActivator
 Require-Bundle: org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

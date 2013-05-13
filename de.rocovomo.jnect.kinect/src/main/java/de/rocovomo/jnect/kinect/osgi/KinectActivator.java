@@ -1,5 +1,6 @@
 package de.rocovomo.jnect.kinect.osgi;
 
+import org.apache.log4j.Logger;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
@@ -16,7 +17,9 @@ import de.rocovomo.osgi.util.OsgiUtil;
  *
  */
 public class KinectActivator implements BundleActivator {
-
+	
+	private Logger log = Logger.getLogger(KinectActivator.class);
+	
 	private BundleContext context;
 	private Kinect kinect;
 	private ServiceRegistration<Kinect> gestureConnectorService;
@@ -28,14 +31,19 @@ public class KinectActivator implements BundleActivator {
 		this.context = context;
 		this.kinect = new Kinect();
 		this.kinect.start();
-
+		
+		// register aspects of Kinect functionalities as services
 		this.gestureConnectorService = OsgiUtil.registerService(this.context,
 				GestureConnector.class, this.kinect);
+		
 		this.gestureListenerConnectorService = OsgiUtil.registerService(
 				this.context, GestureListenerConnector.class, this.kinect);
+		
 		this.speechListenerConnectorService = OsgiUtil.registerService(
 				this.context, SpeechListenerConnector.class, this.kinect);
-
+		
+		
+		this.log.info("Kinect starting");
 	}
 
 	@Override
@@ -44,6 +52,8 @@ public class KinectActivator implements BundleActivator {
 		this.speechListenerConnectorService.unregister();
 		this.gestureListenerConnectorService.unregister();
 		this.gestureConnectorService.unregister();
+		
+		this.log.info("Kinect stopping");
 	}
 
 }

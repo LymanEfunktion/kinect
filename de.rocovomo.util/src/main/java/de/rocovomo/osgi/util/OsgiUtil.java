@@ -15,7 +15,7 @@ import org.osgi.framework.ServiceRegistration;
  * 
  */
 public final class OsgiUtil {
-
+	
 	@SuppressWarnings("unchecked")
 	public static <T, S extends T> ServiceRegistration<S> registerService(
 			BundleContext bundleContext, Class<T> clazz, S service,

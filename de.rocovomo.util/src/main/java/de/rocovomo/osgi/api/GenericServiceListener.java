@@ -24,7 +24,7 @@ public abstract class GenericServiceListener<T> implements ServiceListener {
 	protected final Class<T> typeParameterClass;
 
 	protected List<T> services = new ArrayList<>();
-	private Filter filter;
+	protected Filter filter;
 
 	public GenericServiceListener(BundleContext bundleContext,
 			Class<T> typeParameterClass) {

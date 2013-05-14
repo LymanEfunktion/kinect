@@ -14,11 +14,11 @@ public class SpeechRecognitionNotStartedException extends KinectException {
 		super(message);
 	}
 
-	public SpeechRecognitionNotStartedException(String message, Throwable cause) {
-		super(cause);
+	public SpeechRecognitionNotStartedException(Throwable cause) {
+		super(message,cause);
 	}
 
-	public SpeechRecognitionNotStartedException(Throwable cause) {
+	public SpeechRecognitionNotStartedException(String message, Throwable cause) {
 		super(message,cause);
 	}
 }

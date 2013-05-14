@@ -13,5 +13,7 @@
 	<artifactId>de.rocovomo.jnect.adapter.rightHand</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
+	
+	<name>RoCoVoMo::Adapter:RightHand</name>
 
 </project>

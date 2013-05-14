@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: LogPropertiesFragment
+Bundle-Name: RoCoVoMo::Logging::LogPropertiesFragment
 Bundle-SymbolicName: de.rocovomo.log4j.fragment
 Bundle-Version: 1.0.0.qualifier
 Fragment-Host: log4j;bundle-version="1.2.17"

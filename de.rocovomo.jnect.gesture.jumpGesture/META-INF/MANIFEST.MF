@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: RoCoVoMo::Gesture::Jump
+Bundle-Name: RoCoVoMo::Gesture::JumpGesture
 Bundle-SymbolicName: de.rocovomo.jnect.gesture.jumpgesture
 Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: de.rocovomo.jnect.gesture.osgi.JumpGestureActivator

@@ -13,5 +13,7 @@
 	<artifactId>de.rocovomo.log4j.fragment</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
+	
+	<name>RoCoVoMo::Logging::LogPropertiesFragment</name>
 
 </project>

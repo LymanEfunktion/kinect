@@ -12,5 +12,7 @@
 	<artifactId>de.rocovomo.jnect.gesture.jumpGesture</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
+	
+	<name>RoCoVoMo::Gesture::JumpGesture</name>
 
 </project>

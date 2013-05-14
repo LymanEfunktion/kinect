@@ -3,6 +3,9 @@ package de.rocovomo.manager.kinect.osgi;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
+import de.rocovomo.jnect.kinect.api.KinectManagement;
+import de.rocovomo.osgi.util.OsgiUtil;
+
 public class KinectManagerActivator implements BundleActivator {
 
 	private BundleContext context;
@@ -13,15 +16,21 @@ public class KinectManagerActivator implements BundleActivator {
 	@Override
 	public void start(BundleContext context) throws Exception {
 		this.context = context;
-		this.gestureConnectorHandler = new GestureConnectorHandler(this.context);
+
+		KinectManagement kinectManagement = OsgiUtil.getSomeService(
+				this.context, KinectManagement.class);
+
+		this.gestureConnectorHandler = new GestureConnectorHandler(
+				this.context, kinectManagement);
 		this.gestureListenerConnectorHandler = new GestureListenerConnectorHandler(
-				this.context);
+				this.context, kinectManagement);
 		this.speechListenerConnectorHandler = new SpeechListenerConnectorHandler(
-				this.context);
+				this.context, kinectManagement);
 
 		this.context.addServiceListener(this.gestureConnectorHandler);
 		this.context.addServiceListener(this.gestureListenerConnectorHandler);
 		this.context.addServiceListener(this.speechListenerConnectorHandler);
+
 	}
 
 	@Override

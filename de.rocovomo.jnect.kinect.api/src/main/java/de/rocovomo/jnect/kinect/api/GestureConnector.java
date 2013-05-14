@@ -4,6 +4,6 @@ import org.jnect.gesture.Gesture;
 
 public interface GestureConnector {
 	
-	public void connectGesture(Gesture gesture);
-	public void disconnectGesture(Gesture gesture);
+	void connectGesture(Gesture gesture) throws GestureRecognitionNotStartedException;
+	void disconnectGesture(Gesture gesture)throws GestureRecognitionNotStartedException;
 }

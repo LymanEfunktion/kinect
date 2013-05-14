@@ -21,7 +21,8 @@ public abstract class AbstractServiceHandler<T> extends GenericServiceListener<T
 			Collection<ServiceReference<T>> initialServices = OsgiUtil
 					.discoverService(bundleContext, this.typeParameterClass, null);
 			for (ServiceReference<T> serviceReference : initialServices) {
-				this.services.add(this.bundleContext.getService(serviceReference));
+				T service = this.bundleContext.getService(serviceReference);
+				this.services.add(service);
 			}
 		} catch (InvalidSyntaxException e) {
 			// TODO propagate to jvm

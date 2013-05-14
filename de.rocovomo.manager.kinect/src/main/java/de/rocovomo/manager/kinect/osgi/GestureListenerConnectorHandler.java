@@ -5,6 +5,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
 
 import de.rocovomo.jnect.kinect.api.GestureListenerConnector;
+import de.rocovomo.jnect.kinect.api.KinectManagement;
 import de.rocovomo.osgi.api.AbstractServiceHandler;
 
 public class GestureListenerConnectorHandler extends
@@ -16,9 +17,12 @@ public class GestureListenerConnectorHandler extends
 	private GestureListenerConnector service;
 	private GestureListenerHandler handler;
 
-	public GestureListenerConnectorHandler(BundleContext context)
+	private KinectManagement kinectManagement;
+
+	public GestureListenerConnectorHandler(BundleContext context, KinectManagement kinectManagement)
 			throws InvalidSyntaxException {
 		super(context, GestureListenerConnector.class);
+		this.kinectManagement = kinectManagement;
 		checkInitialDetectedService();
 	}
 
@@ -31,7 +35,7 @@ public class GestureListenerConnectorHandler extends
 
 	private void newGestureListenerHandler() {
 		this.handler = new GestureListenerHandler(this.bundleContext,
-				this.service);
+				this.service, kinectManagement);
 		this.bundleContext.addServiceListener(this.handler);
 		Log.info("ServiceManager for GestureListeners started");
 	}
@@ -41,7 +45,7 @@ public class GestureListenerConnectorHandler extends
 		if (this.service == null && this.handler == null) {
 			this.service = service;
 			this.handler = new GestureListenerHandler(this.bundleContext,
-					this.service);
+					this.service, this.kinectManagement);
 		}
 	}
 

@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
 
+import de.rocovomo.jnect.kinect.api.KinectManagement;
 import de.rocovomo.jnect.kinect.api.SpeechListenerConnector;
 import de.rocovomo.osgi.api.AbstractServiceHandler;
 
@@ -16,9 +17,13 @@ public class SpeechListenerConnectorHandler extends
 	private SpeechListenerConnector service;
 	private SpeechListenerHandler handler;
 
-	public SpeechListenerConnectorHandler(BundleContext context)
+	private KinectManagement kinectManagement;
+
+	public SpeechListenerConnectorHandler(BundleContext context,
+			KinectManagement kinectManagement)
 			throws InvalidSyntaxException {
 		super(context, SpeechListenerConnector.class);
+		this.kinectManagement = kinectManagement;
 		checkInitialDetectedService();
 	}
 
@@ -31,7 +36,7 @@ public class SpeechListenerConnectorHandler extends
 
 	private void newSpeechListenerHandler() {
 		this.handler = new SpeechListenerHandler(this.bundleContext,
-				this.service);
+				this.service, this.kinectManagement);
 		this.bundleContext.addServiceListener(this.handler);
 		Log.info("Service Manager for SpeechListeners started");
 	}

@@ -5,6 +5,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
 
 import de.rocovomo.jnect.kinect.api.GestureConnector;
+import de.rocovomo.jnect.kinect.api.KinectManagement;
 import de.rocovomo.osgi.api.AbstractServiceHandler;
 
 public class GestureConnectorHandler extends
@@ -15,9 +16,12 @@ public class GestureConnectorHandler extends
 	private GestureConnector service;
 	private GestureHandler handler;
 
-	public GestureConnectorHandler(BundleContext context)
-			throws InvalidSyntaxException {
+	private KinectManagement kinectManagement;
+
+	public GestureConnectorHandler(BundleContext context,
+			KinectManagement kinectManagement) throws InvalidSyntaxException {
 		super(context, GestureConnector.class);
+		this.kinectManagement = kinectManagement;
 		checkInitialDetectedService();
 	}
 
@@ -37,7 +41,7 @@ public class GestureConnectorHandler extends
 	}
 
 	private void newGestureHandler() {
-		this.handler = new GestureHandler(this.bundleContext, service);
+		this.handler = new GestureHandler(this.bundleContext, service, this.kinectManagement);
 		this.bundleContext.addServiceListener(this.handler);
 		Log.info("ServiceManager for Gestures started");
 	}

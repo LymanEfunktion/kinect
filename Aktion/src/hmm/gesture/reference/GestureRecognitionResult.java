@@ -6,7 +6,7 @@ public class GestureRecognitionResult
 {
 
 	public GestureRecognitionResult(GestureInstance inst,
-			Map<GestureType, GestureProbabilities> resultMapping)
+			Map<GestureTypeOLD, GestureProbabilities> resultMapping)
 	{
 		// TODO Auto-generated constructor stub
 	}

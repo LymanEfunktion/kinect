@@ -28,7 +28,7 @@ public class Recognizer
 	private double lowestLnProbability;
 	private double highestLnProbability;
 
-	public Recognizer(GestureType gesture)
+	public Recognizer(GestureTypeOLD gesture)
 	{
 		recognizer = null;
 	}
@@ -105,13 +105,19 @@ public class Recognizer
 
 	public static void main(String[] args)
 	{
+<<<<<<< HEAD:Aktion/src/hmm/gesture/reference/Recognizer.java
 		Recognizer test = new Recognizer(GestureType.HAND_CIRCLE);
+=======
+		Recognizer test = new Recognizer(GestureTypeOLD.HAND_CIRCLE);
+		List<ObservationVector> test2 = new ArrayList<ObservationVector>();
+		ObservationVector vector = new ObservationVector(new double[]{1.0d, 1.0d, 2.0});
+>>>>>>> hmm_model:TestBundle/src/de/rocovomo/util/hmm/gesture/reference/Recognizer.java
 		System.out.println(test.train(8));
 		System.out.println(test.highestLnProbability + " "
 				+ test.lowestLnProbability);
 	}
 
-	public GestureType getGestureType()
+	public GestureTypeOLD getGestureType()
 	{
 		// TODO Auto-generated method stub
 		return null;

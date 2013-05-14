@@ -1,4 +1,4 @@
-package hmm.gesture.reference;
+package de.rocovomo.util.hmm.gesture.reference;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -8,10 +8,9 @@ import java.util.Hashtable;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
-class RecognizerManager {
+class RecognizerManagerOLD {
 	
 	static final int NUM_ONE_HANDED_PLAYER_GESTURE_NODES = 6;
 	static final int NUM_TWO_HANDED_PLAYER_GESTURE_NODES = 9;
@@ -19,14 +18,14 @@ class RecognizerManager {
 	static final int NUM_ONE_HANDED_RINGMASTER_GESTURE_NODES = 5;
 	static final int NUM_TWO_HANDED_RINGMASTER_GESTURE_NODES = 7;
 	
-	private static Logger logger = LoggerFactory.getLogger(RecognizerManager.class);
+	private static Logger logger = Logger.getLogger(RecognizerManagerOLD.class);
 	
-	private Map<GestureType, Recognizer> recognizerMap =
-			new HashMap<GestureType, Recognizer>(GestureType.values().length);
+	private Map<GestureTypeOLD, Recognizer> recognizerMap =
+			new HashMap<GestureTypeOLD, Recognizer>(GestureTypeOLD.values().length);
 	
-	RecognizerManager() {
+	RecognizerManagerOLD() {
 		// Initialize the map of gesture recognizers
-		for (GestureType gesture : GestureType.values()) {
+		for (GestureTypeOLD gesture : GestureTypeOLD.values()) {
 			this.recognizerMap.put(gesture, new Recognizer(gesture));
 		}
 	}
@@ -37,7 +36,7 @@ class RecognizerManager {
 	 * @param dataSet The data set to train the gesture's recognizer with.
 	 * @return true on successful training, false on failure to train.
 	 */
-	boolean train(GestureType gesture) {
+	boolean train(GestureTypeOLD gesture) {
 		Recognizer gestureRecog = this.recognizerMap.get(gesture);
 		assert(gestureRecog != null);
 		return gestureRecog.train(gesture.getNumHmmNodes());
@@ -47,7 +46,7 @@ class RecognizerManager {
 	 * Untrain the given gesture's recognizer to a blank state.
 	 * @param gesture The gesture whose recognizer will be untrained / cleared.
 	 */
-	void untrain(GestureType gesture) {
+	void untrain(GestureTypeOLD gesture) {
 		this.recognizerMap.put(gesture, new Recognizer(gesture));
 	}
 	
@@ -79,17 +78,17 @@ class RecognizerManager {
 	 * @param isRingmasterGesture Whether the provided gesture instance is supposed to be a ringmaster gesture or not.
 	 * @return The gesture type that was recognized, null on no recognized gesture.
 	 */
-	GestureType recognize(GestureInstance inst) {
+	GestureTypeOLD recognize(GestureInstance inst) {
 		// Weed out strange and anomalous data
-		if (!RecognizerManager.isAcceptableGesture(inst)) {
+		if (!RecognizerManagerOLD.isAcceptableGesture(inst)) {
 			logger.info("Ignoring gesture - too short from beginning to end!");
 			return null;
 		}
 		
 		Map<GestureGenre, Double> bestProbabilityMap =
 				new Hashtable<GestureGenre, Double>(GestureGenre.values().length);
-		Map<GestureGenre, GestureType> bestGestureTypeMap =
-				new Hashtable<GestureGenre, GestureType>(GestureGenre.values().length);	
+		Map<GestureGenre, GestureTypeOLD> bestGestureTypeMap =
+				new Hashtable<GestureGenre, GestureTypeOLD>(GestureGenre.values().length);	
 		Map<GestureGenre, Double> lowestAcceptableProbMap =
 				new Hashtable<GestureGenre, Double>(GestureGenre.values().length);
 		
@@ -104,7 +103,7 @@ class RecognizerManager {
 		// into categories based on the genre of the gesture (i.e., "basic", "special", "easter-egg" gestures)
 		// Later on, we favour basic gestures over special gestures and special gestures over easter-egg gestures.
 		for (Recognizer recognizer : this.recognizerMap.values()) {
-			GestureType gestureType = recognizer.getGestureType();
+			GestureTypeOLD gestureType = recognizer.getGestureType();
 						
 			// Find the highest probability gestures for each 'genre' of gesture...
 			currProbability = recognizer.lnProbability(inst);
@@ -117,7 +116,7 @@ class RecognizerManager {
 
 		}
 		
-		GestureType bestGesture = bestGestureTypeMap.get(GestureGenre.INTERFACE);
+		GestureTypeOLD bestGesture = bestGestureTypeMap.get(GestureGenre.INTERFACE);
 
 		// Make sure the best gesture's probability exceeds its lowest minimum probability
 		double bestProb = bestProbabilityMap.get(bestGesture.getGenre());
@@ -139,12 +138,12 @@ class RecognizerManager {
 	 * @return The full result of the recognition procedure, with data for all gestures.
 	 */
 	GestureRecognitionResult recognizeWithFullResult(GestureInstance inst) {
-		Map<GestureType, GestureProbabilities> resultMapping = new HashMap<GestureType, GestureProbabilities>();
+		Map<GestureTypeOLD, GestureProbabilities> resultMapping = new HashMap<GestureTypeOLD, GestureProbabilities>();
 		
 		// Weed out strange and anomalous data
-		if (!RecognizerManager.isAcceptableGesture(inst)) {
+		if (!RecognizerManagerOLD.isAcceptableGesture(inst)) {
 			logger.info("Ignoring gesture - too short from beginning to end!");
-			for (Entry<GestureType, Recognizer> entry : this.recognizerMap.entrySet()) {
+			for (Entry<GestureTypeOLD, Recognizer> entry : this.recognizerMap.entrySet()) {
 				resultMapping.put(entry.getKey(), new GestureProbabilities(entry.getValue().getLowestAcceptableLnProbability(), 0.0, 0.0));
 			}
 			return new GestureRecognitionResult(inst, resultMapping);
@@ -162,7 +161,7 @@ class RecognizerManager {
 	void clearRecognizers() {
 		this.recognizerMap.clear();
 		// Initialize the map of gesture recognizers
-		for (GestureType gesture : GestureType.values()) {
+		for (GestureTypeOLD gesture : GestureTypeOLD.values()) {
 			this.recognizerMap.put(gesture, new Recognizer(gesture));
 		}
 	}

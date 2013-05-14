@@ -17,6 +17,10 @@ public class KinectManagerActivator implements BundleActivator {
 	public void start(BundleContext context) throws Exception {
 		this.context = context;
 
+		// TODO: all could belong to different bundles handling different
+		// devices is there some way to analyze if they all belong to the same
+		// bundle via id?
+
 		KinectManagement kinectManagement = OsgiUtil.getSomeService(
 				this.context, KinectManagement.class);
 

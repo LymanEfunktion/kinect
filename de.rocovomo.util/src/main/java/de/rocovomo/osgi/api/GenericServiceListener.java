@@ -11,6 +11,12 @@ import org.osgi.framework.ServiceListener;
 
 import de.rocovomo.osgi.util.OsgiUtil;
 
+/**
+ * 
+ * @author voowoo <a href="mailto:vowe91@gmail.com">vowe91@gmail.com</a>
+ *
+ * @param <T>
+ */
 public abstract class GenericServiceListener<T> implements ServiceListener {
 
 	protected BundleContext bundleContext;

@@ -11,8 +11,19 @@ import java.util.Map;
  */
 public interface GenericProvider<T> {
 
+	/**
+	 * @return returns the object of class <code>T</code> encapsulated by this
+	 *         object
+	 */
 	T getProvided();
+	/**
+	 * @return returns the {@link Type} of the encapsulated object
+	 */
 	Type getType();
+	/**
+	 * @return returns a {@link Map} of additional properties for the
+	 *         encapsulated object
+	 */
 	Map<String, Object> getProperties();
 
 }

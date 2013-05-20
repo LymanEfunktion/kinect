@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="de.rocovomo.e4.rcp" id="de.rocovomo.e4.rcp.product" application="de.rocovomo.e4.rcp.application" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="de.rocovomo.e4.rcp" id="de.rocovomo.e4.rcp.product" application="de.rocovomo.e4.rcp.application" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true">
+
 
    <configIni use="default">
    </configIni>
@@ -25,18 +26,37 @@
       </win>
    </launcher>
 
+
    <vm>
    </vm>
 
    <plugins>
       <plugin id="com.ibm.icu"/>
-      <plugin id="de.rocovomo.osgi.e4.rcp"/>
-      <plugin id="de.rocovomo.osgi.jnect.adapter"/>
-      <plugin id="de.rocovomo.osgi.jnect.adapter.spi"/>
-      <plugin id="de.rocovomo.osgi.jnect.gesture"/>
-      <plugin id="de.rocovomo.osgi.jnect.gesture.spi"/>
-      <plugin id="de.rocovomo.osgi.jnect.kinect"/>
-      <plugin id="de.rocovomo.osgi.log4j.fragment" fragment="true"/>
+      <plugin id="de.rocovomo.action.api"/>
+      <plugin id="de.rocovomo.e4.rcp"/>
+      <plugin id="de.rocovomo.e4.rcp.hmmrecorder"/>
+      <plugin id="de.rocovomo.e4.rcp.humandiagram"/>
+      <plugin id="de.rocovomo.hmm"/>
+      <plugin id="de.rocovomo.jnect.adapter.api"/>
+      <plugin id="de.rocovomo.jnect.adapter.lefthand"/>
+      <plugin id="de.rocovomo.jnect.adapter.righthand"/>
+      <plugin id="de.rocovomo.jnect.gesture.api"/>
+      <plugin id="de.rocovomo.jnect.gesture.jumpgesture"/>
+      <plugin id="de.rocovomo.jnect.kinect"/>
+      <plugin id="de.rocovomo.jnect.kinect.api"/>
+      <plugin id="de.rocovomo.log4j.fragment" fragment="true"/>
+      <plugin id="de.rocovomo.logging"/>
+      <plugin id="de.rocovomo.manager.action"/>
+      <plugin id="de.rocovomo.manager.api"/>
+      <plugin id="de.rocovomo.manager.gesture"/>
+      <plugin id="de.rocovomo.manager.kinect"/>
+      <plugin id="de.rocovomo.manager.speech"/>
+      <plugin id="de.rocovomo.robot.action.api"/>
+      <plugin id="de.rocovomo.robot.action.test"/>
+      <plugin id="de.rocovomo.robot.api"/>
+      <plugin id="de.rocovomo.robot.leJOS.nxj"/>
+      <plugin id="de.rocovomo.speech.api"/>
+      <plugin id="de.rocovomo.util"/>
       <plugin id="javax.annotation"/>
       <plugin id="javax.inject"/>
       <plugin id="javax.servlet"/>
@@ -72,11 +92,15 @@
       <plugin id="org.eclipse.core.runtime.compatibility.auth"/>
       <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
       <plugin id="org.eclipse.core.variables"/>
+      <plugin id="org.eclipse.draw2d"/>
       <plugin id="org.eclipse.e4.core.commands"/>
       <plugin id="org.eclipse.e4.core.contexts"/>
       <plugin id="org.eclipse.e4.core.di"/>
       <plugin id="org.eclipse.e4.core.di.extensions"/>
       <plugin id="org.eclipse.e4.core.services"/>
+      <plugin id="org.eclipse.e4.tools.emf.liveeditor"/>
+      <plugin id="org.eclipse.e4.tools.emf.ui"/>
+      <plugin id="org.eclipse.e4.tools.services"/>
       <plugin id="org.eclipse.e4.ui.bindings"/>
       <plugin id="org.eclipse.e4.ui.css.core"/>
       <plugin id="org.eclipse.e4.ui.css.swt"/>
@@ -86,14 +110,17 @@
       <plugin id="org.eclipse.e4.ui.services"/>
       <plugin id="org.eclipse.e4.ui.widgets"/>
       <plugin id="org.eclipse.e4.ui.workbench"/>
+      <plugin id="org.eclipse.e4.ui.workbench.addons.swt"/>
       <plugin id="org.eclipse.e4.ui.workbench.renderers.swt"/>
       <plugin id="org.eclipse.e4.ui.workbench.swt"/>
       <plugin id="org.eclipse.e4.ui.workbench3"/>
       <plugin id="org.eclipse.emf.common"/>
       <plugin id="org.eclipse.emf.databinding"/>
+      <plugin id="org.eclipse.emf.databinding.edit"/>
       <plugin id="org.eclipse.emf.ecore"/>
       <plugin id="org.eclipse.emf.ecore.change"/>
       <plugin id="org.eclipse.emf.ecore.xmi"/>
+      <plugin id="org.eclipse.emf.edit"/>
       <plugin id="org.eclipse.equinox.app"/>
       <plugin id="org.eclipse.equinox.common"/>
       <plugin id="org.eclipse.equinox.concurrent"/>
@@ -110,6 +137,7 @@
       <plugin id="org.eclipse.equinox.security.win32.x86" fragment="true"/>
       <plugin id="org.eclipse.equinox.util"/>
       <plugin id="org.eclipse.equinox.weaving.hook" fragment="true"/>
+      <plugin id="org.eclipse.gef"/>
       <plugin id="org.eclipse.help"/>
       <plugin id="org.eclipse.jface"/>
       <plugin id="org.eclipse.jface.databinding"/>
@@ -156,5 +184,21 @@
       <feature id="org.eclipse.emf.common"/>
    </features>
 
+   <configurations>
+      <plugin id="de.rocovomo.action.api" autoStart="true" startLevel="0" />
+      <plugin id="de.rocovomo.jnect.adapter.api" autoStart="true" startLevel="0" />
+      <plugin id="de.rocovomo.jnect.gesture.api" autoStart="true" startLevel="0" />
+      <plugin id="de.rocovomo.jnect.gesture.jumpgesture" autoStart="true" startLevel="0" />
+      <plugin id="de.rocovomo.jnect.kinect" autoStart="true" startLevel="0" />
+      <plugin id="de.rocovomo.jnect.kinect.api" autoStart="true" startLevel="0" />
+      <plugin id="de.rocovomo.logging" autoStart="true" startLevel="3" />
+      <plugin id="de.rocovomo.manager.action" autoStart="true" startLevel="0" />
+      <plugin id="de.rocovomo.manager.kinect" autoStart="true" startLevel="0" />
+      <plugin id="de.rocovomo.manager.speech" autoStart="true" startLevel="0" />
+      <plugin id="de.rocovomo.robot.api" autoStart="true" startLevel="0" />
+      <plugin id="de.rocovomo.robot.leJOS.nxj" autoStart="true" startLevel="0" />
+      <plugin id="de.rocovomo.speech.api" autoStart="true" startLevel="0" />
+      <plugin id="de.rocovomo.util" autoStart="true" startLevel="0" />
+   </configurations>
 
 </product>

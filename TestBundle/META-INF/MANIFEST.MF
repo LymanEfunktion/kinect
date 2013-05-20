@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: TestBundle
-Bundle-SymbolicName: de.rocovomo.util
+Bundle-Name: RoCoVoMo::HMM
+Bundle-SymbolicName: de.rocovomo.hmm
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: de.rocovomo.util.Activator
+Bundle-Activator: de.rocovomo.util.hmm.osgi.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.jnect.bodymodel

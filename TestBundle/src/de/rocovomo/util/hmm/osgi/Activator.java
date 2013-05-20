@@ -1,4 +1,4 @@
-package de.rocovomo.util;
+package de.rocovomo.util.hmm.osgi;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;

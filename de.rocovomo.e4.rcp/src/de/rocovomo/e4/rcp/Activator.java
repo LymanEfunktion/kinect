@@ -10,9 +10,6 @@ import org.osgi.framework.ServiceListener;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 
-import de.rocovomo.jnect.kinect.api.IConnector;
-import de.rocovomo.jnect.kinect.provider.KinectProvider;
-
 public class Activator implements BundleActivator, ServiceListener {
 
 	private static BundleContext context;
@@ -69,28 +66,28 @@ public class Activator implements BundleActivator, ServiceListener {
 //		bundleContext.addServiceListener(this, kinectFilter);
 	}
 
-	private void registerService(ServiceReference<?> serviceReference) {
-		//TODO: Do something with Kinect
-		Object serviceObject = context.getService(serviceReference);
-
-		if (serviceObject instanceof KinectProvider) {
-			System.out.println("test");
-			registerKinectProvider(serviceReference,
-					(KinectProvider) serviceObject);
-		}
-	}
-
-	private void registerKinectProvider(ServiceReference<?> serviceReference,
-			KinectProvider provider) {
-		// TODO Auto-generated method stub
-		IConnector connector = provider.getConnector();
-
-		ServiceRegistration<?> kinectServiceRegistration = context
-				.registerService(IConnector.class.getName(), connector,
-						provider.getKinectProperties());
-
-		registeredKinect.put(serviceReference, kinectServiceRegistration);
-	}
+//	private void registerService(ServiceReference<?> serviceReference) {
+//		//TODO: Do something with Kinect
+//		Object serviceObject = context.getService(serviceReference);
+//
+//		if (serviceObject instanceof KinectProvider) {
+//			System.out.println("test");
+//			registerKinectProvider(serviceReference,
+//					(KinectProvider) serviceObject);
+//		}
+//	}
+//
+//	private void registerKinectProvider(ServiceReference<?> serviceReference,
+//			KinectProvider provider) {
+//		// TODO Auto-generated method stub
+//		IConnector connector = provider.getConnector();
+//
+//		ServiceRegistration<?> kinectServiceRegistration = context
+//				.registerService(IConnector.class.getName(), connector,
+//						provider.getKinectProperties());
+//
+//		registeredKinect.put(serviceReference, kinectServiceRegistration);
+//	}
 
 	/*
 	 * 
@@ -106,19 +103,19 @@ public class Activator implements BundleActivator, ServiceListener {
 
 	@Override
 	public void serviceChanged(ServiceEvent event) {
-		ServiceReference<?> serviceReference = event.getServiceReference();
-
-		switch (event.getType()) {
-		case ServiceEvent.REGISTERED: {
-			registerService(serviceReference);
-			break;
-		}
-		case ServiceEvent.UNREGISTERING: {
-			context.ungetService(event.getServiceReference());
-			break;
-		}
-		default:
-			// do nothing
-		}
+//		ServiceReference<?> serviceReference = event.getServiceReference();
+//
+//		switch (event.getType()) {
+//		case ServiceEvent.REGISTERED: {
+//			registerService(serviceReference);
+//			break;
+//		}
+//		case ServiceEvent.UNREGISTERING: {
+//			context.ungetService(event.getServiceReference());
+//			break;
+//		}
+//		default:
+//			// do nothing
+//		}
 	}
 }

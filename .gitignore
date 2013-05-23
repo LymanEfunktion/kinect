@@ -11,8 +11,6 @@
 
 # Eclipse #
 
-<<<<<<< HEAD
 */.settings/*
-=======
-*/bin
->>>>>>> 8ffbbce696f144945770de91f01261fe62f88005
+*/bin/*
+

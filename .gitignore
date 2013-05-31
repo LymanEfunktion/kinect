@@ -12,9 +12,12 @@
 # Eclipse #
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 */.settings/*
 */bin/*
 =======
+=======
+>>>>>>> 95bf6b33eca8001c84edbe324156888f6888e263
 */bin
 
 # LateX
@@ -42,5 +45,8 @@
 *.acn
 *.idx
 *.lol
+<<<<<<< HEAD
+>>>>>>> 95bf6b33eca8001c84edbe324156888f6888e263
+=======
 >>>>>>> 95bf6b33eca8001c84edbe324156888f6888e263
 

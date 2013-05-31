@@ -1,0 +1,29 @@
+\chapter{Aufgabenstellung}
+\label{chap:Aufgabenstellung}
+
+\section{Problemstellung und Ziel der Arbeit}
+\label{sec:Problemstellung und Ziel der Arbeit}
+Aus dem ersten Teil der Arbeit ging die Entwicklung einer Schnittstelle zwischen Mensch und Roboter hervor. Dabei wurden ein erstes Konzept f\"ur die verwendeten Gesten und Sprachbefehle, sowie eine erste Umsetzung Stufe der Softwarearchitektur der Anwendung vorgestellt. Ziel des zweiten Teils ist, mit Hilfe diesen ersten Ergebnissen eine Steuerung eines mobilen Roboters umzusetzen. Dabei werden weiterhin die Bibliotheken \textit{jnect} zur Steuerung der Kinect mittels Java, und \textit{jahmm} zur Nutzung der \glspl{HMM} verwendet. Bislang offen sind die Punkte des zu verwendenden mobilen Roboters und die konkrete Implementierung der Anwendung mit den daf\"ur ben\"otigten Funktionalit\"aten.
+\newline
+Daraus ergeben sich nun folgende Ziele:
+\begin{itemize}
+\item Analyse verf\"ugbarer Ausf\"uhrungen von mobilen Robotern
+\item Auswahl eines Robotermodells anhand gegebener Kriterieen und Voraussetzungen
+\item Konzeption der Anwendung zur Steuerung des mobilen Roboters
+\item Implementierung der Anwendung
+\item Optimierung der Gestenerkennung (optional)
+\item Benutzerfreundlichkeit (Usability) der Anwendung
+\end{itemize}
+Dabei wird von der Problemstellung ausgegangen, dass im Rahmen dieser Studienarbeit die Wahl eines mobilen Roboters nur \"uber vorhandene Modelle von mobilen Robotern m\"oglich ist, die auch an der DHBW Karlsruhe verf\"ugbar sind. Bei dieser Wahl sind auch die vorhandenen Restriktionen aus der bereits gew\"ahlten Programmiersprache, Java, zu beachten, da vermieden werden soll, mehrere Sprachen in der Entwicklung zu verwenden.
+\newline
+Das Kernziel, die korrekte Erkennung von Gesten und Sprache h\"angt von zahlreichen Faktoren ab, und ben\"otigt ein hohes Ma\ss~an Testaufwand. Auf das Problem der Feineinstellung dieser Systeme durch empirische Ergebnisse wird eingegangen, ob das Ziel einer optimalen L\"osung auch erreicht werden kann, ist ungewiss.
+
+\section{Geplantes Vorgehen}
+Aus dem ersten Teil der Studienarbeit ging unter anderem eine modular aufgebaute \gls{RCP} Anwendung hervor. Da die einzelnen Module dieser Anwendung in Form von Eclipse Plugins separat verwendet werden k\"onnen, kann die Arbeit an den unter \ref{sec:Problemstellung und Ziel der Arbeit} genannten Zielen, zu einem Gro\ss teil unabh\"angig voneinander in die Anwendung integriert werden.
+\newline
+Zu Beginn der Arbeit muss jedoch die Analyse und die Auswahl eines mobilen Roboters abgeschlossen werden, da eventuell auf Besonderheiten eines speziellen Robotermodells in der Anwendung gesonder eingegangen werden muss.
+\newline
+Nachdem also ein Modell ausgew\"ahlt wurde und die diversen Arbeiten an der Anwendung separat durchgef\"uhrt wurden, soll durch Tests und Optimierungen die Anwendung benutzerfreundlicher gestaltet werden, um eine h\"ohere Qualit\"at der \gls{MCI} zu erreichen.
+
+\section{Ausblick}
+Software die nicht weiterentwickelt wird, deren Fehler nicht behoben werden, die nicht auf W\"unsche der User angepasst werden, und deren Funktionen nicht erweitert werden, werden auf kurz oder lang nicht mehr verwendet. Dies soll hier versucht werden, zu verhindern. Bereits w\"ahrend der Arbeiten an der Studienarbeit, steht der vorhandene Code der Anwendung unter einer kollaborativen Versionsverwaltung, wobei die Arbeit nat\"urlich nur von den beiden Autoren durchgef\"uhrt wird. Um das Ziel dieser Studienarbeit, eine benutzerfreundliche Steuerung eines mobilen Roboters zu erstellen, \"uber den Zeitraum der Studienarbeit weiter zu tragen, soll der Code der Anwendung im Anschluss der Studienarbeit frei verf\"ugbar sein.

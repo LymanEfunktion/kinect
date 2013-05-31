@@ -1,0 +1,77 @@
+\chapter{Mensch-Computer-Interaktion}
+\label{chap:MenschComputerInteraktion}
+
+Die \gls{MCI} ist die Lehre der Interaktion zwischen dem Menschen (dem Benutzer) und Computern. Dieser Begriff ist nicht zu verwechseln mit \gls{MMS} oder Benutzerschnittstelle, die Teil des Fachbereichs \gls{MCI} sind.
+\newline
+Einer der Wegbegr\"under auf diesem Gebiet war J. C. R. Licklider. Unter der Bezeichnung \textit{Man-Computer Symbioses} hatte er bereits 1960 Ziele und Probleme dieses Teilgebiets der Informatik postuliert \cite{bib:Lick_Symbiosis}. 
+
+\section{Man-Computer Symbiosis}
+Unter \gls{MCS} verstand Licklider die Entwicklung einer kooperativen Interaktion zwischen Mensch und Computer. Dabei soll eine enge Partnerschaft zwischen Mensch und den elektronischen Ger\"aten geschaffen werden, so Licklider weiter. Vergleichbar heute mit den fortgeschrittenen Smartphonemodellen, die dem Nutzer nicht nur das Telefonieren erm\"oglichen, sondern auch Internetzugang bereitstellen, als Navigationssystem dienen, und als Spielekonsole fungieren, und aus diesen Gr\"unden f\"ur viele Menschen unersetzlich sind.
+Weiterhin sind zwei Ziele bei einer Symbiose nach Licklider zu erreichen:
+\begin{enumerate}
+\item Computern formuliertes Denken zu erm\"oglichen
+\item Kooperation in der Entscheidungsfindung und der Handhabung von komplexen Situationen von Mensch und Computer, ohne inflexible Abh\"angigkeiten auf vordefinierte Programme.
+\end{enumerate}
+Zum damaligen Zeitpunkt bestanden einzelne Rechner aus meterlangen Schranken, die ganze R\"aume umfassten und \"uber spezielle Terminals gesteuert wurden, die dazu noch einen Bruchteil der Rechenleistung heutiger Mobilger\"ate besitzen. Durch den rasanten Wandel der IT-Welt sind daher nicht mehr alle Erkenntnisse f\"ur heutige Anwendungen interessant.
+
+\section{Anwendung des Konzepts auf das Projekt}
+Im Rahmen der hier dargestellten Anwendung ist es wichtig das Konzept der \gls{MCS} von dem abzutrennen, was North \cite{bib:TODO_North} als \textit{mechanically extended man} bezeichnet. Dabei gibt der Benutzer alle f\"ur die Handlung entscheidenden Kriterien, wie Richtung, und Integration vor. Die mechanischen Teile stellen ausschlie\ss lich eine Erweiterung des Benutzers dar. Die Anwendung soll zwar aus einer Steuerung f\"ur einen mobilen Roboter bestehen, es sollen aber noch weitere Elemente enthalten sein, die \"uber den Typ einer Erweiterung hinaus gehen und eine From von Symbiose erreicht werden kann.
+\newline
+Ein Ziel dabei ist nach Licklider \cite{bib:Lick_Symbiosis}, den Computer effektiv in Prozesse des \textit{Denkens}, die in Echtzeit ablaufen m\"ussen, zu integrieren. Aufgrund der Tatsache, dass Computer heut zu Tage aus mehreren Komponenten bestehen und auch zum Gro\ss teil durch ihre Perepherie bestimmt sind, die wiederum Rechenleistung des Computers zur vorgesehenen Nutzung ben\"otigt, erweitern wir die  Aussage von Licklider auf alle Komponenten, die an der Beziehung teilhaben. Diese werden im Folgenden n\"aher betrachtet.
+
+\subsection{Die Anwendung RoCoVoMo}
+In der Anwendung \textit{RoCoVoMo} geschieht dies durch die eingebaute Analyse der Gesten- und Sprachinformation durch \glspl{HMM}. Die Komponenten Kinect und mobiler Roboter sind separate Teilnehmer der \gls{MCI}. Dabei unterst\"utzt die Anwendung den Nutzer durch die stochastischen Auswertungen der Kinect-Daten und die intuitive F\"uhrung durch die Anwendung, in dem Gesten- und Spracherkennung dargestellt und entsprechend an dem mobilen Roboter weitergeleitet werden, und im Ernstfall(Blockade der R\"ader, fahren gegen ein Wandst\"uck) gesonderte Routinen von der Anwendung ausgef\"uhrt werden, ohne das der Nutzer hierbei eingreifen kann, oder sollte. Eine Beschreibung der Anwendung und weitere Details zu deren Implementierung k\"onnen unter Kapitel~\ref{chap:Konzept} und Kapitel~\ref{chap:Implementierung} nachgelesen werden.
+
+\subsection{Eingabe- und Ausgabeger\"ate}
+\subsubsection{Kinect}
+Die Kinect Komponente besitzt herk\"ommlichen Eingabeger\"aten gegen\"uber einige klare Vorteile in Bezug auf die \gls{MCI}. So kann mittels Kinect, ein Teil der formulierten Denkens, wie Licklider es nennt, auf den Computer \"ubertragen werden, indem der Mensch Gesten und Sprachbefehle verwenden kann, die f\"ur den Menschen intuitiver zu handhaben sind, und dar\"uber die Umsetzung der gew\"unschten Aktion dem Computer \"uberlassen wird. Diese kann, der jeweilgen Aktion entsprechend, komplexe Funktionen umfassen, die der Mennschen nicht notwendigerweise durchf\"uhren muss. Dabei wird zugleich das zweite Ziel in Lickliders \gls{MCS} Symbiosis erf\"ullt, in dem durch die Gestensteuerung unn\"otige Zwischenschritte, wie diverse Auswahldialoge oder gesonderte Eingabeger\"ate zu einem Gro\ss teil ersetzt werden, und sogleich ein hohes Ma\ss an Kooperation zwischen Mensch und Computer erreicht werden kann. 
+
+\subsubsection{Mobiler Roboter}
+Der mobile Roboter wird direkt \"uber die Anwendung RoCoVoMo gesteuert, und durch die Kinect-Steuerung soll die Verbindung zwischen Mensch und mobilen Roboter unmittelbar gestalten. F\"r den Roboter bedeutet dies, ein hohes Ma\ss an flexibilit\"at bez\"uglich Latenzzeit, Beschleunigung, und Bewegungsrichtung. Der Roboter muss unmittelbar reagieren, sobald eine Geste oder ein Sprachbefehl erkannt wird, so wie eine schnelle Bewegung gew\"unscht ist. Bez\"uglich Bewegung ist ein \glslink{Holonom}{holonomer} Roboter eine optimale Voraussetzung f\"ur eine intuitive Steuerung und einfache Gestenbefehle.
+
+\subsection{Mensch - User}
+F\"ur eine effektive \gls{MCI} ist es f\"ur den Nutzer der Anwendung notwendig, einfach und schnell Gestenbefehle einzugeben, die genauso schnell in von der Anwendung in Aktionen umgesetzt werden sollen. Hierbei ist aber ebenso ein gewisses Training des Users n\"otig, da Gesten- und Sprachbefehle nicht die einfachste Form der Steuerung sind. Der Nutzer muss m\"oglichst klar und ohne Dialekt Sprachbefehle geben, sowie er auch das Vokabular, dass die Anwendung umfasst, kennen muss.
+\newline
+Zu Beachten ist, das Sprache eine redundante Form der Kommunikation ist, und Befehle f\"ur den untrainierten Nutzer eine andere Aktion der Anwendung suggerieren, als die in Wirklichkeit der Fall ist.
+\newline
+In Hinsicht auf Gesten, ist es wichtig, dass der User konzentriert und in m\"oglichst konzentrierter Haltung Gesten ausf\"uhrt. Soweit Gesten simpel und intuitiv gew\"ahlt wurden, ist es mit wenig Trainer m\"oglich die Anwendung \"uber Gesten zu steuern. Jedoch muss sich der Nutzer sich soweit auf die Anwendung konzentrieren, in dem er sich bewusst sein muss, dass jede Bewegung, die er w\"ahrend aktiver Gestensteuerung ausf\"ubt von der Anwendung wahrgenommen und analysiert und somit die M\"oglichkeit besteht, eine Aktion der Anwendung zu initiieren ohne dies beabsichtigt zu haben.
+
+\section{Herausforderungen der Mensch-Computer-Interaktion}
+Licklider beschreibt weiter Probleme und Herausforderungen der \gls{MCS} und der Mensch-Computer Kommunikation \cite{bib:Lick_Online}. Auch wenn sich einige der Probleme heutzutage als neglierbar herausstellen, zeigt es doch einige Punkte auf, die bei der Konzeption einer \gls{MCI} zu beachten sind, denn selbst heute noch, werden Aufgaben, die schwer zu automatisieren sind, dem Menschen oft nur aus diesem Umstand \"ubertragen, obgleich es sinnvoller w\"are dies dem Computer zu \"uberlassen und dem User nur die Aufgaben zuzuweisen, die f\"ur passend sind.
+\newline
+Da der Mensch in der Anwendung RoCoVoMo nicht einfach nur Bediener ist, sondern auch und vor allem zu erst den Umgang mit Gesten lernen muss stellen sich hierdurch auch eine Probleme, die behandelt werden m\"ussen. Licklider betont hierbei insbesondere den kontinuierlichen Informationsaustausch zwischen Mensch und Computer. Das wichtigstes Nebenziel ist, so Licklider weiter, die Zufriedenheit, den Spa\ss~und die Best\"atigung des Nutzers zu maximieren. In der modernen IT-Welt w\"urde man dies mit dem Begriff \textit{\gls{Gamification}} verbinden, in dem ner Nutzer positive Ressonanz durch seine Aktionen erf\"ahrt.
+\newline
+In Hinsicht auf den Informationsaustausch ist aber gleichzeitig darauf zu achten, diesen f\"ur den Menschen verst\"andlich und zug\"anglich zu gestalten. In der Anwendung RoCoVoMo beispielsweise, ist sollten die K\"orperelemente in einer Grafik angezeigt werden und nicht deren Koordinaten ausgegeben werden. Weiteres zu dem Konzept, das aus den hier geschilderten Problemen ensteht, ist in Kapitel~\ref{chap:Konzept} vermerkt.
+\newline
+Von den f\"unf Problemen, die Licklider schildert \cite{bib:Lick_Online}, sind nur noch zwei in Hinsicht auf moderne Anwendungen und die Gestensteuerung als Ausgangspunkt von Interesse:
+\begin{enumerate}
+\item Entwicklung eines Programms das es erm\"oglicht Echtzeitdaten zu verarbeiten und Informationsverarbeitungsprezesse zwischen Mensch und Computer unterst\"utzt. Das Sysyem muss weiterhin \textit{train-and-error} Operationen erlauben. Es muss weiter mit fehlerhaften Eingaben dynamisch umgehen k\"onnen.
+\item L\"osung des Problems der Kooperation von Menschen untereinandner bei der Entwicklung gro\ss er Anwendungen. Ohne effektives Teamwork ist \gls{MCS} nicht m\"oglich, in dem Sinne, das verschiedene Anwendungsbereiche auf verschieden konzipiert sein k\"onnen und somit Unterschiede im Design und des Programms und Verwirrungen bei Nutzer auftauchen. Wenn beispielsweise der 'Schlie\ss en'-Button in einem Modul links, in einem anderen rechts liegt, weil verschiedene Entwickler diese implementiert haben, so ist keine intuitive F\"uhrung durch die Anwendung mehr m\"oglich.
+\end{enumerate}
+
+\section{Moderne Design Prinzipien}
+Eine aktuelle Analyse der \gls{MCI} f\"uhrt Vikas Chahar \cite{bib:Chahar} durch. Dabei wird \gls{MCI} als die \"Uberschneidung von Informatik, Verhaltenswissenschaft, Design und weiterer Wissenschaftsfeldern beschrieben. Sie beinhaltet Software und Hardware und und findet auf der Ebene der Benutzerschnittstelle statt. Weiterhin ist \textit{MCI} auch von der Ergonomielehre abzugrenzen, die gr\"o \ss eren Fokus auf ein physische Ebene richtet.
+\newline
+Betrachtet man nun eine solche Benutzerschnittstelle (\textit{eng. user interface}), so f\"uhrt Chahar folgende Prinzipien auf, die zu beachten sind:
+\begin{itemize}
+\item Ein fr\"uher Fokus auf Benutzer und Aufgaben: Es ist zu ermitteln, wie viele Nutzer, welche Aufgaben ausf\"uhren m\"ussen und wie diese Aufgaben zu modellieren sind
+\item Empirische Messungen: Das Interface fr\"uh mit Nutzern testen, die die Anwendung auch tats\"achlich benutzen werden. Dabei ist es hilfreich statistische Auswertungen durchzuf\"uhren
+\item Iteratives Desgin: Den vorherigen Punkten anschlie\ss end, sollten folgende Schritte iterativ durchgef\"uhrt werden:
+\begin{enumerate}
+\item Benutzerschnittstelle (re-)designen
+\item Anwendung testen
+\item Ergebnisse analysieren
+\end{enumerate}
+\end{itemize}
+
+\section{Design Methodik}
+Diverse Methodiken verschiedener Techniken f\"ur \gls{MCI} existieren, meist daraus entstanden, wie Nutzer und technisches System interagieren. Aufgrund der vorliegenden Gesten- und Sprachsteuerung, stellt sich ein benutzerzentriertes Design (\textit{eng. User-centered design (UCD)}) als sinnvoll heraus, da die Anwendung durch diese Befehle vom Nutzer aus bedient wird.
+\begin{itemize}
+\item User-centered design: UCD beruht auf der Idee, dass der Nutzer im Zentrum des Design einer Computer Anwendung steht. Dabei werden W\"unsche, Notwendigkeiten und Grenzen des Benutzers eroiert und die Anwendung diesen Elementen entsprechend erstellt.
+\item Prinzipien f\"ur Benutzerschnittstellen (\textit{eng. User Interface}) Design: Nach Chahar~\cite{bib:Chahar} existieren sieben Prinzipien, die bei dem Design eines user interface zu jeder Zeit ber\"ucksichtigt werden sollten, n\"amlich Toleranz, Simplizit\"at, Sichtbarkeit, Konsistenz, Struktur, Feedback, und Aufwand.
+\end{itemize}
+Oft werden diese Prinzipien und Begriffe verwendet, in dem man eine Anwendung einfach als "intuitiv" bezeichnet. Jedoch ist die Bezeichnung intuitiv kein technischer Indikator f\"ur eine gute \gls{MCS}, da dieser stets unterschiedlich ausgelegt und bestimmt wird. Jef Raskin \cite{bib:Raskin} beschreibt den Begriff intuitiv in Bezug auf \gls{MCI} als ein Synonym f\"ur etwas bekanntes. In einem Beispiel, an einer Anwendung, die mit einer Computer Maus gesteuert wird, zeigt er, dass dieses Peripherieger\"at erst dann \textit{intuitv} in einem Programm nutzbar ist, sobald die Handhabung der Maus bekannt ist. In Bezug auf die Gesten- und Sprachsteuerung bedeutet dies, dass dem Nutzer erst das sprachliche Vokabular und die verwendbaren Gesten bekannt sein m\"ussen, bevor an eine dem Nutzer leicht fallende Verwendung der Anwendung zu denken ist.
+\newline
+Ebenso wichtig ist das Display Desgin. Zum Einen ist es wichtig, dem Nutzer alle n\"otigen Informationen und R\"uckmeldungen \"uber und von der Anwendung anzuzeigen, zugleich muss vermieden werden, den Benutzer mit zu vielen Anzeigen und einem \"uberladenen Bildschirmbereich zu verwirren.
+\newline
+Die Umsetzung und Auswirkung in der Anwendung RoCoVoMo all der zuvor aufgezeigten Prinzipien und Methoden werden im Kapitel~\ref{chap:Konzept} im Detail und an weiteren Beispielen beschrieben.

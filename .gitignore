@@ -11,6 +11,36 @@
 
 # Eclipse #
 
+<<<<<<< HEAD
 */.settings/*
 */bin/*
+=======
+*/bin
+
+# LateX
+
+*.synctex.gz
+*.aux
+*.log
+*.toc
+*.ind
+*.ilg
+*.bbl
+*.blg
+*.lot
+*.snm
+*.nav
+*.out
+*.vrb
+*.run.xml
+*.bcf
+*.glo
+*.glg
+*.gls
+*.ist
+*.synctex
+*.acn
+*.idx
+*.lol
+>>>>>>> 95bf6b33eca8001c84edbe324156888f6888e263
 

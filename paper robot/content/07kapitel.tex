@@ -1,0 +1,50 @@
+\chapter{Konzept und Steuerung der Anwendung}
+\label{chap:Konzept}
+
+Ein Gro\ss teil der ersten Arbeit~\cite{bib:Ebner_Werling} betrafen die Konzeption und Entwicklung von Gesten- und Sprachbefehlen, die innerhalb einer Anwendung zur Steuerung eines mobilen Roboters ben\"otigt werden und sinnvoll sind. Diese wurden werden der Arbeiten an der Anwendung nochmals einer Revision unterzogen und nur in Bezug des zugrundeliegenden \gls{HMM} in technischen Parametern f\"ur die Implementierung angepasst.
+\newline
+Das gesamte Vokalubar an Gesten- Sprachbefehlen ist fest in der Anwendung RoCoVoMo verankert, und l\"asst nur durch Anpassungen im Code \"andern. Dies ist beabsichtigt, da nur durch diese Begrenzung ein stabiler Gebrauch der Anwendung garantiert werden kann.
+
+\section{Verwendete Gesten}
+Gesten, die innerhalb der Anwendung genutzt werden sollen, m\"ussen innerhalb eines \gls{HMM} repr\"asentiert werden. Aus der Beschreibung des \gls{HMM}~\cite{bib:Ebner_Werling} m\"ussen daher einige Komponenten in die Anwendung RoCoVoMo integriert werden. Das bedeutet, dass f\"ur jede Geste Trainingsdaten vorhanden sein, beziehungsweise in das Programm eingegeben werden m\"ussen, um diese sp\"ater im laufenden Betrieb zu erkennen.
+
+\subsection{Trainingsmodul}
+Hierzu wurde ein Modul entwickelt und in die Anwendung integriert, dass das schreiben und einf\"ugen von Trainingsdaten in RoCoVoMo erm\"oglicht. Dabei wird dei Kinect in einer Testumgebung gestartet und \"uber das jnect Framework die Daten der gew\"unschten Geste, beziehungsweise des jeweilgen Body Elements eingelesen. Ben\"otigte Informationen sind dabei nur die Koordinaten des jeweilgen Elements und die Anzahl der verwendeten HMM Zustandspunkte. Das jahmm Framework ben\"otigt f\"ur die Errechnung eines \gls{HMM} besonders gefilterte Daten, daher werden die Kinectinformationen in einem besonderen Format gespeichert, anschlie\ss end innerhalb der Anwendung ohne weitere \"Anderungen verwendet werden k\"onnen. Die technischen Details dieses Moduls werden n\"aher in Kapitel~\ref{chap:Implementierung} beschrieben.
+\newline
+Die verwendbaren Gesten werden im folgenden noch einmal aufgelistet.
+
+\subsection{Kreisbewegung}
+Diese Geste erm\"oglicht es den \textit{Lego NXT} im Kreis fahren zu lassen. Sobald die Geste \"uber das \gls{HMM} und die vorhandenen Trainingsdaten abgegelichen wurde, wird die Anwendung die Aktion ausf\"uhren. Die Abbildung~\ref{fig:Circle_ideal} zeigt nochmals die idealisierte Darstellung der Geste.
+
+\begin{figure}[htb]
+\centering
+\begin{tikzpicture}[
+    scale=4,
+    axis/.style={very thick, ->, >=stealth'},
+    every node/.style={color=black},
+    auto,
+    ]
+    % axis
+    \draw[axis] (-1,0)  -- (1.1,0) node(xline)[right]
+        {$x$};
+    \draw[axis] (-0.5,-0.5) -- (0.5,0.5) node(zline)[above] {$z$};
+    % Lines
+    \draw[axis] (0,-1) -- (0,1.1) node(yline)[above] {$y$};
+    % Lines
+
+\filldraw[fill=gray!5,fill opacity=0.8] (0,0) circle (0.8);
+
+\fill  (0,0.8) circle (.4pt) node[above right]{$S_1$};
+\fill  (0.62,0.5) circle (.4pt) node[above right] {$S_2$};
+\fill  (0.8,0) circle (.4pt) node[above right] {$S_3$};
+\fill  (0.62,-0.5) circle (.4pt) node[ right] {$S_4$};
+\fill  (0,-0.8) circle (.4pt) node[above right] {$S_5$};
+\fill  (-0.5,-0.62) circle (.4pt) node[above right] {$S_6$};
+\fill  (-0.8,0) circle (.4pt) node[above right] {$S_7$};
+\fill  (-0.62,0.5) circle (.4pt) node[right] {$S_8$};
+
+\draw [->, thick] (0.05, 0.95) arc (90:-265:0.95);
+\end{tikzpicture}
+\caption[Abstrakte Darstellung einer Kreisbewegung im Koordinatensystem inklusiver ihrer 8 Zustandspunkte]{Abstrakte Darstellung einer Kreisbewegung im Koordinatensystem inklusiver ihrer 8 Zustandspunkte}
+\label{fig:Circle_ideal}
+\end{figure}

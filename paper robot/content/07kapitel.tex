@@ -7,14 +7,11 @@ Das gesamte Vokalubar an Gesten- Sprachbefehlen ist fest in der Anwendung RoCoVo
 
 \section{Verwendete Gesten}
 Gesten, die innerhalb der Anwendung genutzt werden sollen, m\"ussen innerhalb eines \gls{HMM} repr\"asentiert werden. Aus der Beschreibung des \gls{HMM}~\cite{bib:Ebner_Werling} m\"ussen daher einige Komponenten in die Anwendung RoCoVoMo integriert werden. Das bedeutet, dass f\"ur jede Geste Trainingsdaten vorhanden sein, beziehungsweise in das Programm eingegeben werden m\"ussen, um diese sp\"ater im laufenden Betrieb zu erkennen.
-
-\subsection{Trainingsmodul}
-Hierzu wurde ein Modul entwickelt und in die Anwendung integriert, dass das schreiben und einf\"ugen von Trainingsdaten in RoCoVoMo erm\"oglicht. Dabei wird dei Kinect in einer Testumgebung gestartet und \"uber das jnect Framework die Daten der gew\"unschten Geste, beziehungsweise des jeweilgen Body Elements eingelesen. Ben\"otigte Informationen sind dabei nur die Koordinaten des jeweilgen Elements und die Anzahl der verwendeten HMM Zustandspunkte. Das jahmm Framework ben\"otigt f\"ur die Errechnung eines \gls{HMM} besonders gefilterte Daten, daher werden die Kinectinformationen in einem besonderen Format gespeichert, anschlie\ss end innerhalb der Anwendung ohne weitere \"Anderungen verwendet werden k\"onnen. Die technischen Details dieses Moduls werden n\"aher in Kapitel~\ref{chap:Implementierung} beschrieben.
 \newline
-Die verwendbaren Gesten werden im folgenden noch einmal aufgelistet.
+Die verwendbaren Gesten werden im folgenden noch einmal aufgelistet. Die entsprechenden Klassifikationen und wissenschaftlichen Beschreibungen wurden bereits in der Ausarbeitung von Ebner und Werling~\cite{bib:Ebner_Werling} er\"orert und werden hier als bekannt vorausgesetzt.
 
 \subsection{Kreisbewegung}
-Diese Geste erm\"oglicht es den \textit{Lego NXT} im Kreis fahren zu lassen. Sobald die Geste \"uber das \gls{HMM} und die vorhandenen Trainingsdaten abgegelichen wurde, wird die Anwendung die Aktion ausf\"uhren. Die Abbildung~\ref{fig:Circle_ideal} zeigt nochmals die idealisierte Darstellung der Geste.
+Diese Geste erm\"oglicht es den \textit{Lego NXT} im Kreis fahren zu lassen. Sobald die Geste \"uber das \gls{HMM} und die vorhandenen Trainingsdaten abgegelichen wurde, wird die Anwendung die Aktion ausf\"uhren. Die Abbildung~\ref{fig:Circle_ideal} zeigt die idealisierte Darstellung der Geste.
 
 \begin{figure}[htb]
 \centering
@@ -48,3 +45,263 @@ Diese Geste erm\"oglicht es den \textit{Lego NXT} im Kreis fahren zu lassen. Sob
 \caption[Abstrakte Darstellung einer Kreisbewegung im Koordinatensystem inklusiver ihrer 8 Zustandspunkte]{Abstrakte Darstellung einer Kreisbewegung im Koordinatensystem inklusiver ihrer 8 Zustandspunkte}
 \label{fig:Circle_ideal}
 \end{figure}
+
+Aufgrund der restriktionen aus dem mobilen Roboter, in dieser Arbeit der Lego NXT, ist aus dessen Motorspezifikationen und die hier gew\"alte Bauform, ist es nicht m\"oglich einen beliebig gro\ss en oder kleinen Kreis zu fahren. Weiterhin unterst\"utzt dies die in Abbildung~\ref{fig:Circle_ideal} gezeigte Geste und das darunterliegende genutzte \gls{HMM} nicht.
+
+\subsection{Vorw\"artsbewegung}
+
+\begin{figure}[htb]
+    \centering
+    \begin{tikzpicture}[
+        scale=4,
+        axis/.style={very thick, ->, >=stealth'},
+        ]
+        % axis
+        \draw[axis] (-0.1,0)  -- (1.1,0) node(xline)[right]
+            {$x$};
+        \draw[axis] (-0.1,-0.1) -- (0.5,0.5) node(zline)[below right] {$z$};
+        % Lines
+        \draw[axis] (0,-0.1) -- (0,1.1) node(yline)[above] {$y$};
+        % Lines
+        \filldraw[fill=gray!20, fill opacity=0.8] (0,0.8) .. controls (0.1,0.8) and (0.35,0.66) .. (0.48,0.48);
+        \filldraw[fill=gray!20, draw=gray!20, fill opacity=0.8, draw opacity = 0.8](0,0.8) -- (0.48,0.48) -- ( 0,0);
+        \draw  (0.1,0.1) arc (90:10:0.1)  ;
+        \fill (0.11,0.048) circle (.2pt) ;
+        \node[] at (65:0.3)  {$\alpha$};
+
+        \fill  (0,0.8) circle (.4pt) node[above right] (a) {$S_1$};
+        \fill  (0.15,0.74) circle (.4pt) node[above right] {$S_2$};
+        \fill  (0.35,0.61) circle (.4pt) node[above right] {$S_3$};
+        \fill  (0.48,0.48) circle (.4pt) node[above right] {$S_4$} edge[pil,<-, bend right=60] (a);
+    \end{tikzpicture}
+    \caption[Abstrakte Darstellung einer Vorw\"artsbewegung im Koordinatensystem inklusiver ihrer 4 Zustandspunkte]{Abstrakte Darstellung einer  Vorw\"artsbewegung im Koordinatensystem inklusiver ihrer 4 Zustandspunkte}
+    \label{fig:Foward_ideal}
+\end{figure}
+
+\subsection{Haltesignal}
+
+\begin{figure}[htb]
+    \centering
+    \subfigure[Abstrakte Darstellung des Haltesignals aus einer m\"oglichen Vorwz"artsbewegung heraus, mit ihren 4 Zust\"anden]
+    {
+    
+\begin{tikzpicture}[
+    scale=4,
+    axis/.style={very thick, ->, >=stealth'},
+every node/.style={color=black}
+    ]
+    % axis
+    \draw[axis] (-0.1,0)  -- (1.1,0) node(xline)[right]
+        {$x$};
+    \draw[axis] (-0.1,-0.1) -- (0.5,0.5) node(zline)[above] {$z$};
+    % Lines
+    \draw[axis] (0,-0.1) -- (0,1.1) node(yline)[above] {$y$};
+    % Lines
+
+\filldraw[fill=gray!20, fill opacity=0.8] (0,0.8) .. controls (0.09,0.78) and (0.3,0.66) .. (0.5,0.3);
+\filldraw[fill=gray!20,fill opacity=0.8,draw=gray!20, draw opacity = 0.8](0,0.8) -- (0.5,0.3) -- ( 0,0);
+\draw[dotted] (0,0.8) .. controls (0.09,0.78) and (0.3,0.66) .. (0.48,0.48);
+ \draw  (0,0) -- (0.5,0.3) arc (0:10:1) ;
+    \node[] at (35:0.7)  {$\theta$};
+
+
+ \node[] at (60:0.2)  {$\alpha$};
+
+
+\fill  (0,0.8) circle (.4pt) node[above right] (a){$S_1$};
+\fill  (0.17,0.7) circle (.4pt) node[above right] {$S_2$};
+\fill  (0.35,0.53) circle (.4pt) node[above right] {$S_3$};
+\fill  (0.5,0.3) circle (.4pt) node[below right] {$S_4$}
+ edge[pil,->, bend right=80] (a);
+\end{tikzpicture}
+        \label{fig:halt_first_sub}
+    }
+    \\
+    \subfigure[Abstrakte Darstellung des Haltesignals aus einer m\"oglichen Kreisbewegung heraus, mit ihren 4 Zust\"anden]
+    {
+\begin{tikzpicture}[
+    scale=4,
+    axis/.style={very thick, ->, >=stealth'},
+every node/.style={color=black}
+    ]
+    % axis
+    \draw[axis] (-0.1,0)  -- (1.1,0) node(xline)[right]
+        {$x$};
+    \draw[axis] (-0.1,-0.1) -- (0.5,0.5) node(zline)[above] {$z$};
+    % Lines
+    \draw[axis] (0,-0.1) -- (0,1.1) node(yline)[above] {$y$};
+    % Lines
+
+\draw (0.5,1.1) -- (0,0.8);
+\draw[dotted] (0.5,1.1) -- (1,1.1) -- (0,0.8);
+ \draw[dashed]  (0,0.8) -- (0.34,1) arc (60:53.5:1) -- (0,0.8) ;
+    \node[] at (65:1.1)  {$\theta$};
+\filldraw[fill=gray!20,fill opacity=0.8,draw=gray!20, draw opacity = 0.8](0,0.8) -- (0.5,1.1) --  (1,1.1);
+
+\fill  (0.5,1.1) circle (.4pt) node[above right] (a){$S_1$};
+\fill (0.34,1) circle (.4pt) node[above] {$S_2$};
+\fill  (0.2,0.92) circle (.4pt) node[above] {$S_3$};
+\fill (0,0.8)  circle (.4pt) node[above right] {$S_4$}
+ edge[pil,<-, bend left=80] (a);
+\end{tikzpicture}
+        \label{fig:halt_second_sub}
+    }
+  
+    \caption{Abstrakte Darstellung der Modelle f\"ur die Geste des Haltesignals mit jeweils 4 Zust\"anden}
+    \label{fig:halt_ideal}
+\end{figure}
+
+\subsection{Erweiterte Vorw\"artsbewegung}
+\label{subsec:gesture-extforward}
+
+\begin{figure}[htb]
+    \centering
+    \subfigure[Darstellung der gesamten erweiterten Vorw\"artsbewegung mit 6 Zust\"anden]
+    {
+\begin{tikzpicture}[
+    scale=4,
+    axis/.style={very thick, ->, >=stealth'},
+    every node/.style={color=black}
+    ]
+    % axis
+    \draw[axis] (-0.1,0)  -- (1.1,0) node(xline)[right]
+        {$x$};
+    \draw[axis] (-0.1,-0.1) -- (0.5,0.5) node(zline)[above] {$z$};
+    % Lines
+    \draw[axis] (0,-0.1) -- (0,1.1) node(yline)[above] {$y$};
+    % Lines
+
+\filldraw[fill=gray!5,fill opacity=0.8] (0,0.8) .. controls (0.09,0.78) and (0.3,0.66) .. (0.48,0.48);
+\filldraw[fill=gray!5,fill opacity=0.8,draw=gray!20, draw opacity = 0.8] (0,0.8) -- (0.48,0.48) -- (0,0);
+ \filldraw[fill=gray!20,fill opacity=0.8]  (0,0) -- (0.5,0.3) arc (0:10:1) ;
+    \node[] at (35:0.7)  {$\theta$};
+
+\draw[dashed] (0,0.8) .. controls (0.09,0.78) and (0.3,0.66) .. (0.5,0.3);
+
+ \node[] at (65:0.3)  {$\alpha$};
+
+\fill  (0,0.8) circle (.4pt) node[above right] (a){$S_1$};
+\fill  (0.15,0.74) circle (.4pt) node[above right] {$S_2$};
+\fill  (0.35,0.61) circle (.4pt) node[above right] {$S_3$};
+\fill  (0.48,0.48) circle (.4pt) node[above right] (b){$S_4$}
+ edge[pil,<-, bend right=60] (a);
+\fill  (0.49,0.4) circle (.4pt) node[below left] {$S_5$};
+\fill  (0.5,0.3) circle (.4pt) node[right] {$S_6$}
+ edge[pil,<-, bend right=120] (b);
+\end{tikzpicture}
+\label{fig:forward_first_sub}
+    }
+    \\
+    \subfigure[Detaildarstellung der Seitw\"artsbewegung der erweiterten Vorw\"artsbewegung und ihrer 2 Zust\"ande]
+    {
+\begin{tikzpicture}[
+    scale=4,
+    axis/.style={very thick, ->, >=stealth'},
+every node/.style={color=black}
+    ]
+    % axis
+    \draw[axis] (-0.1,0)  -- (1.1,0) node(xline)[right]
+        {$x$};
+    \draw[axis] (-0.1,-0.1) -- (0.5,0.5) node(zline)[above] {$z$};
+    % Lines
+    \draw[axis] (0,-0.1) -- (0,1.1) node(yline)[above] {$y$};
+    % Lines
+
+\draw[dotted] (0,0.8) .. controls (0.09,0.78) and (0.3,0.66) .. (0.48,0.48);
+ \filldraw[fill=gray!20,fill opacity=0.8]  (0,0) -- (0.5,0.3) arc (0:10:1) ;
+    \node[] at (35:0.7)  {$\theta$};
+
+
+
+ \node[] at (60:0.2)  {$\alpha$};
+
+\draw[dashed] (0,0.8) .. controls (0.09,0.78) and (0.3,0.66) .. (0.5,0.3);
+
+\fill  (0.48,0.48) circle (.4pt) node[above right] (a){$S_1$};
+\fill  (0.49,0.4) circle (.4pt) node[below left] {$S_2$};
+\fill  (0.5,0.3) circle (.4pt) node[right] {$S_3$}
+ edge[pil,<-, bend right=80] (a);
+\end{tikzpicture}
+\label{fig:forward_second_sub}
+}
+\caption{Idealisierte Darstellung der 1. Variante einer erweiterten Vorw\"artsbewegung mit 6 Zust\"anden}
+    \label{fig:Forward_ideal_var1}
+\end{figure}
+
+Die oben beschriebene Vorw\"artsbewegung beinhaltet keine Information \"uber einen Winkel, in dem sich der Roboter fortbewegen soll. Um diese Information zu erhalten, muss die Geste und das darunter liegende \acrshort{HMM} angepasst und erweitert werden.
+
+\begin{figure}[htb]
+\centering
+\begin{tikzpicture}[
+    scale=4,
+    axis/.style={very thick, ->, >=stealth'},
+every node/.style={color=black}
+    ]
+    % axis
+    \draw[axis] (-0.1,0)  -- (1.1,0) node(xline)[right]
+        {$x$};
+    \draw[axis] (-0.1,-0.1) -- (0.5,0.5) node(zline)[above] {$z$};
+    % Lines
+    \draw[axis] (0,-0.1) -- (0,1.1) node(yline)[above] {$y$};
+    % Lines
+
+\filldraw[fill=gray!20, fill opacity=0.8] (0,0.8) .. controls (0.09,0.78) and (0.3,0.66) .. (0.5,0.3);
+\filldraw[fill=gray!20,fill opacity=0.8,draw=gray!20, draw opacity = 0.8](0,0.8) -- (0.5,0.3) -- ( 0,0);
+\draw[dotted] (0,0.8) .. controls (0.09,0.78) and (0.3,0.66) .. (0.48,0.48);
+ \draw  (0,0) -- (0.5,0.3) arc (0:10:1) ;
+    \node[] at (35:0.7)  {$\theta$};
+
+
+ \node[] at (60:0.2)  {$\alpha$};
+
+\fill  (0,0.8) circle (.4pt) node[above right] (a){$S_1$};
+\fill  (0.17,0.7) circle (.4pt) node[above right] {$S_2$};
+\fill  (0.35,0.53) circle (.4pt) node[above right] {$S_3$};
+\fill  (0.5,0.3) circle (.4pt) node[below right] {$S_4$}
+ edge[pil,<-, bend right=80] (a);
+\end{tikzpicture}
+\caption[Idealisierte Darstellung der 2. Variante einer erweiterten Vorw\"artsbewegung mit 4 Zust\"anden]{Idealisierte Darstellung der 2. Variante einer erweiterten Vorw\"artsbewegung mit 4 Zust\"anden}
+\label{fig:Forward_ideal_var2}
+\end{figure}
+
+\subsection{Entriegeln --- Blockieren}
+\begin{figure}[htb]
+\centering
+\begin{tikzpicture}[
+    scale=4,
+    axis/.style={very thick, ->, >=stealth'},
+    every node/.style={color=black},
+node distance=1cm, auto,
+    ]
+    % axis
+    \draw[axis] (-0.1,0)  -- (1.1,0) node(xline)[right]
+        {$x$};
+    \draw[axis] (-0.1,-0.1) -- (0.5,0.5) node(zline)[above] {$z$};
+    % Lines
+    \draw[axis] (0,-0.1) -- (0,1.1) node(yline)[above] {$y$};
+    % Lines
+
+\draw (0,0.8) --  (1,0.8);
+
+\fill  (0,0.8) circle (.4pt) node[above right] (a){$S_1$} ;
+\fill  (0.25,0.8) circle (.4pt) node[above right] {$S_2$} ;
+\fill  (0.5,0.8) circle (.4pt) node[above right] {$S_3$} ;
+\fill  (0.75,0.8) circle (.4pt) node[above right] {$S_4$} ;
+\fill  (1,0.8) circle (.4pt) node[above right] {$S_5$}
+ edge[pil,<->,  bend right] (a) ;
+\end{tikzpicture}
+\caption[Idealisierte Darstellung der Geste zum Blockieren und Freigeben der Gesteneingabe mit 4 Zust\"anden]{Idealisierte Darstellung der Geste zum Blockieren und Freigeben der Gesteneingabe mit 4 Zust\"anden}
+\label{fig:Lock_ideal}
+\end{figure}
+
+\section{Trainingsmodul}
+Um die zuvor beschriebenen Gesten zu erkennen, m\"ussen Trainingsdaten in das System eingelesen werden. Hierzu wurde ein Modul entwickelt und in die Anwendung integriert, dass das schreiben und einf\"ugen von Trainingsdaten in RoCoVoMo erm\"oglicht. Dabei wird dei Kinect in einer Testumgebung gestartet und \"uber das jnect Framework die Daten der gew\"unschten Geste, beziehungsweise des jeweilgen Body Elements eingelesen. Ben\"otigte Informationen sind dabei nur die Koordinaten des jeweilgen Elements und die Anzahl der verwendeten HMM Zustandspunkte. Das jahmm Framework ben\"otigt f\"ur die Errechnung eines \gls{HMM} besonders gefilterte Daten, daher werden die Kinectinformationen in einem besonderen Format gespeichert, anschlie\ss end innerhalb der Anwendung ohne weitere \"Anderungen verwendet werden k\"onnen. Die technischen Details dieses Moduls werden n\"aher in Kapitel~\ref{chap:Implementierung} beschrieben.
+\newline
+In Kapitel~\ref{chap:MenschComputerInteraktion} wurde beschrieben, welche Merkmale entscheiden sind f\"ur eine gute \gls{MCI} und welche Gesichtspunkte ber\"ucksichtigt werden m\"ussen. Die Kernfunktion, im Fall des Traininsmoduls, ist das Einlesen von Kinectdaten \"uber ein Interface. Dabei ist das Design und die einfache Bedienung der grafischen Oberfl\"ache sehr wichtig. In dem Modul selbst k\"onnen zur Bedienung jedoch noch keine Gesten verwendet werden, dies ist erst im Modul der Robotersteuerung m\"oglich, da zuvor noch keine Trainingsdaten vorhanden sind. Da es sich weiterhin um ein User-centered design handelt ist es wichtig im Sinne der \gls{MCS} dem Benutzer eine Echtzeitverarbeitung und einfachen Informationsaustausch zu erm\"oglichen. Dies wird im Modul dadurch verwircklicht, in dem der Nutzer mit der Aufzeichnung seiner Bewegungen direkt und in Echtzeit eine Anzeige seiner Daten erh\"alt und diese dar\"uber hinaus manuell nachbearbeiten kann. Dabei wurde das Interface anhand der in Kapitel~\ref{chap:MenschComputerInteraktion} vorgestellten Design Prinzipien von Chahar~\cite{bib:Chahar} simpel und klar strukturiert und durch die manuelle Nachbearbeitung auf ein hohes Ma\ss~an Sichtbarkeit geachtet.
+
+\section{Kinect---Modul}
+Als ein Kernelement einer \gls{MCS}, gilt der Informationsaustausch. Jedoch muss dabei darauf geachtet werden, diesen in einer Form zu gestalten, dass der menschliche Teil der Beziehung dabei nicht von den Ausgaben \"uberfordert wird, und er diese in f\"ur ihn passender Form erh\"alt. Im Falle der Gesten- und Sprachsteuerung mittels Kinect, werden zun\"achst lediglich drei dimensionale Koordinaten der einzelnen K\"orperelemente \"ubermittelt. Diese sind f\"ur den Menschen nur \"au\ss erst umst\a"nlich zu lesen und stellen keine geeignete Form der Darstellung dar. Daher wurde ein Modul erstellt, dass mittels diesen Koordinaten ein grafisches Bild der K\"orpers des Menschen mit allen erfassten Elementen anzeigt, deren Koordinaten von der Kinect \"ubermittelt werden. Hiermit wird ebenfalls nahe am User-centered design gearbeitet und die Prinzipien, wie Simplizit\"at und Feedback verfolgt, in dem der Nutzer ein einfaches Bild seiner selbst sieht.
+\newline
+Ein weiteres Merkmal, dass mittels des zugrundeliegenden OSGi-Frameworks m\"oglich ist - bereits in Teil 1 der Studienarbeit~\cite{bib:Ebner_Werling} vorgestellt - ist, dass dieses Modul in jedem Teil der Anwendung aufrufbar ist und der Benutzer zu jeder Zeit Feedback und grafische Informationen \"uber seine Erfassung durch die Kinect erhalten kann. Dies kann auch als Hilfe bei der Modellierung weiterer Gesten, der Weiterentwicklung der Anwendung und dem Auffinden von Fehlern und Fehlverhalten bei der Erkennung von Gesten und der Umsetzung in die entsprechende Aktion dienen.
+\newline
+Details zur Umsetzung dieses Moduls werden in Kapitel~\ref{chap:Implementierung} beschrieben.

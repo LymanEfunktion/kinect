@@ -1,12 +1,12 @@
 \chapter{Konzept und Steuerung der Anwendung}
 \label{chap:Konzept}
 
-Ein Gro\ss teil der ersten Arbeit~\cite{bib:Ebner_Werling} betrafen die Konzeption und Entwicklung von Gesten- und Sprachbefehlen, die innerhalb einer Anwendung zur Steuerung eines mobilen Roboters ben\"otigt werden und sinnvoll sind. Diese wurden werden der Arbeiten an der Anwendung nochmals einer Revision unterzogen und nur in Bezug des zugrundeliegenden \gls{HMM} in technischen Parametern f\"ur die Implementierung angepasst.
+Ein Gro\ss teil der ersten Arbeit~\cite{bib:Ebner_Werling} betrafen die Konzeption und Entwicklung von Gesten- und Sprachbefehlen, die innerhalb einer Anwendung zur Steuerung eines mobilen Roboters ben\"otigt werden und sinnvoll sind. Diese wurden werden der Arbeiten an der Anwendung nochmals einer Revision unterzogen und nur in Bezug des zugrundeliegenden \gls{HMM}~\cite{bib:hmmbaum}~\cite{bib:hmmrabiner} in technischen Parametern f\"ur die Implementierung angepasst.
 \newline
 Das gesamte Vokalubar an Gesten- Sprachbefehlen ist fest in der Anwendung RoCoVoMo verankert, und l\"asst nur durch Anpassungen im Code \"andern. Dies ist beabsichtigt, da nur durch diese Begrenzung ein stabiler Gebrauch der Anwendung garantiert werden kann.
 
 \section{Verwendete Gesten}
-Gesten, die innerhalb der Anwendung genutzt werden sollen, m\"ussen innerhalb eines \gls{HMM} repr\"asentiert werden. Aus der Beschreibung des \gls{HMM}~\cite{bib:Ebner_Werling} m\"ussen daher einige Komponenten in die Anwendung RoCoVoMo integriert werden. Das bedeutet, dass f\"ur jede Geste Trainingsdaten vorhanden sein, beziehungsweise in das Programm eingegeben werden m\"ussen, um diese sp\"ater im laufenden Betrieb zu erkennen.
+Gesten, nach Kurtenbach und Hulteen~\cite{bib:kurtenbach}, die innerhalb der Anwendung genutzt werden sollen, m\"ussen innerhalb eines \gls{HMM} repr\"asentiert werden. Aus der Beschreibung des \gls{HMM}~\cite{bib:Ebner_Werling} m\"ussen daher einige Komponenten in die Anwendung RoCoVoMo integriert werden. Das bedeutet, dass f\"ur jede Geste Trainingsdaten vorhanden sein, beziehungsweise in das Programm eingegeben werden m\"ussen, um diese sp\"ater im laufenden Betrieb zu erkennen.
 \newline
 Die verwendbaren Gesten werden im folgenden noch einmal aufgelistet. Die entsprechenden Klassifikationen und wissenschaftlichen Beschreibungen wurden bereits in der Ausarbeitung von Ebner und Werling~\cite{bib:Ebner_Werling} er\"orert und werden hier als bekannt vorausgesetzt.
 
@@ -49,6 +49,13 @@ Diese Geste erm\"oglicht es den \textit{Lego NXT} im Kreis fahren zu lassen. Sob
 Aufgrund der restriktionen aus dem mobilen Roboter, in dieser Arbeit der Lego NXT, ist aus dessen Motorspezifikationen und die hier gew\"alte Bauform, ist es nicht m\"oglich einen beliebig gro\ss en oder kleinen Kreis zu fahren. Weiterhin unterst\"utzt dies die in Abbildung~\ref{fig:Circle_ideal} gezeigte Geste und das darunterliegende genutzte \gls{HMM} nicht.
 
 \subsection{Vorw\"artsbewegung}
+Technisch ist die Vorw\"artsbewegung in verschiedene Varianten aufgeteilt. Der Anwendungsnutzer soll bei der Verwendung der jeweiligen Geste aber nichts davon sp\"uren, beziehungsweise, ihm soll diese Aufteilung nicht betreffen.
+\newline
+Dabei wird unterschieden, in der einfachen Variante einer geradlinigen Bewegung, dargestellt in Abbildung~\ref{fig:Forward_ideal}, und zwei erweiterten Gesten, die eine Richtungs\"anderung beinhalten, dargestellt in den Abbildungen~\ref{fig:forward_first_sub} und \ref{fig:forward_second_sub}.
+
+\subsubsection{Standardvariante}
+
+Diese Variante beschreibt die Geste f\"ur eine geradlinige Vorw\"artsbewegung, in einen einfachen Aktionsbefehl f\"ur den Lego NXT umgesetzt wird.
 
 \begin{figure}[htb]
     \centering
@@ -75,84 +82,14 @@ Aufgrund der restriktionen aus dem mobilen Roboter, in dieser Arbeit der Lego NX
         \fill  (0.48,0.48) circle (.4pt) node[above right] {$S_4$} edge[pil,<-, bend right=60] (a);
     \end{tikzpicture}
     \caption[Abstrakte Darstellung einer Vorw\"artsbewegung im Koordinatensystem inklusiver ihrer 4 Zustandspunkte]{Abstrakte Darstellung einer  Vorw\"artsbewegung im Koordinatensystem inklusiver ihrer 4 Zustandspunkte}
-    \label{fig:Foward_ideal}
+    \label{fig:Forward_ideal}
 \end{figure}
 
-\subsection{Haltesignal}
+Die oben beschriebene Vorw\"artsbewegung beinhaltet keine Information \"uber einen Winkel, in dem sich der Roboter fortbewegen soll. Um diese Information zu erhalten, muss die Geste und das darunter liegende \acrshort{HMM} angepasst und erweitert werden.
 
-\begin{figure}[htb]
-    \centering
-    \subfigure[Abstrakte Darstellung des Haltesignals aus einer m\"oglichen Vorwz"artsbewegung heraus, mit ihren 4 Zust\"anden]
-    {
-    
-\begin{tikzpicture}[
-    scale=4,
-    axis/.style={very thick, ->, >=stealth'},
-every node/.style={color=black}
-    ]
-    % axis
-    \draw[axis] (-0.1,0)  -- (1.1,0) node(xline)[right]
-        {$x$};
-    \draw[axis] (-0.1,-0.1) -- (0.5,0.5) node(zline)[above] {$z$};
-    % Lines
-    \draw[axis] (0,-0.1) -- (0,1.1) node(yline)[above] {$y$};
-    % Lines
+\subsubsection{Erste Variante der erweiterten Vorw\"artsbewegung}
 
-\filldraw[fill=gray!20, fill opacity=0.8] (0,0.8) .. controls (0.09,0.78) and (0.3,0.66) .. (0.5,0.3);
-\filldraw[fill=gray!20,fill opacity=0.8,draw=gray!20, draw opacity = 0.8](0,0.8) -- (0.5,0.3) -- ( 0,0);
-\draw[dotted] (0,0.8) .. controls (0.09,0.78) and (0.3,0.66) .. (0.48,0.48);
- \draw  (0,0) -- (0.5,0.3) arc (0:10:1) ;
-    \node[] at (35:0.7)  {$\theta$};
-
-
- \node[] at (60:0.2)  {$\alpha$};
-
-
-\fill  (0,0.8) circle (.4pt) node[above right] (a){$S_1$};
-\fill  (0.17,0.7) circle (.4pt) node[above right] {$S_2$};
-\fill  (0.35,0.53) circle (.4pt) node[above right] {$S_3$};
-\fill  (0.5,0.3) circle (.4pt) node[below right] {$S_4$}
- edge[pil,->, bend right=80] (a);
-\end{tikzpicture}
-        \label{fig:halt_first_sub}
-    }
-    \\
-    \subfigure[Abstrakte Darstellung des Haltesignals aus einer m\"oglichen Kreisbewegung heraus, mit ihren 4 Zust\"anden]
-    {
-\begin{tikzpicture}[
-    scale=4,
-    axis/.style={very thick, ->, >=stealth'},
-every node/.style={color=black}
-    ]
-    % axis
-    \draw[axis] (-0.1,0)  -- (1.1,0) node(xline)[right]
-        {$x$};
-    \draw[axis] (-0.1,-0.1) -- (0.5,0.5) node(zline)[above] {$z$};
-    % Lines
-    \draw[axis] (0,-0.1) -- (0,1.1) node(yline)[above] {$y$};
-    % Lines
-
-\draw (0.5,1.1) -- (0,0.8);
-\draw[dotted] (0.5,1.1) -- (1,1.1) -- (0,0.8);
- \draw[dashed]  (0,0.8) -- (0.34,1) arc (60:53.5:1) -- (0,0.8) ;
-    \node[] at (65:1.1)  {$\theta$};
-\filldraw[fill=gray!20,fill opacity=0.8,draw=gray!20, draw opacity = 0.8](0,0.8) -- (0.5,1.1) --  (1,1.1);
-
-\fill  (0.5,1.1) circle (.4pt) node[above right] (a){$S_1$};
-\fill (0.34,1) circle (.4pt) node[above] {$S_2$};
-\fill  (0.2,0.92) circle (.4pt) node[above] {$S_3$};
-\fill (0,0.8)  circle (.4pt) node[above right] {$S_4$}
- edge[pil,<-, bend left=80] (a);
-\end{tikzpicture}
-        \label{fig:halt_second_sub}
-    }
-  
-    \caption{Abstrakte Darstellung der Modelle f\"ur die Geste des Haltesignals mit jeweils 4 Zust\"anden}
-    \label{fig:halt_ideal}
-\end{figure}
-
-\subsection{Erweiterte Vorw\"artsbewegung}
-\label{subsec:gesture-extforward}
+Durch die Erweiterung der Standardvariante um eine seitliche Bewegung wird es m\"oglich Richtungsinformationen aus der Geste auszulesen und diese in eine gerichtete Bewegung f\"ur den Lego NXT umzusetzen. Dabei ist zu beachten, dass durch die relativ ungenaue Auswertung der K\"orperelemente durch die Kinect, die Anwendung nicht in der Lage ist einen exakten Richtungswinkel zu ermitteln. Es wird ein grober Richtwert verwendet, der den User bei der anf\"anglichen Nutzung etwas irritieren kann, was aber mit au\ss reichen Training des Users auf diese Tatsache kompensierbar ist, in dem er eine Richtungs\"anderung anzeigt.
 
 \begin{figure}[htb]
     \centering
@@ -210,9 +147,6 @@ every node/.style={color=black}
 \draw[dotted] (0,0.8) .. controls (0.09,0.78) and (0.3,0.66) .. (0.48,0.48);
  \filldraw[fill=gray!20,fill opacity=0.8]  (0,0) -- (0.5,0.3) arc (0:10:1) ;
     \node[] at (35:0.7)  {$\theta$};
-
-
-
  \node[] at (60:0.2)  {$\alpha$};
 
 \draw[dashed] (0,0.8) .. controls (0.09,0.78) and (0.3,0.66) .. (0.5,0.3);
@@ -228,7 +162,9 @@ every node/.style={color=black}
     \label{fig:Forward_ideal_var1}
 \end{figure}
 
-Die oben beschriebene Vorw\"artsbewegung beinhaltet keine Information \"uber einen Winkel, in dem sich der Roboter fortbewegen soll. Um diese Information zu erhalten, muss die Geste und das darunter liegende \acrshort{HMM} angepasst und erweitert werden.
+\subsubsection{Zweite Variante der erweiterten Vorw\"artsbewegung}
+
+In dieser Variante wird bereits mit Beginn der Geste eine Richtungsinformation mitgeliefert. Diese Form der Vorw\"artsbewegung ist vor allem f\"ur versierte Nutzer gedacht und ben\"otigt auch ein gewisses Training und die zuvor beschriebene Ungenauigkeit zu kompensieren.
 
 \begin{figure}[htb]
 \centering
@@ -264,7 +200,80 @@ every node/.style={color=black}
 \label{fig:Forward_ideal_var2}
 \end{figure}
 
+\subsection{Haltesignal}
+Das Anhalten des Lego NXT ist die wohl wichtigste Aktioin und auch in einer simplen Geste umgesetzt, zumindest f\"ur den User, denn auch hier muss auf der technischen Ebene der \gls{HMM} differenziert werden. Da der Anwendungsnutzer n\"amlich aus den verschiedenen Formen der Vorw\"artsbewegung einen Halt initiieren kann, muss dies auch beim Haltesignal ber\"ucksichtigt werden. Abbildungen~\ref{fig:halt_first_sub} und \ref{fig:halt_second_sub} zeigen beide Varianten auf.
+
+\begin{figure}[htb]
+    \centering
+    \subfigure[Abstrakte Darstellung des Haltesignals aus einer m\"oglichen Vorwz"artsbewegung heraus, mit ihren 4 Zust\"anden]
+    {
+    
+\begin{tikzpicture}[
+    scale=4,
+    axis/.style={very thick, ->, >=stealth'},
+every node/.style={color=black}
+    ]
+    % axis
+    \draw[axis] (-0.1,0)  -- (1.1,0) node(xline)[right]
+        {$x$};
+    \draw[axis] (-0.1,-0.1) -- (0.5,0.5) node(zline)[above] {$z$};
+    % Lines
+    \draw[axis] (0,-0.1) -- (0,1.1) node(yline)[above] {$y$};
+    % Lines
+
+\filldraw[fill=gray!20, fill opacity=0.8] (0,0.8) .. controls (0.09,0.78) and (0.3,0.66) .. (0.5,0.3);
+\filldraw[fill=gray!20,fill opacity=0.8,draw=gray!20, draw opacity = 0.8](0,0.8) -- (0.5,0.3) -- ( 0,0);
+\draw[dotted] (0,0.8) .. controls (0.09,0.78) and (0.3,0.66) .. (0.48,0.48);
+ \draw  (0,0) -- (0.5,0.3) arc (0:10:1) ;
+    \node[] at (35:0.7)  {$\theta$};
+ \node[] at (60:0.2)  {$\alpha$};
+
+\fill  (0,0.8) circle (.4pt) node[above right] (a){$S_1$};
+\fill  (0.17,0.7) circle (.4pt) node[above right] {$S_2$};
+\fill  (0.35,0.53) circle (.4pt) node[above right] {$S_3$};
+\fill  (0.5,0.3) circle (.4pt) node[below right] {$S_4$}
+ edge[pil,->, bend right=80] (a);
+\end{tikzpicture}
+        \label{fig:halt_first_sub}
+    }
+    \\
+    \subfigure[Abstrakte Darstellung des Haltesignals aus einer m\"oglichen Kreisbewegung heraus, mit ihren 4 Zust\"anden]
+    {
+\begin{tikzpicture}[
+    scale=4,
+    axis/.style={very thick, ->, >=stealth'},
+every node/.style={color=black}
+    ]
+    % axis
+    \draw[axis] (-0.1,0)  -- (1.1,0) node(xline)[right]
+        {$x$};
+    \draw[axis] (-0.1,-0.1) -- (0.5,0.5) node(zline)[above] {$z$};
+    % Lines
+    \draw[axis] (0,-0.1) -- (0,1.1) node(yline)[above] {$y$};
+    % Lines
+
+\draw (0.5,1.1) -- (0,0.8);
+\draw[dotted] (0.5,1.1) -- (1,1.1) -- (0,0.8);
+ \draw[dashed]  (0,0.8) -- (0.34,1) arc (60:53.5:1) -- (0,0.8) ;
+    \node[] at (65:1.1)  {$\theta$};
+\filldraw[fill=gray!20,fill opacity=0.8,draw=gray!20, draw opacity = 0.8](0,0.8) -- (0.5,1.1) --  (1,1.1);
+
+\fill  (0.5,1.1) circle (.4pt) node[above right] (a){$S_1$};
+\fill (0.34,1) circle (.4pt) node[above] {$S_2$};
+\fill  (0.2,0.92) circle (.4pt) node[above] {$S_3$};
+\fill (0,0.8)  circle (.4pt) node[above right] {$S_4$}
+ edge[pil,<-, bend left=80] (a);
+\end{tikzpicture}
+        \label{fig:halt_second_sub}
+    }
+  
+    \caption{Abstrakte Darstellung der Modelle f\"ur die Geste des Haltesignals mit jeweils 4 Zust\"anden}
+    \label{fig:halt_ideal}
+\end{figure}
+
 \subsection{Entriegeln --- Blockieren}
+Um den Nutzer die Gestensteuerung zu erleichtern, ist es durch eine gesonderte Geste m\"oglich, die Echtzeitverarbeitung seiner Bewegungen zu stoppen und den Lego NXT somit auch automisch zu einem Halt zu bringen. Abbildung~\ref{fig:lock_ideal} zeigt eine idealiserte Darstellung dieser Geste.
+
 \begin{figure}[htb]
 \centering
 \begin{tikzpicture}[
@@ -302,6 +311,15 @@ In Kapitel~\ref{chap:MenschComputerInteraktion} wurde beschrieben, welche Merkma
 \section{Kinect---Modul}
 Als ein Kernelement einer \gls{MCS}, gilt der Informationsaustausch. Jedoch muss dabei darauf geachtet werden, diesen in einer Form zu gestalten, dass der menschliche Teil der Beziehung dabei nicht von den Ausgaben \"uberfordert wird, und er diese in f\"ur ihn passender Form erh\"alt. Im Falle der Gesten- und Sprachsteuerung mittels Kinect, werden zun\"achst lediglich drei dimensionale Koordinaten der einzelnen K\"orperelemente \"ubermittelt. Diese sind f\"ur den Menschen nur \"au\ss erst umst\a"nlich zu lesen und stellen keine geeignete Form der Darstellung dar. Daher wurde ein Modul erstellt, dass mittels diesen Koordinaten ein grafisches Bild der K\"orpers des Menschen mit allen erfassten Elementen anzeigt, deren Koordinaten von der Kinect \"ubermittelt werden. Hiermit wird ebenfalls nahe am User-centered design gearbeitet und die Prinzipien, wie Simplizit\"at und Feedback verfolgt, in dem der Nutzer ein einfaches Bild seiner selbst sieht.
 \newline
-Ein weiteres Merkmal, dass mittels des zugrundeliegenden OSGi-Frameworks m\"oglich ist - bereits in Teil 1 der Studienarbeit~\cite{bib:Ebner_Werling} vorgestellt - ist, dass dieses Modul in jedem Teil der Anwendung aufrufbar ist und der Benutzer zu jeder Zeit Feedback und grafische Informationen \"uber seine Erfassung durch die Kinect erhalten kann. Dies kann auch als Hilfe bei der Modellierung weiterer Gesten, der Weiterentwicklung der Anwendung und dem Auffinden von Fehlern und Fehlverhalten bei der Erkennung von Gesten und der Umsetzung in die entsprechende Aktion dienen.
+Ein weiteres Merkmal, dass mittels des zugrundeliegenden \gls{OSGi}-Frameworks m\"oglich ist - bereits in Teil 1 der Studienarbeit~\cite{bib:Ebner_Werling} vorgestellt - ist, dass dieses Modul in jedem Teil der Anwendung aufrufbar ist und der Benutzer zu jeder Zeit Feedback und grafische Informationen \"uber seine Erfassung durch die Kinect erhalten kann. Dies kann auch als Hilfe bei der Modellierung weiterer Gesten, der Weiterentwicklung der Anwendung und dem Auffinden von Fehlern und Fehlverhalten bei der Erkennung von Gesten und der Umsetzung in die entsprechende Aktion dienen.
 \newline
 Details zur Umsetzung dieses Moduls werden in Kapitel~\ref{chap:Implementierung} beschrieben.
+
+\section{Roboterinterface}
+In diesem Modul kann der User die \"uber Gesten den Lego NXT steuern. Dabei werden Anhand der Trainingsdaten bei Anwendungsstart die diversen \gls{HMM} aller Gesten generiert und gespeichert. Sobald nun das Interface ge\"offnet wird, um den Roboter zu steuern, werden eben diese HMM verwendet und mit den Echtzeitdaten aus der Kinect abgegelichen und entsprechend Gesten erkannt und automatisch in Aktionen f\"ur den Lego NXT \"ubertragen.
+\newline
+Diese Modul ist ebenso wie die vorherigen nach dem User-centered design konzipiert und richtet sich nach den Design Prinzipien von Chahar. Als besonders wichtig hierbei, stellt sich die grafische Darstellung des Roboters und der Ein- und Ausgabe heraus. Dem Menschen f\"allt es schwer, sich auf mehrere Dinge gleichzeitig zu konzentrieren, in Bezug auf die Anwendung, auf die grafische Anzeige am Computer und den Lego NXT im Raum. Daher wird mittels einer grafischen Anzeige innerhalb der Anwendung versucht, dieses Problem zu l\"osen, wobei der Nutzer hierbei nur eine idealisierte Ansicht der Realit\"at vermittelt bekommt, die auch nur die Anzeige des Roboters und dessen Ein- und Ausgabe umfasst, und nicht etwaige Hindernisse im Raum.
+\newline
+Eine entsprechende L\"osung dieses Problems, w\"are die Installation einer Kamera auf dem Lego NXT, und die Ausgabe dieser Videoinformationen innerhalb der Anwendung.
+\newline
+Alle weiteren Informationen dieses Moduls und dessen Umsetzung in der Anwendung sind in Kapitel~\ref{chap:Implementierung} zu finden.

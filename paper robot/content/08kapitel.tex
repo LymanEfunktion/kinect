@@ -16,6 +16,8 @@ Im Folgenden werden die einzelnen Bestandteile der Anwendung n\"aher beschrieben
 
 \section{Architektur --- Design}
 Seit den Arbeiten an der Anwendung f\"ur den ersten Teil der Arbeit wurde das Design und die Architektur der Anwendung nochmals \"uberarbeitet. Abbildung~\ref{fig:architecture} zeigt den aktuellen Stand der Anwendung.
+\newline
+Die Arbeiten an der Architektur entfielen auf beide Autoren gleicherma\ss en, wobei Volker Werling einen Gro\ss teil der \"Uberarbeitung des Designs f\"ur den zweiten Teil der Studienarbeit \"ubernahm.
 
 \begin{figure}[htb]
 \centering
@@ -64,7 +66,42 @@ Durch den Manager wird die KinectAPI und darin enthaltene Kinect f\"ur alle Teil
 Der Manager verwaltet weiterhin die Objekte \textit{RobotAction}, die dann aber je nach Robotermodell individuell geschrieben werden m\"ussen, da diese direkt auf die Roboter \gls{API} zugreifen, und diese sich von Modell zu Modell unterscheiden kann.
 
 \section{Trainingsmodul}
+Das Trainingsmodul wurde konzeptionell bereits in Kapitel~\ref{chap:Konzept} beschrieben. In diesem Abschnitt werden die technischen Details dieser Komponente n\"aher erl\"autert.
+\newline
+Abbildung~\ref{fig:recorder} zeigt einen Ausschnitt des Moduls in der laufenden Anwendung, welche auf einer \gls{RCP} basiert.
+\newline
+Um Trainingsdaten zu speichern muss zu Beginn eine Geste ausgew\"ahlt werden, und anschlie\ss end der Intervall Parameter angegeben werden, nach wie viel Sekunden die Elementkoordinaten der Kinect gespeichert werden sollen. Sofern eine Datei zum Speichern der Werte ausgew\"alt wurde, kann \"uber Start die Aufzeichnung beginnen. In der linken H\"alfte des Fensters werden anschlie\ss end die Werte angezeigt und \"uber den Button Preview kann dar\"uber hinaus der derzeitige Inhalt der Datei betrachtet werden, was f\"ur Experten eine Erleichterung bei Fehlersuche oder Korrekturen darstellt.
+\newline
+Dieser Vorgang wurde simpel konzipiert und es ist nicht schwer, sich in der Anzeige zurecht zu finden, jedoch erfordert das Aufzeichnen der Daten einiges an Training und Geduld, und muss mit Sorgfalt geschehen, da die nur mit korrekten und sauberen Trainingsdaten eine effektive Gestensteuerung erm\"oglicht werden kann. Dar\"uber hinaus muss dieser Vorgang vielfach wiederholt werden, da nur \"uber eine Vielzahl von Trainingsdaten ein stabiles \gls{HMM} generiert werden kann. Als Richtwert sollten stets zwischen 80 und 100 Sequenzen in einem Trainingssatz f\"ur eine Geste vorhanden sein.
+\newline
+Die Arbeiten an diesem Modul wurden von Simon Ebner durchgef\"uhrt.
 
 \section{Kinect-Modul}
+Das Konzept des Kinect-Moduls wurde bereits in Kapitel~\ref{chap:Konzept} erl\"autert. Hier wird weiter auf die technischen Feinheiten dieser Komponente eingegangen.
+\newline
+Ein Aussschnitt des Moduls inst in Abbildung~\ref{fig:view} dargestellt. Dieser zeigt die grafische Darstellung eines sogenannten \textit{Skeletons} der Kinect, innerhalb der Anwendung RoCoVoMo.
+\newline
+Ein Gro\ss teil der Informationen die f\"ur die Darstellung dieses grafischen Objekts notwendig sind, liefert das \textit{jahmm}-Framework. In der Anwendung RoCoVoMo werden diese Daten \"uber das KinectManager Bundle bereitgestellt und k\"onnen so in einem sogenannten \textit{View} angezeigt werden. Diese Anzeige kann auch w\"ahrend der Trainingsaufzeichnung, oder der Robotersteuerung  weiterlaufen und beeinflusst nicht die Performance der Anwendung.
+\newline
+Sobald das Modul gestartet wird, verbindet sich das View automatisch mit der Kinect Instanz und die grafische Anzeige wird generiert.
+\newline
+Die Arbeiten an diesem Modul wurden von Simon Ebner durchgef\"uhrt.
 
 \section{Roboterinterface}
+Das Roboterinterface wurde konzeptionell bereits in Kapitel~\ref{chap:Konzept} beschrieben. In diesem Abschnitt werden die technischen Details dieser Komponente n\"aher erl\"autert. Dabei muss jedoch angemerkt werden, dass die Umsetzung dieses Moduls in Form eines \gls{GUI} aus Zeitgr\"unden nicht m\"oglich war. Die Arbeiten an diesem Modul wurden aufgrund des Umfangs auf beide Autoren verteilt. Volker Werling arbeitete an der Robotersteuerung und den Sprachbefehlen, und Simon Ebner an den Bereichen \gls{HMM}, sowie Design und Gestaltung der Gesten.
+\newline
+Ziel der Arbeiten an diesem Modul war es ein drei dimensionales grafisches Interface zu gestalten, in dem der User eine vereinfachte Sicht der Roboters, sowie eine Anzeige seiner Eingaben, wie Gesten und Sprachbefehle, und eine Ausgabe der jeweilgen erkannten Aktion. Als Zeitraubend hat sich dabei die Kombination und Interkation der vielen Komponenten dieses Interfaces erwiesen. So konnten ohne Trainingsdaten nur Simulationen durchgef\"uhrt werden und die Robotersteuerung war auf einzelne vordefinierte sequenzielle Anweisungen beschr\"ankt. Weiterhin stellte sich die Erstellung des grafischen Interfaces an sich als Herausforderung heraus, in dem Sinne, dass die Autoren bislang nur wenig Erfahrung mit 3D Design und Entwicklung von OpenGL Anwendungen hatten.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{img/impl/recorder.png}
+\caption[Ausschnitt des Trainingsmoduls der RoCoVoMo Anwendung]{Ausschnitt des Trainingsmoduls der RoCoVoMo Anwendung}
+\label{fig:recorder}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{img/impl/humanview.png}
+\caption[Ausschnitt des Kinect-Moduls der RoCoVoMo Anwendung]{Ausschnitt des Kinect-Moduls der RoCoVoMo Anwendung}
+\label{fig:view}
+\end{figure}

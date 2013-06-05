@@ -12,10 +12,11 @@ Die Programmierung des NXT findet mittels der Entwicklungsumgebung NXT-G statt. 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.8\textwidth]{img/nxtg/800px-Mindst-eblock4.png}
-\caption[Skeleton]{Oberfl\"ache der Entwicklungsumgebung NXT-G (Quelle: debacher.de/wiki/NXT-G.\footnote{\href{http://www.debacher.de/wiki/NXT-G}{\textit{NXT-G}} debacher.de, Abgerufen Mai 22, 2013})}
+\caption[Skeleton]{Oberfl\"ache der Entwicklungsumgebung NXT-G (Quelle: debacher.de/wiki/NXT-G.\footnotemark[22])}
 \label{fig:nxtg}
 \end{figure}
 
+\footnotetext[22]{\href{http://www.debacher.de/wiki/NXT-G}{\textit{NXT-G}} debacher.de, Abgerufen Mai 22, 2013}
 
 \par\smallskip 
 Mit Hilfe dieser Anwendung ist zwar eine leichte Programmierung des NXT m\"oglich, ist aber f\"ur dieses Projekt nicht sinnvoll einsetzbar. Die Firmware des NXT, sowie die Spezifikation der Sensoren und Aktoren, wurden von Lego ver\"offentlicht. Dar\"uber hinaus auch diverse Developer Toolkits. Durch diese Unterst\"utzung sind eine Vielzahl an Frameworks in verschieden Programmiersprachen und Umgebungen entstanden mit denen der NXT-Baustein programmiert oder auch aus der Ferne gesteuert werden kann.
@@ -26,21 +27,27 @@ In dieser Arbeit soll nach M\"oglichkeit eine Umsetzung in der Programmiersprach
 \par\smallskip
 \begin{table}[H]
 \label{tab:NXT_Sprachen}
-\caption[Java Frameworks zur Programmierung des NXT]{ Java Frameworks zur Programmierung des NXT\footnote{\href{http://en.wikipedia.org/wiki/LEGO_Mindstorms\#Programming_languages_2}{\enquote{Lego Mindstorms - Programming languages}}. en.wikipedia.org. Abgerufen Mai 22, 2013}}
+\caption[Java Frameworks zur Programmierung des NXT]{ Java Frameworks zur Programmierung des NXT\footnotemark[23]}
 \begin{tabular}{|p{5.7cm}|p{9cm}|}
 \hline
 \textbf{Framework} & \textbf{Sprache} \\
 \hline
-NXTGCC\footnote{\href{http://nxtgcc.sourceforge.net/}{\enquote{NXTGCC}}. nxtgcc.sourceforge.net. Abgerufen Mai 22, 2013} & C/C++, Objective-C, Fortran, Java, Ada, others \\
+NXTGCC\footnotemark[24] & C/C++, Objective-C, Fortran, Java, Ada, others \\
 \hline
-leJOS\footnote{\href{http://lejos.sourceforge.net/}{\enquote{leJOS}}. lejos.sourceforge.net. Abgerufen Mai 22, 2013} & Java \\
+leJOS\footnotemark[25] & Java \\
 \hline
-TinyVM\footnote{\href{http://tinyvm.sourceforge.net/}{\enquote{Tiny VM}}. tinyvm.sourceforge.net. Abgerufen Mai 22, 2013} & Java \\
+TinyVM\footnotemark[26] & Java \\
 \hline
-Gostai Urbi\footnote{\href{http://www.urbiforge.org/index.php/Robots/Mindstorms}{\enquote{Gostai Urbi - Mindstorms}}. urbiforge.org. Abgerufen Mai 22, 2013} & URBI, C++, Java, Matlab \\
+Gostai Urbi\footnotemark[27] & URBI, C++, Java, Matlab \\
 \hline
 \end{tabular}
 \end{table}
+
+\footnotetext[23]{\href{http://en.wikipedia.org/wiki/LEGO_Mindstorms\#Programming_languages_2}{\enquote{Lego Mindstorms - Programming languages}}. en.wikipedia.org. Abgerufen Mai 22, 2013}
+\footnotetext[24]{\href{http://nxtgcc.sourceforge.net/}{\enquote{NXTGCC}}. nxtgcc.sourceforge.net. Abgerufen Mai 22, 2013}
+\footnotetext[25]{\href{http://lejos.sourceforge.net/}{\enquote{leJOS}}. lejos.sourceforge.net. Abgerufen Mai 22, 2013}
+\footnotetext[26]{\href{http://tinyvm.sourceforge.net/}{\enquote{Tiny VM}}. tinyvm.sourceforge.net. Abgerufen Mai 22, 2013}
+\footnotetext[27]{\href{http://www.urbiforge.org/index.php/Robots/Mindstorms}{\enquote{Gostai Urbi - Mindstorms}}. urbiforge.org. Abgerufen Mai 22, 2013}
 
 \par\smallskip
 
@@ -54,7 +61,9 @@ Urbi ist kein eigenes Framework zur Ansteuerung des Lego Roboters selbst, sonder
 
 \section{leJOS - Java for LEGO Mindstorms}
 
-leJOS bietet eine breite Palette an Tools zur Programmierung des NXT mit der Programmiersprache Java. leJOS ging als Open Source Projekt aus TinyVM hervor, welches von Jos\'e Solrzano entwickelt wurde. Kern von leJOS ist die Umsetzung der Java Virtual Machine auf dem NXT Baustein. Diese ist notwendig um Java Code \"uberhaupt erst auszuf\"uhren. Die umgesetzten Features werden auf der Website wie folgt beschrieben\footnote{\href{http://lejos.sourceforge.net/nxj.php}{\enquote{NXJ - Technologie}}. lejos.sourceforge.net. Abgerufen Mai 22, 2013} :
+leJOS bietet eine breite Palette an Tools zur Programmierung des NXT mit der Programmiersprache Java. leJOS ging als Open Source Projekt aus TinyVM hervor, welches von Jos\'e Solrzano entwickelt wurde. Kern von leJOS ist die Umsetzung der Java Virtual Machine auf dem NXT Baustein. Diese ist notwendig um Java Code \"uberhaupt erst auszuf\"uhren. Die umgesetzten Features werden auf der Website wie folgt beschrieben\footnotemark[28] :
+
+\footnotetext[28]{\href{http://lejos.sourceforge.net/nxj.php}{\enquote{NXJ - Technologie}}. lejos.sourceforge.net. Abgerufen Mai 22, 2013}
 
 \begin{itemize}
   \item Object oriented language (Java)

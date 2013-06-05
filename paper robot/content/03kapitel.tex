@@ -1,2 +1,56 @@
 \chapter{Stand der Technik}
-\label{chap:Stand der Technik}
+\label{chap:Technik}
+
+\section{Roboter}
+
+Was genau ein Roboter ist, ist nicht einheitlich definiert. Nachfolgend werden einige der wichtigsten Definitionen genannt.
+
+Die Japan Robot Assosication \glslink{JARA}{(JARA)} unterteilt Roboter in die folgenden Kategorien\footnotemark[3] :
+
+\footnotetext[3]{\href{http://www.jara.jp/e/}{Website der Japan Roboter Association}. jara.jp. Abgerufen Mai 25, 2013}
+
+\begin{itemize}
+\item Manual Manipulator: Handhabungsgerät, das kein Programm hat, sondern direkt vom Bediener geführt wird,
+\item Fixed Sequence Robot: Handhabungsgerät, das wiederholt nach einem konstanten Bewegungsmuster arbeitet. Das Ändern des Bewegungsmusters ist relativ aufwendig,
+\item Variable Sequence Robot: Handhabungsgerät, wie vorher beschrieben, jedoch mit der Möglichkeit, den Bewegungsablauf schnell und problemlos zu ändern,
+\item Playback Robot: Der Bewegungsablauf wird diesem Gerät einmal durch den Bediener vorgeführt und dabei im Programmspeicher gespeichert. Mit der im Speicher enthaltenen Information kann der Bewegungsablauf beliebig wiederholt werden,
+\item Numerical Control Robot: Dieses Handhabungsgerät arbeitet ähnlich wie eine NC-gesteuerte Maschine. Die Information über den Bewegungsablauf wird dem Gerät über Taster, Schalter oder Datenträger zahlenmäßig eingegeben,
+\item Intelligent Robot: Diese höchste Roboterklasse ist für Geräte gedacht, die über verschiedene Sensoren verfügen und damit in der Lage sind, den Programmablauf selbsttätig den Veränderungen des Werkstücks und der Umwelt anzupassen.
+\end{itemize}
+
+Die Definition der \glslink{RIA}{Robotic Industires Association}\footnotemark[4], des Robotic Industries Association, ist die folgende:
+
+\footnotetext[4]{\href{http://www.robotics.org/company-profile-detail.cfm/Internal/Robotic-Industries-Association/company/319}{Website der Robotic Industries Association}. robotics.org. Abgerufen Mai 25, 2013}
+
+\begin{quote}
+A robot is a reprogrammable, multifunctional manipulator designed to move material, parts, tools or specialized devices through variable programmed motions for the performance of a variety of tasks.
+\end{quote}
+
+Diese Definitionen werden auch in der Literatur aufgegriffen und sind beispielsweise auch bei Nehmzow zu finden \cite{bib:nehmzow}.
+
+\section{Robotermodelle}
+
+Zur Umsetzung der Arbeit standen folgende mobile Robotermodelle zur Verf\"ugung.
+
+\begin{itemize}
+  \item Lego Mindstorms NXT 2.0
+  \item Robotino
+  \item Sphero
+\end{itemize}
+
+Alle verf\"ugen \"uber verschiedenste Funktionialit\"aten und M\"oglichkeiten der Fortbewegung und konnten in Rahmen dieser Arbeit zu Verwendung in Betracht gezogen werden. N\"aher erkl\"art werden die Modelle in Kapitel \ref{chap:RoboterModelle}.
+
+\section{Kinect}
+
+Diese Arbeit stellt die Fortsetzung einer fr\"uheren Arbeit dar. Wie bereits in \cite{bib:Ebner_Werling}, in Kapitel 3.1 beschrieben, hat sich nichts am grundlegen Stand ver\"andert. Das Kinect for Windows SDK ist mittlerweile in der Version 1.7 verf\"ugbar\footnotemark[5] . In dieser Version unterst\"utzt die Kinect Interaktionen. Diese erlauben eine \grqq Push\grqq sowie eine \grqq Grip\grqq Geste, sowie die allgemeine Verwendung der Hand als Cursor. Mit Kinect Fusion ist es m\"oglich qualitativ hochwertige 3D-Renderings von Objekten oder Personen in Echtzeit darzustellen. Dar\"uber hinaus hat Microsoft eine neue Iteration ihrer Spielkonsole XBox, die Xbox One, vorgestellt, mit der auch ein neuer Kinect Sensor ver\"offentlicht werden wird\footnotemark[6] .
+
+\footnotetext[5]{\href{http://www.microsoft.com/en-us/kinectforwindows/develop/new.aspx}{\enquote{Kinect for Windows - Whats New}}. microsoft.com. Abgerufen Mai 21, 2013}
+\footnotetext[6]{Amanda Holpuch. \href{http://www.guardian.co.uk/technology/2013/may/21/xbox-720-microsoft-reveal-console-live-blog}{\enquote{Microsoft unveils Xbox One console - as it happened}}. guardian.co.uk. Abgerufen Mai 22, 2013}
+
+\section{Entwicklung der Software}
+
+Auch was die Entwicklung der Anwendung bleibt der Stand der gleiche wie bereits in der vorherigen Arbeit beschrieben. In der Entwicklung wurde jedoch auf eine Umsetzung der Benutzeroberfl\"ache mittels der \gls{LWJGL}\footnotemark[7] abgesehen. Der Aufwand w\"are hier dem Nutzen in einem unangemessenen Verh\"altnis gegen\"uber gestanden. Die Benutzeroberfl\"ache wird wie in der vorherigen Arbeit besprochen mit dem \gls{GEF}\footnotemark[8] und den \"ublichen M\"oglichkeiten zur Oberfl\"achengestaltung bei einer \gls{RCP}\footnotemark[9] umgesetzt.
+
+\footnotetext[7]{\href{http://www.lwjgl.org/}{\enquote{LWJGL Lightweight Java Game Library}}. lwjgl.org. Abgerufen Mai 20, 2013}
+\footnotetext[8]{\href{http://www.eclipse.org/gef/}{\enquote{GEF (Graphical Editing Framework)}}. eclipse.org. Abgerufen Mai 20, 2013}
+\footnotetext[9]{\href{http://wiki.eclipse.org/index.php/Rich_Client_Platform}{\enquote{Rich Client Platform}}. wiki.eclipse.org. Abgerufen May 20, 2013}
